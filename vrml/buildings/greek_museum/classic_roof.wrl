@@ -1,0 +1,32 @@
+#VRML V2.0 utf8
+
+# made with blender
+
+DEF CLASSIC_ROOF Transform {
+  rotation 0 0.92388 0.382683 3.14159
+  children [
+    DEF Cube_ifs_TRANSFORM Transform {
+      children [
+        DEF group_ME_Cube Group {
+          children [
+            Shape {
+              appearance Appearance {
+                material DEF MA_Material Material {
+                  ambientIntensity 0.333
+                  shininess 0.098
+                  specularColor 0.401 0.401 0.401
+                }
+              }
+              geometry IndexedFaceSet {
+                coordIndex [ 0, 1, 2, 3, -1, 4, 7, 6, 5, -1, 0, 4, 5, 1, -1, 1, 5, 6, 2, -1, 2, 6, 7, 3, -1, 4, 0, 3, 7, -1 ]
+                coord DEF coords_ME_Cube Coordinate {
+                  point [ 1.000000, 1.000000, -1.000000, 1.000000, 0.009732, 0.009731, -1.000000, 0.009732, 0.009731, -1.000000, 1.000000, -1.000000, 1.000000, 0.999999, 1.000000, 0.999999, -1.000001, 1.000000, -1.000000, -1.000000, 1.000000, -1.000000, 1.000000, 1.000000 ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

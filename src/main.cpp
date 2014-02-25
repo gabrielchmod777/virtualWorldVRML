@@ -14,6 +14,7 @@ int main(int , char **argv)
 
    // This function contains our code fragment.
    root->addChild(get_scene_graph_from_file("vrml/world/world.wrl"));
+   root->addChild(get_scene_graph_from_file("vrml/buildings/greek_museum/greek_museum.wrl"));
    root->addChild(get_scene_graph_from_file("vrml/avatar/human.wrl"));
 
    SoQtExaminerViewer *myViewer = 
