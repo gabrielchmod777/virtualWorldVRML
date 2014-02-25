@@ -55,7 +55,7 @@ AC_SUBST([LIBS_COIN])
 # end hacks
 
 AM_INIT_AUTOMAKE([-Wall])
-
+AC_CONFIG_SRCDIR([src/main.cpp])
 AC_CONFIG_FILES([Makefile])
 AC_PROG_CXX
 

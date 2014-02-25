@@ -1,5 +1,5 @@
 bin_PROGRAMS = L3DClient
-L3DClient_SOURCES = main.cpp vrmlreader.cpp vrmlreader.h
+L3DClient_SOURCES = src/main.cpp src/vrmlreader.cpp src/vrmlreader.h
 L3DClient_CXXFLAGS = -std=c++11 $(CXXFLAGS_COIN) $(CXXFLAGS_SOXT)
 L3DClient_CPPFLAGS = $(QT4_CFLAGS) $(CPPFLAGS_COIN) $(CPPFLAGS_SOXT) 
 L3DClient_LDFLAGS  = $(QT4_LIBS) $(LDFLAGS_COIN) $(LDFLAGS_SOXT)
