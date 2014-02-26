@@ -1,5 +1,6 @@
 #include "vrmlreader.h"
 #include "gui.h"
+#include "avatar.h"
 
 #include <cstdlib>
 #include <memory>
@@ -15,6 +16,8 @@
 #include <Inventor/nodes/SoTransform.h>
 #include <Inventor/nodes/SoText3.h>
 #include <Inventor/nodes/SoMaterial.h>
+#include <Inventor/nodes/SoPerspectiveCamera.h>
+#include <Inventor/nodes/SoCamera.h>
 
 #include <QApplication>
 
@@ -24,56 +27,25 @@ int main(int argc, char **argv)
 
   QApplication app(argc, argv);
 
-  SoSeparator *terrain = get_scene_graph_from_file("vrml/world/world.wrl");
+  SoSeparator *world = get_scene_graph_from_file("vrml/world/world.wrl");
+  // The first an third person cameras
+  SoPerspectiveCamera *first_person_camera = new SoPerspectiveCamera();
+  SoPerspectiveCamera *third_person_camera = new SoPerspectiveCamera();
   
+  avatar my_avatar(first_person_camera, third_person_camera);
+
   // The scene
   SoSeparator *root = new SoSeparator();
+  // Add cameras
+  root->addChild(first_person_camera);
+  root->addChild(third_person_camera);
   // Add terrain
-  root->addChild(terrain);
-  root->addChild(get_scene_graph_from_file("vrml/buildings/greek_museum/greek_museum.wrl"));
+  root->addChild(world);
   root->addChild(get_scene_graph_from_file("vrml/world/grass.wrl"));
   root->addChild(get_scene_graph_from_file("vrml/avatar/human.wrl"));
 
-  gui viewer(root, app);
+  gui viewer(root, app, first_person_camera, third_person_camera);
   viewer.show();
 
   return app.exec();
 }
-
-
-
-/********
-#include <Inventor/Qt/SoQt.h>
-#include <Inventor/Qt/viewers/SoQtExaminerViewer.h>
-#include <Inventor/nodes/SoGroup.h>
-
-int main(int , char **argv)
-{
-   // Initialize Inventor and Xt
-   QWidget * myWindow = SoQt::init(argv[0]);
-   if (myWindow == NULL) exit(1);
-
-   SoSeparator *root = new SoSeparator;
-   root->ref();
-
-   // This function contains our code fragment.
-   root->addChild(get_scene_graph_from_file("vrml/world/world.wrl"));
-   root->addChild(get_scene_graph_from_file("vrml/buildings/greek_museum/greek_museum.wrl"));
-   root->addChild(get_scene_graph_from_file("vrml/avatar/human.wrl"));
-
-   SoQtExaminerViewer *myViewer = 
-            new SoQtExaminerViewer(myWindow);
-   myViewer->setSceneGraph(root);
-   myViewer->setTitle("L3DClient");
-   myViewer->show();
-   myViewer->viewAll();
-
-   SoQt::show(myWindow);
-   SoQt::mainLoop();
-
-   delete myViewer;
-   root->unref();
-
-   return 0;
-}
-*/

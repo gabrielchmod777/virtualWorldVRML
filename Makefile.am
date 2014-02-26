@@ -10,7 +10,10 @@ L3DClient_SOURCES = \
   moc_coinviewer.cpp\
   src/gui.cpp\
   src/gui.h\
-  moc_gui.cpp
+  moc_gui.cpp\
+  src/avatar.h\
+  src/avatar.cpp\
+  moc_avatar.cpp
 
 L3DClient_CXXFLAGS = -std=c++11 $(CXXFLAGS_COIN) $(CXXFLAGS_SOXT)
 L3DClient_CPPFLAGS = $(QT4_CFLAGS) $(CPPFLAGS_COIN) $(CPPFLAGS_SOXT) 

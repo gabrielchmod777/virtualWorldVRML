@@ -11,7 +11,7 @@
 #include <QDebug>
 #include <Inventor/nodes/SoSeparator.h>
 
-gui::gui(SoSeparator* vrml_scene, QApplication & app)
+gui::gui(SoSeparator* vrml_scene, QApplication & app, SoCamera* first_person_camera, SoCamera* third_person_camera)
 {
   QVBoxLayout* all = new QVBoxLayout(this);
 
@@ -24,7 +24,7 @@ gui::gui(SoSeparator* vrml_scene, QApplication & app)
   grid->setColumnStretch(1, 30);
   grid->setColumnStretch(2, 10);
 
-  coinviewer* viewer = new coinviewer(this, vrml_scene);
+  coinviewer* viewer = new coinviewer(this, vrml_scene, first_person_camera, third_person_camera);
   viewer->resize(740,740);
   left->addWidget(viewer);
   this->resize(1024,768);
