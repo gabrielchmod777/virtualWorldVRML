@@ -1,3 +1,4 @@
+include ${top_srcdir}/moc.mk
 bin_PROGRAMS = L3DClient
 
 L3DClient_SOURCES = \
@@ -6,10 +7,10 @@ L3DClient_SOURCES = \
   src/vrmlreader.h\
   src/coinviewer.cpp\
   src/coinviewer.h\
-  src/src_coinviewer.cpp\
+  moc_coinviewer.cpp\
   src/gui.cpp\
   src/gui.h\
-  src/moc_gui.cpp
+  moc_gui.cpp
 
 L3DClient_CXXFLAGS = -std=c++11 $(CXXFLAGS_COIN) $(CXXFLAGS_SOXT)
 L3DClient_CPPFLAGS = $(QT4_CFLAGS) $(CPPFLAGS_COIN) $(CPPFLAGS_SOXT) 

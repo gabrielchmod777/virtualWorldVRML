@@ -1,5 +1,7 @@
 AC_INIT([L3DClient],[0.01])
 
+AC_CONFIG_HEADERS([src/config.h]) 
+
 #
 # Check for Qt4 library
 #
@@ -51,8 +53,6 @@ AC_SUBST([CPPFLAGS_COIN])
 AC_SUBST([CXXFLAGS_COIN])
 AC_SUBST([LDFLAGS_COIN])
 AC_SUBST([LIBS_COIN])
-
-
 
 # end hacks
 
