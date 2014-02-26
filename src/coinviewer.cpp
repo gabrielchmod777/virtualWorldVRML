@@ -12,9 +12,11 @@ coinviewer::coinviewer(QWidget *parent , SoSeparator* scene)
 
   SoQt::init(this);
   SoQtExaminerViewer *viewer = new SoQtExaminerViewer(this);
+  
   viewer->setSceneGraph(scene);
   viewer->setSize(SbVec2s(1024,768));
-  
+  viewer->setViewing(FALSE);
+
   viewer->show();
 
 }
