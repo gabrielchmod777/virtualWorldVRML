@@ -31,6 +31,7 @@ int main(int argc, char **argv)
   // Add terrain
   root->addChild(terrain);
   root->addChild(get_scene_graph_from_file("vrml/buildings/greek_museum/greek_museum.wrl"));
+  root->addChild(get_scene_graph_from_file("vrml/world/grass.wrl"));
   root->addChild(get_scene_graph_from_file("vrml/avatar/human.wrl"));
 
   gui viewer(root, app);

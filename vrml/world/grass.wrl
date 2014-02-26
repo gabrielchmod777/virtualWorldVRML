@@ -1,0 +1,22 @@
+#VRML V2.0 utf8
+Transform {
+translation 0 -1.2 0
+children [
+
+  Shape {
+    appearance Appearance {
+      texture ImageTexture {
+        url [ "tex_grass_patches.jpg" ]
+      }
+      textureTransform TextureTransform {
+        scale 1 1
+      }
+    }
+    geometry Box {
+      size 3000 0.2 3000
+    }
+  }
+
+]
+
+}
