@@ -47,5 +47,7 @@ int main(int argc, char **argv)
   gui viewer(root, app, first_person_camera, third_person_camera);
   viewer.show();
 
+  my_avatar.show_first_person_camera_settings();
+
   return app.exec();
 }

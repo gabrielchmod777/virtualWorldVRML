@@ -1,9 +1,9 @@
 include ${top_srcdir}/moc.mk
-#include ${top_srcdir}/uic.mk
 
 bin_PROGRAMS = L3DClient
 
-BUILT_SOURCES = src/ui_untitled.h
+BUILT_SOURCES = src/ui_camerapositioning_dialog.h
+
 ui_%.h: %.ui
 	$(UIC) $< -o $@
 
