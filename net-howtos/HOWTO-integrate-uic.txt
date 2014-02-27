@@ -1,3 +1,9 @@
+--------------------------- BEST SOURCE ---------------
+
+http://www.gnu.org/software/automake/manual/html_node/Built-Sources-Example.html
+
+----------------------------------- One Mailing List ------------
+
 Hello!
 
 I see many people here ask how to integrate Qt designer support, but

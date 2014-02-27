@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <Inventor/nodes/SoCamera.h>
+#include "ui_untitled.h"
 
 class avatar : public QObject
 {

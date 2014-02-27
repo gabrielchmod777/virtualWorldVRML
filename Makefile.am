@@ -1,5 +1,17 @@
 include ${top_srcdir}/moc.mk
+#include ${top_srcdir}/uic.mk
+
 bin_PROGRAMS = L3DClient
+
+BUILT_SOURCES = src/ui_untitled.h
+ui_%.h: %.ui
+	$(UIC) $< -o $@
+
+clean-uic-extra:
+	rm -vf src/uic_*.h
+
+clean-am: clean-uic-extra
+
 
 L3DClient_SOURCES = \
   src/main.cpp\
@@ -13,9 +25,11 @@ L3DClient_SOURCES = \
   moc_gui.cpp\
   src/avatar.h\
   src/avatar.cpp\
-  moc_avatar.cpp
+  moc_avatar.cpp\
+  src/ui_untitled.h
 
 L3DClient_CXXFLAGS = -std=c++11 $(CXXFLAGS_COIN) $(CXXFLAGS_SOXT)
 L3DClient_CPPFLAGS = $(QT4_CFLAGS) $(CPPFLAGS_COIN) $(CPPFLAGS_SOXT) 
 L3DClient_LDFLAGS  = $(QT4_LIBS) $(LDFLAGS_COIN) $(LDFLAGS_SOXT)
 L3DClient_LDADD = $(LIBS_COIN) $(LIBS_SOXT)
+
