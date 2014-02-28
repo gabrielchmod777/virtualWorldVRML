@@ -11,11 +11,10 @@ class coinviewer : public QWidget
   Q_OBJECT
 
 private:
-  SoCamera* _first_person_camera;
-  SoCamera* _third_person_camera;
+  SoCamera* _camera;
 
 public:
-  coinviewer(QWidget *parent , SoSeparator* scene, SoCamera *first_person_camera, SoCamera *third_person_camera);
+  coinviewer(QWidget *parent , SoSeparator* scene, SoCamera * camera);
 };
 
 #endif

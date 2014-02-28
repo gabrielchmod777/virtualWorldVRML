@@ -24,19 +24,22 @@ class avatar : public QObject
   Q_OBJECT
 
 private:
-  SoCamera * _first_person_camera;
-  SoCamera * _third_person_camera;
-  Ui_Camera _first_person_camera_pos_dialog;
-  Ui_Camera _third_person_camera_pos_dialog;
+  float _height_camera_offset;
+  float _distance_camera_offset;
+
+  SoCamera* _camera;
+  Ui_Camera _camera_offset_dialog;
+
+  // user is prevented from using the default constructor
   avatar();
 
 public:
-  avatar(SoCamera * first_person_camera, SoCamera * third_person_camera);
-  void show_first_person_camera_settings();
-  void show_third_person_camera_settings();  
+  avatar(SoCamera * camera);
+  void show_camera_settings();
+
 public slots:
-  void modify_camera_x_position(int offset);
-  void modify_camera_z_position(int offset);
+  void modify_camera_height_offset(int offset);
+  void modify_camera_distance_offset(int offset);
 
 };
 

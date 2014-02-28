@@ -11,30 +11,31 @@ avatar::avatar()
   // PRIVATE: can not use the default constructor; 
 }
 
-avatar::avatar(SoCamera * first_person_camera, SoCamera * third_person_camera)
+avatar::avatar(SoCamera * camera)
 {
-  _first_person_camera = first_person_camera;
-  _third_person_camera = third_person_camera;
+  _camera = camera;
 
-  QObject::connect(_first_person_camera_pos_dialog.x_position, SIGNAL(valueChanged(int)), this, SLOT(modify_camera_x_position(int)));
+  QObject::connect(_camera_offset_dialog.x_position, SIGNAL(valueChanged(int)), this, SLOT(modify_camera_height_offset(int)));
+  QObject::connect(_camera_offset_dialog.z_position, SIGNAL(valueChanged(int)), this, SLOT(modify_camera_distance_offset(int)));
 }
 
-void avatar::modify_camera_x_position(int offset)
+void avatar::modify_camera_height_offset(int offset)
 {
-  qDebug()<< " cam _ x _ "<<offset;
+  _height_camera_offset = 1+(offset/10);
+  qDebug()<< " cam _ x _ "<<_height_camera_offset;
+  _camera->position.setValue(0.0, _height_camera_offset, 0.0);
 }
 
-void avatar::modify_camera_z_position(int offset)
+void avatar::modify_camera_distance_offset(int offset)
 {
-  qDebug()<< " cam _ z _ "<<offset;
+  _distance_camera_offset = 1+(offset/10);
+  qDebug()<< " cam _ z _ "<<_distance_camera_offset;
+  _camera->position.setValue(0.0, 0.0,_distance_camera_offset);
 }
 
-void avatar::show_first_person_camera_settings()
+void avatar::show_camera_settings()
 {
-  _first_person_camera_pos_dialog.show();
+  _camera_offset_dialog.show();
 }
 
-void avatar::show_third_person_camera_settings()
-{
-  _third_person_camera_pos_dialog.show();
-}
+

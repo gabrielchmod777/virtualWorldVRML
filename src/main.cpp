@@ -29,25 +29,23 @@ int main(int argc, char **argv)
 
   SoSeparator *world = get_scene_graph_from_file("vrml/world/world.wrl");
   // The first an third person cameras
-  SoPerspectiveCamera *first_person_camera = new SoPerspectiveCamera();
-  SoPerspectiveCamera *third_person_camera = new SoPerspectiveCamera();
+  SoPerspectiveCamera *camera = new SoPerspectiveCamera();
   
-  avatar my_avatar(first_person_camera, third_person_camera);
+  avatar my_avatar(camera);
 
   // The scene
   SoSeparator *root = new SoSeparator();
-  // Add cameras
-  root->addChild(first_person_camera);
-  root->addChild(third_person_camera);
+  // Add camera
+  root->addChild(camera);
   // Add terrain
   root->addChild(world);
   root->addChild(get_scene_graph_from_file("vrml/world/grass.wrl"));
   root->addChild(get_scene_graph_from_file("vrml/avatar/human.wrl"));
 
-  gui viewer(root, app, first_person_camera, third_person_camera);
+  gui viewer(root, app, camera);
   viewer.show();
 
-  my_avatar.show_first_person_camera_settings();
+  my_avatar.show_camera_settings();
 
   return app.exec();
 }

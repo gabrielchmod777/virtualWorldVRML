@@ -12,7 +12,7 @@ class gui : public QWidget
   Q_OBJECT
 
  public:
-  gui(SoSeparator* vrml_scene, QApplication & app, SoCamera* first_person_camera, SoCamera* third_person_camera);
+  gui(SoSeparator* vrml_scene, QApplication & app, SoCamera* camera);
   
 };
 
