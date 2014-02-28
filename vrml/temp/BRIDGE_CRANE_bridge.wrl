@@ -1,0 +1,76 @@
+#VRML V2.0 utf8
+
+DEF BRIDGE_END Group
+  {
+  children 
+    [
+    Transform
+      {
+      translation 1 0 0
+      children 
+        DEF PILLAR_BRIDGE Shape
+          {
+          appearance Appearance
+            {
+            material Material
+              {
+              diffuseColor 0 0.500000 0.500000
+              }
+            }
+          geometry Box
+            {
+            size 0.500000 3.500000 0.500000
+            }
+          }
+      }
+    Transform
+      {
+      rotation 0 0 1 1.573000
+      translation 0 0.900000 0
+      children 
+        USE PILLAR_BRIDGE
+      }
+    Transform
+      {
+      translation -1 0 0
+      children 
+        USE PILLAR_BRIDGE
+      }
+    ]
+  }
+
+Transform
+  {
+  translation 0 0 5
+  children 
+    USE BRIDGE_END
+  }
+
+Transform
+  {
+  rotation 0.157593 -0.930452 -0.330793 0
+  translation -1.500000 1.400000 2.500000
+  children 
+    DEF BREIDGE_BEAM Shape
+      {
+      appearance Appearance
+        {
+        material Material
+          {
+          diffuseColor 0.300000 1 0.300000
+          }
+        }
+      geometry DEF boxy Box
+        {
+        size 0.500000 0.500000 5.500000
+        }
+      }
+  }
+
+Transform
+  {
+  translation 1.500000 1.400000 2.500000
+  children 
+    USE BREIDGE_BEAM
+  }
+

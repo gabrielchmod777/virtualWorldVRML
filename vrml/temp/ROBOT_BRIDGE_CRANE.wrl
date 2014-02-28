@@ -1,0 +1,238 @@
+#VRML V2.0 utf8
+
+DEF BRIDGE_END Group
+  {
+  children 
+    [
+    Transform
+      {
+      translation 1 0 0
+      children 
+        DEF PILLAR_BRIDGE Shape
+          {
+          appearance Appearance
+            {
+            material Material
+              {
+              diffuseColor 0 0.500000 0.500000
+              }
+            }
+          geometry Box
+            {
+            size 0.500000 3.500000 0.500000
+            }
+          }
+      }
+    Transform
+      {
+      rotation 0 0 1 1.573000
+      translation 0 0.900000 0
+      children 
+        USE PILLAR_BRIDGE
+      }
+    Transform
+      {
+      translation -1 0 0
+      children 
+        USE PILLAR_BRIDGE
+      }
+    ]
+  }
+
+Transform
+  {
+  translation 0 0 5
+  children 
+    USE BRIDGE_END
+  }
+
+Transform
+  {
+  rotation 0.157593 -0.930452 -0.330793 0
+  translation -1.500000 1.400000 2.500000
+  children 
+    DEF BREIDGE_BEAM Shape
+      {
+      appearance Appearance
+        {
+        material Material
+          {
+          diffuseColor 0.300000 1 0.300000
+          }
+        }
+      geometry DEF boxy Box
+        {
+        size 0.500000 0.500000 5.500000
+        }
+      }
+  }
+
+Transform
+  {
+  translation 1.500000 1.400000 2.500000
+  children 
+    USE BREIDGE_BEAM
+  }
+
+DEF BRIDGE_CARANE_ARM Transform
+  {
+  children 
+    [
+    Transform
+      {
+      translation 0 1.800000 2.500000
+      children 
+        Shape
+          {
+          appearance Appearance
+            {
+            material Material
+              {
+              }
+            }
+          geometry Box
+            {
+            size 2.400000 0.500000 2
+            }
+          }
+      }
+    Transform
+      {
+      translation 0 0 3.300000
+      children 
+        [
+        DEF BRIDGE_CRANE_WHEEL Transform
+          {
+          rotation 0 0 1 1.571000
+          translation 0 1.800000 0
+          children 
+            Shape
+              {
+              appearance Appearance
+                {
+                material Material
+                  {
+                  diffuseColor 1 0 0
+                  }
+                }
+              geometry Cylinder
+                {
+                height 3
+                radius 0.150000
+                }
+              }
+          }
+        USE BRIDGE_CRANE_WHEEL
+        USE BRIDGE_CRANE_WHEEL
+        ]
+      }
+    Transform
+      {
+      translation 0 0 2.500000
+      children 
+        USE BRIDGE_CRANE_WHEEL
+      }
+    Transform
+      {
+      translation 0 0 1.800000
+      children 
+        USE BRIDGE_CRANE_WHEEL
+      }
+    Transform
+      {
+      children 
+        Transform
+          {
+          rotation 0 0 1 1.571000
+          translation 0 2 2.500000
+          children 
+            Shape
+              {
+              appearance Appearance
+                {
+                material Material
+                  {
+                  diffuseColor 0.200000 0 1
+                  shininess 0.300000
+                  }
+                }
+              geometry Cylinder
+                {
+                height 1
+                radius 0.400000
+                }
+              }
+          }
+      }
+    ]
+  }
+
+DEF EM_TRANSFORM Transform
+  {
+  translation 0 -1 2.500000
+  children 
+    Group
+      {
+      children 
+        [
+        Shape
+          {
+          appearance Appearance
+            {
+            material Material
+              {
+              diffuseColor 1 0 0
+              }
+            }
+          geometry Cone
+            {
+            bottomRadius 0.300000
+            height 0.500000
+            }
+          }
+        Transform
+          {
+          translation 0 1.500000 0
+          children 
+            Shape
+              {
+              appearance Appearance
+                {
+                material Material
+                  {
+                  ambientIntensity 0.215000
+                  diffuseColor 0.714000 0.125000 5.400000e-2
+                  shininess 0.500000
+                  specularColor 0.393500 0.271906 0.166721
+                  }
+                }
+              geometry Box
+                {
+                size 0.100000 3.500000 0.100000
+                }
+              }
+          }
+        ]
+      }
+  }
+
+DEF OBJECT_TRANSFORM Transform
+  {
+  translation 0 -1.500000 1.500000
+  children 
+    Shape
+      {
+      appearance Appearance
+        {
+        material Material
+          {
+          diffuseColor 0 0 0.800000
+          }
+        }
+      geometry Box
+        {
+        size 0.500000 0.500000 0.500000
+        }
+      }
+  }
+
