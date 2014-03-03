@@ -1,0 +1,17 @@
+.deps/
+L3DClient
+*.o
+Makefile
+Makefile.in
+aclocal.m4
+autom4te.cache/
+config.log
+config.status
+configure
+depcomp
+install-sh
+missing
+moc_*
+*~
+src/config.h.in
+src/stamp-h1
