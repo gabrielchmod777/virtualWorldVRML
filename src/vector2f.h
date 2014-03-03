@@ -33,21 +33,28 @@ class Vec2d
   void set_y(float y);
 
   bool operator==(const Vec2d & other); 
-  bool operator!=(const Vec2d & other); 
+  bool operator!=(const Vec2d & other);
+  Vec2d& operator=(const Vec2d & other); 
   bool non_zero();
   Vec2d operator+(const Vec2d & other);
   Vec2d operator-(const Vec2d & other);
+  Vec2d operator-();
   Vec2d operator*(const Vec2d & other);
   Vec2d operator/(const Vec2d & other);
   Vec2d operator/(int constant);
   Vec2d operator/(float constant);
+  Vec2d operator* (float constant);
+  Vec2d operator* (int constant);
+  Vec2d operator+ (float constant);
+  Vec2d operator+ (int constant);
+  Vec2d operator- (float constant);
+  Vec2d operator- (int constant);
   Vec2d & operator+=(Vec2d other);
   Vec2d & operator-=(Vec2d other);
   Vec2d & operator*=(Vec2d other);
   Vec2d & operator/=(Vec2d other);
   Vec2d * operator&();
-  void operator* (float constant);
-  void operator* (int constant);
+  static Vec2d vec2d_abs(const Vec2d & other);
   float get_length();
   void rotate(float degrees, int system);
   Vec2d rotated(float degrees, int system);
@@ -60,7 +67,7 @@ class Vec2d
   float dot(const Vec2d & other);
   float cross(const Vec2d & other);
   float get_distance(const Vec2d & other);
-
+  void set_angle(float angle, int system);
 };
 
 #endif
@@ -165,17 +172,6 @@ THE REST OF PYTHON IMPLEMENTATION (MODEL)
 
 /*
 
-    def __setangle(self, angle_degrees):
-        self.x = self.length
-        self.y = 0
-        self.rotate(angle_degrees)
-    angle = property(get_angle, __setangle, None, "gets or sets the angle of a vector")
- 
-
- */
-
-/*
-
     def projection(self, other):
         other_length_sqrd = other[0]*other[0] + other[1]*other[1]
         projected_length_times_other_length = self.dot(other)
@@ -195,4 +191,169 @@ THE REST OF PYTHON IMPLEMENTATION (MODEL)
 
  */
 
+/*
+
+                         PARTIAL TEST -- C++
+
+
+#include "../vector2f.h"
+
+#include <cassert>
+#include <iostream>
+#include <vector>
+using namespace std;
+
+#include "../vector2f.cpp"
+
+bool closeEnough(float value, float base, float tolerance)
+{
+  float low = base - tolerance;
+  float high = base + tolerance;
+  if( (low<= value) && (value<= high) )
+    {
+      return true;
+    }
+  else
+    return false;
+}
+
+int main(void)
+{
+
+  cout<<endl<<"Test creation and access";
+
+  Vec2d v1(111,222);
+  assert(v1.get_x()==111);
+  assert(v1.get_y()==222);
+  v1.set_x(5);
+  v1.set_y(8);
+  assert(v1.get_x()==5);
+  assert(v1.get_y()==8);
+
+  vector<float> argV = {111,222};
+  Vec2d v2(argV);
+  assert(v2.get_x()==111);
+  assert(v2.get_y()==222);
+
+  Vec2d v3(v1);
+  assert(v3.get_x()==5);
+  assert(v3.get_y()==8);
+  cout<<"  \t\t\t\t\t\t... OK";
+
+  cout<<endl<<"Test Vec2d comparison ... ";
+  assert( v3 == v1);
+  assert( v2 != v3);
+  cout<<"  \t\t\t\t\t\t... OK";
+
+  cout<<endl<<"Test the assignment operator ...";
+  Vec2d asg1(0.3, 0.2);
+  Vec2d asg2;
+  asg2 = asg1;
+  assert(asg1 == asg2);
+  cout<<" \t\t\t\t\t\t... OK ";
+
+  cout<<endl<<"Test Vec2d MATH ... ";
+  Vec2d v4(111,222);
+  v4 = v4+1;
+  assert(v4 == Vec2d(112,223));
+  v4 = v4-1;
+  assert(v4 == Vec2d(111,222));
+  v4 = v4*3;
+  assert(v4 == Vec2d(333,666));
+  Vec2d aaa = v4/3;
+  assert(aaa == Vec2d(111,222));
+  Vec2d bbb = (aaa / Vec2d(100,100));
+  assert(bbb == Vec2d(1.11,2.22));
+  bbb = aaa * aaa;
+  assert(bbb == Vec2d(12321,49284));
+  cout<<"  \t\t\t\t\t\t... OK";
+
+  cout<<endl<<"Test Vec2d Unary ... ";
+  aaa = -aaa;
+  assert(aaa == Vec2d(-111,-222));
+  aaa = Vec2d::vec2d_abs(aaa);
+  assert(aaa == Vec2d(111,222));
+  cout<<" \t\t\t\t\t\t... OK";
+
+  cout<<endl<<"Test Vec2d test Length ... ";
+  Vec2d lenv(3,4);
+  assert(lenv.get_length() == 5);
+  assert(lenv.normalize_return_length() == 5);
+  assert(lenv.get_length() == 1);
+  lenv = Vec2d(3,4);
+  Vec2d lenv2(10,-2);
+  assert(lenv.get_distance(lenv2) == (lenv-lenv2).get_length());
+  cout<<" \t\t\t\t\t\t... OK";
+
+  cout<<endl<<"Test ANGLES ";
+  Vec2d ang = Vec2d(0,3);
+  assert(ang.get_angle(Vec2d::DEGREES_360) == 90);
+  Vec2d ang2 = Vec2d(ang);
+  ang.rotate(-90, Vec2d::DEGREES_360);
+  assert(closeEnough(ang.get_angle_between(ang2, Vec2d::DEGREES_360), 90, 0.0001));
+  assert(ang.get_length() == ang2.get_length());
+  ang2.set_angle(ang2.get_angle(Vec2d::DEGREES_360)-90, Vec2d::DEGREES_360);
+  assert(closeEnough(ang2.get_angle(Vec2d::DEGREES_360), 0, 0.0001));
+  assert(ang2 == Vec2d(3,0));
+  assert(closeEnough((ang-ang2).get_length(),0,0.0001));
+  assert(ang.get_length() == ang2.get_length());
+  ang2.rotate(300,Vec2d::DEGREES_360);
+  assert(closeEnough(ang.get_angle_between(ang2, Vec2d::DEGREES_360), -60, 0.0001));
+  
+  ang2.rotate(ang2.get_angle_between(ang, Vec2d::DEGREES_360), Vec2d::DEGREES_360);
+  assert(closeEnough(ang.get_angle_between(ang, Vec2d::DEGREES_360), 0, 0.0001));
+  
+  cout<<" \t\t\t\t\t\t... OK";
+  
+  cout<<endl;
+
+
+ 
+        // def testHighLevel(self):
+        //     basis0 = Vec2d(5.0, 0)
+        //     basis1 = Vec2d(0, .5)
+        //     v = Vec2d(10, 1)
+        //     self.assert_(v.convert_to_basis(basis0, basis1) == [2, 2])
+        //     self.assert_(v.projection(basis0) == (10, 0))
+        //     self.assert_(basis0.dot(basis1) == 0)
+ 
+        // def testCross(self):
+        //     lhs = Vec2d(1, .5)
+        //     rhs = Vec2d(4,6)
+        //     self.assert_(lhs.cross(rhs) == 4)
+ 
+        // def testComparison(self):
+        //     int_vec = Vec2d(3, -2)
+        //     flt_vec = Vec2d(3.0, -2.0)
+        //     zero_vec = Vec2d(0, 0)
+        //     self.assert_(int_vec == flt_vec)
+        //     self.assert_(int_vec != zero_vec)
+        //     self.assert_((flt_vec == zero_vec) == False)
+        //     self.assert_((flt_vec != int_vec) == False)
+        //     self.assert_(int_vec == (3, -2))
+        //     self.assert_(int_vec != [0, 0])
+        //     self.assert_(int_vec != 5)
+        //     self.assert_(int_vec != [3, -2, -5])
+ 
+        // def testInplace(self):
+        //     inplace_vec = Vec2d(5, 13)
+        //     inplace_ref = inplace_vec
+        //     inplace_src = Vec2d(inplace_vec)
+        //     inplace_vec *= .5
+        //     inplace_vec += .5
+        //     inplace_vec /= (3, 6)
+        //     inplace_vec += Vec2d(-1, -1)
+        //     self.assertEquals(inplace_vec, inplace_ref)
+ 
+        // def testPickle(self):
+        //     testvec = Vec2d(5, .3)
+        //     testvec_str = pickle.dumps(testvec)
+        //     loaded_vec = pickle.loads(testvec_str)
+        //     self.assertEquals(testvec, loaded_vec)
+
+  return 0;
+}
+
+
+*/
 

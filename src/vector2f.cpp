@@ -75,6 +75,13 @@ bool Vec2d::operator!=(const Vec2d & other)
   return ((_x != other.get_x()) || (_y != other.get_y()));
 }
 
+Vec2d& Vec2d::operator=(const Vec2d & other)
+{
+  _x = other.get_x();
+  _y = other.get_y();
+  return (*this);
+}
+
 bool Vec2d::non_zero()
 {
   return ((_x != 0) && (_y != 0));
@@ -88,6 +95,13 @@ Vec2d Vec2d::operator+(const Vec2d & other)
 Vec2d Vec2d::operator-(const Vec2d & other)
 {
   return Vec2d( (_x-other.get_x()), (_y-other.get_y()) );
+}
+
+Vec2d Vec2d::operator-()
+{
+  _x = -_x;
+  _y = -_y;
+  return Vec2d(_x, _y);
 }
 
 Vec2d Vec2d::operator*(const Vec2d & other)
@@ -116,16 +130,34 @@ Vec2d Vec2d::operator/(float constant)
 }
 
 
-void Vec2d::operator*(float constant)
+Vec2d Vec2d::operator*(float constant)
 {
-  _x += constant;
-  _y += constant;
+  return Vec2d( (this->_x*constant), (this->_y*constant) );
 }
 
-void Vec2d::operator*(int constant)
+Vec2d Vec2d::operator*(int constant)
 {
-  _x += constant;
-  _y += constant;
+  return Vec2d( (this->_x*constant), (this->_y*constant) );
+}
+
+Vec2d Vec2d::operator+(int constant)
+{
+  return Vec2d( (this->_x+constant), (this->_y+constant) );
+}
+
+Vec2d Vec2d::operator+(float constant)
+{
+  return Vec2d( (this->_x+constant), (this->_y+constant) );
+}
+
+Vec2d Vec2d::operator-(int constant)
+{
+  return Vec2d( (this->_x-constant), (this->_y-constant) );
+}
+
+Vec2d Vec2d::operator-(float constant)
+{
+  return Vec2d( (this->_x-constant), (this->_y-constant) );
 }
 
 Vec2d & Vec2d::operator+=(Vec2d other)
@@ -154,6 +186,11 @@ Vec2d & Vec2d::operator/=(Vec2d other)
   _x /= other.get_x();
   _y /= other.get_y();
   return *this;
+}
+
+Vec2d Vec2d::vec2d_abs(const Vec2d & other)
+{
+  return Vec2d(abs(other.get_x()), abs(other.get_y()));
 }
 
 float Vec2d::get_length()
@@ -316,3 +353,10 @@ float Vec2d::get_distance(const Vec2d & other)
   return sqrt(pow(_x-other.get_x(),2)+pow(_y-other.get_y(),2));
 }
 
+void Vec2d::set_angle(float angle, int system)
+{
+  _x = get_length();
+  _y = 0;
+  rotate(angle, system);
+
+}
