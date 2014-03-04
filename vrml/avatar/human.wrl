@@ -21,6 +21,28 @@ DEF HEAD_TRANSFORM Transform
       }
   }
 
+DEF NOSE Transform
+  {
+  translation 0 2 -0.6
+  scale 0.3 0.3 0.3
+  rotation 1 0 0 1.571
+  children 
+    Shape
+      {
+      appearance Appearance
+        {
+        material Material
+          {
+          diffuseColor 0 1 0
+          }
+        }
+      geometry Cylinder
+        {
+        radius 0.300000
+        }
+      }
+  }
+
 Transform
   {
   translation 0 0.700000 0

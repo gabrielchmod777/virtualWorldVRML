@@ -26,7 +26,9 @@ L3DClient_SOURCES = \
   src/avatar.h\
   src/avatar.cpp\
   moc_avatar.cpp\
-  src/ui_untitled.h
+  src/ui_untitled.h\
+  src/vector2f.cpp
+
 
 L3DClient_CXXFLAGS = -std=c++11 $(CXXFLAGS_COIN) $(CXXFLAGS_SOXT)
 L3DClient_CPPFLAGS = $(QT4_CFLAGS) $(CPPFLAGS_COIN) $(CPPFLAGS_SOXT) 

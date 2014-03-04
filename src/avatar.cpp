@@ -7,6 +7,7 @@
 #include <QObject>
 #include <QtCore>
 #include <QSlider>
+#include <QString>
 
 #ifndef PI
 #define PI 3.1415926535
@@ -22,7 +23,6 @@ double degToRadian(double deg)
 }
 
 
-const float avatar::rotation_speed = 4;
 const float avatar::max_speed = 14;
 
 
@@ -37,17 +37,16 @@ avatar::avatar(SoCamera * camera)
 
   QObject::connect(_camera_offset_dialog.x_position, SIGNAL(valueChanged(int)), this, SLOT(modify_camera_height_offset(int)));
   QObject::connect(_camera_offset_dialog.z_position, SIGNAL(valueChanged(int)), this, SLOT(modify_camera_distance_offset(int)));
-  
-  x = 0; y = 0;
-  speed = 0; rotation = 0;
+
+  position = Vec2d(0,0);
+  direction = Vec2d(1,1).normalized();
+  speed = 0; 
   _3d_model = new SoSeparator();
   transform = new SoTransform();
   _3d_model->addChild(transform);
   _3d_model->addChild(get_scene_graph_from_file("vrml/avatar/human.wrl"));
-  look_at_x = 0;
-  look_at_y = 0;
   //                                 X  Y  Z
-  _camera->position.setValue(SbVec3f(x, 2 ,6));
+  _camera->position.setValue(SbVec3f(0, 2 ,6));
   _camera->pointAt(SbVec3f(0, 0, 0 ));
   
 }
@@ -55,15 +54,13 @@ avatar::avatar(SoCamera * camera)
 void avatar::modify_camera_height_offset(int offset)
 {
   _height_camera_offset = 1+(offset/10);
-  qDebug()<< " cam _ x _ "<<_height_camera_offset;
-  _camera->position.setValue(x, _height_camera_offset, y);
+  _camera->position.setValue(position.get_x(), _height_camera_offset, position.get_y());
 }
 
 void avatar::modify_camera_distance_offset(int offset)
 {
   _distance_camera_offset = 1+(offset/10);
-  qDebug()<< " cam _ z _ "<<_distance_camera_offset;
-  _camera->position.setValue(x, _height_camera_offset ,_distance_camera_offset);
+  _camera->position.setValue(position.get_x(), _height_camera_offset ,_distance_camera_offset);
 }
 
 void avatar::show_camera_settings()
@@ -97,42 +94,36 @@ void avatar::stop()
 
 void avatar::goto_left()
 {
-  if(speed == 0)
-    {
-      speed += SPEED_INCREMENT;
-    }
-  rotation -= rotation_speed;
+  direction.rotate(10, Vec2d::DEGREES_360);
 }
 
 void avatar::goto_right()
 {
-  if(speed == 0)
-    {
-      speed += SPEED_INCREMENT;
-    }
-  rotation += rotation_speed;
+  direction.rotate(-10, Vec2d::DEGREES_360);
 }
 
 void avatar::update_avatar()
 {
 
-  if(speed != 0) {
-    if(rotation > 360) 
-      {
-	rotation -= 360;
-      }
+  
 
-    if(rotation <0 )
-      {
-	rotation += 360;
-      }
-    rotation = 0;
+  //_camera->position.setValue(SbVec3f(position.get_x(), 2 , position.get_y()+6));
+  //_camera->pointAt(SbVec3f(position.get_x(), 0, position.get_y() ));
+  
+  //qDebug()<<"\n .... Before ...";
+  //qDebug()<<"\n .... POS = "<<QString::fromStdString(position.to_string());
+  //qDebug()<<"\n .... DIR = "<<QString::fromStdString(direction.to_string());
+  transform->rotation.setValue(SbVec3f(0,1,0), direction.get_angle(Vec2d::DEGREES_RADIAN));
+  Vec2d displacement = Vec2d( direction.get_x() * speed, direction.get_y() * speed ); // both * time_passed
+  position = position + displacement;
+  transform->translation.setValue(position.get_x(), 0, position.get_y());
+  if(!direction.non_zero())
+    {
+      qDebug()<<"\n .... Zero direction ...";
+    }
+  //qDebug()<<"\n .... POS = "<<QString::fromStdString(position.to_string());
+  //qDebug()<<"\n .... DIR = "<<QString::fromStdString(direction.to_string());
 
-    double  delta_x = cos(degToRadian(rotation))*speed;
-    double  delta_y = sin(degToRadian(rotation))*speed;
-
-    x = x+delta_x;
-    y = y+delta_y;
     /*
     //update on server
     std::string cmd = " @js_eval_world var me = new avatar('a'); ";
@@ -152,24 +143,8 @@ void avatar::update_avatar()
     my_client->send(std::move(cmd));
     */
 
-    if(x > WORLD_LIMITS){ x = -WORLD_LIMITS; }
-    if(x < -WORLD_LIMITS){ x = WORLD_LIMITS; }
-    if(y > WORLD_LIMITS){ y = -WORLD_LIMITS; }
-    if(y < -WORLD_LIMITS){ y = WORLD_LIMITS; }
-
-
-    look_at_x = x+delta_x;
-    look_at_y = y+delta_y;
-
-    _camera->position.setValue(SbVec3f(x, 2 , y+6));
-    _camera->pointAt(SbVec3f(x, 0, y ));
-  
-    transform->translation.setValue(x, 0, y);
-    //transform->rotation.setValue(SbVec3f(0,1,0), ro);
     
     //std::cout<<std::endl<<x<<" / "<<y;
-
-  }
 
 }
 

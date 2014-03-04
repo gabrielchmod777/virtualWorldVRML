@@ -22,3 +22,106 @@ Background {
 }
 
 
+Transform
+{
+  	translation 5 0 5
+children 
+[
+Shape
+{
+
+	appearance Appearance
+	{
+	  material Material
+	  {
+	    diffuseColor 0.277281 0.104336 0.079900
+            specularColor 0.305587 0.141916 0.2705727
+            emissiveColor 0.030559 0.014192 0.0270573
+            shininess 0.096970
+	  }
+	}
+
+	geometry Box{}
+
+}
+]
+
+}
+
+Transform
+{
+  	translation 5 0 -5
+children 
+[
+Shape
+{
+
+	appearance Appearance
+	{
+	  material Material
+	  {
+	    diffuseColor 0.277281 0.104336 0.079900
+            specularColor 0.305587 0.141916 0.2705727
+            emissiveColor 0.030559 0.014192 0.0270573
+            shininess 0.096970
+	  }
+	}
+
+	geometry Sphere{}
+
+}
+]
+
+}
+
+
+Transform
+{
+  	translation -5 0 5
+children 
+[
+Shape
+{
+
+	appearance Appearance
+	{
+	  material Material
+	  {
+	    diffuseColor 0.277281 0.104336 0.079900
+            specularColor 0.305587 0.141916 0.2705727
+            emissiveColor 0.030559 0.014192 0.0270573
+            shininess 0.096970
+	  }
+	}
+
+	geometry Cone{}
+
+}
+]
+
+}
+
+Transform
+{
+  	translation -5 0 -5
+	rotation 0.7 0.3 0.0 1.712
+children 
+[
+Shape
+{
+
+	appearance Appearance
+	{
+	  material Material
+	  {
+	    diffuseColor 1 0.104336 0.079900
+            
+	  }
+	}
+
+	geometry Box{}
+
+}
+]
+
+}

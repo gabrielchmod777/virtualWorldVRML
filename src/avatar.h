@@ -7,6 +7,9 @@
 #include <QWidget>
 #include <Inventor/nodes/SoTransform.h>
 #include <Inventor/nodes/SoCamera.h>
+
+#include "vector2f.h"
+
 #include "ui_camerapositioning_dialog.h"
 
 class Ui_Camera : public QDialog, public Ui::CameraPositionDialog
@@ -27,14 +30,12 @@ class avatar : public QObject
 
 private:
 
-  static const float rotation_speed;
   static const float max_speed;
-  
-  float x, y;
 
-  double look_at_x, look_at_y;
   double speed;
-  double rotation;
+
+  Vec2d position;
+  Vec2d direction;
 
   SoSeparator *_3d_model;
   SoTransform  *transform;

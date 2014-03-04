@@ -225,7 +225,7 @@ void Vec2d::rotate(float degrees, int system)
   float c = cos(radians);
   float s = sin(radians);
   float x = _x*c - _y*s;
-  float y = _x*s - _y*c;
+  float y = _x*s + _y*c;
   _x = x;
   _y = y;
 
