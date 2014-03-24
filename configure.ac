@@ -2,6 +2,9 @@ AC_INIT([L3DClient],[0.01])
 
 AC_CONFIG_HEADERS([src/config.h]) 
 
+#ACLOCAL_AMFLAGS = -I m4
+AC_CONFIG_MACRO_DIR([m4])
+
 #
 # Check for Qt4 library
 #
@@ -56,6 +59,13 @@ AC_SUBST([LIBS_COIN])
 
 # end hacks
 
+#ckeck for boost
+#http://stackoverflow.com/questions/18281079/how-to-include-boost-in-gnu-autotools-project
+BOOST_REQUIRE([1.48], [AC_MSG_ERROR([libfoo needs Boost, but it was not found in your system])])
+AX_BOOST_ASIO
+
+
+LT_INIT()
 AM_INIT_AUTOMAKE([-Wall])
 AC_CONFIG_SRCDIR([src/main.cpp])
 AC_CONFIG_FILES([Makefile])

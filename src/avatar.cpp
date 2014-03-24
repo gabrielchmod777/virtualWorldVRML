@@ -137,7 +137,6 @@ void avatar::update_avatar()
 
   if(cmpf((_direction.get_angle(Vec2d::DEGREES_RADIAN)),0.785398))
     {
-      qDebug()<<"\n ....  +0.7 ";
       x_displacement = 6;
       y_displacement = 6;
     }
@@ -148,7 +147,6 @@ void avatar::update_avatar()
     }
   else if( cmpf((_direction.get_angle(Vec2d::DEGREES_RADIAN)),-0.785398))
     {
-      qDebug()<<"\n ....  -0.7 ";
       x_displacement = -6;
       y_displacement = 6;
     }
