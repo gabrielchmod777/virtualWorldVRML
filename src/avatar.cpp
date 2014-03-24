@@ -1,6 +1,8 @@
 #include "vrmlreader.h"
 #include "avatar.h"
 #include <string>
+#include <cmath>
+
 #include <Inventor/nodes/SoCamera.h>
 #include <Inventor/nodes/SoTransform.h>
 #include <QDebug>
@@ -38,12 +40,12 @@ avatar::avatar(SoCamera * camera)
   QObject::connect(_camera_offset_dialog.x_position, SIGNAL(valueChanged(int)), this, SLOT(modify_camera_height_offset(int)));
   QObject::connect(_camera_offset_dialog.z_position, SIGNAL(valueChanged(int)), this, SLOT(modify_camera_distance_offset(int)));
 
-  position = Vec2d(0,0);
-  direction = Vec2d(1,1).normalized();
-  speed = 0; 
+  _position = Vec2d(100,100);
+  _direction = Vec2d(1,1).normalized();
+  _speed = 0; 
   _3d_model = new SoSeparator();
-  transform = new SoTransform();
-  _3d_model->addChild(transform);
+  _transform = new SoTransform();
+  _3d_model->addChild(_transform);
   _3d_model->addChild(get_scene_graph_from_file("vrml/avatar/human.wrl"));
   //                                 X  Y  Z
   _camera->position.setValue(SbVec3f(0, 2 ,6));
@@ -54,13 +56,13 @@ avatar::avatar(SoCamera * camera)
 void avatar::modify_camera_height_offset(int offset)
 {
   _height_camera_offset = 1+(offset/10);
-  _camera->position.setValue(position.get_x(), _height_camera_offset, position.get_y());
+  _camera->position.setValue(_position.get_x(), _height_camera_offset, _position.get_y());
 }
 
 void avatar::modify_camera_distance_offset(int offset)
 {
   _distance_camera_offset = 1+(offset/10);
-  _camera->position.setValue(position.get_x(), _height_camera_offset ,_distance_camera_offset);
+  _camera->position.setValue(_position.get_x(), _height_camera_offset ,_distance_camera_offset);
 }
 
 void avatar::show_camera_settings()
@@ -70,59 +72,95 @@ void avatar::show_camera_settings()
 
 void avatar::accelerate(float increment)
 {
-  speed += increment;
-  if(speed > max_speed) 
+  _speed += increment;
+  if(_speed > max_speed) 
     {
-      speed = max_speed;
+      _speed = max_speed;
     }
   
 }
 
 void avatar::decellerate(float decrement)
 {
-  speed -= decrement;
-  if(speed<0)
+  _speed -= decrement;
+  if(_speed<0)
     {
-      speed = 0;
+      _speed = 0;
     }
 }
 
 void avatar::stop()
 {
-  speed = 0;
+  _speed = 0;
 }
 
 void avatar::goto_left()
 {
-  direction.rotate(10, Vec2d::DEGREES_360);
+  _direction.rotate(90, Vec2d::DEGREES_360);
 }
 
 void avatar::goto_right()
 {
-  direction.rotate(-10, Vec2d::DEGREES_360);
+  _direction.rotate(-90, Vec2d::DEGREES_360);
+}
+
+bool cmpf(float A, float B, float epsilon = 0.05f)
+
+{ 
+
+    return (fabs(A - B) < epsilon);
+
 }
 
 void avatar::update_avatar()
 {
 
-  
+  float x_displacement = 0.0;
+  float y_displacement = 0.0;
 
-  //_camera->position.setValue(SbVec3f(position.get_x(), 2 , position.get_y()+6));
-  //_camera->pointAt(SbVec3f(position.get_x(), 0, position.get_y() ));
+  _transform->rotation.setValue(SbVec3f(0,1,0), _direction.get_angle(Vec2d::DEGREES_RADIAN));
   
-  //qDebug()<<"\n .... Before ...";
-  //qDebug()<<"\n .... POS = "<<QString::fromStdString(position.to_string());
-  //qDebug()<<"\n .... DIR = "<<QString::fromStdString(direction.to_string());
-  transform->rotation.setValue(SbVec3f(0,1,0), direction.get_angle(Vec2d::DEGREES_RADIAN));
-  Vec2d displacement = Vec2d( direction.get_x() * speed, direction.get_y() * speed ); // both * time_passed
-  position = position + displacement;
-  transform->translation.setValue(position.get_x(), 0, position.get_y());
-  if(!direction.non_zero())
+  float speed_correct = 0.0;
+  if(cmpf((_direction.get_angle(Vec2d::DEGREES_RADIAN)),0.785398) || cmpf((_direction.get_angle(Vec2d::DEGREES_RADIAN)),-2.35619))
     {
-      qDebug()<<"\n .... Zero direction ...";
+      speed_correct = - _speed;
     }
-  //qDebug()<<"\n .... POS = "<<QString::fromStdString(position.to_string());
-  //qDebug()<<"\n .... DIR = "<<QString::fromStdString(direction.to_string());
+  else
+    {
+      speed_correct = _speed;
+    }
+
+  Vec2d displacement = Vec2d( _direction.get_x() * speed_correct, _direction.get_y() * speed_correct ); // both * time_passed
+
+  _position = _position + displacement;
+  _transform->translation.setValue(_position.get_x(), 0, _position.get_y());
+
+  if(cmpf((_direction.get_angle(Vec2d::DEGREES_RADIAN)),0.785398))
+    {
+      qDebug()<<"\n ....  +0.7 ";
+      x_displacement = 6;
+      y_displacement = 6;
+    }
+  else if( cmpf((_direction.get_angle(Vec2d::DEGREES_RADIAN)),-2.35619))
+    {
+      x_displacement = -6;
+      y_displacement = -6;      
+    }
+  else if( cmpf((_direction.get_angle(Vec2d::DEGREES_RADIAN)),-0.785398))
+    {
+      qDebug()<<"\n ....  -0.7 ";
+      x_displacement = -6;
+      y_displacement = 6;
+    }
+  else if( cmpf((_direction.get_angle(Vec2d::DEGREES_RADIAN)),2.35619))
+    {
+      x_displacement = 6;
+      y_displacement = -6;
+    }
+
+  
+  _camera->position.setValue(SbVec3f(_position.get_x()+x_displacement, 2 , _position.get_y()+y_displacement));
+  _camera->pointAt(SbVec3f(_position.get_x(), 0, _position.get_y()));
 
     /*
     //update on server
@@ -143,7 +181,6 @@ void avatar::update_avatar()
     my_client->send(std::move(cmd));
     */
 
-    
     //std::cout<<std::endl<<x<<" / "<<y;
 
 }

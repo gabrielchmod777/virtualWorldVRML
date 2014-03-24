@@ -32,13 +32,13 @@ private:
 
   static const float max_speed;
 
-  double speed;
+  double _speed;
 
-  Vec2d position;
-  Vec2d direction;
+  Vec2d _position;
+  Vec2d _direction;
 
   SoSeparator *_3d_model;
-  SoTransform  *transform;
+  SoTransform  *_transform;
 
   std::string name;
 
