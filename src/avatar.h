@@ -35,6 +35,9 @@ private:
 
   double _speed;
 
+  float previous_x_position;
+  float previous_y_position;
+
   Vec2d _position;
   Vec2d _direction;
 

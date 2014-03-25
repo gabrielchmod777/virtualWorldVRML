@@ -41,6 +41,9 @@ avatar::avatar(SoCamera * camera, client& associated_server_client)
   _my_client = &associated_server_client;
   _camera = camera;
 
+  previous_x_position = 100;
+  previous_y_position = 100;
+
   QObject::connect(_camera_offset_dialog.x_position, SIGNAL(valueChanged(int)), this, SLOT(modify_camera_height_offset(int)));
   QObject::connect(_camera_offset_dialog.z_position, SIGNAL(valueChanged(int)), this, SLOT(modify_camera_distance_offset(int)));
 
@@ -164,23 +167,27 @@ void avatar::update_avatar()
   _camera->position.setValue(SbVec3f(_position.get_x()+x_displacement, 2 , _position.get_y()+y_displacement));
   _camera->pointAt(SbVec3f(_position.get_x(), 0, _position.get_y()));
 
+  if((previous_x_position != _position.get_x()) || (previous_y_position != _position.get_y()))
+    {  
+      //update on server
+      std::string cmd = " @js_eval_world var me = new avatar('a'); ";
     
-  //update on server
-  std::string cmd = " @js_eval_world var me = new avatar('a'); ";
-    
-  std::string str_move_command_head = "me.move('"+name+"',";
-  std::string str_move_command_tail = ")\n";
-  std::string str_x = std::to_string(_position.get_x());
-  std::string str_y = std::to_string(_position.get_y());
-  std::string coma = ",";
-  std::string str_coord = str_x+coma+str_y;
+      std::string str_move_command_head = "me.move('"+name+"',";
+      std::string str_move_command_tail = ")\n";
+      std::string str_x = std::to_string(_position.get_x());
+      std::string str_y = std::to_string(_position.get_y());
+      std::string coma = ",";
+      std::string str_coord = str_x+coma+str_y;
 
-  std::string cmd_step2 = str_move_command_head+str_x+coma+str_y+str_move_command_tail;
-  cmd+= cmd_step2;
+      std::string cmd_step2 = str_move_command_head+str_x+coma+str_y+str_move_command_tail;
+      cmd+= cmd_step2;
 
-  qDebug()<<"SEND "<<QString::fromUtf8(cmd.c_str());
-  _my_client->send(std::move(cmd));
+      qDebug()<<"SEND "<<QString::fromUtf8(cmd.c_str());
+      _my_client->send(std::move(cmd));
+    }
 
+  previous_x_position = _position.get_x();
+  previous_y_position = _position.get_y();
 
 }
 

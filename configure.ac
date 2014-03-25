@@ -6,7 +6,9 @@ AC_CONFIG_AUX_DIR([build-aux])
 AC_PROG_LIBTOOL
 
 BOOST_REQUIRE([1.34.1])
+BOOST_THREADS
 BOOST_ASIO
+
 
 #
 # Check for Qt4 library

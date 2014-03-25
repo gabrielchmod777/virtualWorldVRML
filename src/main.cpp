@@ -9,6 +9,10 @@
 #include <memory>
 #include <iostream>
 #include <unistd.h>
+#include <thread>
+
+#include <boost/asio.hpp> 
+#include <boost/thread/thread.hpp>
 
 #include <Inventor/Qt/SoQt.h>         
 #include <Inventor/Qt/viewers/SoQtExaminerViewer.h>  
@@ -95,6 +99,17 @@ int main(int argc, char **argv)
       camera_time_sensor->setInterval(SbTime(REFRESH_TIME));
       camera_time_sensor->schedule();
       // end
+
+      //start BOOST_ASIO
+      boost::thread asio_th(boost::bind(&boost::asio::io_service::run, &io_service));
+
+      if(asio_th.joinable()) {
+        cout << "Detaching thread" << endl;
+        asio_th.detach();
+      }
+
+      //cout << "Main thread sleeping for a while" << endl;
+      //boost::this_thread::sleep(seconds(2));
 
       return app.exec();
 
