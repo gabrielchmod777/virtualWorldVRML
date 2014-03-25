@@ -9,6 +9,7 @@
 #include <Inventor/nodes/SoCamera.h>
 
 #include "vector2f.h"
+#include "client.h"
 
 #include "ui_camerapositioning_dialog.h"
 
@@ -37,8 +38,8 @@ private:
   Vec2d _position;
   Vec2d _direction;
 
-  SoSeparator *_3d_model;
-  SoTransform  *_transform;
+  SoSeparator* _3d_model;
+  SoTransform* _transform;
 
   std::string name;
 
@@ -48,11 +49,13 @@ private:
   SoCamera* _camera;
   Ui_Camera _camera_offset_dialog;
 
+  client* _my_client;
+
   // user is prevented from using the default constructor
   avatar();
 
 public:
-  avatar(SoCamera * camera);
+  avatar(SoCamera * camera, client& associated_server_client);
   void show_camera_settings();
   void accelerate(float increment); 
   void decellerate(float decrement);

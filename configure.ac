@@ -1,6 +1,12 @@
 AC_INIT([L3DClient],[0.01])
 
 AC_CONFIG_HEADERS([src/config.h]) 
+AC_CONFIG_AUX_DIR([build-aux])
+#AC_CONFIG_MACRO_DIR([m4])
+AC_PROG_LIBTOOL
+
+BOOST_REQUIRE([1.34.1])
+BOOST_ASIO
 
 #
 # Check for Qt4 library

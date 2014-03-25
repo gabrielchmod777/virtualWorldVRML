@@ -1,5 +1,7 @@
 #include "vrmlreader.h"
 #include "avatar.h"
+#include "client.h"
+
 #include <string>
 #include <cmath>
 
@@ -33,8 +35,10 @@ avatar::avatar()
   // PRIVATE: can not use the default constructor; 
 }
 
-avatar::avatar(SoCamera * camera)
+avatar::avatar(SoCamera * camera, client& associated_server_client)
 {
+
+  _my_client = &associated_server_client;
   _camera = camera;
 
   QObject::connect(_camera_offset_dialog.x_position, SIGNAL(valueChanged(int)), this, SLOT(modify_camera_height_offset(int)));
@@ -137,7 +141,6 @@ void avatar::update_avatar()
 
   if(cmpf((_direction.get_angle(Vec2d::DEGREES_RADIAN)),0.785398))
     {
-      qDebug()<<"\n ....  +0.7 ";
       x_displacement = 6;
       y_displacement = 6;
     }
@@ -148,7 +151,6 @@ void avatar::update_avatar()
     }
   else if( cmpf((_direction.get_angle(Vec2d::DEGREES_RADIAN)),-0.785398))
     {
-      qDebug()<<"\n ....  -0.7 ";
       x_displacement = -6;
       y_displacement = 6;
     }
@@ -162,26 +164,23 @@ void avatar::update_avatar()
   _camera->position.setValue(SbVec3f(_position.get_x()+x_displacement, 2 , _position.get_y()+y_displacement));
   _camera->pointAt(SbVec3f(_position.get_x(), 0, _position.get_y()));
 
-    /*
-    //update on server
-    std::string cmd = " @js_eval_world var me = new avatar('a'); ";
     
-    std::string str_move_command_head = "me.move('"+name+"',";
-    std::string str_move_command_tail = ")\n";
-    std::string str_x = std::to_string(x);
-    std::string str_y = std::to_string(y);
-    std::string coma = ",";
-    std::string str_coord = str_x+coma+str_y;
+  //update on server
+  std::string cmd = " @js_eval_world var me = new avatar('a'); ";
+    
+  std::string str_move_command_head = "me.move('"+name+"',";
+  std::string str_move_command_tail = ")\n";
+  std::string str_x = std::to_string(_position.get_x());
+  std::string str_y = std::to_string(_position.get_y());
+  std::string coma = ",";
+  std::string str_coord = str_x+coma+str_y;
 
-    std::string cmd_step2 = str_move_command_head+str_x+coma+str_y+str_move_command_tail;
-    cmd+= cmd_step2;
+  std::string cmd_step2 = str_move_command_head+str_x+coma+str_y+str_move_command_tail;
+  cmd+= cmd_step2;
 
-    //std::cout<<std::endl<<"DEBUG ... "<<cmd;
+  qDebug()<<"SEND "<<QString::fromUtf8(cmd.c_str());
+  _my_client->send(std::move(cmd));
 
-    my_client->send(std::move(cmd));
-    */
-
-    //std::cout<<std::endl<<x<<" / "<<y;
 
 }
 

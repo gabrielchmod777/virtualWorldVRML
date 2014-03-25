@@ -1,6 +1,9 @@
 #include "vrmlreader.h"
 #include "gui.h"
 #include "avatar.h"
+#include "message_queue.h"
+#include "client.h"
+#include "executor.h"
 
 #include <cstdlib>
 #include <memory>
@@ -36,39 +39,79 @@ avatar * user_avatar = NULL;
 int main(int argc, char **argv)
 {
 
-  QApplication app(argc, argv);
 
-  SoSeparator *world = get_scene_graph_from_file("vrml/world/world.wrl");
-  // The first an third person cameras
-  SoPerspectiveCamera *camera = new SoPerspectiveCamera();
   
-  avatar my_avatar(camera);
-  user_avatar = & my_avatar;
+  try
+    {
 
-  // The scene
-  SoSeparator *root = new SoSeparator();
-  // Add camera
-  root->addChild(camera);
-  // Add terrain
-  root->addChild(world);
-  root->addChild(get_scene_graph_from_file("vrml/world/grass.wrl"));
-  root->addChild(my_avatar.get3d_model());
+      QApplication app(argc, argv);  
 
-  gui viewer(root, app, camera);
-  viewer.show();
+      SoSeparator *world = get_scene_graph_from_file("vrml/world/world.wrl");
+      // The first an third person cameras
+      SoPerspectiveCamera *camera = new SoPerspectiveCamera();
 
-  my_avatar.show_camera_settings();
+      if(argc<3)
+	{
+	  throw std::string("Usage:\n\tL3DClient <server> <port> <avatar_name>\n");
+	}
 
-  // move camera and avatar with directional keys
-  SoEventCallback *keyboard_event_callback = new SoEventCallback;
-  keyboard_event_callback->addEventCallback( SoKeyboardEvent::getClassTypeId(), keyboard_callback_func, camera);
-  root->addChild(keyboard_event_callback);
-  SoTimerSensor *camera_time_sensor = new SoTimerSensor(update_avatar, root);
-  camera_time_sensor->setInterval(SbTime(REFRESH_TIME));
-  camera_time_sensor->schedule();
-  // end
- 
-  return app.exec();
+      boost::asio::io_service io_service;
+
+      boost::asio::ip::tcp::resolver resolver(io_service);
+      boost::asio::ip::tcp::resolver::query query(argv[1], argv[2]);
+      boost::asio::ip::tcp::resolver::iterator iterator = resolver.resolve(query);
+
+      client c(io_service, iterator);
+      
+      c.send(std::move(std::string("add 5 3")));
+
+      std::string executors_name = argv[3];
+
+      command_executor client_exec(executors_name);
+      c.add_observer(&client_exec);
+      
+      avatar my_avatar(camera, c);
+      user_avatar = & my_avatar;
+
+      // The scene
+      SoSeparator *root = new SoSeparator();
+      // Add camera
+      root->addChild(camera);
+      // Add terrain
+      root->addChild(world);
+      root->addChild(get_scene_graph_from_file("vrml/world/grass.wrl"));
+      root->addChild(my_avatar.get3d_model());
+
+      gui viewer(root, app, camera);
+      viewer.show();
+
+      //my_avatar.show_camera_settings();
+
+      // move camera and avatar with directional keys
+      SoEventCallback *keyboard_event_callback = new SoEventCallback;
+      keyboard_event_callback->addEventCallback( SoKeyboardEvent::getClassTypeId(), keyboard_callback_func, camera);
+      root->addChild(keyboard_event_callback);
+      SoTimerSensor *camera_time_sensor = new SoTimerSensor(update_avatar, root);
+      camera_time_sensor->setInterval(SbTime(REFRESH_TIME));
+      camera_time_sensor->schedule();
+      // end
+
+      return app.exec();
+
+    }  
+  catch(std::exception &e)
+    {
+      std::cout<<std::endl<<e.what();
+      exit(EXIT_FAILURE);
+	}
+  catch(std::string msg)
+    {
+      std::cout<<std::endl<<msg;
+      exit(EXIT_FAILURE);
+    }
+
+  return EXIT_SUCCESS;
+  
 }
 
 void update_avatar(void *, SoSensor *)
