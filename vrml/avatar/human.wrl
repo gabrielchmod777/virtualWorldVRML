@@ -23,9 +23,9 @@ DEF HEAD_TRANSFORM Transform
 
 DEF NOSE Transform
   {
-  translation 0 2 -0.6
-  scale 0.3 0.3 0.3
-  rotation 1 0 0 1.571
+  rotation 1 0 0 1.571000
+  translation 0 2 -0.600000
+  scale 0.300000 0.300000 0.300000
   children 
     Shape
       {
@@ -38,6 +38,7 @@ DEF NOSE Transform
         }
       geometry Cylinder
         {
+        height 1
         radius 0.300000
         }
       }
@@ -67,43 +68,25 @@ Transform
     DEF RIGHT_ARM_TRANSFORM Transform
       {
       rotation 1 0 0 0.678359
-      translation -0.800000 0 0
+      translation -0.800000 0.400000 0
       center 0 0.700000 0
+      scale 1 1 1.500000
       children 
-        Shape
+        Inline
           {
-          appearance Appearance
-            {
-            material Material
-              {
-              }
-            }
-          geometry Cylinder
-            {
-            height 1.500000
-            radius 0.200000
-            }
+          url "arm.wrl"
           }
       }
     DEF LEFT_ARM_TRANSFORM Transform
       {
       rotation -1 0 0 0.839821
-      translation 0.800000 0 0
+      translation 0.800000 0.400000 0
       center 0 0.700000 0
+      scale 1 1 1.500000
       children 
-        Shape
+        Inline
           {
-          appearance Appearance
-            {
-            material Material
-              {
-              }
-            }
-          geometry Cylinder
-            {
-            height 1.500000
-            radius 0.200000
-            }
+          url "arm2.wrl"
           }
       }
     ]
@@ -117,43 +100,23 @@ Transform
     DEF RIGHT_LEG_TRANSFORM Transform
       {
       rotation -1 0 0 0.839821
-      translation -0.300000 0 0
+      translation -0.300000 0.400000 0
       center 0 0.700000 0
       children 
-        Shape
+        Inline
           {
-          appearance Appearance
-            {
-            material Material
-              {
-              }
-            }
-          geometry Cylinder
-            {
-            height 1.500000
-            radius 0.250000
-            }
+          url "leg.wrl"
           }
       }
     DEF LEFT_LEG_TRANSFORM Transform
       {
-      rotation 1 0 0 0.678359
-      translation 0.300000 0 0
+      rotation 1 0 0 0.680000
+      translation 0.300000 0.400000 0
       center 0 0.700000 0
       children 
-        Shape
+        Inline
           {
-          appearance Appearance
-            {
-            material Material
-              {
-              }
-            }
-          geometry Cylinder
-            {
-            height 1.500000
-            radius 0.250000
-            }
+          url "leg.wrl"
           }
       }
     ]
