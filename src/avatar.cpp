@@ -12,6 +12,7 @@
 #include <QtCore>
 #include <QSlider>
 #include <QString>
+#include "gui.h"
 
 #ifndef PI
 #define PI 3.1415926535
@@ -27,7 +28,7 @@ double degToRadian(double deg)
 }
 
 
-const float avatar::max_speed = 14;
+const float avatar::max_speed = 5;
 
 
 avatar::avatar()
@@ -37,6 +38,15 @@ avatar::avatar()
 
 avatar::avatar(SoCamera * camera, client& associated_server_client)
 {
+
+  if(gui::free_camera)
+    {
+      
+    }
+  else 
+    {
+      show_camera_settings();
+    }
 
   _my_client = &associated_server_client;
   _camera = camera;
@@ -144,23 +154,23 @@ void avatar::update_avatar()
 
   if(cmpf((_direction.get_angle(Vec2d::DEGREES_RADIAN)),0.785398))
     {
-      x_displacement = 6;
-      y_displacement = 6;
+      x_displacement = 10;
+      y_displacement = 10;
     }
   else if( cmpf((_direction.get_angle(Vec2d::DEGREES_RADIAN)),-2.35619))
     {
-      x_displacement = -6;
-      y_displacement = -6;      
+      x_displacement = -10;
+      y_displacement = -10;      
     }
   else if( cmpf((_direction.get_angle(Vec2d::DEGREES_RADIAN)),-0.785398))
     {
-      x_displacement = -6;
-      y_displacement = 6;
+      x_displacement = -10;
+      y_displacement = 10;
     }
   else if( cmpf((_direction.get_angle(Vec2d::DEGREES_RADIAN)),2.35619))
     {
-      x_displacement = 6;
-      y_displacement = -6;
+      x_displacement = 10;
+      y_displacement = -10;
     }
 
   

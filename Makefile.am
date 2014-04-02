@@ -4,7 +4,8 @@ ACLOCAL_AMFLAGS = -I ./build-aux
 
 bin_PROGRAMS = L3DClient
 
-BUILT_SOURCES = src/ui_camerapositioning_dialog.h
+BUILT_SOURCES = src/ui_camerapositioning_dialog.h\
+    src/ui_left_form.h
 
 ui_%.h: %.ui
 	$(UIC) $< -o $@
@@ -28,7 +29,6 @@ L3DClient_SOURCES = \
   src/avatar.h\
   src/avatar.cpp\
   moc_avatar.cpp\
-  src/ui_untitled.h\
   src/vector2f.cpp\
   src/client.h\
   src/client.cpp\
@@ -37,6 +37,7 @@ L3DClient_SOURCES = \
   src/message_observer.h\
   src/message_queue.h\
   src/message_queue.cpp
+
 
 L3DClient_CXXFLAGS = -std=c++11 -g $(CXXFLAGS_COIN) $(CXXFLAGS_SOXT) $(BOOST_CXXFLAGX) 
 L3DClient_CPPFLAGS = -std=c++11 -g $(QT4_CFLAGS) $(CPPFLAGS_COIN) $(CPPFLAGS_SOXT) $(BOOST_CPPFLAGX)

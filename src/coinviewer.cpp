@@ -8,7 +8,6 @@
 #include <Inventor/nodes/SoCamera.h>
 #include "coinviewer.h"
 
-
 coinviewer::coinviewer(QWidget *parent , SoSeparator* scene , SoCamera *camera)
 {
 
@@ -38,5 +37,3 @@ coinviewer::coinviewer(QWidget *parent , SoSeparator* scene , SoCamera *camera)
   viewer->show();
 
 }
-
-
