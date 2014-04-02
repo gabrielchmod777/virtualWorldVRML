@@ -1,127 +1,39 @@
 #VRML V2.0 utf8
 
-Fog {
-  color 1.0 1.0 1.0
-  fogType "LINEAR"
-  visibilityRange 4.0
-}
-
-Background {
-	skyColor [
-		0.0 0.2 0.7,
-		0.0 0.5 1.0,
-		1.0 1.0 1.0
-	]
-	skyAngle [ 1.309, 1.571 ]
-	groundColor [
-		0.0 0.8 0.0,
-		0.0 0.8 0.0,
-		0.0 0.8 0.0,
-	]
-	groundAngle [ 1.309, 1.571 ]
-}
-
-
-Transform
-{
-  	translation 5 0 5
-children 
-[
-Shape
-{
-
-	appearance Appearance
-	{
-	  material Material
-	  {
-	    diffuseColor 0.277281 0.104336 0.079900
-            specularColor 0.305587 0.141916 0.2705727
-            emissiveColor 0.030559 0.014192 0.0270573
-            shininess 0.096970
-	  }
-	}
-
-	geometry Box{}
-
-}
-]
-
-}
+Background
+  {
+  groundAngle 
+    [
+    1.309000
+    1.571000
+    ]
+  groundColor 
+    [
+    0 0.800000 0
+    0 0.800000 0
+    0 0.800000 0
+    ]
+  skyAngle 
+    [
+    1.309000
+    1.571000
+    ]
+  skyColor 
+    [
+    0 0.200000 0.700000
+    0 0.500000 1
+    1 1 1
+    ]
+  }
 
 Transform
-{
-  	translation 5 0 -5
-children 
-[
-Shape
-{
+  {
+  translation 100 4 100
+  scale 5 5 5
+  children 
+    Inline
+      {
+      url "greek_museum.wrl"
+      }
+  }
 
-	appearance Appearance
-	{
-	  material Material
-	  {
-	    diffuseColor 0.277281 0.104336 0.079900
-            specularColor 0.305587 0.141916 0.2705727
-            emissiveColor 0.030559 0.014192 0.0270573
-            shininess 0.096970
-	  }
-	}
-
-	geometry Sphere{}
-
-}
-]
-
-}
-
-
-Transform
-{
-  	translation -5 0 5
-children 
-[
-Shape
-{
-
-	appearance Appearance
-	{
-	  material Material
-	  {
-	    diffuseColor 0.277281 0.104336 0.079900
-            specularColor 0.305587 0.141916 0.2705727
-            emissiveColor 0.030559 0.014192 0.0270573
-            shininess 0.096970
-	  }
-	}
-
-	geometry Cone{}
-
-}
-]
-
-}
-
-Transform
-{
-  	translation -5 0 -5
-	rotation 0.7 0.3 0.0 1.712
-children 
-[
-Shape
-{
-
-	appearance Appearance
-	{
-	  material Material
-	  {
-	    diffuseColor 1 0.104336 0.079900
-            
-	  }
-	}
-
-	geometry Box{}
-
-}
-]
-
-}
