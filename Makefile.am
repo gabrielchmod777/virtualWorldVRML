@@ -10,7 +10,7 @@ ui_%.h: %.ui
 	$(UIC) $< -o $@
 
 clean-uic-extra:
-	rm -vf src/uic_*.h
+	rm -vf src/uic_*.h *.o src/*.o moc_*.cpp
 
 clean-am: clean-uic-extra
 
