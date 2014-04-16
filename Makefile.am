@@ -4,8 +4,7 @@ ACLOCAL_AMFLAGS = -I ./build-aux
 
 bin_PROGRAMS = L3DClient
 
-BUILT_SOURCES = src/ui_camerapositioning_dialog.h\
-    src/ui_left_form.h
+BUILT_SOURCES = src/ui_left_form.h
 
 ui_%.h: %.ui
 	$(UIC) $< -o $@

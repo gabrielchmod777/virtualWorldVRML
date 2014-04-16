@@ -11,19 +11,6 @@
 #include "vector2f.h"
 #include "client.h"
 
-#include "ui_camerapositioning_dialog.h"
-
-class Ui_Camera : public QDialog, public Ui::CameraPositionDialog
-{
-  Q_OBJECT
-
- public:
-  Ui_Camera(QWidget *parent = 0) : QDialog(parent){
-    setupUi(this);
-  };
-};
-
-
 class avatar : public QObject
 {
 
@@ -50,7 +37,6 @@ private:
   float _distance_camera_offset;
 
   SoCamera* _camera;
-  Ui_Camera _camera_offset_dialog;
 
   client* _my_client;
 
@@ -59,7 +45,6 @@ private:
 
 public:
   avatar(SoCamera * camera, client& associated_server_client);
-  void show_camera_settings();
   void accelerate(float increment); 
   void decellerate(float decrement);
   void stop();
@@ -67,10 +52,6 @@ public:
   void goto_right();
   void update_avatar();
   SoSeparator* get3d_model();
-
-public slots:
-  void modify_camera_height_offset(int offset);
-  void modify_camera_distance_offset(int offset);
 
 };
 

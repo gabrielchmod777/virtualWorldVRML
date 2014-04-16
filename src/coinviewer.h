@@ -5,6 +5,7 @@
 #include <QObject>
 #include <Inventor/nodes/SoSeparator.h>
 #include <Inventor/nodes/SoCamera.h>
+#include <Inventor/Qt/viewers/SoQtExaminerViewer.h>
 
 class coinviewer : public QWidget
 {
@@ -12,9 +13,10 @@ class coinviewer : public QWidget
 
 private:
   SoCamera* _camera;
-
+  SoQtExaminerViewer *viewer;
 public:
   coinviewer(QWidget *parent , SoSeparator* scene, SoCamera * camera);
+  void setViewing(bool mode);
 };
 
 #endif

@@ -14,7 +14,7 @@ coinviewer::coinviewer(QWidget *parent , SoSeparator* scene , SoCamera *camera)
   _camera = camera;
 
   SoQt::init(this);
-  SoQtExaminerViewer *viewer = new SoQtExaminerViewer(this);
+  viewer = new SoQtExaminerViewer(this);
   
   /* antialiasing (three passes improves the graphics) */
   
@@ -36,4 +36,9 @@ coinviewer::coinviewer(QWidget *parent , SoSeparator* scene , SoCamera *camera)
   
   viewer->show();
 
+}
+
+void coinviewer::setViewing(bool mode)
+{
+  viewer->setViewing(mode);
 }

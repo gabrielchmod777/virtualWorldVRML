@@ -9,6 +9,7 @@
 #include <QGridLayout>
 #include <QGroupBox>
 #include <QDebug>
+#include <QMessageBox>
 #include <Inventor/nodes/SoSeparator.h>
 
 bool gui::free_camera = false;
@@ -26,18 +27,31 @@ gui::gui(SoSeparator* vrml_scene, QApplication & app, SoCamera* camera)
   grid->setColumnStretch(1, 30);
   grid->setColumnStretch(2, 10);
 
-  coinviewer* viewer = new coinviewer(this, vrml_scene, camera);
+  viewer = new coinviewer(this, vrml_scene, camera);
   viewer->resize(740,740);
   left->addWidget(viewer);
   onTheRight = new LeftForm();
-  QObject::connect(onTheRight, SIGNAL(clicked(bool)), this, SLOT(show_camera_controls(bool)));
+  QObject::connect(onTheRight->cameraPushButton, SIGNAL(clicked(bool)), this, SLOT(toggle_free_camera_onoff(bool)));
   right->addWidget(onTheRight);
   this->resize(1024,768);
 
   all->addLayout(grid);
 }
 
-void gui::show_camera_controls(bool b)
+void gui::toggle_free_camera_onoff(bool b)
 {
   free_camera = !free_camera;
+  if(free_camera)
+    {
+      QMessageBox msgBox;
+      msgBox.setText("You cam freely move the camera with the ...");
+      msgBox.exec();
+    }
+  else
+    {
+      QMessageBox msgBox;
+      msgBox.setText("The camera follows the avatar.");
+      msgBox.exec();
+      viewer->setViewing(FALSE);
+    }
 }

@@ -7,6 +7,7 @@
 #include <Inventor/nodes/SoSeparator.h>
 #include <Inventor/nodes/SoCamera.h>
 #include "ui_left_form.h"
+#include "coinviewer.h"
 
 class LeftForm : public QDialog, public Ui::leftForm
 {
@@ -24,13 +25,14 @@ class gui : public QWidget
 
  private:
   LeftForm *onTheRight;
+  coinviewer* viewer;
 
  public:
   static bool free_camera;
   gui(SoSeparator* vrml_scene, QApplication & app, SoCamera* camera);
   
  public slots:
-  void show_camera_controls(bool b);
+  void toggle_free_camera_onoff(bool b);
 
 };
 

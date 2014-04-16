@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'left_form.ui'
 **
-** Created: Wed Apr 2 14:24:32 2014
-**      by: Qt User Interface Compiler version 4.8.3
+** Created: Wed Apr 16 20:24:59 2014
+**      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -42,7 +42,7 @@ public:
     void retranslateUi(QWidget *leftForm)
     {
         leftForm->setWindowTitle(QApplication::translate("leftForm", "Form", 0, QApplication::UnicodeUTF8));
-        cameraPushButton->setText(QApplication::translate("leftForm", "CAMERA", 0, QApplication::UnicodeUTF8));
+        cameraPushButton->setText(QApplication::translate("leftForm", "CAMERA MODE", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
