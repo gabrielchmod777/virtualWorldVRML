@@ -37,3 +37,13 @@ Transform
       }
   }
 
+Transform
+  {
+  translation -100 7.6 -100
+  scale 5 5 5
+  children 
+    Inline
+      {
+      url "../temp/ROBOT_BRIDGE_CRANE.wrl"
+      }
+  }
