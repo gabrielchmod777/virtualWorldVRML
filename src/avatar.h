@@ -3,13 +3,13 @@
 
 #include <string>
 #include <QObject>
-#include <QDialog>
-#include <QWidget>
-#include <Inventor/nodes/SoTransform.h>
-#include <Inventor/nodes/SoCamera.h>
 
-#include "vector2f.h"
 #include "client.h"
+
+#include <Inventor/nodes/SoTranslation.h>
+#include <Inventor/nodes/SoRotation.h>
+#include <Inventor/nodes/SoSeparator.h>
+
 
 class avatar : public QObject
 {
@@ -18,40 +18,35 @@ class avatar : public QObject
 
 private:
 
-  static const float max_speed;
-
-  double _speed;
-
-  float previous_x_position;
-  float previous_y_position;
-
-  Vec2d _position;
-  Vec2d _direction;
-
   SoSeparator* _3d_model;
-  SoTransform* _transform;
-
-  std::string name;
-
-  float _height_camera_offset;
-  float _distance_camera_offset;
-
-  SoCamera* _camera;
-
+  std::string name = "";
   client* _my_client;
+
+  float orientation;
+  float speed;
+  SoTranslation *translation;
+  SoRotation *rotation;
 
   // user is prevented from using the default constructor
   avatar();
 
 public:
-  avatar(SoCamera * camera, client& associated_server_client);
-  void accelerate(float increment); 
-  void decellerate(float decrement);
-  void stop();
-  void goto_left();
-  void goto_right();
-  void update_avatar();
+
+  avatar(client& associated_server_client);
   SoSeparator* get3d_model();
+  
+  SbVec3f direction;
+  float angleCorrection;
+  void setSpeed(float v);
+  float getSpeed() const;
+  float rotationSpeed; 
+  SbVec3f getPosition() const; 
+  void getPosition(float &x, float &y, float &z) const;
+  void setPosition(const SbVec3f &pozice);
+  void setPosition(const float x, const float y, const float z);
+  float getOrientation() const;
+  void setOrientation(const float &angle);
+
 
 };
 

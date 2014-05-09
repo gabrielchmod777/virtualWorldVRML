@@ -26,79 +26,71 @@
 #include <Inventor/nodes/SoPerspectiveCamera.h>
 #include <Inventor/nodes/SoCamera.h>
 #include <Inventor/nodes/SoEventCallback.h>
-#include <Inventor/sensors/SoTimerSensor.h>
+#include <Inventor/nodes/SoRotation.h>
+#include <Inventor/nodes/SoTranslation.h>
+#include <Inventor/nodes/SoSphere.h>
+#include <Inventor/sensors/SoOneShotSensor.h>
+
 #include <QDebug>
 #include <QApplication>
 
-#define SPEED 1
-#define REFRESH_TIME 0.05
-#define PI 3.14
+const float maxSpeed = 100.0f;
+const float minSpeed = -30.0f;
+const float speedUp = 30.0f;
+const float slowDown = 100.0f;
+const float maxRotSpeed = 1.5;
+const float minRotSpeed = -1.5;
+const float rotSpeedUp = 6;   
+const float rotSlowDown = 30; 
 
-bool startMoving = false;
-void update_avatar(void *, SoSensor *);
-void keyboard_callback_func(void *userData, SoEventCallback *eventCB);
+struct KeyRec
+{
+  enum {
+    UP = 0, DOWN, LEFT, RIGHT,
+  };
+  SoKeyboardEvent::Key key;
+  bool isDown;
+} keyboard[] = {
+  { SoKeyboardEvent::UP_ARROW, false },   // array with key states
+  { SoKeyboardEvent::DOWN_ARROW, false }, // usage: keyboard[KeyRec::DOWN].isDown
+  { SoKeyboardEvent::LEFT_ARROW, false },
+  { SoKeyboardEvent::RIGHT_ARROW, false },
+};
 
-avatar * user_avatar = NULL;
+void keyboardEvent_cb(void *userdata, SoEventCallback *node);
+void simulationStep(void *data, SoSensor *sensor);
+
+avatar* user_avatar = NULL;
+SoPerspectiveCamera *camera;
 
 int main(int argc, char **argv)
 {
-
-
   
   try
     {
 
-      QApplication app(argc, argv);  
-
-      SoSeparator *world = get_scene_graph_from_file("vrml/world/world.wrl");
-      // The first an third person cameras
-      SoPerspectiveCamera *camera = new SoPerspectiveCamera();
+      SoDB::init();
 
       if(argc<3)
 	{
 	  throw std::string("Usage:\n\tL3DClient <server> <port> <avatar_name>\n");
 	}
 
-      boost::asio::io_service io_service;
+      QApplication app(argc, argv);  
 
+      boost::asio::io_service io_service;
       boost::asio::ip::tcp::resolver resolver(io_service);
       boost::asio::ip::tcp::resolver::query query(argv[1], argv[2]);
       boost::asio::ip::tcp::resolver::iterator iterator = resolver.resolve(query);
 
       client c(io_service, iterator);
       
-      c.send(std::move(std::string("add 5 3")));
-
       std::string executors_name = argv[3];
-
       command_executor client_exec(executors_name);
       c.add_observer(&client_exec);
       
-      avatar my_avatar(camera, c);
+      avatar my_avatar(c);
       user_avatar = & my_avatar;
-
-      // The scene
-      SoSeparator *root = new SoSeparator();
-      // Add camera
-      root->addChild(camera);
-      // Add terrain
-      root->addChild(world);
-      root->addChild(get_scene_graph_from_file("vrml/world/grass.wrl"));
-      root->addChild(my_avatar.get3d_model());
-
-      gui viewer(root, app, camera);
-      viewer.show();
-
-      //my_avatar.show_camera_settings();
-
-      // move camera and avatar with directional keys
-      SoEventCallback *keyboard_event_callback = new SoEventCallback;
-      keyboard_event_callback->addEventCallback( SoKeyboardEvent::getClassTypeId(), keyboard_callback_func, camera);
-      root->addChild(keyboard_event_callback);
-      SoTimerSensor *camera_time_sensor = new SoTimerSensor(update_avatar, root);
-      camera_time_sensor->setInterval(SbTime(REFRESH_TIME));
-      camera_time_sensor->schedule();
-      // end
 
       //start BOOST_ASIO
       boost::thread asio_th(boost::bind(&boost::asio::io_service::run, &io_service));
@@ -108,8 +100,36 @@ int main(int argc, char **argv)
         asio_th.detach();
       }
 
-      //cout << "Main thread sleeping for a while" << endl;
-      //boost::this_thread::sleep(seconds(2));
+      // The scene
+      SoSeparator *root = new SoSeparator();
+      root->ref();
+      
+      camera = new SoPerspectiveCamera();
+      camera->nearDistance = 4;
+      camera->farDistance = 4096;
+
+      root->addChild(camera);
+      root->addChild(get_scene_graph_from_file("vrml/world/world.wrl"));
+      root->addChild(get_scene_graph_from_file("vrml/world/grass.wrl"));
+      root->addChild(my_avatar.get3d_model());
+
+      gui viewer(root, app, camera);
+      viewer.show();
+
+
+      ////////// move camera and avatar with directional keys
+      
+      // keyboard handling
+      SoEventCallback *cb = new SoEventCallback;
+      cb->addEventCallback(SoKeyboardEvent::getClassTypeId(), keyboardEvent_cb, NULL);
+      root->insertChild(cb, 0);
+
+      // sensor for infinite processing of simulationStep
+      SoOneShotSensor *sensor = new SoOneShotSensor(simulationStep, NULL);
+      sensor->schedule();
+      
+      ////////// end
+
 
       return app.exec();
 
@@ -129,55 +149,183 @@ int main(int argc, char **argv)
   
 }
 
-void update_avatar(void *, SoSensor *)
+
+void keyboardEvent_cb(void *userdata, SoEventCallback *node)
 {
-  if((user_avatar!=NULL)&&(startMoving) )
+  const SoEvent *event = node->getEvent();
+
+  // handling of array keyboard
+  for(int i=0; i<sizeof(keyboard)/sizeof(KeyRec); ++i)
+  {
+    if(SoKeyboardEvent::isKeyPressEvent(event, keyboard[i].key))
+      keyboard[i].isDown=true;
+
+    if(SoKeyboardEvent::isKeyReleaseEvent(event, keyboard[i].key))
+      keyboard[i].isDown=false;
+  }
+
+  // handle ESC
+  if(SoKeyboardEvent::isKeyPressEvent(event, SoKeyboardEvent::ESCAPE)) 
     {
-      user_avatar->update_avatar();
+      SoQt::exitMainLoop();
     }
+
+  node->setHandled();
 }
 
-void keyboard_callback_func(void *userData, SoEventCallback *eventCB)
+void updateScene(double currentTime, double deltaTime)
 {
-  
-  const SoEvent *event = eventCB->getEvent();
 
-  if (SO_KEY_PRESS_EVENT(event, UP_ARROW)) {
-    if(user_avatar!=NULL)
-      {
-	startMoving = true;
-	user_avatar->accelerate(SPEED);
-      }
-    eventCB->setHandled();
-  } else if (SO_KEY_PRESS_EVENT(event, DOWN_ARROW)) {
-    if(user_avatar!=NULL)
-      {
-	startMoving = true;
-	user_avatar->decellerate(SPEED);
-      }
-    eventCB->setHandled();
-  } else if(SO_KEY_PRESS_EVENT(event, LEFT_ARROW)) {
-    if(user_avatar!=NULL)
-      {
-	startMoving = true;
-	user_avatar->goto_left();
-      }
-    eventCB->setHandled();
-  } else if(SO_KEY_PRESS_EVENT(event , RIGHT_ARROW)) {
-    if(user_avatar!=NULL)
-      {
-	startMoving = true;
-	user_avatar->goto_right();
-      }
-    eventCB->setHandled();
-  } if(SO_KEY_PRESS_EVENT(event , RIGHT_SHIFT)) {
-    if(user_avatar!=NULL)
-      {
-	user_avatar->stop();
-	startMoving = false;
-      }
-    eventCB->setHandled();
+  // static double fpsTime = currentTime;
+  // static int fps = 0;
+
+  // if(fpsTime+1.0 < currentTime)
+  // {
+  //   ++fpsTime;
+  //   printf("%i fps\n", fps);
+  //   fps = 0;
+  // } else
+  //   ++fps;
+
+  float speed = user_avatar->getSpeed();  // speed of user_avatar
+  float orientation = user_avatar->getOrientation();
+  SbVec3f originalPosition = user_avatar->getPosition();  // save current user_avatar->position
+
+  // user_avatar->speed: acceleration
+  if(keyboard[KeyRec::UP].isDown)
+  {
+    if(speed < maxSpeed)
+    {
+      speed += (float)deltaTime*speedUp;
+      if(speed>maxSpeed)
+        speed = maxSpeed;
+    }
+  }else
+  {
+    if(speed > 0)
+    {
+      speed -= (float)deltaTime*slowDown;
+      if(speed<0)
+        speed = 0;
+    }
+  }
+
+  // user_avatar->speed: braking
+  if(keyboard[KeyRec::DOWN].isDown)
+  {
+    if(speed > minSpeed)
+    {
+      speed -= (float)deltaTime*speedUp;
+      if(speed < minSpeed)
+        speed = minSpeed;
+    }
+  }else
+  {
+    if(speed < 0)
+    {
+      speed += (float)deltaTime*slowDown;
+      if(speed > 0)
+        speed = 0;
+    }
+  }
+
+  // rotation speed: turn left
+  if(keyboard[KeyRec::LEFT].isDown)
+  {
+    user_avatar->rotationSpeed += (float)deltaTime*rotSpeedUp;
+    if(user_avatar->rotationSpeed > maxRotSpeed)
+      user_avatar->rotationSpeed = maxRotSpeed;
+  }else
+  {
+    if(user_avatar->rotationSpeed > 0)
+    {
+      user_avatar->rotationSpeed -= (float)deltaTime*rotSlowDown;
+      if(user_avatar->rotationSpeed < 0)
+        user_avatar->rotationSpeed = 0;
+    }
+  }
+
+  // rotation speed: turn right
+  if(keyboard[KeyRec::RIGHT].isDown)
+  {
+    user_avatar->rotationSpeed -= (float)deltaTime*rotSpeedUp;
+    if(user_avatar->rotationSpeed < minRotSpeed)
+      user_avatar->rotationSpeed = minRotSpeed;
+  }else
+  {
+    if(user_avatar->rotationSpeed < 0)
+    {
+      user_avatar->rotationSpeed += (float)deltaTime*rotSlowDown;
+      if(user_avatar->rotationSpeed > 0)
+        user_avatar->rotationSpeed = 0;
+    }
+  }
+
+  // user_avatar->orientation
+  // note: negative values must be used when going back
+  if(speed >= 0)
+    orientation += (float)deltaTime*user_avatar->rotationSpeed;
+  else
+    orientation -= (float)deltaTime*user_avatar->rotationSpeed;
+
+  // set new user_avatar->orientation
+  user_avatar->setOrientation(orientation);
+
+
+  // set new user_avatar->position
+  float distance = speed*(float)deltaTime;
+  SbVec3f pos = user_avatar->getPosition();
+
+  SbVec3f distanceVec(distance*sinf(orientation), 0.f, distance*cosf(orientation));
+  pos -= distanceVec;
+
+  user_avatar->setPosition(pos);
+  user_avatar->direction = user_avatar->getPosition() - originalPosition;
+
+
+  // set new user_avatar->speed
+  user_avatar->setSpeed(speed);
+
+
+  if(!gui::free_camera)
+    {
+
+      // 3rd person camera
+      float tilt = -.20f;          // camera tilt (in radians)
+      float cameraDistance = 15;   // initial camera distance from the user_avatar
+      float cameraHeight = 8.0f;  // camera height from the user_avatar
+
+      SbRotation cameraOrientation, cameraTilt;
+      cameraOrientation.setValue(SbVec3f(0, 1, 0), orientation);
+      cameraTilt.setValue(SbVec3f(1, 0, 0), tilt);
+      camera->orientation = cameraTilt*cameraOrientation;
+
+      if(speed < 0)
+	{
+	  cameraDistance = 18.0f-speed*0.44f;  // camera distance increases when going back
+	}
+
+      SbVec3f cameraPosition(user_avatar->getPosition());
+      cameraPosition += SbVec3f(cameraDistance*sinf(orientation), cameraHeight, cameraDistance*cosf(orientation));
+      camera->position.setValue(cameraPosition);
     
-  } 
+    }
 
+}
+
+void simulationStep(void *data, SoSensor *sensor)
+{
+  // compute time from the last run of simulationStep
+  static double ct = SbTime::getTimeOfDay().getValue(); // current time
+  static double lt; // last time
+
+  lt = ct;
+  ct = SbTime::getTimeOfDay().getValue();
+  double dt = ct - lt; // delta time
+
+  // update scene
+  updateScene(ct, dt);
+
+  // reschedule sensor (it will make this function to be called again and again)
+  sensor->schedule();
 }

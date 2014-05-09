@@ -15,3 +15,12 @@ moc_*
 *~
 src/config.h.in
 src/stamp-h1
+libtool
+build-aux/config.guess
+build-aux/config.sub
+build-aux/libtool.m4
+build-aux/ltmain.sh
+build-aux/ltoptions.m4
+build-aux/ltsugar.m4
+build-aux/ltversion.m4
+build-aux/lt~obsolete.m4

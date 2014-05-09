@@ -10,7 +10,7 @@ ui_%.h: %.ui
 	$(UIC) $< -o $@
 
 clean-uic-extra:
-	rm -vf src/uic_*.h *.o src/*.o moc_*.cpp
+	rm -vf src/uic_*.h *.o src/*.o moc_*.cpp buildaux/*
 
 clean-am: clean-uic-extra
 
@@ -28,8 +28,6 @@ L3DClient_SOURCES = \
   src/avatar.h\
   src/avatar.cpp\
   moc_avatar.cpp\
-  src/vector2f.cpp\
-  src/client.h\
   src/client.cpp\
   src/executor.h\
   src/executor.cpp\
