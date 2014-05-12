@@ -18,6 +18,10 @@ DEF MuseumTtransform Transform
               diffuseColor 1 0.800000 0.800000
               shininess 1
               }
+            texture ImageTexture
+              {
+              url "brick-red.jpg"
+              }
             }
           geometry Box
             {

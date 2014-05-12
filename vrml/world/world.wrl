@@ -39,8 +39,8 @@ Transform
 
 Transform
   {
-  translation -300 7.6 -300
-  scale 5 5 5
+  translation -300 15.2 -300
+  scale 10 10 10
   children 
     Inline
       {
