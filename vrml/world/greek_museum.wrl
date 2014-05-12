@@ -40,12 +40,10 @@ DEF MuseumTtransform Transform
                 material Material
                   {
                   }
-		texture ImageTexture 
-		  {
-		    url "tex_marble.jpg"
-		    repeatS TRUE
-		    repeatT TRUE
-		  }
+                texture ImageTexture
+                  {
+                  url "tex_marble.jpg"
+                  }
                 }
               geometry DEF MarbleColumn Cylinder
                 {
@@ -140,16 +138,10 @@ DEF MuseumTtransform Transform
                 material Material
                   {
                   }
-		texture ImageTexture 
-		  {
-		    url "tex_blackmarble.jpg"
-		    repeatS TRUE
-		    repeatT TRUE
-		  }
-                }
-              geometry Box
-                {
-                size 0.200000 4 5
+                texture ImageTexture
+                  {
+                  url "tex_blackmarble.jpg"
+                  }
                 }
               }
           }

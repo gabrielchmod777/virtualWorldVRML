@@ -1,22 +1,83 @@
 #VRML V2.0 utf8
-Transform {
-translation 0 -1.2 0
-children [
 
-  Shape {
-    appearance Appearance {
-      texture ImageTexture {
-        url [ "tex_grass_patches.jpg" ]
+Transform
+  {
+  translation 0 -1.200000 0
+  children 
+    Shape
+      {
+      appearance Appearance
+        {
+        texture ImageTexture
+          {
+          url "grass-texture.jpg"
+          }
+        textureTransform TextureTransform
+          {
+          scale 200 200
+          }
+        }
+      geometry Box
+        {
+        size 6e3 0.200000 6e3
+        }
       }
-      textureTransform TextureTransform {
-        scale 1 1
-      }
-    }
-    geometry Box {
-      size 3000 0.2 3000
-    }
   }
 
-]
+Transform
+  {
+  translation 0 -2.0010000 0
+  children 
+    Shape
+      {
+      appearance Appearance
+        {
+        material Material
+          {
+          }
+        texture ImageTexture
+          {
+          url "stone.jpg"
+          }
+        textureTransform TextureTransform
+          {
+          rotation 1.570000
+          scale 200 2
+          }
+        }
+      geometry Box
+        {
+        size 6e3 2 100
+        }
+      }
+  }
 
-}
+Transform
+  {
+  rotation 0 1.000000 0 1.570000
+  translation 0 -2 0
+  children 
+    Shape
+      {
+      appearance Appearance
+        {
+        material Material
+          {
+          }
+        texture ImageTexture
+          {
+          url "stone.jpg"
+          }
+        textureTransform TextureTransform
+          {
+          rotation 1.570000
+          scale 200 2
+          }
+        }
+      geometry Box
+        {
+        size 6e3 2 100
+        }
+      }
+  }
+
