@@ -43,6 +43,9 @@ const float minRotSpeed = -1.5;
 const float rotSpeedUp = 6;   
 const float rotSlowDown = 30; 
 
+const float broacastPosition_interval = 1;
+float broacastPosition_timePassed = 1;
+
 struct KeyRec
 {
   enum {
@@ -308,8 +311,14 @@ void updateScene(double currentTime, double deltaTime)
       SbVec3f cameraPosition(user_avatar->getPosition());
       cameraPosition += SbVec3f(cameraDistance*sinf(orientation), cameraHeight, cameraDistance*cosf(orientation));
       camera->position.setValue(cameraPosition);
-    
-      user_avatar->broadcastPosition();
+      
+      if(broacastPosition_timePassed >= broacastPosition_interval)
+	{
+	  user_avatar->broadcastPosition();
+	  broacastPosition_timePassed = 0;
+	}
+
+      broacastPosition_timePassed += deltaTime;
 
     }
 

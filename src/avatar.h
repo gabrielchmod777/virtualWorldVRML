@@ -27,6 +27,8 @@ private:
   SoTranslation *translation;
   SoRotation *rotation;
 
+  SbVec3f _previousPosition;
+
   // user is prevented from using the default constructor
   avatar();
 
@@ -48,6 +50,9 @@ public:
   void setOrientation(const float &angle);
 
   void broadcastPosition();
+
+public slots:
+
   void chatWith(const std::string& other_name, const std::string& msg);  
 
 };
