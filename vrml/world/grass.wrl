@@ -26,7 +26,7 @@ Transform
 
 Transform
   {
-  translation 0 -2.0010000 0
+  translation 0 -2.0001000 0
   children 
     Shape
       {
@@ -54,7 +54,7 @@ Transform
 
 Transform
   {
-  rotation 0 1.000000 0 1.570000
+  rotation 0 1 0 1.570000
   translation 0 -2 0
   children 
     Shape
@@ -79,5 +79,55 @@ Transform
         size 6e3 2 100
         }
       }
+  }
+
+Transform
+  {
+  translation 0 0 -3e3
+  children 
+    DEF BIG_WALL Shape
+      {
+      appearance Appearance
+        {
+        material Material
+          {
+          }
+        texture ImageTexture
+          {
+          url "wall-texture.jpg"
+          }
+        textureTransform TextureTransform
+          {
+          scale 200 1
+          }
+        }
+      geometry Box
+        {
+        size 6e3 20 0.500000
+        }
+      }
+  }
+
+Transform
+  {
+  translation 0 0 3e3
+  children 
+    USE BIG_WALL
+  }
+
+Transform
+  {
+  rotation 0 1 0 1.570000
+  translation -3e3 0 0
+  children 
+    USE BIG_WALL
+  }
+
+Transform
+  {
+  rotation 0 1 0 1.570000
+  translation 3e3 0 0
+  children 
+    USE BIG_WALL
   }
 
