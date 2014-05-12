@@ -282,13 +282,34 @@ void updateScene(double currentTime, double deltaTime)
   SbVec3f distanceVec(distance*sinf(orientation), 0.f, distance*cosf(orientation));
   pos -= distanceVec;
 
+  float posX = 0.0, posY = 0.0, posZ;
+  pos.getValue(posX,posY,posZ);
+
+  if (posX < -2999)
+    {
+       user_avatar->setSpeed(0);
+    }
+  else if (posX > 2999)
+    {
+       user_avatar->setSpeed(0);
+    }
+  else if (posZ < -2999)
+    {
+      user_avatar->setSpeed(0);
+    }
+  else if (posZ > 2999)
+    {
+      user_avatar->setSpeed(0);
+    }
+  else
+    {
+
   user_avatar->setPosition(pos);
   user_avatar->direction = user_avatar->getPosition() - originalPosition;
-
-
   // set new user_avatar->speed
   user_avatar->setSpeed(speed);
 
+    }
 
   if(!gui::free_camera)
     {
