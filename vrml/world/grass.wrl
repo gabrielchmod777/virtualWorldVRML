@@ -26,7 +26,7 @@ Transform
 
 Transform
   {
-  translation 0 -2.0001000 0
+  translation 0 -2.0000100 0
   children 
     Shape
       {
@@ -131,3 +131,47 @@ Transform
     USE BIG_WALL
   }
 
+Transform
+  {
+  translation 100 12 100
+  scale 0.200000 0.200000 0.200000
+  children 
+    Inline
+      {
+      url "pinetree.wrl.gz"
+      bboxCenter 0 1 0
+      }
+  }
+
+Transform
+  {
+  translation -100 12 100
+  scale 0.200000 0.200000 0.200000
+  children 
+    Inline
+      {
+      url "pinetree.wrl.gz"
+      }
+  }
+
+Transform
+  {
+  translation -100 12 -100
+  scale 0.200000 0.200000 0.200000
+  children 
+    Inline
+      {
+      url "pinetree.wrl.gz"
+      }
+  }
+
+Transform
+  {
+  translation 100 12 -100
+  scale 0.200000 0.200000 0.200000
+  children 
+    Inline
+      {
+      url "pinetree.wrl.gz"
+      }
+  }
