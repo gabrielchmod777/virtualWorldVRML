@@ -89,7 +89,7 @@ int main(int argc, char **argv)
       command_executor client_exec(executors_name);
       c.add_observer(&client_exec);
       
-      avatar my_avatar(c);
+      avatar my_avatar(executors_name, c);
       user_avatar = & my_avatar;
 
       //start BOOST_ASIO
@@ -309,6 +309,8 @@ void updateScene(double currentTime, double deltaTime)
       cameraPosition += SbVec3f(cameraDistance*sinf(orientation), cameraHeight, cameraDistance*cosf(orientation));
       camera->position.setValue(cameraPosition);
     
+      user_avatar->broadcastPosition();
+
     }
 
 }

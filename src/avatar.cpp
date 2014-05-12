@@ -14,9 +14,10 @@ avatar::avatar()
   // PRIVATE: can not use the default constructor; 
 }
 
-avatar::avatar(client& associated_server_client)
+avatar::avatar(std::string name, client& associated_server_client)
 {
 
+  _name = name;
   _my_client = &associated_server_client;
 
   speed = 0;
@@ -79,4 +80,23 @@ void avatar::setOrientation(const float &angle)
 { 
   orientation=angle;
   rotation->rotation.setValue(SbVec3f(0, 1, 0), angle); 
+}
+
+
+void avatar::broadcastPosition()
+{
+  float x,y,z;
+  getPosition(x,y,z);
+  std::string cmd_move = " @js_eval_world var me = new avatar('"+_name+"'); me.move("+std::to_string(x)+","+std::to_string(y)+","+std::to_string(z)+");";
+
+  std::string cmd_rotate = " @js_eval_world var me = new avatar('"+_name+"'); me.rotate('Y',"+std::to_string(getOrientation())+")";  
+
+  _my_client->send(std::move(cmd_move));
+  _my_client->send(std::move(cmd_rotate));
+  
+}
+
+void avatar::chatWith(const std::string& other_name, const std::string& msg)
+{
+  //TODO
 }

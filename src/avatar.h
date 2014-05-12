@@ -19,7 +19,7 @@ class avatar : public QObject
 private:
 
   SoSeparator* _3d_model;
-  std::string name = "";
+  std::string _name = "";
   client* _my_client;
 
   float orientation;
@@ -32,7 +32,7 @@ private:
 
 public:
 
-  avatar(client& associated_server_client);
+  avatar(std::string name, client& associated_server_client);
   SoSeparator* get3d_model();
   
   SbVec3f direction;
@@ -47,6 +47,8 @@ public:
   float getOrientation() const;
   void setOrientation(const float &angle);
 
+  void broadcastPosition();
+  void chatWith(const std::string& other_name, const std::string& msg);  
 
 };
 
