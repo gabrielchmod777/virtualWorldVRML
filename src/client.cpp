@@ -22,6 +22,7 @@ client::client(boost::asio::io_service& io_service, boost::asio::ip::tcp::resolv
 
 void client::send(std::string && message)
 {
+  message += "\n";
   io_service_.post(boost::bind(&client::do_write, this, message));
 }
 
