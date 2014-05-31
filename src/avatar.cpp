@@ -33,7 +33,7 @@ avatar::avatar(std::string name, client& associated_server_client)
   this->rotation = new SoRotation;
   this->_3d_model->addChild(this->rotation);
 
-  _3d_model->addChild(get_scene_graph_from_file("vrml/avatar/human.wrl"));
+  _3d_model->addChild(get_scene_graph_from_file("/usr/local/share/l3dclient/human.wrl"));
 
 }
 

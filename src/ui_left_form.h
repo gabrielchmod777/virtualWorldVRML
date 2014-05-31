@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'left_form.ui'
 **
-** Created: Wed Apr 16 20:24:59 2014
+** Created: Fri May 30 17:34:02 2014
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -29,10 +29,11 @@ public:
     {
         if (leftForm->objectName().isEmpty())
             leftForm->setObjectName(QString::fromUtf8("leftForm"));
-        leftForm->resize(291, 609);
+        leftForm->resize(94, 625);
+        leftForm->setMaximumSize(QSize(94, 16777215));
         cameraPushButton = new QPushButton(leftForm);
         cameraPushButton->setObjectName(QString::fromUtf8("cameraPushButton"));
-        cameraPushButton->setGeometry(QRect(80, 10, 121, 51));
+        cameraPushButton->setGeometry(QRect(10, 10, 71, 31));
 
         retranslateUi(leftForm);
 
@@ -42,7 +43,7 @@ public:
     void retranslateUi(QWidget *leftForm)
     {
         leftForm->setWindowTitle(QApplication::translate("leftForm", "Form", 0, QApplication::UnicodeUTF8));
-        cameraPushButton->setText(QApplication::translate("leftForm", "CAMERA MODE", 0, QApplication::UnicodeUTF8));
+        cameraPushButton->setText(QApplication::translate("leftForm", "CAMERA", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

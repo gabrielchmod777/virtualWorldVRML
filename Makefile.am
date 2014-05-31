@@ -4,6 +4,8 @@ ACLOCAL_AMFLAGS = -I ./build-aux
 
 bin_PROGRAMS = L3DClient
 
+dist_bin_SCRIPTS = scripts/l3dclient_mklocal_dir.sh
+
 BUILT_SOURCES = src/ui_left_form.h
 
 ui_%.h: %.ui
@@ -35,9 +37,55 @@ L3DClient_SOURCES = \
   src/message_queue.h\
   src/message_queue.cpp
 
+DIRTY_HACK_QT_WEBKIT_INCLUDE = -I/usr/include/qt4/QtWebKit
+DIRTY_HACK_QT_WEBKIT_LIB = -lQtWebKit
 
-L3DClient_CXXFLAGS = -std=c++11 -g $(CXXFLAGS_COIN) $(CXXFLAGS_SOXT) $(BOOST_CXXFLAGX) 
-L3DClient_CPPFLAGS = -std=c++11 -g $(QT4_CFLAGS) $(CPPFLAGS_COIN) $(CPPFLAGS_SOXT) $(BOOST_CPPFLAGX)
+L3DClient_CXXFLAGS = -std=c++11 -g $(CXXFLAGS_COIN) $(CXXFLAGS_SOXT) $(BOOST_CXXFLAGX) $(DIRTY_HACK_QT_WEBKIT_INCLUDE)
+L3DClient_CPPFLAGS = -std=c++11 -g $(QT4_CFLAGS) $(CPPFLAGS_COIN) $(CPPFLAGS_SOXT) $(BOOST_CPPFLAGX) $(DIRTY_HACK_QT_WEBKIT_INCLUDE)
 L3DClient_LDFLAGS  = $(QT4_LIBS) $(LDFLAGS_COIN) $(LDFLAGS_SOXT) $(BOOST_ASIO_LDFLAGS) $(BOOST_SYSTEM_LDFLAGS) $(BOOST_THREAD_LDFLAGS) 
-L3DClient_LDADD = $(LIBS_COIN) $(LIBS_SOXT)  $(BOOST_ASIO_LIB) $(BOOST_SYSTEM_LIB) $(BOOST_THREAD_LIBS)
+L3DClient_LDADD = $(LIBS_COIN) $(LIBS_SOXT)  $(BOOST_ASIO_LIB) $(BOOST_SYSTEM_LIB) $(BOOST_THREAD_LIBS) $(DIRTY_HACK_QT_WEBKIT_LIB)
 
+#install-icons:
+#	for icon in $(private_icons); do \
+#		mkdir -p $(DESTDIR)$(pkgdatadir)/icons/; \
+#		$(INSTALL_DATA) $(srcdir)/$$icon $(DESTDIR)$(pkgdatadir)/icons/; \
+#	done
+
+NULL =
+
+vrml_world_files = \
+ vrml/world/brick-red.jpg \
+ vrml/world/grass-texture.jpg \
+ vrml/world/greek_museum.wrl \
+ vrml/world/stone.jpg \
+ vrml/world/tex_marble.jpg \
+ vrml/world/wall-texture.jpg \
+ vrml/world/classic_roof.wrl \
+ vrml/world/grass.wrl \
+ vrml/world/pinetree.wrl.gz \
+ vrml/world/tex_blackmarble.jpg \
+ vrml/world/utcn_logo.png \
+ vrml/world/world.wrl \
+ $(NULL)
+
+vrml_avatar_files = \
+ vrml/avatar/arm.wrl \
+ vrml/avatar/arm2.wrl \
+ vrml/avatar/body.wrl \
+ vrml/avatar/human.wrl \
+ vrml/avatar/leg.wrl \
+ $(NULL)
+
+install-wrl-world:
+	for wrmlfile in $(vrml_world_files); do \
+		mkdir -p $(DESTDIR)$(pkgdatadir)/vrml/world/; \
+		$(INSTALL_DATA) $(srcdir)/$$wrmlfile $(DESTDIR)$(pkgdatadir)/; \
+	done
+
+install-wrl-avatar:
+	for wrmlfile in $(vrml_avatar_files); do \
+		mkdir -p $(DESTDIR)$(pkgdatadir)/vrml/avatar/; \
+		$(INSTALL_DATA) $(srcdir)/$$wrmlfile $(DESTDIR)$(pkgdatadir)/; \
+	done
+
+install-data-local: install-wrl-world install-wrl-avatar

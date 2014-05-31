@@ -39,17 +39,6 @@ Transform
 
 Transform
   {
-  translation -300 15.2 -300
-  scale 10 10 10
-  children 
-    Inline
-      {
-      url "../temp/ROBOT_BRIDGE_CRANE.wrl"
-      }
-  }
-
-Transform
-  {
   translation -0 25 -0
   scale 5 5 5
   children 
