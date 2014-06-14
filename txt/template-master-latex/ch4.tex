@@ -49,10 +49,13 @@
     \label{fig:imag5}
 \end{figure}
 
-\section{Teste}
-\par Testul constă în simularea comunicării dinspre server către client. Un server va incerca să timită mesaje către un număr de 20 aplicații client care salveaza în câte un fișier mesajele primite de la server. Mesajele vor avea o lungime cuprinsă între 10 și 1024 caractere.
-\par Se consideră testul reușit dacă toate mesajele ajung la toate aplicațiile client în aceeași ordine și într-un timp copmarabil (sub 1 secundă distanță).
-\par Pentru rularea testului se codifică două aplicații demonstrative.
+\section{Test}
+
+\par Testul constă în simularea comunicării dinspre server către client. Un server va primi mesaje de la o aplicație  client și va incerca să expedieze mesaje către un număr de 10 alte aplicații client, care salveaza în câte un fișier mesajele primite de la server, cu o etichetă pentru momentul primirii mesajului. Mesajele vor avea o lungime cuprinsă între 1 și 1024 caractere iar timpul din etichetă va fi exprimat în secundele trecute de la 1 ianuarie 1970  (Unix epoch).
+
+\par \textbf{Se consideră testul reușit} dacă toate mesajele ajung la toate aplicațiile client în aceeași ordine și într-un timp copmarabil, sub 1 secundă distanță.
+\par Pentru \textbf{rularea testului} se codifică aplicația  server demonstrativă și se utilizează utilitarul \textbf{telnet} ca program client. Un ``shell script`` va fi programat pentru \textbf{rularea automată} a testului. \textbf{Evaluarea} se va realiza cu ajutorul comenzii \textbf{diff}. 
+\par Codul sursă al aplicației server, scriptul pentru rularea automată a testului și rezultatele returnte de utilitarul diff sun atașat în Anexa A.
 
 \section{Argumentarea deciziei \\ pe baza rezultatelor testării}
 

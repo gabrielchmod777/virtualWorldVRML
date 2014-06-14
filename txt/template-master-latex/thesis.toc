@@ -25,7 +25,7 @@
 \contentsline {subsection}{\numberline {4.2.1}Minimul de func\IeC {{\textcommabelow t}}ionalitate \\ de cercetat \IeC {{\textcommabelow s}}i implementat}{12}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Func\IeC {{\textcommabelow t}}ionalitate extins\IeC {\u a}}{13}{subsection.4.2.2}
 \contentsline {section}{\numberline {4.3}Decizie privind design-ul sistemului}{13}{section.4.3}
-\contentsline {section}{\numberline {4.4}Teste}{14}{section.4.4}
+\contentsline {section}{\numberline {4.4}Test}{14}{section.4.4}
 \contentsline {section}{\numberline {4.5}Argumentarea deciziei \\ pe baza rezultatelor test\IeC {\u a}rii}{15}{section.4.5}
 \contentsline {chapter}{Capitolul{} \numberline {5}Rezultate teoretice \IeC {{\textcommabelow s}}i experimentale}{16}{chapter.5}
 \contentsline {chapter}{Capitolul{} \numberline {6}Conluzii}{17}{chapter.6}
@@ -33,7 +33,6 @@
 \contentsline {section}{\numberline {6.2}Detalii tehnice}{17}{section.6.2}
 \contentsline {subsection}{\numberline {6.2.1}Dimensiune}{17}{subsection.6.2.1}
 \contentsline {chapter}{Bibliografie}{18}{chapter*.4}
-\contentsline {chapter}{Anexa{} \numberline {A}Diverse anexe}{19}{appendix.A}
-\contentsline {chapter}{Anexa{} \numberline {B}Demonstra\IeC {{\textcommabelow t}}ii matematice detaliate (dac\IeC {\u a} exist\IeC {\u a})}{20}{appendix.B}
-\contentsline {chapter}{Anexa{} \numberline {C}Pseudo-cod sau cod (dac\IeC {\u a} exist\IeC {\u a})}{21}{appendix.C}
-\contentsline {chapter}{Anexa{} \numberline {D}Articole publicate}{22}{appendix.D}
+\contentsline {section}{\numberline {.1}Script}{19}{section.Alph0.1}
+\contentsline {section}{\numberline {.2}Server de test}{19}{section.Alph0.2}
+\contentsline {chapter}{Anexa{} \numberline {A}Articole publicate}{23}{appendix.A}

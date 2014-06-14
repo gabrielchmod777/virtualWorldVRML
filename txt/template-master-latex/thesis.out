@@ -24,7 +24,7 @@
 \BOOKMARK [2][-]{subsection.4.2.1}{Minimul de functionalitate \040de cercetat si implementat}{section.4.2}% 24
 \BOOKMARK [2][-]{subsection.4.2.2}{Functionalitate extinsa}{section.4.2}% 25
 \BOOKMARK [1][-]{section.4.3}{Decizie privind design-ul sistemului}{chapter.4}% 26
-\BOOKMARK [1][-]{section.4.4}{Teste}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.4}{Test}{chapter.4}% 27
 \BOOKMARK [1][-]{section.4.5}{Argumentarea deciziei \040pe baza rezultatelor testarii}{chapter.4}% 28
 \BOOKMARK [0][-]{chapter.5}{Capitolul Rezultate teoretice si experimentale}{}% 29
 \BOOKMARK [0][-]{chapter.6}{Capitolul Conluzii}{}% 30
@@ -32,7 +32,6 @@
 \BOOKMARK [1][-]{section.6.2}{Detalii tehnice}{chapter.6}% 32
 \BOOKMARK [2][-]{subsection.6.2.1}{Dimensiune}{section.6.2}% 33
 \BOOKMARK [0][-]{chapter*.4}{Bibliografie}{}% 34
-\BOOKMARK [0][-]{appendix.A}{Anexa Diverse anexe}{}% 35
-\BOOKMARK [0][-]{appendix.B}{Anexa Demonstratii matematice detaliate \(daca exista\)}{}% 36
-\BOOKMARK [0][-]{appendix.C}{Anexa Pseudo-cod sau cod \(daca exista\)}{}% 37
-\BOOKMARK [0][-]{appendix.D}{Anexa Articole publicate}{}% 38
+\BOOKMARK [1][-]{section.Alph0.1}{Script}{chapter*.4}% 35
+\BOOKMARK [1][-]{section.Alph0.2}{Server de test}{chapter*.4}% 36
+\BOOKMARK [0][-]{appendix.A}{Anexa Articole publicate}{}% 37
