@@ -1,0 +1,49 @@
+\relax 
+\@writefile{toc}{\contentsline {chapter}{Capitolul{} \numberline {1}Introducere}{1}{chapter.1}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{cap:Introducere}{{1}{1}{Introducere\relax }{chapter.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Contextul proiectului}{1}{section.1.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.1}Subsec\IeC {{\textcommabelow t}}iune}{1}{subsection.1.1.1}}
+\@writefile{lot}{\contentsline {table}{\numberline {1.1}{\ignorespaces Nonlinear Model Results}}{2}{table.1.1}}
+\newlabel{table:nonlin}{{1.1}{2}{Nonlinear Model Results\relax }{table.1.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Numele figurii}}{2}{figure.1.1}}
+\newlabel{fig:imag}{{1.1}{2}{Numele figurii\relax }{figure.1.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.2}Alte exemple \IeC {\^\i }n \textlatin  {\LaTeX  }}{2}{subsection.1.1.2}}
+\newlabel{subsec:s10}{{1.1.2}{2}{Alte exemple în \LaTeX \relax }{subsection.1.1.2}{}}
+\newlabel{eq:e50}{{1.2}{2}{Alte exemple în \LaTeX \relax }{equation.1.1.2}{}}
+\citation{Zhou04}
+\@writefile{lot}{\contentsline {table}{\numberline {1.2}{\ignorespaces Multiplicarea Opiniilor Multinomiale}}{3}{table.1.2}}
+\newlabel{Mom}{{1.2}{3}{Multiplicarea Opiniilor Multinomiale\relax }{table.1.2}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Commitment decision}}{3}{algorithm.1}}
+\newlabel{ftalg}{{1}{3}{Alte exemple în \LaTeX \relax }{algorithm.1}{}}
+\@setckpt{ch1}{
+\setcounter{page}{4}
+\setcounter{equation}{2}
+\setcounter{enumi}{3}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{0}
+\setcounter{mpfootnote}{0}
+\setcounter{part}{0}
+\setcounter{chapter}{1}
+\setcounter{section}{1}
+\setcounter{subsection}{2}
+\setcounter{subsubsection}{0}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{figure}{1}
+\setcounter{table}{2}
+\setcounter{parentequation}{0}
+\setcounter{float@type}{16}
+\setcounter{algorithm}{1}
+\setcounter{ALC@unique}{10}
+\setcounter{ALC@line}{10}
+\setcounter{ALC@rem}{10}
+\setcounter{ALC@depth}{0}
+\setcounter{lstnumber}{1}
+\setcounter{Item}{10}
+\setcounter{lstlisting}{0}
+\setcounter{section@level}{2}
+}

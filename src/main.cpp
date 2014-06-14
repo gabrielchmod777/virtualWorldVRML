@@ -117,7 +117,7 @@ int main(int argc, char **argv)
       root->addChild(my_avatar.get3d_model());
 
       gui viewer(root, app, camera);
-      viewer.show();
+      viewer.showMaximized();
 
 
       ////////// move camera and avatar with directional keys
