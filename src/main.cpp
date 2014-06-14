@@ -33,6 +33,8 @@
 
 #include <QDebug>
 #include <QApplication>
+#include <QUrl>
+#include <QtWebKit/QWebView>
 
 const float maxSpeed = 100.0f;
 const float minSpeed = -30.0f;
@@ -64,11 +66,21 @@ void keyboardEvent_cb(void *userdata, SoEventCallback *node);
 void simulationStep(void *data, SoSensor *sensor);
 
 avatar* user_avatar = NULL;
-SoPerspectiveCamera *camera;
+SoPerspectiveCamera* camera;
+// the experiments and lessons have their own UI
+// coded in HTML and JavaScript
+// loaded in a QWebView browser (dynamic_web_ui)
+QWebView* dynamic_web_ui;
 
 int main(int argc, char **argv)
 {
   
+  // Prepare the environment
+  int sys_return_val = 0;
+  std::string cmd = "l3dclient_mklocal_dir.sh";
+  sys_return_val = std::system(cmd.c_str());
+  std::cout<<std::endl<<"SYSTEM -> "<<sys_return_val<<std::endl;
+
   try
     {
 
@@ -112,8 +124,8 @@ int main(int argc, char **argv)
       camera->farDistance = 4096;
 
       root->addChild(camera);
-      root->addChild(get_scene_graph_from_file("vrml/world/world.wrl"));
-      root->addChild(get_scene_graph_from_file("vrml/world/grass.wrl"));
+      root->addChild(get_scene_graph_from_file("/usr/local/share/l3dclient/world.wrl"));
+      root->addChild(get_scene_graph_from_file("/usr/local/share/l3dclient/grass.wrl"));
       root->addChild(my_avatar.get3d_model());
 
       gui viewer(root, app, camera);
@@ -133,6 +145,13 @@ int main(int argc, char **argv)
       
       ////////// end
 
+      dynamic_web_ui = new QWebView();
+      QString htmlSt = "<html><body><h1>HTML Previewer</h1>"
+                      " <p>This example shows you how to use QWebView to"
+                      " preview HTML data written in a QPlainTextEdit.</p>"
+                      " </body></html>";
+      dynamic_web_ui->setHtml(htmlSt);
+      dynamic_web_ui->show();
 
       return app.exec();
 

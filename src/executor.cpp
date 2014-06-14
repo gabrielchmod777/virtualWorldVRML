@@ -131,13 +131,18 @@ void command_executor::onMessageReceived(std::string message)
       lib_handle = dlopen(plug_in_name.c_str(), RTLD_LAZY);
       if (!lib_handle) 
 	{
+
+	  int sys_return_val = 0;
+
 	  std::cout<<std::endl<<dlerror();
 	  std::cout<<std::endl<<"****** TRY TO DOWNLOAD *******"<<std::endl
 		   <<src_plugin_
 		   <<std::endl<<"******************************"<<std::endl;
   
 	  std::string wget_cmd = "wget -P ./plugins/ "+src_plugin_; 
-	  system(wget_cmd.c_str());
+	  sys_return_val = std::system(wget_cmd.c_str());
+
+	  std::cout<<std::endl<<"SYSTEM -> "<<sys_return_val;
 
 	  plug_in_name.erase(0,10);
 	  std::cout<<std::endl<<"OML "<<plug_in_name;
@@ -151,9 +156,11 @@ void command_executor::onMessageReceived(std::string message)
 	  std::cout<<std::endl<<"OML "<<cmd1;
 	  std::cout<<std::endl<<"OML "<<cmd2;
 	  
-	  system(cmd1.c_str());
-	  system(cmd2.c_str());
-	  
+	  sys_return_val = std::system(cmd1.c_str());
+	  std::cout<<std::endl<<"SYSTEM -> "<<sys_return_val;
+
+	  sys_return_val = std::system(cmd2.c_str());
+	  std::cout<<std::endl<<"SYSTEM -> "<<sys_return_val;
 
 	  return ;
 	}
