@@ -1,31 +1,45 @@
 \appendix
-
+\chapter{Testarea fiabilității modelului CLIENT-SERVER}
 \section{Script}
 
-\begin{lstlisting}
-kjlhglkj
+\begin{verbatim}
+#!/bin/bash
 
-\end{lstlisting}
-%\begin{lstlisting}
-% /** Maps are easy to use in Scala. */
-%object Maps {
-%  val colors = Map("red" -> 0xFF0000,
-%                   "turquoise" -> 0x00FFFF,
-%                   "black" -> 0x000000,
-%                   "orange" -> 0xFF8040,
-%                   "brown" -> 0x804000)
-%  def main(args: Array[String]) {
-%    for (name <- args) println(
-%      colors.get(name) match {
-%        case Some(code) =>
-%          name + " has code: " + code
-%        case None =>
-%          "Unknown color: " + name
-%      }
-%    )
-%  }
-%}
-%\end{lstlisting}
+# seconds_EPOCH.sh
+
+while read line
+
+do
+    echo $(date +%s) ":" $line;
+done
+\end{verbatim}
+\par
+\par ---------------------------------------------------------------------------------------
+\par 
+\begin{verbatim}
+#!/bin/bash
+
+# RUN_TESTS.sh
+
+#!/bin/bash
+
+telnetClients=10
+rm ./*.out
+
+echo "INCHIDEM SERVERUL ..."
+kill -9 `pidof java` 
+echo "START SERVER .... in 3 secunde "
+java server &
+sleep 3s
+echo "OK" 
+
+for ((1; i<=$telnetClients; ++i )) ; 
+do
+    fileName="./file_$i.out"
+    telnet localhost 8080 | ./seconds_EPOCH.sh | tee -a $fileName &
+done
+\end{verbatim}
+
 \section{Server de test}
 
 \begin{lstlisting}
@@ -169,54 +183,11 @@ public class server {
 
 \end{lstlisting}
 
-%\chapter{Demonstrații matematice detaliate (dacă există)}
+
+\subsection{Rezultate}
+\par La verificarea diferențelor de timp la primirea datelor de către programele client cu comanda \textbf{ diff <fisier1> <fisier2> }. Testul este disponibil pentru verificare directorul ”Teste/ApendixA” în arhiva GIT a lucrării. Descărcarea se poate face cu comanda \textbf{git clone  https://github.com/gabrielchmod777/virtualWorldVRML-CLIENT.git}.
+
+\par Testul este efectuat cu succes.
 
 
-%\chapter{Pseudo-cod sau cod (dacă există)}
-
-% \begin{verbatim}
-%  /** Maps are easy to use in Scala. */
-% object Maps {
-%   val colors = Map("red" -> 0xFF0000,
-%                    "turquoise" -> 0x00FFFF,
-%                    "black" -> 0x000000,
-%                    "orange" -> 0xFF8040,
-%                    "brown" -> 0x804000)
-%   def main(args: Array[String]) {
-%     for (name <- args) println(
-%       colors.get(name) match {
-%         case Some(code) =>
-%           name + " has code: " + code
-%         case None =>
-%           "Unknown color: " + name
-%       }
-%     )
-%   }
-% }
-% \end{verbatim}
-
-
-%\begin{lstlisting}
-% /** Maps are easy to use in Scala. */
-%object Maps {
-%  val colors = Map("red" -> 0xFF0000,
-%                   "turquoise" -> 0x00FFFF,
-%                   "black" -> 0x000000,
-%                   "orange" -> 0xFF8040,
-%                   "brown" -> 0x804000)
-%  def main(args: Array[String]) {
-%    for (name <- args) println(
-%      colors.get(name) match {
-%        case Some(code) =>
-%          name + " has code: " + code
-%        case None =>
-%          "Unknown color: " + name
-%      }
-%    )
-%  }
-%}
-%\end{lstlisting}
-
-
-\chapter{Articole publicate}
 

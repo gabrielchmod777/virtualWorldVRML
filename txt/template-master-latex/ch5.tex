@@ -1,12 +1,34 @@
+\chapter{Design-ul aplicației server}
+\section{Introducere}
+\par \textbf{În acest capitol, în secțiunea 5.2, se stabilesc funcțiile serverului și se prezintă tehnologiile folosite la producerea aplicației server. În secțiunea 5.3 se explică mecanismul adoptat pentru atingerea unui scop important, ”scalabilitatea aplicației” . În secțiunea 5.4 se stabilește modul și formatul de reprezentare a datelor transmise între aplicația client și aplicația server. Secțiunea 5.5 este dedicată prezentării părții celei mai relevante din diagrama claselor. În secțiunea 5.6 sunt stabiliți parametrii testului privind scalabilitatea aplicației, codificarea testului și rezultatele fiind expuse în Anexa B. Testul modului de comunicare și a eficienței comunicării intre client și server s-a efectuat pentru capitolul anterior, rezutatele fiind publicate în Anexa A. } 
 
-\chapter{Rezultate teoretice și experimentale}
-\label{cap:rezultate}
+\section{Funcțiile aplicației server}
+\subsection{Funcții de bază ale serverului} 
+\begin{itemize}
+\item Asigurarea comunicării înspre una sau mai mule aplicații client.
+\item Asigurarea comunicării între clienți prin intermediul serverului.
+\item Stocarea datelor referitoare la activitățile întreprinse de către utilizatori într-o bază de date.
+\item Eliberarea datelor din baza de date, la cererea utilizatorului.
+\item Stocarea și publicarea informațiilor ce descriu geometria lumii virtuale.
+\item Stocarea și publicarea acțiunilor utilizatorilor ce au efect asupra limii virtuale.
+\end{itemize}
 
-Împreună cu partea de prezentare a proiectului, trebuie să reprezinte aproximativ 70\% din lucrare. 
+\par Serverul are scop demonstrativ. Funcția de securitate a datelor la transfer și la stocare este ignorată. De asemenea, implementarea funcțiilor se realizează in cel mai simplu mod posibil, pentru reducerea complexității și dimensiunii aplicației.
 
-Aici sunt prezentate metodele teoretice sau practice de validare/verificare a soluțiilor propuse în partea anterioară, scenariile de testare a corectitudinii funcționale, a utilizabilității, performanței etc.  
+\subsection{Aspecte tehnice}
+\par Sistemul de operare ales este GNU/Linux și limbajul de programare este Java.
+\par Pentru intermedierea comunicării între utilizatori sau pentru orice fel de notificări trimise utilizatorilor s-a ales un tipar cunoscut în domeniul informatic sub numele ”Observer Pattern”. Această metodă definește și utilizează o dependență 1 → n între obiecte astfel încât un obiect își modifică starea, toate obiectele dependente sunt notificate. Aplicat, în cazul serverului (1) , când un set de date este prelucrat, utilizatorii (n) sunt notificați.
 
-De asemenea, rezultatele testelor experimentale se pretează unor interpretări și comparații cu rezultatele altor metode similare. 
+\section{Mecanism pentru obținera \\ scalabilității aplicației server}
 
-
-
+\par Se va urmări o cît mai mare flexibilizare a sistemului, astfel încât dezvoltarea ulterioară sa fie cât mai facilă. Pentru realizarea acestui obiectiv se va urmări integrarea limbajului de scriptare JavaScript, în serverul sistemului. Se are în vedere folosirea mecanismului de extindere dinamică a funcționalității sistemului prin ”plug-in”-uri. 
+\par 
+\par 
+\begin{itemize}
+\item 
+\item 
+\item 
+\item
+\item
+\item
+\end{itemize}

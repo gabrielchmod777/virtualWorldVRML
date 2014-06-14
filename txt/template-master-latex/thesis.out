@@ -26,12 +26,18 @@
 \BOOKMARK [1][-]{section.4.3}{Decizie privind design-ul sistemului}{chapter.4}% 26
 \BOOKMARK [1][-]{section.4.4}{Test}{chapter.4}% 27
 \BOOKMARK [1][-]{section.4.5}{Argumentarea deciziei \040pe baza rezultatelor testarii}{chapter.4}% 28
-\BOOKMARK [0][-]{chapter.5}{Capitolul Rezultate teoretice si experimentale}{}% 29
-\BOOKMARK [0][-]{chapter.6}{Capitolul Conluzii}{}% 30
-\BOOKMARK [1][-]{section.6.1}{Continut}{chapter.6}% 31
-\BOOKMARK [1][-]{section.6.2}{Detalii tehnice}{chapter.6}% 32
-\BOOKMARK [2][-]{subsection.6.2.1}{Dimensiune}{section.6.2}% 33
-\BOOKMARK [0][-]{chapter*.4}{Bibliografie}{}% 34
-\BOOKMARK [1][-]{section.Alph0.1}{Script}{chapter*.4}% 35
-\BOOKMARK [1][-]{section.Alph0.2}{Server de test}{chapter*.4}% 36
-\BOOKMARK [0][-]{appendix.A}{Anexa Articole publicate}{}% 37
+\BOOKMARK [0][-]{chapter.5}{Capitolul Design-ul aplicatiei server}{}% 29
+\BOOKMARK [1][-]{section.5.1}{Introducere}{chapter.5}% 30
+\BOOKMARK [1][-]{section.5.2}{Functiile aplicatiei server}{chapter.5}% 31
+\BOOKMARK [2][-]{subsection.5.2.1}{Functii de baza ale serverului}{section.5.2}% 32
+\BOOKMARK [2][-]{subsection.5.2.2}{Aspecte tehnice}{section.5.2}% 33
+\BOOKMARK [1][-]{section.5.3}{Mecanism pentru obtinera \040scalabilitatii aplicatiei server}{chapter.5}% 34
+\BOOKMARK [0][-]{chapter.6}{Capitolul Conluzii}{}% 35
+\BOOKMARK [1][-]{section.6.1}{Continut}{chapter.6}% 36
+\BOOKMARK [1][-]{section.6.2}{Detalii tehnice}{chapter.6}% 37
+\BOOKMARK [2][-]{subsection.6.2.1}{Dimensiune}{section.6.2}% 38
+\BOOKMARK [0][-]{appendix.A}{Anexa Testarea fiabilitatii modelului CLIENT-SERVER}{}% 39
+\BOOKMARK [1][-]{section.A.1}{Script}{appendix.A}% 40
+\BOOKMARK [1][-]{section.A.2}{Server de test}{appendix.A}% 41
+\BOOKMARK [2][-]{subsection.A.2.1}{Rezultate}{section.A.2}% 42
+\BOOKMARK [0][-]{appendix*.4}{Bibliografie}{}% 43
