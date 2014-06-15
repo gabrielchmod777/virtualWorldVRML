@@ -30,14 +30,15 @@
 \BOOKMARK [1][-]{section.5.1}{Introducere}{chapter.5}% 30
 \BOOKMARK [1][-]{section.5.2}{Functiile aplicatiei server}{chapter.5}% 31
 \BOOKMARK [2][-]{subsection.5.2.1}{Functii de baza ale serverului}{section.5.2}% 32
-\BOOKMARK [2][-]{subsection.5.2.2}{Aspecte tehnice}{section.5.2}% 33
+\BOOKMARK [2][-]{subsection.5.2.2}{Aspecte tehnice si principii generale de design}{section.5.2}% 33
 \BOOKMARK [1][-]{section.5.3}{Mecanism pentru obtinera \040scalabilitatii aplicatiei server}{chapter.5}% 34
-\BOOKMARK [0][-]{chapter.6}{Capitolul Conluzii}{}% 35
-\BOOKMARK [1][-]{section.6.1}{Continut}{chapter.6}% 36
-\BOOKMARK [1][-]{section.6.2}{Detalii tehnice}{chapter.6}% 37
-\BOOKMARK [2][-]{subsection.6.2.1}{Dimensiune}{section.6.2}% 38
-\BOOKMARK [0][-]{appendix.A}{Anexa Testarea fiabilitatii modelului CLIENT-SERVER}{}% 39
-\BOOKMARK [1][-]{section.A.1}{Script}{appendix.A}% 40
-\BOOKMARK [1][-]{section.A.2}{Server de test}{appendix.A}% 41
-\BOOKMARK [2][-]{subsection.A.2.1}{Rezultate}{section.A.2}% 42
-\BOOKMARK [0][-]{appendix*.4}{Bibliografie}{}% 43
+\BOOKMARK [2][-]{subsection.5.3.1}{Interfata PLUG-IN-ului si descrierea \040programatica a mecanismului de integrare dinamica}{section.5.3}% 35
+\BOOKMARK [0][-]{chapter.6}{Capitolul Conluzii}{}% 36
+\BOOKMARK [1][-]{section.6.1}{Continut}{chapter.6}% 37
+\BOOKMARK [1][-]{section.6.2}{Detalii tehnice}{chapter.6}% 38
+\BOOKMARK [2][-]{subsection.6.2.1}{Dimensiune}{section.6.2}% 39
+\BOOKMARK [0][-]{appendix.A}{Anexa Testarea fiabilitatii modelului CLIENT-SERVER}{}% 40
+\BOOKMARK [1][-]{section.A.1}{Script}{appendix.A}% 41
+\BOOKMARK [1][-]{section.A.2}{Server de test}{appendix.A}% 42
+\BOOKMARK [2][-]{subsection.A.2.1}{Rezultate}{section.A.2}% 43
+\BOOKMARK [0][-]{appendix*.7}{Bibliografie}{}% 44
