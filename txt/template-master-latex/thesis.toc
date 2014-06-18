@@ -1,0 +1,48 @@
+\select@language {romanian}
+\contentsline {chapter}{List\u {a} de tabele}{iii}{chapter*.2}
+\contentsline {chapter}{List\u {a} de figuri}{iv}{chapter*.3}
+\contentsline {chapter}{Capitolul{} \numberline {1}Introducere}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Introducere}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Problema adresat\IeC {\u a}}{1}{section.1.2}
+\contentsline {section}{\numberline {1.3}Motiva\IeC {{\textcommabelow t}}ie}{1}{section.1.3}
+\contentsline {section}{\numberline {1.4}Descrierea studiului pe capitole}{2}{section.1.4}
+\contentsline {section}{\numberline {1.5}\IeC {\^I}nva\IeC {{\textcommabelow t}}area \IeC {{\textcommabelow s}}i mediile 3D. Concepte relevante.}{2}{section.1.5}
+\contentsline {chapter}{Capitolul{} \numberline {2}Obiectivele cercet\IeC {\u a}rii}{4}{chapter.2}
+\contentsline {section}{\numberline {2.1}Introducere}{4}{section.2.1}
+\contentsline {section}{\numberline {2.2}Obiective}{4}{section.2.2}
+\contentsline {section}{\numberline {2.3}Argumente}{5}{section.2.3}
+\contentsline {section}{\numberline {2.4}Mini studiu empiric privind raportul aplica\IeC {{\textcommabelow t}}iilor \\ web - aplica\IeC {{\textcommabelow t}}ii clasice cu destina\IeC {{\textcommabelow t}}ie educativ\IeC {\u a}}{6}{section.2.4}
+\contentsline {chapter}{Capitolul{} \numberline {3}Stadiul actual \IeC {\^\i }n domeniu}{8}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introducere}{8}{section.3.1}
+\contentsline {section}{\numberline {3.2}Abord\IeC {\u a}ri similare}{8}{section.3.2}
+\contentsline {section}{\numberline {3.3}Second Life}{8}{section.3.3}
+\contentsline {section}{\numberline {3.4}Uther Academy}{9}{section.3.4}
+\contentsline {section}{\numberline {3.5}iSocial}{10}{section.3.5}
+\contentsline {section}{\numberline {3.6}Tehnici/Tehnologii folosite}{11}{section.3.6}
+\contentsline {chapter}{Capitolul{} \numberline {4}Planul aplica\IeC {{\textcommabelow t}}iei}{12}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introducere}{12}{section.4.1}
+\contentsline {section}{\numberline {4.2}Func\IeC {{\textcommabelow t}}iile sistemului}{12}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Minimul de func\IeC {{\textcommabelow t}}ionalitate \\ de cercetat \IeC {{\textcommabelow s}}i implementat}{12}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Func\IeC {{\textcommabelow t}}ionalitate extins\IeC {\u a}}{13}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Decizie privind design-ul sistemului}{13}{section.4.3}
+\contentsline {section}{\numberline {4.4}Test}{14}{section.4.4}
+\contentsline {section}{\numberline {4.5}Argumentarea deciziei \\ pe baza rezultatelor test\IeC {\u a}rii}{15}{section.4.5}
+\contentsline {chapter}{Capitolul{} \numberline {5}Design-ul aplica\IeC {{\textcommabelow t}}iei server}{16}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introducere}{16}{section.5.1}
+\contentsline {section}{\numberline {5.2}Func\IeC {{\textcommabelow t}}iile aplica\IeC {{\textcommabelow t}}iei server}{16}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Func\IeC {{\textcommabelow t}}ii de baz\IeC {\u a} ale serverului}{16}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Aspecte tehnice \IeC {{\textcommabelow s}}i principii generale de design}{17}{subsection.5.2.2}
+\contentsline {subsubsection}{Limbaje de programare}{17}{section*.4}
+\contentsline {subsubsection}{Sistemul de operare}{17}{section*.5}
+\contentsline {subsubsection}{Principii generale de design}{17}{section*.6}
+\contentsline {section}{\numberline {5.3}Mecanism pentru ob\IeC {{\textcommabelow t}}inera \\ scalabilit\IeC {\u a}\IeC {{\textcommabelow t}}ii aplica\IeC {{\textcommabelow t}}iei server}{18}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Interfa\IeC {{\textcommabelow t}}a PLUG-IN-ului \IeC {{\textcommabelow s}}i descrierea \\ programatic\IeC {\u a} a mecanismului de integrare dinamic\IeC {\u a}}{18}{subsection.5.3.1}
+\contentsline {chapter}{Capitolul{} \numberline {6}Conluzii}{19}{chapter.6}
+\contentsline {section}{\numberline {6.1}Con\IeC {{\textcommabelow t}}inut}{19}{section.6.1}
+\contentsline {section}{\numberline {6.2}Detalii tehnice}{19}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Dimensiune}{19}{subsection.6.2.1}
+\contentsline {chapter}{Anexa{} \numberline {A}Testarea fiabilit\IeC {\u a}\IeC {{\textcommabelow t}}ii modelului CLIENT-SERVER}{20}{appendix.A}
+\contentsline {section}{\numberline {A.1}Script}{20}{section.A.1}
+\contentsline {section}{\numberline {A.2}Server de test}{21}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}Rezultate}{24}{subsection.A.2.1}
+\contentsline {chapter}{Bibliografie}{25}{appendix*.7}

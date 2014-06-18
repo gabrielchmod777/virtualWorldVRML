@@ -1,0 +1,260 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%% File: thesis.tex, version 0.1, May 2010
+%%%
+%%% =============================================
+%%% This file contains a template that can be used with the package
+%%% cs.sty and LaTeX2e to produce a thesis that meets the requirements
+%%% of the Computer Science Department from the Technical University of Cluj-Napoca
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,a4paper,twoside]{report}
+\usepackage{cs}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{amsmath,amsbsy}
+\usepackage{amssymb}
+\usepackage[matrix,arrow]{xy}
+\usepackage{ae,aecompl}
+\usepackage{amstext}
+\usepackage{graphics}
+\usepackage{ae,aecompl}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{color}
+\usepackage{listings}
+
+\usepackage{tabularx}
+
+\usepackage{hyperref}
+
+\usepackage[english,romanian]{babel}
+\usepackage{pgfpages}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+
+\lstset{%
+    language=C,
+    basicstyle=\ttfamily,
+    keywordstyle=\bfseries,
+    commentstyle=\itshape,
+    escapechar=\#,
+    emphstyle=\bfseries\color{red}
+ }
+
+
+\usepackage{ifpdf}
+
+\graphicspath{{figures/}}
+\ifpdf
+  \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  \DeclareGraphicsExtensions{.eps}
+\fi
+
+% \mastersthesis
+\diplomathesis
+% \leftchapter
+\centerchapter
+% \rightchapter
+\singlespace
+% \oneandhalfspace
+% \doublespace
+
+\renewcommand{\thesisauthor}{Joe Doe}    %% Your name.
+\renewcommand{\thesismonth}{Februarie/Iulie/Septembrie}     %% Your month of graduation.
+\renewcommand{\thesisyear}{2014}      %% Your year of graduation.
+\renewcommand{\thesistitle}{Titlul lucrării de disertație}
+\renewcommand{\thesissupervisor}{Nume și titulatură conducător}
+
+%\renewcommand{\thesisdedication}{P'arin'tilor mei}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+UNIVERSITATEA TEHNICĂ DIN CLUJ-NAPOCA\\
+FACULTATEA DE AUTOMATICĂ ȘI CALCULATOARE\\
+DEPARTAMENTUL CALCULATOARE\\
+
+\vspace{6cm}
+
+\Huge {\textbf{Titlul lucrării de disertație}\\}
+\vspace {1cm}
+\Large \textbf{Lucrare de disertație}\\
+
+\vspace{2cm}
+
+\large Absolvent \\ \textbf{Joe Doe}\\
+
+\vspace{\stretch{1}}
+Februarie/Iulie/Septembrie, 2014\\
+\end{center}
+\end{titlepage}
+
+\begin{titlepage}
+\phantom{1}
+\end{titlepage}
+
+
+\begin{titlepage}
+
+\begin{center}
+UNIVERSITATEA TEHNICĂ DIN CLUJ-NAPOCA\\
+FACULTATEA DE AUTOMATICĂ ȘI CALCULATOARE\\
+DEPARTAMENTUL CALCULATOARE\\
+
+\vspace{1cm}
+
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\begin{tabularx}{\textwidth}{lR}
+DECAN & DIRECTOR DEPARTAMENT \\
+Prof.Dr.Ing. Liviu MICLEA & Prof.Dr.Ing. Rodica POTOLEA\\
+\end{tabularx}
+
+\vspace {3cm}
+
+\Huge \textbf{Titlul lucrării de disertație}\\
+\vspace {1cm}
+\Large \textbf{Lucrare de disertație}\\
+\vspace{1cm}
+
+\end{center}
+
+% \vspace{1cm}
+
+\begin{flushleft}
+\begin{enumerate}
+ \item Absolvent: Joe Doe
+
+ \item Coordonator științific: titulatura Nume Coordonator
+
+ \item Conținutul lucrării: Pagina de prezentare, aprecierile coordonatorului, titlul capitolului 1, titlul capitolului 2, \dots, titlul capitolului n, bibliografie, anexe, CD.
+
+ \item Locul documentării: UTCN, Cluj-Napoca
+
+ \item Consultanți: John McKeny, others \dots
+
+ \item Data emiterii temei: \dotfill
+
+ \item Data predării:
+\end{enumerate}
+
+\end{flushleft}
+
+\vspace{0.5cm}
+
+\begin{center}
+
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\begin{tabularx}{\textwidth}{lR}
+Semnătură coordonator & Semnătură absolvent \\
+titulatura Nume Coordonator & Nume student absolvent \\
+\end{tabularx}
+
+\vspace{\stretch{1}}
+Februarie/Iulie/Septembrie, 2014\\
+
+\end{center}
+
+\end{titlepage}
+
+
+\begin{titlepage}
+\phantom{1}
+\end{titlepage}
+
+
+\begin{titlepage}
+
+\begin{center}
+UNIVERSITATEA TEHNICĂ DIN CLUJ-NAPOCA\\
+FACULTATEA DE AUTOMATICĂ ȘI CALCULATOARE\\
+DEPARTAMENTUL CALCULATOARE\\
+\end{center}
+
+\vspace{4cm}
+
+\begin{center}
+\textbf{Declarție pe proprie răspundere privind \\ autenticitatea lucrării de disertație}
+
+\end{center}
+
+\vspace{1cm}
+
+Subsemnatul \textit{PRENUME NUME}, legitimat cu \textit{CI/BI} seria \textit{XX} numărul \textit{NNNNNN} student masterand al Facultății de Automatică și Calculatoare, Universitatea Tehnică din Cluj-Napoca, declar că ideile, analiza, proiectarea, implementarea, rezultatele și concluziile cuprinse în această lucrare constituie efortul meu propriu, mai puțin acele elemente ce nu îmi aparțin, pe care le indic și recunosc ca atare.
+
+Declar de asemenea că, după știința mea, lucrarea în această formă este originală și nu a mai fost niciodată prezentată sau depusă în alte locuri sau alte instituții decât cele indicate în mod expres de mine.
+
+\vspace{3cm}
+
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\begin{tabularx}{\textwidth}{lR}
+Cluj-Napoca & Semnătură absolvent \\
+data 2013 &  Nume student absolvent  \\
+\end{tabularx}
+
+
+\end{titlepage}
+
+
+\begin{titlepage}
+\phantom{1}
+\end{titlepage}
+
+
+%\pagestyle{headings}
+
+\newenvironment{definition}[1][Definiție.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+% ABSTRACT
+\begin{abstract}
+ Descrierea sumară a lucrării, în câteva fraze.
+\end{abstract}
+
+\begin{titlepage}
+\phantom{1}
+\end{titlepage}
+
+
+
+%\thesistitle                    %% Generate the title page.
+%\authordeclarationpage                %% Generate the declaration page.
+
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+\tableofcontents
+\newpage
+
+\listoftables
+\listoffigures
+
+\clearpage
+\newpage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\include{ch1}
+\include{ch2}
+\include{ch3}
+\include{ch4}
+\include{ch5}
+\include{ch6}
+% \include{ch7}
+% \include{ch8}
+
+%\addcontentsline {toc}{chapter}{Bibliography}
+\bibliographystyle{IEEEtran}
+\bibliography{thesis}%same file name as for .bib
+
+\include{apendix}
+
+\end{document}

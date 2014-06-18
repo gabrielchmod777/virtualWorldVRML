@@ -1,0 +1,269 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%% File: thesis.tex, version 0.1, May 2010
+%%%
+%%% =============================================
+%%% This file contains a template that can be used with the package
+%%% cs.sty and LaTeX2e to produce a thesis that meets the requirements
+%%% of the Computer Science Department from the Technical University of Cluj-Napoca
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,a4paper,twoside]{report}
+\usepackage{cs}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{latexsym}
+\usepackage{amsmath,amsbsy}
+\usepackage{amssymb}
+\usepackage[matrix,arrow]{xy}
+\usepackage{ae,aecompl}
+\usepackage{amstext}
+\usepackage{graphics}
+\usepackage{ae,aecompl}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{color}
+\usepackage{listings}
+
+\usepackage{tabularx}
+
+\usepackage{hyperref}
+
+\usepackage[english,romanian]{babel}
+\usepackage{pgfpages}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+
+\lstset{%
+    language=C,
+    basicstyle=\ttfamily,
+    keywordstyle=\bfseries,
+    commentstyle=\itshape,
+    escapechar=\#,
+    emphstyle=\bfseries\color{red}
+ }
+
+
+\usepackage{ifpdf}
+
+\graphicspath{{figures/}}
+\ifpdf
+  \DeclareGraphicsExtensions{.pdf,.jpeg,.jpg,.png}
+\else
+  \DeclareGraphicsExtensions{.eps}
+\fi
+
+% \mastersthesis
+\diplomathesis
+% \leftchapter
+\centerchapter
+% \rightchapter
+\singlespace
+% \oneandhalfspace
+% \doublespace
+
+\renewcommand{\thesisauthor}{Mureșan Cătălin-Gabriel}% Your name.
+\renewcommand{\thesismonth}{Iulie}     %% Your month of graduation.
+\renewcommand{\thesisyear}{2014}      %% Your year of graduation.
+\renewcommand{\thesistitle}{Mediu de învățare 3D}
+\renewcommand{\thesissupervisor}{Conf.dr.ing. Mihai DAMIAN  , Prof.Dr.Ing. Liviu MICLEA}
+
+%\renewcommand{\thesisdedication}{P'arin'tilor mei}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+UNIVERSITATEA TEHNICĂ DIN CLUJ-NAPOCA\\
+FACULTATEA DE AUTOMATICĂ ȘI CALCULATOARE\\
+DEPARTAMENTUL AUTOMATICĂ\\
+
+\vspace{6cm}
+
+\Huge {\textbf{Mediu de învățare 3D}\\}
+\vspace {1cm}
+\Large \textbf{Lucrare de disertație}\\
+
+\vspace{2cm}
+
+\large Absolvent \\ \textbf{Mureșan Cătălin-Gabriel}\\
+
+\vspace{\stretch{1}}
+Iulie, 2014\\
+\end{center}
+\end{titlepage}
+
+\begin{titlepage}
+\phantom{1}
+\end{titlepage}
+
+
+\begin{titlepage}
+
+\begin{center}
+UNIVERSITATEA TEHNICĂ DIN CLUJ-NAPOCA\\
+FACULTATEA DE AUTOMATICĂ ȘI CALCULATOARE\\
+DEPARTAMENTUL CALCULATOARE\\
+
+\vspace{1cm}
+
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\begin{tabularx}{\textwidth}{lR}
+DECAN & DIRECTOR DEPARTAMENT \\
+Prof.Dr.Ing. Liviu MICLEA & Prof.Dr.Ing. Rodica POTOLEA\\
+\end{tabularx}
+
+\vspace {3cm}
+
+\Huge \textbf{Mediu de învățare 3D}\\
+\vspace {1cm}
+\Large \textbf{Lucrare de disertație}\\
+\vspace{1cm}
+
+\end{center}
+
+% \vspace{1cm}
+
+\begin{flushleft}
+\begin{enumerate}
+ \item Absolvent: Mureșan Cătălin-Gabriel
+
+ \item Coordonator științific (1): Conf.dr.ing. Mihai DAMIAN\\
+ \item Coordonator științific (2): Prof.Dr.Ing. Liviu MICLEA
+ \item Conținutul lucrării: Pagina de prezentare, aprecierile coordonatorului, titlul capitolului 1, titlul capitolului 2, \dots, titlul capitolului n, bibliografie, anexe, CD.
+
+ \item Locul documentării: UTCN, Cluj-Napoca
+
+ \item Consultanți: \dotfill
+
+ \item Data emiterii temei: \dotfill
+
+ \item Data predării: \dotfill
+\end{enumerate}
+
+\end{flushleft}
+
+\vspace{0.5cm}
+
+\begin{center}
+
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\begin{tabularx}{\textwidth}{lR}
+Semnătură coordonator & Semnătură absolvent \\
+Conf.dr.ing. Mihai DAMIAN\\Prof.Dr.Ing. Liviu MICLEA & Mureșan Cătălin-Gabriel \\
+\end{tabularx}
+
+\vspace{\stretch{1}}
+Iulie, 2014\\
+
+\end{center}
+
+\end{titlepage}
+
+
+\begin{titlepage}
+\phantom{1}
+\end{titlepage}
+
+
+\begin{titlepage}
+
+\begin{center}
+UNIVERSITATEA TEHNICĂ DIN CLUJ-NAPOCA\\
+FACULTATEA DE AUTOMATICĂ ȘI CALCULATOARE\\
+DEPARTAMENTUL CALCULATOARE\\
+\end{center}
+
+\vspace{4cm}
+
+\begin{center}
+\textbf{Declarție pe proprie răspundere privind \\ autenticitatea lucrării de disertație}
+
+\end{center}
+
+\vspace{1cm}
+
+Subsemnatul \textit{Mureșan Cătălin-Gabriel}, legitimat cu \textit{CI} seria \textit{KT} numărul \textit{771623}, CNP \textit{1820513013911}, autorul lucrării \textit{Mediu de învățare 3D} elaborată în vederea susținerii examenului de finalizare a studiilor de masterat la Facultatea de Automatică și Calculatoare, Departamentul Automatica, Specializarea \textit{Informatică Aplicată} din cadrul Universității Tehnice din Cluj-Napoca, sesiunea \textit{Iulie} a anului univeristar \textit{2013/2014}, declar pe proprie răspundere, că această lucrare este rezultatul propriei mele activități intelectuale, pe baza cercetărilor mele și pe baza informatiilor obținute din surse care au fost citate în textul lucrării și în bibliografie.
+
+Declar că această lucrare nu conține porțiuni plagiate, iar sursele bibliografice au fost folosite cu respectarea legislației române și a convențiilor internaționale privind drepturile de autor.
+
+Declar, de asemenea, că această lucrare  nu a mai fost prezentată în fața unei alte comisii de examen de licență sau disertație.
+
+În cazul constatării ulterioare a unor declarații false, voi suporta sancțiunile administrative, respectiv, \textit{anularea examenului de disertație}.
+
+
+\vspace{3cm}
+
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\begin{tabularx}{\textwidth}{lR}
+Cluj-Napoca & PRENUME NUME\\
+data  &    Semnătură absolvent \\
+\end{tabularx}
+
+
+\end{titlepage}
+
+
+\begin{titlepage}
+\phantom{1}
+\end{titlepage}
+
+
+%\pagestyle{headings}
+
+\newenvironment{definition}[1][Definiție.]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+% ABSTRACT
+\begin{abstract}
+\par Progresul rapid în domeniul I.T.\& C și scăderea prețurilor componentelor hardware performante a făcut fezabilă aplicarea metodei de învațare in medii virtuale 3D în oricare treaptă a sistemului educațional.
+Într-un mediu virtual tridimensional, obiectele studiate sunt reprezentate prin coordonate ce descriu forma și pozitionarea lor în spațiu, apropiind astfel modul de reprezentare de cel al obiectelor din lumea reală. Utilizatorii se pot poziționa în orice punct al spațiului virtual, fapt care le va permite să studieze obiectele din orice unghi, lucru dificil de realizat cu programele informatice cu redare 2D. De asemenea o parte dintre obiectele virtuale pot fi programate să răspundă la acțiunea utilizatorului, conducând la sporirea gradului de implicare a utilizatorului, cu rezultate benefice în procesul de învățare. \\
+\par Foarte importantă este siguranța și costul redus. Utilizatorii au șansa de a efectua activități care ar fi altfel foarte costisitore pentru instituțiile implicate în procesul de educare, sau în medii cu grad mare de risc. În mediile de învățare 3D se pot repeta în siguranță proceduri care nu sunt tolerante la erori, precum operațiile chirurgicale sau controlul proceselor într-o centrala nucleara. \\
+\par În această lucrare sunt sunt identificate elementele necesare pentru implementarea unui program informatic reprezentând un asemenea mediu de învațare 3D, care să ruleze în sistemul de operare Linux, și se va face descriere a arhitecturii aplicației. Această lucrare va conține și codul sursă cu comentarii pentru a putea fi folosită ca exemplu pentru programtorii și designerii de medii virtuale aplicate în educație.
+\end{abstract}
+
+\begin{titlepage}
+\phantom{1}
+\end{titlepage}
+
+
+
+%\thesistitle                    %% Generate the title page.
+%\authordeclarationpage                %% Generate the declaration page.
+
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+\tableofcontents
+\newpage
+
+\listoftables
+\listoffigures
+
+\clearpage
+\newpage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\include{ch1}
+\include{ch2}
+\include{ch3}
+\include{ch4}
+\include{ch5}
+\include{ch6}
+% \include{ch7}
+% \include{ch8}
+
+\include{apendix}
+
+%\addcontentsline {toc}{chapter}{Bibliography}
+\bibliographystyle{IEEEtran}
+\bibliography{thesis}%same file name as for .bib
+
+\end{document}
