@@ -46,4 +46,42 @@
 \rule{150mm}{.1pt}
 \end{center}
 
-\subsection{Interfața PLUG-IN-ului și descrierea \\ programatică a mecanismului de integrare dinamică}
+\subsection{Interfața PLUG-IN-ului}
+\par ”Plug-in”-urile aplicației server implementează următoarea interfață:
+\begin{verbatim}
+public interface CommandTypeDependentInterpreter {
+      
+      public static final int XML_FORMAT = 1;
+      public static final int PALIN_TEXT_FORMAT = 2;
+      public void prepareResponse(ServerCommand execCmd, int format);
+      String getInterpretedResult();
+
+}
+\end{verbatim}
+
+Un plug-in extinde funcționalitatea aplicației server prin introducerea unei noi modalități prin care serverul răspunde la o cerere din partea aplicației client. În prima etapă, plug-in-ul preia comanda expediată de aplicația client prin intermediul metodei: \begin{center} \textit{-- prepareResponse(ServerCommand execCmd, int format) --}
+\end{center} În a doua etapă, rezultatul interpretării și procesării datelor de către plug-in se va returna în vederea expedierii către utilizator.
+
+\subsection{Tipuri de plug-in-uri dezvoltate pentru serverul mediului de învățare 3D}
+\par Două \textbf{tipuri de plug-in-uri} au fost dezvoltate pentru aplicația server. Primul tip de plug-in este \textbf{”clasic”}, implementat folosind 100\% limbajul Java. Al doilea tip de plug-in este \textbf{”hibrid”}. La inplementarea acestuia sunt utilizate două libmaje de programare: \textbf{Java și JavaScript}. Aces tip de plug-in este o noutate.
+
+\par În principiu, un plug-in hibrid are rolul de a executa la nivelul serverului instrucțiuni codificate în limbaj JavaScript în numele aplicației client. Rezultatele sunt încapsulate în format XML și sunt returnate programului client pentru interpretere. Executarea comenzilor primite de la aplicația client este precedată de următorii doi pași pregătitori: inițializarea unui motor de prelucrare JavaScript ( clasa ScriptEngineManager ) și concatenera la comanda utilizatorului a unei biblioteci care conține obiecte JavaScript utile.
+
+\par \textbf{Funcționarea plug-in-ului hibrid }
+
+
+\par Avantajele plug-in-urilor hibride:
+\begin{itemize}
+\item 
+\item
+\item
+\end{itemize}
+
+\par Dezavantajele plug-in-urilor hibride:
+\begin{itemize}
+\item 
+\item
+\end{itemize}
+
+
+\subsection{Descrierea mecanismului de încărcare a plug-in-urilor}

@@ -36,13 +36,15 @@
 \contentsline {subsubsection}{Sistemul de operare}{17}{section*.5}
 \contentsline {subsubsection}{Principii generale de design}{17}{section*.6}
 \contentsline {section}{\numberline {5.3}Mecanism pentru ob\IeC {{\textcommabelow t}}inera \\ scalabilit\IeC {\u a}\IeC {{\textcommabelow t}}ii aplica\IeC {{\textcommabelow t}}iei server}{18}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Interfa\IeC {{\textcommabelow t}}a PLUG-IN-ului \IeC {{\textcommabelow s}}i descrierea \\ programatic\IeC {\u a} a mecanismului de integrare dinamic\IeC {\u a}}{18}{subsection.5.3.1}
-\contentsline {chapter}{Capitolul{} \numberline {6}Conluzii}{19}{chapter.6}
-\contentsline {section}{\numberline {6.1}Con\IeC {{\textcommabelow t}}inut}{19}{section.6.1}
-\contentsline {section}{\numberline {6.2}Detalii tehnice}{19}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Dimensiune}{19}{subsection.6.2.1}
-\contentsline {chapter}{Anexa{} \numberline {A}Testarea fiabilit\IeC {\u a}\IeC {{\textcommabelow t}}ii modelului CLIENT-SERVER}{20}{appendix.A}
-\contentsline {section}{\numberline {A.1}Script}{20}{section.A.1}
-\contentsline {section}{\numberline {A.2}Server de test}{21}{section.A.2}
-\contentsline {subsection}{\numberline {A.2.1}Rezultate}{24}{subsection.A.2.1}
-\contentsline {chapter}{Bibliografie}{25}{appendix*.7}
+\contentsline {subsection}{\numberline {5.3.1}Interfa\IeC {{\textcommabelow t}}a PLUG-IN-ului}{18}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Tipuri de plug-in-uri dezvoltate pentru serverul mediului de \IeC {\^\i }nv\IeC {\u a}\IeC {{\textcommabelow t}}are 3D}{19}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Descrierea mecanismului de \IeC {\^\i }nc\IeC {\u a}rcare a plug-in-urilor}{19}{subsection.5.3.3}
+\contentsline {chapter}{Capitolul{} \numberline {6}Conluzii}{20}{chapter.6}
+\contentsline {section}{\numberline {6.1}Con\IeC {{\textcommabelow t}}inut}{20}{section.6.1}
+\contentsline {section}{\numberline {6.2}Detalii tehnice}{20}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Dimensiune}{20}{subsection.6.2.1}
+\contentsline {chapter}{Anexa{} \numberline {A}Testarea fiabilit\IeC {\u a}\IeC {{\textcommabelow t}}ii modelului CLIENT-SERVER}{21}{appendix.A}
+\contentsline {section}{\numberline {A.1}Script}{21}{section.A.1}
+\contentsline {section}{\numberline {A.2}Server de test}{22}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}Rezultate}{25}{subsection.A.2.1}
+\contentsline {chapter}{Bibliografie}{26}{appendix*.7}
