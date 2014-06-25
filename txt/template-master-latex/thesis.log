@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.4.28)  20 JUN 2014 10:07
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.4.28)  25 JUN 2014 12:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -717,7 +717,11 @@ LaTeX Warning: Label `fig:imag4' multiply defined.
 
 LaTeX Warning: Label `fig:imag5' multiply defined.
 
-) (./ch5.aux) (./ch6.aux) (./apendix.aux))
+) (./ch5.aux
+
+LaTeX Warning: Label `fig:imag6' multiply defined.
+
+) (./ch6.aux) (./apendix.aux))
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
@@ -934,6 +938,13 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 [2] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2012/04/20 UCS: Unicode data U+2000..U+20FF
 )
+
+LaTeX Warning: Citation `C01' on page 3 undefined on input line 26.
+
+
+LaTeX Warning: Citation `C01' on page 3 undefined on input line 26.
+
+
 Overfull \hbox (12.79858pt too wide) in paragraph at lines 27--28
 \T1/aer/m/n/12 un  experien[]a cog-ni-tiv , emo[]ional  []i influen[]a de me-di
 u, pen-tru acu-mu-la-rea, îmbunata[]irea
@@ -990,14 +1001,14 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\u' on input line 24.
 
-<figures/minist-web.png, id=353, 157.388pt x 62.634pt>
+<figures/minist-web.png, id=376, 157.388pt x 62.634pt>
 File: figures/minist-web.png Graphic file (type png)
 
 <use figures/minist-web.png>
 Package pdftex.def Info: figures/minist-web.png used on input line 35.
 (pdftex.def)             Requested size: 157.3876pt x 62.63383pt.
 
-<figures/minist-cpp.png, id=355, 155.782pt x 65.043pt>
+<figures/minist-cpp.png, id=378, 155.782pt x 65.043pt>
 File: figures/minist-cpp.png Graphic file (type png)
 
 <use figures/minist-cpp.png>
@@ -1024,7 +1035,7 @@ isocial.missouri.edu/iSocial/).
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\u' on input line 8.
 
-<figures/SL.png, id=368, 251.94125pt x 201.75375pt>
+<figures/SL.png, id=391, 251.94125pt x 201.75375pt>
 File: figures/SL.png Graphic file (type png)
  <use figures/SL.png>
 Package pdftex.def Info: figures/SL.png used on input line 18.
@@ -1041,13 +1052,13 @@ are []i in-di-cii cu su-biect educa[]ional.
  []
 
 [9 <./figures/SL.png (PNG copy)>]
-<figures/UA.png, id=377, 128.48pt x 78.694pt>
+<figures/UA.png, id=400, 128.48pt x 78.694pt>
 File: figures/UA.png Graphic file (type png)
  <use figures/UA.png>
 Package pdftex.def Info: figures/UA.png used on input line 47.
 (pdftex.def)             Requested size: 128.47968pt x 78.69379pt.
 
-<figures/IS.png, id=378, 144.54pt x 88.33pt>
+<figures/IS.png, id=401, 144.54pt x 88.33pt>
 File: figures/IS.png Graphic file (type png)
  <use figures/IS.png>
 Package pdftex.def Info: figures/IS.png used on input line 61.
@@ -1109,13 +1120,13 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\u' on input line 20.
 
-[13] <figures/p2p_2.png, id=402, 82.709pt x 105.193pt>
+[13] <figures/p2p_2.png, id=425, 82.709pt x 105.193pt>
 File: figures/p2p_2.png Graphic file (type png)
  <use figures/p2p_2.png>
 Package pdftex.def Info: figures/p2p_2.png used on input line 38.
 (pdftex.def)             Requested size: 82.70879pt x 105.19272pt.
 
-<figures/serverbased_2.png, id=403, 82.709pt x 111.617pt>
+<figures/serverbased_2.png, id=426, 82.709pt x 111.617pt>
 File: figures/serverbased_2.png Graphic file (type png)
 
 <use figures/serverbased_2.png>
@@ -1191,7 +1202,7 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 Underfull \vbox (badness 3291) has occurred while \output is active []
 
  [17]
-<figures/PLA.png, id=426, 73.876pt x 110.011pt>
+<figures/PLA.png, id=450, 73.876pt x 110.011pt>
 File: figures/PLA.png Graphic file (type png)
  <use figures/PLA.png>
 Package pdftex.def Info: figures/PLA.png used on input line 40.
@@ -1220,10 +1231,64 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\textcommabelow' on input line 65.
 
 
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\u' on input line 87.
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
 
-) [19]
+ []
+
+<figures/plug-in-js.png, id=457, 718.685pt x 450.68375pt>
+File: figures/plug-in-js.png Graphic file (type png)
+
+<use figures/plug-in-js.png>
+Package pdftex.def Info: figures/plug-in-js.png used on input line 72.
+(pdftex.def)             Requested size: 359.34161pt x 225.34131pt.
+ [19 <./figures/plug-in-js.png>]
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\u' on input line 95.
+
+
+Overfull \hbox (3.59651pt too wide) in paragraph at lines 128--128
+[]\T1/aett/m/n/12 <!-- num rul paramerilor .. si expersia (reg-exp) pt diverse 
+prelucrari -->[] 
+ []
+
+
+Overfull \hbox (157.79535pt too wide) in paragraph at lines 128--128
+[]\T1/aett/m/n/12 <!-- executorul .. este plug-in-ul in aplica[]ia server deleg
+at pentru procesarea datelor peimite -->[] 
+ []
+
+[20]
+Overfull \hbox (3.59651pt too wide) in paragraph at lines 152--152
+[] \T1/aett/m/n/12 return ((CommandTypeDependentInterpreter)executor).getInterp
+retedResult();[] 
+ []
+
+[21]
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\u' on input line 157.
+
+<figures/books.png, id=472, 316.18124pt x 310.15875pt>
+File: figures/books.png Graphic file (type png)
+ <use figures/books.png>
+Package pdftex.def Info: figures/books.png used on input line 188.
+(pdftex.def)             Requested size: 189.7102pt x 186.09668pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\textcommabelow' on input line 193.
+
+[22] [23 <./figures/books.png>]
+<figures/UML-cmd.png, id=481, 606.265pt x 558.085pt>
+File: figures/UML-cmd.png Graphic file (type png)
+ <use figures/UML-cmd.png>
+Package pdftex.def Info: figures/UML-cmd.png used on input line 235.
+(pdftex.def)             Requested size: 212.19592pt x 195.33267pt.
+) [24 <./figures/UML-cmd.png>]
 \openout2 = `ch6.aux'.
 
  (./ch6.tex
@@ -1232,7 +1297,7 @@ Capitolul 6.
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\textcommabelow' on input line 4.
 
-) [20
+) [25
 
 
 
@@ -1249,7 +1314,7 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\textcommabelow' on input line 2.
 
-[21
+[26
 
 
 
@@ -1278,10 +1343,10 @@ Overfull \hbox (22.57288pt too wide) in paragraph at lines 74--75
 [][][][][][][][][][][][][][][][][][] 
  []
 
-[22]
+[27]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [23]
+ [28]
 Overfull \hbox (22.57288pt too wide) in paragraph at lines 119--120
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1289,26 +1354,27 @@ Overfull \hbox (22.57288pt too wide) in paragraph at lines 119--120
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [24]
+ [29]
 Overfull \hbox (37.3905pt too wide) in paragraph at lines 169--170
 [][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) [25] (./thesis.bbl) [26
-
-
-]
+) [30]
+No file thesis.bbl.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 269.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 269.
- (./thesis.aux (./ch1.aux) (./ch2.aux) (./ch3.aux)
-(./ch4.aux) (./ch5.aux) (./ch6.aux) (./apendix.aux))
+(./thesis.aux (./ch1.aux) (./ch2.aux) (./ch3.aux) (./ch4.aux) (./ch5.aux)
+(./ch6.aux) (./apendix.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 269.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 269.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: D3C65B121E6BC48C2DDE7A7ADBF7CE85;3308.
+(rerunfilecheck)             Checksum: 2D2B7F135BDFE6554F94E34459DCB1D4;3731.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1316,11 +1382,11 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 269.
  ) 
 Here is how much of TeX's memory you used:
- 18993 strings out of 493485
- 289526 string characters out of 3143526
+ 19013 strings out of 493485
+ 289870 string characters out of 3143526
  420312 words of memory out of 3000000
- 21553 multiletter control sequences out of 15000+200000
- 64309 words of font info for 152 fonts, out of 3000000 for 9000
+ 21561 multiletter control sequences out of 15000+200000
+ 64799 words of font info for 154 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  49i,15n,53p,1313b,1879s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
@@ -1338,11 +1404,12 @@ l8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (38 pages, 478171 bytes).
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on thesis.pdf (42 pages, 550755 bytes).
 PDF statistics:
- 720 PDF objects out of 1000 (max. 8388607)
- 641 compressed objects within 7 object streams
- 239 named destinations out of 1000 (max. 500000)
- 421 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 767 PDF objects out of 1000 (max. 8388607)
+ 680 compressed objects within 7 object streams
+ 248 named destinations out of 1000 (max. 500000)
+ 468 words of extra memory for PDF output out of 10000 (max. 10000000)
 

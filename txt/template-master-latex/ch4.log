@@ -1,11 +1,21 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.7)  14 JUN 2014 21:22
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.4.28)  25 JUN 2014 08:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **ch4.tex
 (./ch4.tex
 LaTeX2e <2011/06/27>
-Babel <3.9f> and hyphenation patterns for 78 languages loaded.
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, et
+hiopic, farsi, arabic, pinyin, croatian, bulgarian, ukrainian, russian, slovak,
+ czech, danish, dutch, usenglishmax, ukenglish, finnish, french, basque, ngerma
+n, german, swissgerman, ngerman-x-2012-05-30, german-x-2012-05-30, monogreek, g
+reek, ibycus, ancientgreek, hungarian, bengali, tamil, hindi, telugu, gujarati,
+ sanskrit, malayalam, kannada, assamese, marathi, oriya, panjabi, italian, lati
+n, latvian, lithuanian, mongolian, mongolianlmc, nynorsk, bokmal, indonesian, e
+speranto, coptic, welsh, irish, interlingua, serbian, serbianc, slovenian, friu
+lan, romansh, estonian, romanian, armenian, uppersorbian, turkish, afrikaans, i
+celandic, kurmanji, polish, portuguese, galician, catalan, spanish, swedish, th
+ai, loaded.
 ! Undefined control sequence.
 l.1 \chapter
             {Planul aplicației}
@@ -6145,11 +6155,11 @@ Missing character: There is no . in font nullfont!
 
  
 Here is how much of TeX's memory you used:
- 20 strings out of 493307
- 264 string characters out of 6139906
- 57685 words of memory out of 5000000
- 3572 multiletter control sequences out of 15000+600000
- 4242 words of font info for 16 fonts, out of 8000000 for 9000
+ 20 strings out of 493485
+ 264 string characters out of 3143526
+ 53818 words of memory out of 3000000
+ 3423 multiletter control sequences out of 15000+200000
+ 4242 words of font info for 16 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 19i,4n,19p,715b,111s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 19i,4n,19p,715b,111s stack positions out of 5000i,500n,10000p,200000b,50000s
 !  ==> Fatal error occurred, no output PDF file produced!

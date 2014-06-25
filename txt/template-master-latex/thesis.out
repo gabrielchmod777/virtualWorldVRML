@@ -35,12 +35,16 @@
 \BOOKMARK [2][-]{subsection.5.3.1}{Interfata PLUG-IN-ului}{section.5.3}% 35
 \BOOKMARK [2][-]{subsection.5.3.2}{Tipuri de plug-in-uri dezvoltate pentru serverul mediului de \356nvatare 3D}{section.5.3}% 36
 \BOOKMARK [2][-]{subsection.5.3.3}{Descrierea mecanismului de \356ncarcare a plug-in-urilor}{section.5.3}% 37
-\BOOKMARK [0][-]{chapter.6}{Capitolul Conluzii}{}% 38
-\BOOKMARK [1][-]{section.6.1}{Continut}{chapter.6}% 39
-\BOOKMARK [1][-]{section.6.2}{Detalii tehnice}{chapter.6}% 40
-\BOOKMARK [2][-]{subsection.6.2.1}{Dimensiune}{section.6.2}% 41
-\BOOKMARK [0][-]{appendix.A}{Anexa Testarea fiabilitatii modelului CLIENT-SERVER}{}% 42
-\BOOKMARK [1][-]{section.A.1}{Script}{appendix.A}% 43
-\BOOKMARK [1][-]{section.A.2}{Server de test}{appendix.A}% 44
-\BOOKMARK [2][-]{subsection.A.2.1}{Rezultate}{section.A.2}% 45
-\BOOKMARK [0][-]{appendix*.7}{Bibliografie}{}% 46
+\BOOKMARK [1][-]{section.5.4}{Modul de reprezentare a datelor}{chapter.5}% 38
+\BOOKMARK [2][-]{subsection.5.4.1}{Scurta introducere \356n XML \(CITE ...\)}{section.5.4}% 39
+\BOOKMARK [2][-]{subsection.5.4.2}{Structura XML a datelor transmise dinspre server spre aplicatia client}{section.5.4}% 40
+\BOOKMARK [1][-]{section.5.5}{Schema serverului. Diagrama claselor }{chapter.5}% 41
+\BOOKMARK [2][-]{subsection.5.5.1}{Modelarea comenzilor primite de server}{section.5.5}% 42
+\BOOKMARK [0][-]{chapter.6}{Capitolul Conluzii}{}% 43
+\BOOKMARK [1][-]{section.6.1}{Continut}{chapter.6}% 44
+\BOOKMARK [1][-]{section.6.2}{Detalii tehnice}{chapter.6}% 45
+\BOOKMARK [2][-]{subsection.6.2.1}{Dimensiune}{section.6.2}% 46
+\BOOKMARK [0][-]{appendix.A}{Anexa Testarea fiabilitatii modelului CLIENT-SERVER}{}% 47
+\BOOKMARK [1][-]{section.A.1}{Script}{appendix.A}% 48
+\BOOKMARK [1][-]{section.A.2}{Server de test}{appendix.A}% 49
+\BOOKMARK [2][-]{subsection.A.2.1}{Rezultate}{section.A.2}% 50

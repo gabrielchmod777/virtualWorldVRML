@@ -65,23 +65,174 @@ Un plug-in extinde funcționalitatea aplicației server prin introducerea unei n
 \subsection{Tipuri de plug-in-uri dezvoltate pentru serverul mediului de învățare 3D}
 \par Două \textbf{tipuri de plug-in-uri} au fost dezvoltate pentru aplicația server. Primul tip de plug-in este \textbf{”clasic”}, implementat folosind 100\% limbajul Java. Al doilea tip de plug-in este \textbf{”hibrid”}. La inplementarea acestuia sunt utilizate două libmaje de programare: \textbf{Java și JavaScript}. Aces tip de plug-in este o noutate.
 
-\par În principiu, un plug-in hibrid are rolul de a executa la nivelul serverului instrucțiuni codificate în limbaj JavaScript în numele aplicației client. Rezultatele sunt încapsulate în format XML și sunt returnate programului client pentru interpretere. Executarea comenzilor primite de la aplicația client este precedată de următorii doi pași pregătitori: inițializarea unui motor de prelucrare JavaScript ( clasa ScriptEngineManager ) și concatenera la comanda utilizatorului a unei biblioteci care conține obiecte JavaScript utile.
+\par În principiu, un plug-in hibrid are rolul de a executa la nivelul serverului instrucțiuni codificate în limbaj JavaScript în numele aplicației client. Rezultatele sunt încapsulate în format XML și sunt returnate programului client pentru interpretere. Executarea comenzilor primite de la aplicația client este precedată de următorii doi pași pregătitori: inițializarea unui motor de prelucrare JavaScript ( clasa ScriptEngineManager ) și concatenera la comanda utilizatorului a unei biblioteci care conține obiecte JavaScript utile.\\
 
-\par \textbf{Funcționarea plug-in-ului hibrid }
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{plug-in-js}
+    \caption{Schema Plug-in Hibrid}
+    \label{fig:imag6}
+\end{figure}
 
+\pagebreak
 
 \par Avantajele plug-in-urilor hibride:
 \begin{itemize}
-\item 
-\item
-\item
+\item Se pot descrie și implementa mult mai ușor și mai rapid.
+\item Bibloteca de obiecte JavaScript se concatenează la fiecare comandă trimisă de utilizator. Astfel, orice utilizator poate beneficia de obiectele conținute de această bibliotecă de obiecte.
+\item Codul se execută la nivelul seerverului, cu efect în creșterea vitezei de lucru a programului client.
 \end{itemize}
 
 \par Dezavantajele plug-in-urilor hibride:
 \begin{itemize}
-\item 
-\item
+\item Comenzile JavaScript invalide pot destabiliza aplicația server.
+\item Codul se execută la nivelul serverului, cu efect în descreșterea vitezei de lucru a acestuia.
+\item Folosirea limbajului JavaScript introduce diverse riscuri de securitate a datelor.
 \end{itemize}
 
 
+
 \subsection{Descrierea mecanismului de încărcare a plug-in-urilor}
+
+\par Serverul va ține evidența plugin-urilor disponibile într-un fișier de configurare, organizat în format XML.
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- numele comenzii trimise de client -->
+<!-- tipul comenzii (CLASIFICARE) -->
+<!-- text ajutător (documentatie) -->
+<!-- numărul paramerilor .. si expersia (reg-exp) pt diverse prelucrari -->
+<!-- plug-in client delegat sa execute acțiuni în aplicația client -->
+<!-- sursa de unde poate fi descărcat ălug-in-ul client -->
+<!-- executorul .. este plug-in-ul in aplicația server delegat pentru procesarea datelor peimite -->
+<!-- .. de la utilizator (CLIENT) -->
+<commands>
+	.....
+	<command>
+		<name>@add</name>
+		<type>math</type>
+		<help>addition of 1..n numbers</help>
+		<param_count>-1</param_count>
+		<param_regexp>n</param_regexp>
+		<client_plugin>
+		   libL3dConsole.so
+		</client_plugin>
+		<client_plugin_source>
+		   http://aSite.com/plugins/libL3dConsole.so.1.0
+		</client_plugin_source>
+		<executor>
+		   ro.utcluj.learning3d.server.TEST_COMMAND_Math_Adition
+		</executor>
+	</command>
+	....
+</commands>
+\end{verbatim} 
+
+\par Încărcarea dinamică a claselor este un mecanism foarte important pus la dispoziție programatorilor Java. Modul în care clasele sunt efectiv încărcate dinamic este farte puțin cunoscut deoarece procesul este ascuns de către dezvoltatorii limbajului de programare. Mașina virtuală Java (JVM) folosește mai multe rutine de încărcare dinamică a claselor, rutine organizate intr-o ierarhie complicată.
+\par În principiu, pentru a încărca dinamic o clasă Java, programatorul trebuie să obțină o referință către un obiect \textbf{ClassLoader}. Un obiect ”ClassLoader” poate încărca dinamic o clasă Java prin intermediul funcției \textbf{loadClass(..)} ce primește ca parmetru numele clasei de încărcat și returnează o instanță a clasei încarcate în caz de success sau NULL în caz contrar.
+\par Porțiunea de cod folosită pentru a încărca dinamic comenzi pentru serverul mediului de învățare 3D este un exemplu mai potrivit pentru explicarea mecanismului de încărcare a plug-in-urilor în Java.
+
+\begin{verbatim}
+
+...
+
+try {
+
+  ClassLoader myClassLoader = L3DServerManager.class.getClassLoader();
+  String classNameToBeLoaded = execCmd.executor;
+  Class<?> myClass = myClassLoader.loadClass(classNameToBeLoaded);
+  Object executor = myClass.newInstance();
+ ((CommandTypeDependentInterpreter)executor).prepareResponse 
+ 	(execCmd, CommandTypeDependentInterpreter.XML_FORMAT);
+ 
+ return ((CommandTypeDependentInterpreter)executor).getInterpretedResult();
+ 
+ } catch(..)
+ 
+ ..
+\end{verbatim}
+
+\section{Modul de reprezentare a datelor}
+\par În prezent, pentru transmiterea datelor între server și aplicații client se pot folosi mai multe scheme de structurare a informațiilor: informații nestructurate (compuse din șiruri de simboluri și caractere fără o structură impusă) sau informații structurate folosind una dintre schemele cele mai des utilizate precum XML (extended markup language) sau JSON (JavaScript Object Notation).
+\par Informațiile transmise între aplicația server și aplicația client a meduilui de învățare 3D sunt structurate și transmise în format XML.
+\subsection{Scurtă introducere în XML (CITE ...)} 
+%(CITE ... http://research.nii.ac.jp/~f-ishikawa/work/files/SOC12-03-XML.pdf)
+\textbf{XML : Limbaj Extensibil de Marcare}
+\begin{itemize}
+\item XML este un limbaj de marcare deoarece reprezintă un set de adnotări folosit pentru descrierea unor structuri de date de tip text.
+\item XML este extensibil deoarece adnotările pot fi definite de către utilizator.
+\item Nu depinde de nici un limbaj de programare.
+\item Conține blocuri asemănatoare cu elementele HTML.
+\item Elementele XML se auto documentează prin utilizarea numelor sugestive pentru transmiterea datelor.
+\end{itemize}
+\par \textbf{ Exemplu: }
+\begin{verbatim}
+<books>
+
+<book category="computer">
+  <author> D Knuth </author>
+  <title> The art of computer programming. VOL1 </title>
+  <edition>1</edition>
+</book>
+
+<book category='Computer Programming'>
+  <author> D Knuth </author>
+  <title> The art of computer programming. VOL2 </title>
+  <edition>1<edition/>
+</book>
+
+</books>
+\end{verbatim}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.6]{books}
+    \caption{Structură arborescentă de date descrisă cu XML}
+    \label{fig:imag6}
+\end{figure}
+
+\subsection{Structura XML a datelor transmise dinspre server spre aplicația client}
+\par Atât aplicația server cât și aplicația client au cea mai mare parte din funcționalitate implementată in extensii (sau plug-in-uri). Din acest motiv, doar o porțiune a mesajelor transmise intre client și server este standardizată. Restul mesajului trebuie să fie structurat conform nevoilor fiecărei extensii de funcționalitate în parte.
+\par Mesajele transmise cătra clientul mediului de învățare 3D se clasifică in două categorii:
+\begin{itemize}
+\item Mesaje de eroare (în cazul în care serverul nu reușește să execute cererea clientului).
+\item Răspunsuri ale serverului la cererea aplicației client.
+\end{itemize}
+\textbf{Structura XML a mesajelor de eroare transmise către aplicația client}
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>"
+<response>
+  <type></type>
+  <exception>
+     <message> .... </message>
+  </exception>
+</response>
+\end{verbatim}
+\textbf{Structura XML a răspusurilor transmise către aplicația client}
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <type> TIPUL COMENZII</type>
+  <name> NUMELE COMENZII </name>  
+  <client_plugin> 
+     ------  NUMELE PLUG-INULUI CLIENT -----
+  </client_plugin>
+  <client_plugin_source> 
+     ------ SURSA ONLINE PT DESCĂRCAREA PLUG-IN-ULUI CLIENT -----
+  </client_plugin_source>
+  <raw>
+     ------  FRAGMENT XML CONFORM CERINȚELE FIECĂRUI PLUG-IN ------
+  </raw>
+</response>"
+\end{verbatim}
+
+\section{Schema serverului. Diagrama claselor }
+\subsection{Modelarea comenzilor primite de server}
+\par Clasa \textbf{ServerCommand} este imaginea câmpurilor XML ce descriu registurl comenzilor și plug-in-urilor apelabile dinamic de către server. Această structură descrie o comandă.
+\par Rolul clasei \textbf{CommandProcessor\_step1} este de a despărti textul primit de la aplicația client în subcomponente și de a stoca aceste componente in structura interna a unei instanțe a clasei ServerCommand. Clasa \textbf{CommandProcessor} apelează funcțiile celeor două clase amintite anterior pentru a obține textul răspunsului de trimis către aplicația client.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.35]{UML-cmd}
+    \caption{UML - COMENZI}
+    \label{fig:imag7}
+\end{figure}

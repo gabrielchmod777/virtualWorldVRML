@@ -38,13 +38,17 @@
 \contentsline {section}{\numberline {5.3}Mecanism pentru ob\IeC {{\textcommabelow t}}inera \\ scalabilit\IeC {\u a}\IeC {{\textcommabelow t}}ii aplica\IeC {{\textcommabelow t}}iei server}{18}{section.5.3}
 \contentsline {subsection}{\numberline {5.3.1}Interfa\IeC {{\textcommabelow t}}a PLUG-IN-ului}{18}{subsection.5.3.1}
 \contentsline {subsection}{\numberline {5.3.2}Tipuri de plug-in-uri dezvoltate pentru serverul mediului de \IeC {\^\i }nv\IeC {\u a}\IeC {{\textcommabelow t}}are 3D}{19}{subsection.5.3.2}
-\contentsline {subsection}{\numberline {5.3.3}Descrierea mecanismului de \IeC {\^\i }nc\IeC {\u a}rcare a plug-in-urilor}{19}{subsection.5.3.3}
-\contentsline {chapter}{Capitolul{} \numberline {6}Conluzii}{20}{chapter.6}
-\contentsline {section}{\numberline {6.1}Con\IeC {{\textcommabelow t}}inut}{20}{section.6.1}
-\contentsline {section}{\numberline {6.2}Detalii tehnice}{20}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Dimensiune}{20}{subsection.6.2.1}
-\contentsline {chapter}{Anexa{} \numberline {A}Testarea fiabilit\IeC {\u a}\IeC {{\textcommabelow t}}ii modelului CLIENT-SERVER}{21}{appendix.A}
-\contentsline {section}{\numberline {A.1}Script}{21}{section.A.1}
-\contentsline {section}{\numberline {A.2}Server de test}{22}{section.A.2}
-\contentsline {subsection}{\numberline {A.2.1}Rezultate}{25}{subsection.A.2.1}
-\contentsline {chapter}{Bibliografie}{26}{appendix*.7}
+\contentsline {subsection}{\numberline {5.3.3}Descrierea mecanismului de \IeC {\^\i }nc\IeC {\u a}rcare a plug-in-urilor}{20}{subsection.5.3.3}
+\contentsline {section}{\numberline {5.4}Modul de reprezentare a datelor}{22}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Scurt\IeC {\u a} introducere \IeC {\^\i }n XML (CITE ...)}{22}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Structura XML a datelor transmise dinspre server spre aplica\IeC {{\textcommabelow t}}ia client}{23}{subsection.5.4.2}
+\contentsline {section}{\numberline {5.5}Schema serverului. Diagrama claselor }{24}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Modelarea comenzilor primite de server}{24}{subsection.5.5.1}
+\contentsline {chapter}{Capitolul{} \numberline {6}Conluzii}{25}{chapter.6}
+\contentsline {section}{\numberline {6.1}Con\IeC {{\textcommabelow t}}inut}{25}{section.6.1}
+\contentsline {section}{\numberline {6.2}Detalii tehnice}{25}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Dimensiune}{25}{subsection.6.2.1}
+\contentsline {chapter}{Anexa{} \numberline {A}Testarea fiabilit\IeC {\u a}\IeC {{\textcommabelow t}}ii modelului CLIENT-SERVER}{26}{appendix.A}
+\contentsline {section}{\numberline {A.1}Script}{26}{section.A.1}
+\contentsline {section}{\numberline {A.2}Server de test}{27}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}Rezultate}{30}{subsection.A.2.1}
