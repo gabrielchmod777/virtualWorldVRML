@@ -1,0 +1,173 @@
+#VRML V2.0 utf8
+
+Transform
+  {
+  children 
+    [
+    Transform
+      {
+      children 
+        Inline
+          {
+          url "body_male.wrl"
+          }
+      }
+    DEF LEFT_ARM_TRANSFORM Transform
+      {
+      center 0 3 0
+      children 
+        Transform
+          {
+          rotation 0 0 1 0.500000
+          translation 1.400000 0.600000 0
+          children 
+            Inline
+              {
+              url "LEFT_ARM_MALE.wrl"
+              }
+          }
+      }
+    DEF RIGHT_ARM_TRANSFORM Transform
+      {
+      center 0 3 0
+      children 
+        Transform
+          {
+          rotation 0 0 1 -0.500000
+          translation -1.400000 0.600000 0
+          children 
+            Inline
+              {
+              url "RIGHT_ARM_MALE.wrl"
+              }
+          }
+      }
+    DEF LEFT_LEG_TRANSFORM Transform
+      {
+      center 0 1.600000 0
+      children 
+        Inline
+          {
+          url "LEFT_LEG_MALE.wrl"
+          }
+      }
+    DEF RIGHT_LEG_TRANSFORM Transform
+      {
+      center 0 1.600000 0
+      children 
+        Inline
+          {
+          url "RIGHT_LEG_MALE.wrl"
+          }
+      }
+    Transform
+      {
+      children 
+        Inline
+          {
+          url "head.wrl"
+          }
+      }
+    ]
+  }
+
+DEF LegCycle TimeSensor
+  {
+  cycleInterval 3
+  loop TRUE
+  startTime 1
+  stopTime -1
+  }
+
+DEF Leg_Movement OrientationInterpolator
+  {
+  key 
+    [
+    0
+    0.101949
+    0.198651
+    0.297601
+    0.375562
+    0.472264
+    0.532234
+    0.601199
+    0.667166
+    0.716642
+    0.764618
+    0.807346
+    0.847826
+    0.881559
+    0.910795
+    0.976012
+    2
+    ]
+  keyValue 
+    [
+    1 0 0 0
+    1 0 0 -0.315882
+    1 0 0 -0.671801
+    1 0 0 -0.878744
+    1 0 0 -0.773721
+    1 0 0 -0.201929
+    1 0 0 0.533231
+    1 0 0 0.789954
+    1 0 0 0.824962
+    1 0 0 0.813293
+    1 0 0 0.778285
+    1 0 0 0.684931
+    1 0 0 0.568239
+    1 0 0 0.509893
+    1 0 0 0.393201
+    1 0 0 0.155280
+    1 0 0 0
+    ]
+  }
+
+ROUTE LegCycle.fraction_changed TO Leg_Movement.set_fraction
+ROUTE Leg_Movement.value_changed TO RIGHT_LEG_TRANSFORM.set_rotation
+ROUTE Leg_Movement.value_changed TO LEFT_ARM_TRANSFORM.set_rotation
+
+DEF Leg_Movement2 OrientationInterpolator
+  {
+  key 
+    [
+    0
+    0.087706
+    0.199400
+    0.299100
+    0.398801
+    0.482009
+    0.568216
+    0.669415
+    0.744378
+    0.798351
+    0.865817
+    0.897301
+    0.937781
+    0.978261
+    2
+    ]
+  keyValue 
+    [
+    1 0 0 0
+    1 0 0 0.362701
+    1 0 0 0.575134
+    1 0 0 0.704441
+    1 0 0 0.528953
+    1 0 0 0.002489
+    1 0 0 -0.348487
+    1 0 0 -0.599043
+    1 0 0 -0.699622
+    1 0 0 -0.625726
+    1 0 0 -0.487030
+    1 0 0 -0.456819
+    1 0 0 -0.311542
+    1 0 0 -0.172999
+    1 0 0 0
+    ]
+  }
+
+ROUTE LegCycle.fraction_changed TO Leg_Movement2.set_fraction
+ROUTE Leg_Movement2.value_changed TO LEFT_LEG_TRANSFORM.set_rotation
+ROUTE Leg_Movement2.value_changed TO RIGHT_ARM_TRANSFORM.set_rotation
+

@@ -82,6 +82,21 @@ vrml_avatar_files = \
  vrml/avatar/t_clubGirlsC_s.tga \
  vrml/avatar/t_clubGirlsC_n.tga \
  vrml/avatar/t_clubGirlsC_dm.tga \
+ vrml/avatar/head.wrl\
+ vrml/avatar/RIGHT_LEG_MALE.wrl\
+ vrml/avatar/RIGHT_ARM_MALE.wrl\
+ vrml/avatar/LEFT_LEG_MALE.wrl\
+ vrml/avatar/LEFT_ARM_MALE.wrl\
+ vrml/avatar/body_male.wrl\
+ vrml/avatar/BruceWayne_Suit_Torso_S.tga\
+ vrml/avatar/BruceWayne_Suit_Torso_N.tga\
+ vrml/avatar/BruceWayne_Suit_Torso_D.tga\
+ vrml/avatar/BruceWayne_Suit_Legs_S.tga\
+ vrml/avatar/BruceWayne_Suit_Legs_N.tga\
+ vrml/avatar/BruceWayne_Suit_Legs_D.tga\
+ vrml/avatar/BruceWayne_Head_S.tga\
+ vrml/avatar/BruceWayne_Head_N.tga\
+ vrml/avatar/BruceWayne_Head_D.tga\
  $(NULL)
 
 install-wrl-world:
