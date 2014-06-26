@@ -1,6 +1,6 @@
 \chapter{Design-ul aplicației server}
 \section{Introducere}
-\par \textbf{În acest capitol, în secțiunea 5.2, se stabilesc funcțiile serverului și se prezintă tehnologiile folosite la producerea aplicației server. În secțiunea 5.3 se explică mecanismul adoptat pentru atingerea unui scop important, ”scalabilitatea aplicației” . În secțiunea 5.4 se stabilește modul și formatul de reprezentare a datelor transmise între aplicația client și aplicația server. Secțiunea 5.5 este dedicată prezentării părții celei mai relevante din diagrama claselor. În secțiunea 5.6 sunt stabiliți parametrii testului privind scalabilitatea aplicației, codificarea testului și rezultatele fiind expuse în Anexa B. Testul modului de comunicare și a eficienței comunicării intre client și server s-a efectuat pentru capitolul anterior, rezutatele fiind publicate în Anexa A. } 
+\par \textbf{În acest capitol, în secțiunea 5.2, se stabilesc funcțiile serverului și se prezintă tehnologiile folosite la producerea aplicației server. În secțiunea 5.3 se explică mecanismul adoptat pentru atingerea unui scop important, ”scalabilitatea aplicației” . În secțiunea 5.4 se stabilește modul și formatul de reprezentare a datelor transmise între aplicația client și aplicația server. Secțiunea 5.5 este dedicată prezentării părții celei mai relevante din diagrama claselor, diagrama completă fiind atașată în Anexa B. În secțiunea 5.6 sunt stabiliți parametrii testului privind scalabilitatea aplicației, codificarea testului și rezultatele fiind expuse în Anexa B. Testul modului de comunicare și a eficienței comunicării intre client și server s-a efectuat pentru capitolul anterior, rezutatele fiind publicate în Anexa A. } 
 
 \section{Funcțiile aplicației server}
 \subsection{Funcții de bază ale serverului} 
@@ -236,3 +236,47 @@ try {
     \caption{UML - COMENZI}
     \label{fig:imag7}
 \end{figure}
+
+\subsection{Modulul de interpretare a mesajelor XML}
+\par Acest modul are la bază o bibliotecă software existentă denumită kxml. Cu ajutorul acestei biblioteci se va construi un interpretor generic pentru datele în format XML (clasele \textbf{TagHandler} și \textbf{XmlGenericPArser}).
+\par Pentru a interpreta orice text xml este necesară doar o implementare specifică a interfeței ”TagHndler” și rularea textului de interpretat cu aceasta prin parserul generic. Clasa \textbf{CommandsXmlHandler} (CITE) este un exemplu de ”TagHandler” folosit pentru interpretarea comenzilor primite de la aplicația client.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.45]{xmlp}
+    \caption{UML - PARSER GENERIC XML}
+    \label{fig:imag7}
+\end{figure}
+
+\subsection{Server TCP/IP multi-client}
+\par Aplicația server multi-client este un proces cu următoarele elemente de bază:
+\begin{itemize}
+\item Un obiect ”java.net.SeverSocket” care facilitează comunicația in rețea. Acesta este setat să aștepte conexiuni pe portul de comunicație 8080.
+\item O structură repetitivă cu ciclu infinit care crează obiecte ”java.net.Socket” pentru fiecere cerere de conexiune validă. 
+\item În ciclul repetitiv infinit se mai crează și câte un obiect special care rulează intr-un fir de execuție separat și care primește ca parametru noul obiect ”Socket”. Acest obiect special reprezintă coneziunea cu un program client (”ConcreteServerInstance”).
+\end{itemize}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.15]{clst}
+    \caption{Principiul serverului multiclient}
+    \label{fig:imag8}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{mcs}
+    \caption{UML - Clasele principale ale serverului multi-client}
+    \label{fig:imag9}
+\end{figure}
+
+\section{Testarea mecanismului de încărcare a plug-in-urilor}
+\par Testarea modului de funcționare a mecanismului de încăracare a plug-in-urilor se poate efectua și cu o aplicație care să lucreze off-line (fără comunicre în rețea) deoarece testul comunicării on-line a fost efectuat pentru capitolul anterior.
+\par Testul constă în încercerea de a îcărca dinamic două clase diferite în funcție de datele de intrare furnizate în linie de comanda printr-un script. În acest scop se vor concepe două clase care execută două operații aritmetice de bază și implementează următoarea interfață :
+\begin{verbatim}
+
+public interface Operatie {
+	void evaluate(Integer a, Integer b);
+}
+
+\end{verbatim}
+
+\par Testul se rulează de 10 ori. Se consideră \textbf{test reușit} dacă pentru toate încercările se incarcă modulul corect. Codul sursă pentru teste și rezultatele sunt listate în anexa B.

@@ -1,24 +1,233 @@
-\chapter{Conluzii}
-
-
-\section{Conținut}
+\chapter{Design-ul aplicației client}
+\section{Introducere}
+\par \textbf{În acest capitol, în secțiunea 6.2, se stabilesc funcțiile aplicației client. În secțiunea 6.3 se prezintă conceptul aplicației software și se enumeră tehnologiile folosite la realizarea acestuia în structura următoare: }
 
 \begin{itemize}
- \item un rezumat al contribuțiilor aduse
- \item a analiză critică a rezultatelor obținute: avantaje, dezavantaje, limitări
- \item o descriere a posibilelor dezvoltări și îmbunătățiri ulterioare
+\item 6.3.1 - Cercetare a modului de livrare a conținutului educativ în mediul 3D.
+\item 6.3.2 - Tehnologii utilizate pentru redarea 3D a lumii virtuale.
+\item 6.3.3 - Tehnologii utilizate pentru relizarea interfaței grafice (GUI).
+\item 6.3.4 - Tehnologia utilizată pentru comunicarea cu serverul.
 \end{itemize}
 
+\par \textbf{ În secțiunea 6.4 se explică mecanismul adoptat pentru atingerea unui scop important, ”scalabilitatea aplicației” . În secțiunea 6.5 se stabilește modul și formatul de reprezentare a datelor transmise între aplicația client și aplicația server. Secțiunea 6.6 este dedicată prezentării diagramei claselor. În secțiunea 6.7 se enunță parametrii testării aplicației client. Rezultatele acestei testări expuse în Anexa C. } 
 
-\section{Detalii tehnice}
+\newpage
 
-\subsection{Dimensiune}
+\section{Funcțiile aplicației client.}
 
-Cca 3--5\% din total.
+\par Aplicația client are scop demonstrativ. Implementarea se va executa în cel mai simplu mod posibil, cu interfețe utilizator minimale. Funcțiile de bază ale aplicației client sunt enumerate dar implementarea nu se execută în integralitate.
 
+\textbf{Funcții de bază:}
+\begin{itemize}
+\item Redarea 3D a obiectelor lumii virtuale.
+\item Schimbul de date între aplicație și server, după modelul CERERE - RĂSPUNS.
+\item Facilitarea comunicării directe între participanții la procesul de învățare în mediul virtual.
+\item Reprezentarea utilizatorilor în mediul virtual prin intermediul avatarelor. Fiecare utilizator va fi reprezentat de un avatar identificabil de către ceilați utilizatori.
+\item Facilitarea cooperării între utilizatori.
+\item Aplicația, în anumite instanțe, va asista utilizatorul în procesul de învățare. 
+\end{itemize}
 
+\section{Conceptul aplicației și tehnologiile utilizate.}
+... conceptul ... aici
+\par Interfața aplicției cu utilizatorul este esențială pentru asugurarea unei experințe cât mai plăcute în timpul utilizării. Pentru realizarea interfețeleor se vor respecta următoarele principii:
+- simplitate
+- etichete și denumiri sugestive
 
+\newpage
+\subsection{Modul de livrare a conținutului educativ în mediul 3D}
 
+..........
 
+\newpage
 
+\subsection{Tehnologii utilizate pentru redarea 3D a mediului de învățare.}
+\subsubsection{Sistemul de operare}
+\par Sistemul de operare ales pentru dezvoltarea aplicatiei este GNU/Linux (sitemul de operare GNU + kernelul Linux), distribuția Ubuntu, un sistem de operare modern, foarte asemanător sistemului de operare Unix, dezvoltat de către comunitățile “Free Foftware” și “Open Source”.
+\par Motivele alegerii acestui sistem de operare sunt urmatoarele: 
+\begin{itemize}
+\item Stabilitatea sistemului de operare. 
+\item Performanța sistemului de operare. 
+\item Simplitatea în instalare și menținere.  
+\item Multitasking și managementul memoriei foarte eficient implementate.
+\item Compilatoarele, librariile grafice și cele mai importante instrumente pentru dezvoltarea de medii 3D sunt ușor de instalat șconfigurat, sunt gratuite și bine documentate pentru GNU/Linux.
+\end{itemize}
 
+\subsubsection{Limbajul de programare}
+
+\par Limbajul de programare ales pentru realizarea aplicației client este C++. Sunt motivat în alegerea mea de urmatoarele caracteristici ale acestui limbaj:  
+\begin{itemize}
+\item Aplicațiile programate în C++ ruleaza vizibil mai rapid decat aplicațiile realizate în alte limbaje de programare.
+\item O multitudine de biblioteci software utile sunt implementate în C++.
+\item Aplicația finala poate fi compilată pentru mai multe platforme.
+\item C++ este limbajul de programare preferat de dezvoltatorii aplicatii bazate pe grafica 3D.
+\end{itemize}
+     
+\par Compilatorul ales este g++ din colectia GCC (Gnu Compilers Collection). 
+
+\subsubsection{Limbje și biblioteci software utilizate \\ pentru reprezentarea mediului virtual 3D}
+
+\par Când se alege o bibliotecă 3D, factorii care trebuiesc luaţi în considerare sunt: performanta,
+existența şi calitatea documentaţiei, platformele care acceptă biblioteca grafică 3D, existenţa unui
+format standardizat pentru a descrie obiectele grafice şi interacţiunile obiect, licenţiere etc. Ţinând cont de criteriile menţionate mai sus s-a ales biblioteca Coin3D cu suport VRML (Virtual Reality Modeling
+Language). 
+
+\subsubsection{Coin 3D (Open Inventor reimplementat cu suport pentru V.R.M.L.)}
+\par \textbf{Generalități}
+\par Coin se bazează pe librăria grafică 3D OpenGL (The Open Graphics Library), și își are rădăcinile în Open Inventor 2.1 API, cu care Coin este încă compatibil. Precursorul librăriei Coin3D, Open Inventor, își bazează modul de păstrare și manipularea a obiectelor grafice, pe libraria și structura claselor C++ original proiectată pentru SGI.[??]
+\par Open Inventor a devenit repede după lansare biblioteca grafică standard de facto pentru vizualizare 3D și software de simulare vizuală în comunitatea științifică și de inginerie, și mai târziu, bază pentru formatul standard VRML1. 
+\par Există multe publicații pe subiectul Open Inventor, cele mai importante fiind: “The Inventor Mentor”, “The Inventor Toolmaker”, amandouă fiind recomandate pentru cei ce doresc sa învețe sa utilizeze Open Inventor. Aceleași materiale de studiu se pot folosi pentru inițierea în utilizarea librariei grafice Coin3D.[??]
+\par Coin3D a fost dezvoltată independent, de la zero înainte ca Open Inventor să devină open source. Coin și-a atins țelul compatibilității cu standardul Open Invetor 2.1 în toamna anului 2000 și de atunci a fost și-a dezvoltat foarte mult numarul de caracteristici, variind de la suportul pentru sunetul 3D (deficitar pentru sistemul de operare GNU/Linux) la suportul GLSL shader, formate de fișiere suplimentare cum ar fi VRML97, și un numar larg de schimbări interne pentru a ține pasul cu noul OpenGL, optimizat cu o varietate mare de tehnici ce nu erau disponibile la început.[??] 
+\par \textbf{Istoric}
+\par Coin își are începuturile în anul 1995, fiind conceput ca o librarie de redare grafica pentru standardul VRML 1.0 . Initial a fost dezvoltată plecând de la librăria Qv a SGI care are rolul de a analiza fisierele în format VRML 1.0. După ani de extindere anevoioasă a librăriei începând cu noi funcționalități de redare și exportare precum VRML 1 și VRML 2, în anul 1997 s-a ajuns la o reală nevoie de reproiectatare.[??]
+\par La prima vedere API-ul are o asemănare izbitoare cu Open Inventor. Conceptele utilizate de către Open Inventor sunt deseori amintite ca o bună metodologie de proiectare în multe cărti de inginerie software, astfel că o parte dintre programatorii care s-au ocupat de dezvoltarea acestuia și care aveau deja experiența cu această librarie, au luat conceptul Open Inventor ca un exemplu demn de urmat. Concomitent cu identificarea strategiei de rescriere a codului, s-a luat decizia de colaborare cu membrii comunității Free Software care au contribuit cu o serie de idei tehnice interesante. Ca o urmare firească a acestei colaborări, libraria s-a dezvoltat ca o alternativă liberă la varianta Open Inventor, cu suport pentru sistemele de operare GNU/Linux, IRIX, Windows, Cygwin și Mac OS X.[??]
+
+\subsubsection{V.R.M.L. (Virtual Reality Modeling Language)}
+\par VRML este un limbaj de modelare a lumilor virtuale și un standard internațional pentru descrierea formelor și a scenelor pentru World Wide Web. Organizația responsabilă cu dezvoltarea și publicarea standardului VRML este ”Web 3D Consortium” anterior cunoscută sun numele ”VRML Consortium”. În prezent standardul a ajuns la versiunea a doua.
+\par În principiu, o lume virtuală descrisă cu limbajul VRML se poate reprezenta printr-o structură arborescentă în care „nodurile și frunzele” arborelui sunt noduri VRML [??apendix C]
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=1.1]{vrml-scene-graph}
+    \caption{Graf VRML (exemplu)}
+    \label{fig:graphvrml}
+\end{figure}
+
+\par Modul în care lumea virtuală este afișată pe display-ul computerului  este influențat de ordinea și amplasarea nodurilor în arbore. Fiecare nod este redat în mod grafic după următoarele reguli:
+
+\begin{itemize}
+\item Redarea unui grup de noduri se face în ordine, de regulă, de la stânga la dreapta. Aplicând această regulă la ilustrația precedentă \ref{fig:graphvrml}, putem trage concluzia că nodurile de tip ”transformări” (transform) au efect asupra nodului ”Formă geometrică” (Shape Node) doar dacă sunt amplasate înaintea acestuia.
+\item Fiecare nod execută propria afișare și afectează starea următoarelor noduri prin modificarea proprietăților membre. Spre exemplu, un obiect al carui suprafață este reflexivă sau radiantă din puntul de vedere al luminozității, poate afecta modul în care urmatoarele noduri sunt iluminate.
+\item Nodurile de tip ”transformare” (Transform Node) se influențează prin combinare (ex: două rotații de 90$^{\circ}$ se acumulează formând o rotație de 180$^{\circ}$ ).
+\item Nodurile de tip ”formă geometrică” sunt afișate în modul dictat de starea actuală (ultima culoare setată, ultima luminozitate setată).
+\item Nodurile de tip SoSeparator (separatoare), spre diferență de SoGroup (grup), salvează starea actuală înainte de a-i parcurge și afișa nodurile membre. Această stare este restaurată după parcurgerea separatorului. Astfel, nodurile din separator nu afectează nodurile următoare, fiind izolate.
+\item Nodurile sunt ”construite” la punctul de coordonate XYZ = (0,0,0) dacă nu sunt afectate de nici o transformare.
+\item Sistemul de coordonate VRML este următorul : pentru valori pozitive, axa Y este orientată în sus, axa X este orientată spre dreapta și axa Z este perpendiculară pe axele XY și este orientată spre observator. \ref{fig:vrmlaxes}
+\item Pentru efectuarea rotațiilor se aplică regula mâinii drepte. Sensul pozitiv al rotației este sensul invers acelor de ceasornic. Rotația se exprimă în grade radian. \ref{fig:vrmlrot}
+\end{itemize} 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{vrmlaxis}
+    \caption{Axe}
+    \label{fig:vrmlaxes}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{rotation-rule}
+    \caption{Rotație}
+    \label{fig:vrmlrot}
+\end{figure}
+
+\par \textbf{Animații descrise în VRML}
+\par Scenele 3D descrise cu ajutorul limbajului VRML pot fi animate și pot fi programate să răspundă la comenzile utilizatorului. Acestă interacțiune se poate realiza în două moduri: programatic, prin accesarea și modificarea nodurilor grafului scenei VRML prin rutinele unui program dezvoltat de utilizator (în C++/Python/etc); sau prin folosirea mecanismulor de descriere a interacțiunilor și animațiilor pus la dispoziție de limbajul VRML.
+\par Interactivitatea în VRML se realizează prin transmiterea de valori ale ”proprietăților” între diversele noduri ale grafului VRML. Când un nod trimite informații către un alt nod, se crează un \textbf{eveniment (”event”)}, o structură ce transportă două informații date (valori) și informație referitoare le timp (timestamp) pentru exprimarea momentului în care evenimentul s-a produs, cu scopul asigurării integrității logice pentru secvențele de evenimente [CITE COMENT Rohel]. Mecanismul animației presupune crearea unei conexiuni explicite între noduri cu ajutorul construcției sintactice \textbf{ROUTE} între ”câmpurile” ce stochează atributele nodurilor implicate în animație. Majoritatea nodurilor sunt construite după structura:
+\begin{verbatim}
+nod { 
+   camp             (field)         ; inaccesibil
+   eveniment primit (eventIn)       ; permite doar scriere
+   eveniment emis   (eventOut)      ; permitere doar citire
+   câmp expus       (exposedField)  ; permite citire și srcirere
+}
+\end{verbatim} 
+Evenimentele transmise prin câmpul eventOut al unui nod, vor putea fi recepționate de un al doilea nod prin câmpul eventIn, având ca efect animația nodului receptor.	\ref{fig:vrmlanim}	
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=1.5]{vrml-anim}
+    \caption{ANIMAȚIE VRML}
+    \label{fig:vrmlanim}
+\end{figure}
+% Roehl, B., et al. (1997), Late Night VRML 2.0 with Java. Emeryville: Ziff-Davis.
+\newpage
+\par Exemplu: (Orientarea obiectului grafic se modifică în timp, din momentul activării senzorului de atingere)
+\begin{verbatim}
+# VRML V2.0 utf8 
+
+DEF Touch TouchSensor { } 
+DEF Timer1 TimeSensor { } 
+DEF Rot1 OrientationInterpolator { } 
+
+DEF Frame1 Transform { 
+	children [ 
+		Box { }   
+		] 
+} 
+
+ROUTE Touch.touchTime TO Timer1.set_startTime 
+ROUTE Timer1.fraction_changed TO Rot1.set_fraction 
+ROUTE Rot1.value_changed TO Frame1.set_rotation
+
+\end{verbatim}
+
+\subsection{Tehnologii utilizate pentru relizarea interfaței grafice (GUI)}
+\par Interfețele grafice se vor implemeta folosind atât bibilotecile software Qt/SoQt cât și tehnologii Web/HTML. Interfețele Web sunt adoptate deoarece implementarea lor necesită mai puțin timp și sunt mult mai dinamice decât interfețele implemetate în c++ utilizând bibliotecile Qt/SoQt.
+
+\subsubsection{Qt}
+
+\par Qt este un cadru software pentru programarea aplicațiilor multi-platformă și pentru dezvoltarea de interfețe grafice folosind  ca limbaje: C++, QML, CSS și JavaScript. Librariile Qt și uneletele de dezvoltare sunt eliberate prin licențe compatibile cu modelul ”open source”. 
+\par Qt implementează metode inteligente pentru realizarea comunicării între divesrele obiecte ale interfeței grafice. Metoda constă în conectarea evenimentelor prelute de elementele de interfță la rutinele asociate cu aceste evenimente sau conectarea la alte evenimente. Acest lucru se realizează automat, cu ajutorul unui meta-compilator care generează codul necesar conectarii evenimentelor (SIGNAL) la rutine (SLOT). \ref{fig:sig-slot}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{qtconn}
+    \caption{Mecanismul SIGNAL-SLOT}
+    \label{fig:sig-slot}
+\end{figure}
+
+\newpage
+\subsubsection{SoQt}
+\par SoQt furnizează programatorului o interfață de nivel înalt în C++. Librăria, include o ierarhie de clase cu rol de componentă de vizualizare (viewers), cu funcționalități diferite, împreună cu o serie de modalități de control a interacțiunii dintre camerele virtuale de filmat și scena 3D. SoQt este practic liantul dintre librăriile de interfețe Qt și Coin 3D.
+\subsubsection{Interfețe Web/HTML prin mecanismul ”QtWebKit Bridge”}
+\par Mecanismul ”WebKit bridge” este parte a bibliotecii sotware Qt. Prin acest mecanism se facilitează accesul obiectelor codificate in JavaScript la rutinele codificate în c++ în aplicația realizată cu ajutorul bibliotecii software Qt. În acest fel, o pagină web poate fi programată ca o interfață pentru un program codificat în c++. 
+\subsection{Tehnologia utilizată pentru comunicarea cu serverul}
+
+\par Viteza de execuție a aplicațiilor codificate în C++ și existența librariei Coin3D, este motivul alegerii acestui limbaj pentru implementarea aplicației client. Ultimul standard adoptat de ISO include extensii pentru limbaj și adaugarea de module noi la librăria standard. Cea mai binevenită modificare este suportul pentru programarea firelor de execuție în modelul tehnicii OOP. 
+\par Pentru programarea rețelelor de calculatoare nu există suport modern, acest aspect fiind în agenda ISO pentru următorul standard. Pentru acest ”task” am folosit librăria Boost Asio, o subcomponentă a librăriei Boost. 
+\par Boost Asio implemetează un model modern bazat pe modelul OOP, pentru programarea asincronă a operațiilor I/O la nivel scăzut și programarea aplicațiilor pentru rețele de calculatoare (cu asincronism în ce privește trimiterea/primirea de date în rețea). \ref{fig:asio}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[]{sync_op}
+    \caption{Mecanismul I/O asincron}
+    \label{fig:asio}
+\end{figure}
+
+\section{Decizie privind design-ul aplicației client.}
+\par Se va urmări o cît mai mare flexibilizare a sistemului, astfel încât dezvoltarea ulterioară sa fie cât mai facilă. Se are în vedere folosirea mecanismului de extindere dinamică a funcționalității sistemului prin ”plug-in”-uri. 	Plugin-urile vor putea fi descărcate din surse externe în timpul rulării aplicației client, și incluse dinamic în aplicație, fără a se întrrupe rularea programului. Un plug-in va prelua funcția de încărcare de cursuri interactive și activități educative diverse. 
+
+	Forma exactă a unui plug-in este următoarea:
+\begin{verbatim}
+
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+	#
+    #
+    #
+    # 
+    #
+
+\end{verbatim}	
+	
+\par Plug-inurie sunt în fapt funcții standardizate, compilate în librării dinamice ”Shared Object”. Descărcarea librăriilor de pe internet se va realiza prin apelarea comenzii Linux wget. 
+\par Compilarea librariilor dinamice și crearea linkurilor:
+\begin{verbatim}
+    gcc -Wall -fPIC -c  <sursa>.c++ 
+    gcc -shared -Wl,-soname,<nume_librarie>.so.1 -o <nume_librarie>.so.1.0   *.o 
+    ln -sf <dir>/<nume_librarie>.so.1.0 <dir>/libctest.so.1 
+    ln -sf <dir>/<nume_librarie>.1.0 <dir>/<nume_librarie>.so 	
+\end{verbatim}
