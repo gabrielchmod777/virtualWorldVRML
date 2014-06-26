@@ -73,7 +73,15 @@ vrml_avatar_files = \
  vrml/avatar/arm2.wrl \
  vrml/avatar/body.wrl \
  vrml/avatar/human.wrl \
- vrml/avatar/leg.wrl \
+ vrml/avatar/avatar_female.wrl \
+ vrml/avatar/avatar_male.wrl \
+ vrml/avatar/RIGHT_LEG.wrl \
+ vrml/avatar/LEFT_LEG.wrl \
+ vrml/avatar/t_eye_n.tga \
+ vrml/avatar/t_eye.d.tga \
+ vrml/avatar/t_clubGirlsC_s.tga \
+ vrml/avatar/t_clubGirlsC_n.tga \
+ vrml/avatar/t_clubGirlsC_dm.tga \
  $(NULL)
 
 install-wrl-world:

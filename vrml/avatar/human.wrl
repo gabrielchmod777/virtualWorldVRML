@@ -1,118 +1,63 @@
 #VRML V2.0 utf8
 
-DEF HEAD_TRANSFORM Transform
-  {
-  translation 0 2 0
-  scale 0.800000 1 1
-  children 
-    Shape
-      {
-      appearance Appearance
-        {
-        material Material
-          {
-          diffuseColor 0.600000 0 0.500000
-          }
-        }
-      geometry Sphere
-        {
-        radius 0.500000
-        }
-      }
-  }
-
-DEF NOSE Transform
-  {
-  rotation 1 0 0 1.571000
-  translation 0 2 -0.600000
-  scale 0.300000 0.300000 0.300000
-  children 
-    Shape
-      {
-      appearance Appearance
-        {
-        material Material
-          {
-          diffuseColor 0 1 0
-          }
-        }
-      geometry Cylinder
-        {
-        height 1
-        radius 0.300000
-        }
-      }
-  }
-
 Transform
   {
-  translation 0 0.700000 0
-  scale 1 1 0.600000
   children 
     [
-    DEF RIGHT_ARM_TRANSFORM Transform
-      {
-      rotation 1 0 0 0.678359
-      translation -0.600000 0.400000 0
-      center 0 0.700000 0
-      scale 1 1 1.500000
-      children 
-        Inline
-          {
-          url "arm.wrl"
-          }
-      }
-    DEF LEFT_ARM_TRANSFORM Transform
-      {
-      rotation -1 0 0 0.839821
-      translation 0.600000 0.400000 0
-      center 0 0.700000 0
-      scale 1 1 1.500000
-      children 
-        Inline
-          {
-          url "arm2.wrl"
-          }
-      }
     Transform
       {
-      scale 0.900000 0.700000 0.900000
       children 
         Inline
           {
           url "body.wrl"
           }
       }
-    ]
-  }
-
-Transform
-  {
-  translation 0 -0.800000 0
-  children 
-    [
-    DEF RIGHT_LEG_TRANSFORM Transform
-      {
-      rotation -1 0 0 0.839821
-      translation -0.300000 0.400000 0
-      center 0 0.700000 0
-      scale 1 0.700000 1
-      children 
-        Inline
-          {
-          url "leg.wrl"
-          }
-      }
     DEF LEFT_LEG_TRANSFORM Transform
       {
-      rotation 1 0 0 0.680000
-      translation 0.300000 0.400000 0
-      center 0 0.700000 0
-      scale 1 0.700000 1
+      center 0 2.200000 0
       children 
         Inline
           {
-          url "leg.wrl"
+          url "LEFT_LEG.wrl"
+          }
+      }
+    DEF RIGHT_LEG_TRANSFORM Transform
+      {
+      center 0 2.200000 0
+      children 
+        Inline
+          {
+          url "RIGHT_LEG.wrl"
+          }
+      }
+    DEF RIGHT_ARM_TRANSFORM Transform
+      {
+      center 0 4.500000 0
+      children 
+        Transform
+          {
+          rotation 0 0 1 0.300000
+          translation 1.300000 0.300000 0
+          children 
+            Inline
+              {
+              url "arm.wrl"
+              }
+          }
+      }
+    DEF LEFT_ARM_TRANSFORM Transform
+      {
+      center 0 4.500000 0
+      children 
+        Transform
+          {
+          rotation 0 0 1 -0.300000
+          translation -1.300000 0.300000 0
+          children 
+            Inline
+              {
+              url "arm2.wrl"
+              }
           }
       }
     ]
