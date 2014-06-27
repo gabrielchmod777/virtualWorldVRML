@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.4.28)  27 JUN 2014 12:09
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.4.28)  27 JUN 2014 12:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1453,13 +1453,13 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\u' on input line 235.
 
 [38]
-Overfull \hbox (18.34872pt too wide) in paragraph at lines 265--266
+Overfull \hbox (18.34872pt too wide) in paragraph at lines 265--267
 []\T1/aer/m/n/12 Schimbul de date în-tre cli-ent []i ser-ver for-meaz  o bu-cl 
  com-plet  (CLIENT)-(SERVER)-
  []
 
 [39]
-Overfull \hbox (22.40622pt too wide) in paragraph at lines 279--280
+Overfull \hbox (22.40622pt too wide) in paragraph at lines 278--279
 []\T1/aer/m/n/12 adresa web de la care acest plug-in se poate des-c rca, în blo
 -cul XML ^^Qcli-ent_plugin_source^^Q 
  []
@@ -1467,13 +1467,10 @@ Overfull \hbox (22.40622pt too wide) in paragraph at lines 279--280
 <figures/loop.png, id=689, 940.51375pt x 503.8825pt>
 File: figures/loop.png Graphic file (type png)
  <use figures/loop.png>
-Package pdftex.def Info: figures/loop.png used on input line 295.
-(pdftex.def)             Requested size: 235.12785pt x 125.9703pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) [40] [41 <./figures/loop.png>]
+Package pdftex.def Info: figures/loop.png used on input line 293.
+(pdftex.def)             Requested size: 282.1563pt x 151.16591pt.
+)
+[40 <./figures/loop.png>]
 \openout2 = `ch7.aux'.
 
  (./ch7.tex
@@ -1482,7 +1479,7 @@ Capitolul 7.
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\textcommabelow' on input line 4.
 
-) [42
+) [41
 
 
 
@@ -1499,7 +1496,7 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\textcommabelow' on input line 2.
 
-[43
+[42
 
 
 
@@ -1516,11 +1513,11 @@ Overfull \hbox (25.27444pt too wide) in paragraph at lines 73--74
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [44]
+ [43]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [45]
-[46]
+ [44]
+[45]
 Anexa B.
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
@@ -1530,25 +1527,25 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\u' on input line 192.
 
-[47
+[46
 
-] [48] [49] [50] <figures/fsunml.png, id=881, 1043.39813pt x 1219.55624pt>
+] [47] [48] [49] <figures/fsunml.png, id=877, 1043.39813pt x 1219.55624pt>
 File: figures/fsunml.png Graphic file (type png)
 
 <use figures/fsunml.png>
 Package pdftex.def Info: figures/fsunml.png used on input line 390.
 (pdftex.def)             Requested size: 365.19481pt x 426.85107pt.
- [51 <./figures/fsunml.png>]
+ [50 <./figures/fsunml.png>]
 Anexa C.
-<figures/nodvrml.png, id=888, 216.05719pt x 534.49687pt>
+<figures/nodvrml.png, id=884, 216.05719pt x 534.49687pt>
 File: figures/nodvrml.png Graphic file (type png)
 
 <use figures/nodvrml.png>
 Package pdftex.def Info: figures/nodvrml.png used on input line 398.
 (pdftex.def)             Requested size: 108.02832pt x 267.24777pt.
-) [52
+) [51
 
- <./figures/nodvrml.png>] (./thesis.bbl) [53
+ <./figures/nodvrml.png>] (./thesis.bbl) [52
 
 
 ]
@@ -1571,8 +1568,8 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 269.
  ) 
 Here is how much of TeX's memory you used:
- 19210 strings out of 493485
- 292578 string characters out of 3143526
+ 19209 strings out of 493485
+ 292571 string characters out of 3143526
  445312 words of memory out of 3000000
  21656 multiletter control sequences out of 15000+200000
  75967 words of font info for 175 fonts, out of 3000000 for 9000
@@ -1600,10 +1597,10 @@ pe1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmtt8.pfb>
-Output written on thesis.pdf (66 pages, 916384 bytes).
+Output written on thesis.pdf (65 pages, 915752 bytes).
 PDF statistics:
- 1043 PDF objects out of 1200 (max. 8388607)
- 907 compressed objects within 10 object streams
- 311 named destinations out of 1000 (max. 500000)
+ 1039 PDF objects out of 1200 (max. 8388607)
+ 904 compressed objects within 10 object streams
+ 310 named destinations out of 1000 (max. 500000)
  656 words of extra memory for PDF output out of 10000 (max. 10000000)
 

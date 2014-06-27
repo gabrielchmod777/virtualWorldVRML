@@ -263,8 +263,7 @@ Mesaje Valide
 \end{verbatim}
 
 \par Schimbul de date între client și server formează o buclă completă (CLIENT)-(SERVER)-(CLIENT/CLIENȚI). 
-\par \textbf{LA NIVELUL APLICAȚIEI CLIENT} \\Primul pas este reprezentat de expedierea unei comenzi dinspre client către server, sub forma unui șir de caractere. Primul caracter este ”@” urmat fără spațiu de un nume unic ce are rol de ”selector” de operație la nivelul serverului. Selectorul poate fi urmat de unul sau mai mulți parametri separați prin spații.
-\par \textbf{LA NIVELUL APLICAȚIEI SERVER} \\Comanda primită este despărțită in elementele constituente: selector de comandă și lista de parametri. Selectorul de comandă este folosit pentru a obține din registrul de comenzi a serverului următoarele informații utile:
+Primul pas este reprezentat de expedierea unei comenzi dinspre client către server, sub forma unui șir de caractere. Primul caracter este ”@” urmat fără spațiu de un nume unic ce are rol de ”selector” de operație la nivelul serverului. Selectorul poate fi urmat de unul sau mai mulți parametri separați prin spații. Comanda expediată, la nivelul serverului este despărțită in elementele constituente: selector de comandă și lista de parametri. Selectorul de comandă este folosit pentru a obține din registrul de comenzi a serverului următoarele informații utile:
 \begin{itemize}
 \item Numele plug-in-ului ce va prelucra răspunsul serverului la nivelul aplicției client.
 \item Adresa web de la care aplicația client poate încărca plug-inul client.
@@ -279,8 +278,7 @@ Pe baza informațiilor de mai sus, serverul îsi incarcă propriul plug-in de pr
 \item adresa web de la care acest plug-in se poate descărca, în blocul XML ”client\_plugin\_source”
 \item parametrii de furnizat plug-in-ului client, în blocul XML ”raw”
 \end{itemize}
-Această comandă este transmisă aplicației client sau mai multor clienți, în funcție de tipul comanzii.
-\par \textbf{LA NIVELUL APLICAȚIEI CLIENT} \\Aplicația client preia mesajul XML și execută în ordine următoarele operații:
+Această comandă este transmisă aplicației client sau mai multor clienți, în funcție de tipul comanzii. Aplicația client preia mesajul XML și execută în ordine următoarele operații:
 
 \begin{itemize}
 \item interpretează comanda XML pentru a extrage numele plug-in-ului asociat acestei comenzi
@@ -292,7 +290,7 @@ Această comandă este transmisă aplicației client sau mai multor clienți, î
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.25]{loop}
+    \includegraphics[scale=0.3]{loop}
     \caption{Bucla schimbului de informații între client și server}
     \label{fig:loop}
 \end{figure}
