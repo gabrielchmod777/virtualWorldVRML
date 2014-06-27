@@ -2,6 +2,7 @@
 
 Transform
   {
+  scale 1.500000 1.500000 1.500000
   children 
     [
     Transform

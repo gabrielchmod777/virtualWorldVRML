@@ -8,7 +8,8 @@
 #include <Inventor/nodes/SoRotation.h>
 #include <Inventor/nodes/SoSeparator.h>
 #include <Inventor/nodes/SoText2.h>
-
+#include <Inventor/nodes/SoFont.h>
+#include <Inventor/nodes/SoMaterial.h>
 
 avatar::avatar()
 {
@@ -43,14 +44,22 @@ avatar::avatar(std::string name, client& associated_server_client, int avatar_ge
       _3d_model->addChild(get_scene_graph_from_file("/usr/local/share/l3dclient/avatar_female.wrl"));
     }
   
+
+
+  SoFont *myFont = new SoFont;
   SoSeparator* nameSeparator = new SoSeparator;
   SoTranslation* namePosition = new SoTranslation;
   SoText2* nameText = new SoText2;
-  
+  SoMaterial* nameColor = new SoMaterial;
+
   namePosition->translation.setValue(0, 6.5, 0);
   nameText->string = name.c_str();
-  
+  myFont->size.setValue( 15.0 );
+  myFont->name.setValue( "TimesRoman" );
+  nameColor->diffuseColor.setValue(1.0, 0.0, 0.0);
   nameSeparator->addChild( namePosition );
+  nameSeparator->addChild( nameColor );
+  nameSeparator->addChild( myFont );
   nameSeparator->addChild( nameText );
   
   _3d_model->addChild( nameSeparator );
