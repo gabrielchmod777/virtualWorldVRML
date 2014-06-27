@@ -34,7 +34,7 @@ private:
 
 public:
 
-  avatar(std::string name, client& associated_server_client);
+  avatar(std::string name, client& associated_server_client, int avatar_gender);
   SoSeparator* get3d_model();
   
   SbVec3f direction;

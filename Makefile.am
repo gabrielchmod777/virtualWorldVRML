@@ -6,7 +6,9 @@ bin_PROGRAMS = L3DClient
 
 dist_bin_SCRIPTS = scripts/l3dclient_mklocal_dir.sh
 
-BUILT_SOURCES = src/ui_left_form.h
+BUILT_SOURCES = \
+  src/ui_left_form.h \
+  src/ui_login.h 
 
 ui_%.h: %.ui
 	$(UIC) $< -o $@
@@ -35,7 +37,11 @@ L3DClient_SOURCES = \
   src/executor.cpp\
   src/message_observer.h\
   src/message_queue.h\
-  src/message_queue.cpp
+  src/message_queue.cpp\
+  src/ui_login.h\
+  src/login_dialog.h\
+  src/login_dialog.cpp\
+  moc_login_dialog.cpp
 
 DIRTY_HACK_QT_WEBKIT_INCLUDE = -I/usr/include/qt4/QtWebKit
 DIRTY_HACK_QT_WEBKIT_LIB = -lQtWebKit
@@ -99,6 +105,17 @@ vrml_avatar_files = \
  vrml/avatar/BruceWayne_Head_D.tga\
  $(NULL)
 
+private_icons = \
+  icons/male.png \
+  icons/female.png
+  $(NULL)
+
+install-icons:
+	for icon in $(private_icons); do \
+		mkdir -p $(DESTDIR)$(pkgdatadir)/icons/; \
+		$(INSTALL_DATA) $(srcdir)/$$icon $(DESTDIR)$(pkgdatadir)/icons/; \
+	done
+
 install-wrl-world:
 	for wrmlfile in $(vrml_world_files); do \
 		mkdir -p $(DESTDIR)$(pkgdatadir)/vrml/world/; \
@@ -111,4 +128,4 @@ install-wrl-avatar:
 		$(INSTALL_DATA) $(srcdir)/$$wrmlfile $(DESTDIR)$(pkgdatadir)/; \
 	done
 
-install-data-local: install-wrl-world install-wrl-avatar
+install-data-local: install-wrl-world install-wrl-avatar install-icons

@@ -7,6 +7,7 @@
 #include <Inventor/nodes/SoTranslation.h>
 #include <Inventor/nodes/SoRotation.h>
 #include <Inventor/nodes/SoSeparator.h>
+#include <Inventor/nodes/SoText2.h>
 
 
 avatar::avatar()
@@ -14,7 +15,7 @@ avatar::avatar()
   // PRIVATE: can not use the default constructor; 
 }
 
-avatar::avatar(std::string name, client& associated_server_client)
+avatar::avatar(std::string name, client& associated_server_client, int avatar_gender)
 {
 
   _previousPosition = SbVec3f(0.0f, 0.0f, 0.0f);
@@ -33,8 +34,26 @@ avatar::avatar(std::string name, client& associated_server_client)
   this->rotation = new SoRotation;
   this->_3d_model->addChild(this->rotation);
 
-  _3d_model->addChild(get_scene_graph_from_file("/usr/local/share/l3dclient/human.wrl"));
-
+  if ( avatar_gender == 0 )
+    {
+      _3d_model->addChild(get_scene_graph_from_file("/usr/local/share/l3dclient/avatar_male.wrl"));
+    }
+  else
+    {
+      _3d_model->addChild(get_scene_graph_from_file("/usr/local/share/l3dclient/avatar_female.wrl"));
+    }
+  
+  SoSeparator* nameSeparator = new SoSeparator;
+  SoTranslation* namePosition = new SoTranslation;
+  SoText2* nameText = new SoText2;
+  
+  namePosition->translation.setValue(0, 6.5, 0);
+  nameText->string = name.c_str();
+  
+  nameSeparator->addChild( namePosition );
+  nameSeparator->addChild( nameText );
+  
+  _3d_model->addChild( nameSeparator );
 }
 
 SoSeparator* avatar::get3d_model()

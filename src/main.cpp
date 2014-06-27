@@ -4,6 +4,7 @@
 #include "message_queue.h"
 #include "client.h"
 #include "executor.h"
+#include "login_dialog.h"
 
 #include <cstdlib>
 #include <memory>
@@ -70,7 +71,7 @@ SoPerspectiveCamera* camera;
 // the experiments and lessons have their own UI
 // coded in HTML and JavaScript
 // loaded in a QWebView browser (dynamic_web_ui)
-QWebView* dynamic_web_ui;
+//QWebView* dynamic_web_ui;
 
 int main(int argc, char **argv)
 {
@@ -86,25 +87,43 @@ int main(int argc, char **argv)
 
       SoDB::init();
 
-      if(argc<3)
-	{
-	  throw std::string("Usage:\n\tL3DClient <server> <port> <avatar_name>\n");
-	}
+      std::string name = "NONAME";
+      std::string ip = "localhost";
+      std::string port = "8080";
 
       QApplication app(argc, argv);  
 
+      // Log IN
+
+      login_dialog ldia;
+      int dialogCode = ldia.exec();
+      
+      if( dialogCode  == QDialog::Rejected )
+	{
+	  return 0;
+	}
+      else
+	{
+	  name = ldia.lineEdit_name->text().toStdString();
+	  ip = ldia.lineEdit_ip->text().toStdString();
+	  port = ldia.lineEdit_port->text().toStdString();
+	}
+      // END LOG IN
+
       boost::asio::io_service io_service;
       boost::asio::ip::tcp::resolver resolver(io_service);
-      boost::asio::ip::tcp::resolver::query query(argv[1], argv[2]);
+      boost::asio::ip::tcp::resolver::query query(ip.c_str(), port.c_str());
       boost::asio::ip::tcp::resolver::iterator iterator = resolver.resolve(query);
 
       client c(io_service, iterator);
       
-      std::string executors_name = argv[3];
+      std::string executors_name = name.c_str();
       command_executor client_exec(executors_name);
       c.add_observer(&client_exec);
       
-      avatar my_avatar(executors_name, c);
+      int avatar_gender = ldia.selected_avatar;
+
+      avatar my_avatar(executors_name, c, avatar_gender );
       user_avatar = & my_avatar;
 
       //start BOOST_ASIO
@@ -145,13 +164,13 @@ int main(int argc, char **argv)
       
       ////////// end
 
-      dynamic_web_ui = new QWebView();
-      QString htmlSt = "<html><body><h1>HTML Previewer</h1>"
-                      " <p>This example shows you how to use QWebView to"
-                      " preview HTML data written in a QPlainTextEdit.</p>"
-                      " </body></html>";
-      dynamic_web_ui->setHtml(htmlSt);
-      dynamic_web_ui->show();
+      // dynamic_web_ui = new QWebView();
+      // QString htmlSt = "<html><body><h1>HTML Previewer</h1>"
+      //                 " <p>This example shows you how to use QWebView to"
+      //                 " preview HTML data written in a QPlainTextEdit.</p>"
+      //                 " </body></html>";
+      // dynamic_web_ui->setHtml(htmlSt);
+      // dynamic_web_ui->show();
 
       return app.exec();
 
