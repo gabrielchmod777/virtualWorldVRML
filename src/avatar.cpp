@@ -1,4 +1,4 @@
-#include "vrmlreader.h"
+#include "vrml_utils.h"
 #include "avatar.h"
 #include "client.h"
 

@@ -21,8 +21,8 @@ clean-am: clean-uic-extra
 
 L3DClient_SOURCES = \
   src/main.cpp\
-  src/vrmlreader.cpp\
-  src/vrmlreader.h\
+  src/vrml_utils.cpp\
+  src/vrml_utils.h\
   src/coinviewer.cpp\
   src/coinviewer.h\
   moc_coinviewer.cpp\

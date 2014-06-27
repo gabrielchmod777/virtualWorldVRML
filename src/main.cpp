@@ -1,4 +1,4 @@
-#include "vrmlreader.h"
+#include "vrml_utils.h"
 #include "gui.h"
 #include "avatar.h"
 #include "message_queue.h"
