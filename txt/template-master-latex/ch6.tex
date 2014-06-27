@@ -9,7 +9,7 @@
 \item 6.3.4 - Tehnologia utilizată pentru comunicarea cu serverul.
 \end{itemize}
 
-\par \textbf{ În secțiunea 6.4 se explică mecanismul adoptat pentru atingerea unui scop important, ”scalabilitatea aplicației” . În secțiunea 6.5 se stabilește modul și formatul de reprezentare a datelor transmise între aplicația client și aplicația server. Secțiunea 6.6 este dedicată prezentării diagramei claselor. În secțiunea 6.7 se enunță parametrii testării aplicației client. Rezultatele acestei testări expuse în Anexa C. } 
+\par \textbf{ În secțiunea 6.4 se explică mecanismul adoptat pentru atingerea unui scop important, ”scalabilitatea aplicației” . În secțiunea 6.5 se explică mecanismul CERERE-PROCESARE-RASPUNS. În aceeași secțiune se prezintă formatul de reprezentare a datelor transmise între aplicația client și aplicația server. Secțiunea 6.6 este dedicată prezentării diagramei claselor. În secțiunea 6.7 se enunță parametrii testării aplicației client. Rezultatele acestei testări expuse în Anexa C. } 
 
 \newpage
 
@@ -231,3 +231,68 @@ ROUTE Rot1.value_changed TO Frame1.set_rotation
     ln -sf <dir>/<nume_librarie>.so.1.0 <dir>/libctest.so.1 
     ln -sf <dir>/<nume_librarie>.1.0 <dir>/<nume_librarie>.so 	
 \end{verbatim}
+
+\section{Comnezi către server}
+
+\par Instrucțiunile trimise către server reprezintă șiruri de caractere ce se încadrează în următorul tipar:
+ 
+\begin{verbatim}
+        @<COMANDA> <parametrul 1> <parametrul 2> ... <parametrul 2>
+\end{verbatim} 
+Răspunsul primit de aplicația client este în format XML în una din următoarele forme :
+
+\begin{verbatim}
+Excepții / Mesaje de eroare
+<?xml version="1.0" encoding="UTF-8"?>"
+<response>
+   <type></type>
+   <exception>
+     <message> .... </message>
+  </exception>
+</response>
+
+Mesaje Valide
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <type></type>
+  <name></name>
+  <client_plugin></client_plugin>
+  <client_plugin_source></client_plugin_source>
+  <raw> </raw>
+</response>
+\end{verbatim}
+
+\par Schimbul de date între client și server formează o buclă completă (CLIENT)-(SERVER)-(CLIENT/CLIENȚI). 
+\par \textbf{LA NIVELUL APLICAȚIEI CLIENT} \\Primul pas este reprezentat de expedierea unei comenzi dinspre client către server, sub forma unui șir de caractere. Primul caracter este ”@” urmat fără spațiu de un nume unic ce are rol de ”selector” de operație la nivelul serverului. Selectorul poate fi urmat de unul sau mai mulți parametri separați prin spații.
+\par \textbf{LA NIVELUL APLICAȚIEI SERVER} \\Comanda primită este despărțită in elementele constituente: selector de comandă și lista de parametri. Selectorul de comandă este folosit pentru a obține din registrul de comenzi a serverului următoarele informații utile:
+\begin{itemize}
+\item Numele plug-in-ului ce va prelucra răspunsul serverului la nivelul aplicției client.
+\item Adresa web de la care aplicația client poate încărca plug-inul client.
+\item Numele plug-in-ului care va procesa la nivelul serverului comanda primită de la aplicația client.
+\end{itemize}
+Pe baza informațiilor de mai sus, serverul îsi incarcă propriul plug-in de prelucrare a comenzii de la aplicația client (cu parametrii necesari), execută prelucrarea datelor primite de la client și returnează o comanda în format XML cu următoarele informații:
+
+\begin{itemize}
+\item tipul comenzii în blocul ”type”
+\item numele comenzii în blocul ”name”
+\item numele plug-in-ului ce se va executa la nivelul aplicației client, în blocul XML ”client\_plugin”
+\item adresa web de la care acest plug-in se poate descărca, în blocul XML ”client\_plugin\_source”
+\item parametrii de furnizat plug-in-ului client, în blocul XML ”raw”
+\end{itemize}
+Această comandă este transmisă aplicației client sau mai multor clienți, în funcție de tipul comanzii.
+\par \textbf{LA NIVELUL APLICAȚIEI CLIENT} \\Aplicația client preia mesajul XML și execută în ordine următoarele operații:
+
+\begin{itemize}
+\item interpretează comanda XML pentru a extrage numele plug-in-ului asociat acestei comenzi
+\item extrage pararmetrii de furnizat plug-in-ului
+\item verifică dacă plug-in-ul este deja incărcat in memorie 
+\item dacă  plug-in-ul nu este încărcat, se execută încărcarea dinamică a acestuia de la adresa extrasă din comanda XML
+\item plug-in-ul se execută cu lista de parametri extrasă din comandă
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{loop}
+    \caption{Bucla schimbului de informații între client și server}
+    \label{fig:loop}
+\end{figure}

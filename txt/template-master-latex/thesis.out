@@ -52,14 +52,15 @@
 \BOOKMARK [2][-]{subsection.6.3.3}{Tehnologii utilizate pentru relizarea interfatei grafice \(GUI\)}{section.6.3}% 52
 \BOOKMARK [2][-]{subsection.6.3.4}{Tehnologia utilizata pentru comunicarea cu serverul}{section.6.3}% 53
 \BOOKMARK [1][-]{section.6.4}{Decizie privind design-ul aplicatiei client.}{chapter.6}% 54
-\BOOKMARK [0][-]{chapter.7}{Capitolul Conluzii}{}% 55
-\BOOKMARK [1][-]{section.7.1}{Continut}{chapter.7}% 56
-\BOOKMARK [1][-]{section.7.2}{Detalii tehnice}{chapter.7}% 57
-\BOOKMARK [2][-]{subsection.7.2.1}{Dimensiune}{section.7.2}% 58
-\BOOKMARK [0][-]{appendix.A}{Anexa Testarea fiabilitatii modelului CLIENT-SERVER}{}% 59
-\BOOKMARK [1][-]{section.A.1}{Script}{appendix.A}% 60
-\BOOKMARK [1][-]{section.A.2}{Server de test}{appendix.A}% 61
-\BOOKMARK [2][-]{subsection.A.2.1}{Rezultate}{section.A.2}% 62
-\BOOKMARK [0][-]{appendix.B}{Anexa \316carcarea dinamica a claselor \356n JAVA}{}% 63
-\BOOKMARK [0][-]{appendix.C}{Anexa Iconuri grafice utilizate pentru nodurile VRML \356n lucrarea \216The Inventor Mentor\216}{}% 64
-\BOOKMARK [0][-]{appendix*.16}{Bibliografie}{}% 65
+\BOOKMARK [1][-]{section.6.5}{Comnezi catre server}{chapter.6}% 55
+\BOOKMARK [0][-]{chapter.7}{Capitolul Conluzii}{}% 56
+\BOOKMARK [1][-]{section.7.1}{Continut}{chapter.7}% 57
+\BOOKMARK [1][-]{section.7.2}{Detalii tehnice}{chapter.7}% 58
+\BOOKMARK [2][-]{subsection.7.2.1}{Dimensiune}{section.7.2}% 59
+\BOOKMARK [0][-]{appendix.A}{Anexa Testarea fiabilitatii modelului CLIENT-SERVER}{}% 60
+\BOOKMARK [1][-]{section.A.1}{Script}{appendix.A}% 61
+\BOOKMARK [1][-]{section.A.2}{Server de test}{appendix.A}% 62
+\BOOKMARK [2][-]{subsection.A.2.1}{Rezultate}{section.A.2}% 63
+\BOOKMARK [0][-]{appendix.B}{Anexa \316carcarea dinamica a claselor \356n JAVA}{}% 64
+\BOOKMARK [0][-]{appendix.C}{Anexa Iconuri grafice utilizate pentru nodurile VRML \356n lucrarea \216The Inventor Mentor\216}{}% 65
+\BOOKMARK [0][-]{appendix*.16}{Bibliografie}{}% 66
