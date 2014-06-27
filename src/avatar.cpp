@@ -10,6 +10,7 @@
 #include <Inventor/nodes/SoText2.h>
 #include <Inventor/nodes/SoFont.h>
 #include <Inventor/nodes/SoMaterial.h>
+#include <Inventor/nodes/SoSphere.h>
 
 avatar::avatar()
 {
@@ -52,6 +53,15 @@ avatar::avatar(std::string name, client& associated_server_client, int avatar_ge
   SoText2* nameText = new SoText2;
   SoMaterial* nameColor = new SoMaterial;
 
+  SoSeparator* handler = new SoSeparator;
+  SoTranslation* handlerTranslation = new SoTranslation;
+  handlerTranslation->translation.setValue(-0.5, 0, 0);
+  SoSphere* handlerSph = new SoSphere;
+  handlerSph->setName( name.c_str() );
+  handlerSph->radius = 0.2;
+  handler->addChild( handlerTranslation );
+  handler->addChild( handlerSph );
+
   namePosition->translation.setValue(0, 6.5, 0);
   nameText->string = name.c_str();
   myFont->size.setValue( 15.0 );
@@ -59,6 +69,7 @@ avatar::avatar(std::string name, client& associated_server_client, int avatar_ge
   nameColor->diffuseColor.setValue(1.0, 0.0, 0.0);
   nameSeparator->addChild( namePosition );
   nameSeparator->addChild( nameColor );
+  nameSeparator->addChild( handler );
   nameSeparator->addChild( myFont );
   nameSeparator->addChild( nameText );
   

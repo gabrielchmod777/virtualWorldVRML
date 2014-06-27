@@ -30,7 +30,21 @@
 #include <Inventor/nodes/SoRotation.h>
 #include <Inventor/nodes/SoTranslation.h>
 #include <Inventor/nodes/SoSphere.h>
+#include <Inventor/nodes/SoSelection.h>
 #include <Inventor/sensors/SoOneShotSensor.h>
+#include <Inventor/actions/SoAction.h>
+#include <Inventor/events/SoMouseButtonEvent.h>
+#include <Inventor/actions/SoSearchAction.h>
+#include <Inventor/actions/SoGLRenderAction.h>
+#include <Inventor/actions/SoHandleEventAction.h>
+#include <Inventor/actions/SoRayPickAction.h>
+#include <Inventor/actions/SoWriteAction.h>
+#include <Inventor/events/SoLocation2Event.h>
+#include <Inventor/details/SoFaceDetail.h>
+#include <Inventor/details/SoPointDetail.h>
+#include <Inventor/SoPickedPoint.h>
+#include <Inventor/SoPath.h>
+
 
 #include <QDebug>
 #include <QApplication>
@@ -68,10 +82,11 @@ void simulationStep(void *data, SoSensor *sensor);
 
 avatar* user_avatar = NULL;
 SoPerspectiveCamera* camera;
-// the experiments and lessons have their own UI
-// coded in HTML and JavaScript
-// loaded in a QWebView browser (dynamic_web_ui)
-//QWebView* dynamic_web_ui;
+SoSelection* selection = NULL;
+
+// Forward Declarations
+SoSeparator* startUpScene( SoNode* avatar );
+void made_selection( void * userdata, SoPath * path );
 
 int main(int argc, char **argv)
 {
@@ -85,13 +100,13 @@ int main(int argc, char **argv)
   try
     {
 
-      SoDB::init();
-
       std::string name = "NONAME";
       std::string ip = "localhost";
       std::string port = "8080";
 
       QApplication app(argc, argv);  
+      // SoQt::init ... only after QApplication...
+      SoQt::init(argv[0]);
 
       // Log IN
 
@@ -135,42 +150,11 @@ int main(int argc, char **argv)
       }
 
       // The scene
-      SoSeparator *root = new SoSeparator();
+      SoSeparator *root = startUpScene( my_avatar.get3d_model() );
       root->ref();
-      
-      camera = new SoPerspectiveCamera();
-      camera->nearDistance = 4;
-      camera->farDistance = 4096;
-
-      root->addChild(camera);
-      root->addChild(get_scene_graph_from_file("/usr/local/share/l3dclient/world.wrl"));
-      root->addChild(get_scene_graph_from_file("/usr/local/share/l3dclient/grass.wrl"));
-      root->addChild(my_avatar.get3d_model());
 
       gui viewer(root, app, camera);
       viewer.showMaximized();
-
-
-      ////////// move camera and avatar with directional keys
-      
-      // keyboard handling
-      SoEventCallback *cb = new SoEventCallback;
-      cb->addEventCallback(SoKeyboardEvent::getClassTypeId(), keyboardEvent_cb, NULL);
-      root->insertChild(cb, 0);
-
-      // sensor for infinite processing of simulationStep
-      SoOneShotSensor *sensor = new SoOneShotSensor(simulationStep, NULL);
-      sensor->schedule();
-      
-      ////////// end
-
-      // dynamic_web_ui = new QWebView();
-      // QString htmlSt = "<html><body><h1>HTML Previewer</h1>"
-      //                 " <p>This example shows you how to use QWebView to"
-      //                 " preview HTML data written in a QPlainTextEdit.</p>"
-      //                 " </body></html>";
-      // dynamic_web_ui->setHtml(htmlSt);
-      // dynamic_web_ui->show();
 
       return app.exec();
 
@@ -216,17 +200,6 @@ void keyboardEvent_cb(void *userdata, SoEventCallback *node)
 
 void updateScene(double currentTime, double deltaTime)
 {
-
-  // static double fpsTime = currentTime;
-  // static int fps = 0;
-
-  // if(fpsTime+1.0 < currentTime)
-  // {
-  //   ++fpsTime;
-  //   printf("%i fps\n", fps);
-  //   fps = 0;
-  // } else
-  //   ++fps;
 
   float speed = user_avatar->getSpeed();  // speed of user_avatar
   float orientation = user_avatar->getOrientation();
@@ -343,6 +316,7 @@ void updateScene(double currentTime, double deltaTime)
     {
 
   user_avatar->setPosition(pos);
+  //user_avatar->broadcastPosition();
   user_avatar->direction = user_avatar->getPosition() - originalPosition;
   // set new user_avatar->speed
   user_avatar->setSpeed(speed);
@@ -399,3 +373,88 @@ void simulationStep(void *data, SoSensor *sensor)
   // reschedule sensor (it will make this function to be called again and again)
   sensor->schedule();
 }
+
+
+// Forward Declarations
+SoSeparator* startUpScene(SoNode* avatar)
+{
+  
+  // callbacks for selecting objects 
+  SoSelection* root = new SoSelection;
+  selection = root;
+  root->ref();
+  root->addSelectionCallback( made_selection, (void *)1L );
+  root->addDeselectionCallback( made_selection, (void *)0L );
+  root->policy = SoSelection::TOGGLE;
+
+  //CAMERA
+  camera = new SoPerspectiveCamera();
+  camera->nearDistance = 4;
+  camera->farDistance = 4096;
+  root->addChild( camera );
+
+  root->addChild( get_scene_graph_from_file("/usr/local/share/l3dclient/world.wrl") );
+  root->addChild( get_scene_graph_from_file("/usr/local/share/l3dclient/grass.wrl") );
+  root->addChild( avatar );
+
+  ////////// move camera and avatar with directional keys
+      
+  // keyboard handling
+  SoEventCallback *cb = new SoEventCallback;
+  cb->addEventCallback(SoKeyboardEvent::getClassTypeId(), keyboardEvent_cb, NULL);
+  root->insertChild(cb, 0);
+
+  // sensor for infinite processing of simulationStep
+  SoOneShotSensor *sensor = new SoOneShotSensor(simulationStep, NULL);
+  sensor->schedule();
+
+
+  root->unrefNoDelete();
+
+  return root;
+}
+
+void made_selection( void * userdata, SoPath * path )
+{
+  qDebug()<<"sel";
+   static SbBool lock = FALSE;
+  // Avoid processing recursive calls when we explicitly
+  // select/deselect paths in the toplevel SoSelection node.
+  if ( lock ) return;
+  lock = TRUE;
+
+  selection->deselectAll();
+
+  if ( userdata != NULL ) { // marks selection
+
+    QString type = path->getTail()->getTypeId().getName().getString();
+    qDebug()<<type<<"   "<<path->getTail()->getName().getString();
+
+  }
+
+  lock = FALSE;
+  selection->touch();
+
+
+}
+
+
+
+
+
+
+/*
+// the experiments and lessons have their own UI
+// coded in HTML and JavaScript
+// loaded in a QWebView browser (dynamic_web_ui)
+//QWebView* dynamic_web_ui;
+      ////////// end
+
+      // dynamic_web_ui = new QWebView();
+      // QString htmlSt = "<html><body><h1>HTML Previewer</h1>"
+      //                 " <p>This example shows you how to use QWebView to"
+      //                 " preview HTML data written in a QPlainTextEdit.</p>"
+      //                 " </body></html>";
+      // dynamic_web_ui->setHtml(htmlSt);
+      // dynamic_web_ui->show();
+      */
