@@ -50,6 +50,7 @@
 #include <QApplication>
 #include <QUrl>
 #include <QtWebKit/QWebView>
+#include <QSound>
 
 const float maxSpeed = 100.0f;
 const float minSpeed = -30.0f;
@@ -154,6 +155,11 @@ int main(int argc, char **argv)
       root->ref();
 
       gui viewer(root, app, camera);
+      
+      QSound bkgMusic("~/Downloads/a.wav", NULL );
+      bkgMusic.setLoops( -1 );
+      bkgMusic.play();
+
       viewer.showMaximized();
 
       return app.exec();

@@ -16,7 +16,7 @@ ui_%.h: %.ui
 clean-uic-extra:
 	rm -vf src/uic_*.h *.o src/*.o moc_*.cpp buildaux/*
 
-clean-am: clean-uic-extra
+clean-local: clean-uic-extra
 
 
 L3DClient_SOURCES = \
@@ -83,32 +83,42 @@ vrml_avatar_files = \
  vrml/avatar/avatar_male.wrl \
  vrml/avatar/RIGHT_LEG.wrl \
  vrml/avatar/LEFT_LEG.wrl \
- vrml/avatar/t_eye_n.tga \
- vrml/avatar/t_eye.d.tga \
- vrml/avatar/t_clubGirlsC_s.tga \
- vrml/avatar/t_clubGirlsC_n.tga \
- vrml/avatar/t_clubGirlsC_dm.tga \
+ vrml/avatar/t_eye_n.png \
+ vrml/avatar/t_eye.d.png \
+ vrml/avatar/t_clubGirlsC_s.png \
+ vrml/avatar/t_clubGirlsC_n.png \
+ vrml/avatar/t_clubGirlsC_dm.png \
  vrml/avatar/head.wrl\
  vrml/avatar/RIGHT_LEG_MALE.wrl\
  vrml/avatar/RIGHT_ARM_MALE.wrl\
  vrml/avatar/LEFT_LEG_MALE.wrl\
  vrml/avatar/LEFT_ARM_MALE.wrl\
  vrml/avatar/body_male.wrl\
- vrml/avatar/BruceWayne_Suit_Torso_S.tga\
- vrml/avatar/BruceWayne_Suit_Torso_N.tga\
- vrml/avatar/BruceWayne_Suit_Torso_D.tga\
- vrml/avatar/BruceWayne_Suit_Legs_S.tga\
- vrml/avatar/BruceWayne_Suit_Legs_N.tga\
- vrml/avatar/BruceWayne_Suit_Legs_D.tga\
- vrml/avatar/BruceWayne_Head_S.tga\
- vrml/avatar/BruceWayne_Head_N.tga\
- vrml/avatar/BruceWayne_Head_D.tga\
+ vrml/avatar/BruceWayne_Suit_Torso_S.png\
+ vrml/avatar/BruceWayne_Suit_Torso_N.png\
+ vrml/avatar/BruceWayne_Suit_Torso_D.png\
+ vrml/avatar/BruceWayne_Suit_Legs_S.png\
+ vrml/avatar/BruceWayne_Suit_Legs_N.png\
+ vrml/avatar/BruceWayne_Suit_Legs_D.png\
+ vrml/avatar/BruceWayne_Head_S.png\
+ vrml/avatar/BruceWayne_Head_N.png\
+ vrml/avatar/BruceWayne_Head_D.png\
  $(NULL)
 
 private_icons = \
   icons/male.png \
   icons/female.png
   $(NULL)
+
+private_media = \
+  media/hibou1.ogg \
+  $(NULL)
+
+install-pmedia:
+	for mdia in $(private_media); do \
+		mkdir -p $(DESTDIR)$(pkgdatadir)/media/; \
+		$(INSTALL_DATA) $(srcdir)/$$mdia $(DESTDIR)$(pkgdatadir)/media/; \
+	done
 
 install-icons:
 	for icon in $(private_icons); do \
@@ -128,4 +138,4 @@ install-wrl-avatar:
 		$(INSTALL_DATA) $(srcdir)/$$wrmlfile $(DESTDIR)$(pkgdatadir)/; \
 	done
 
-install-data-local: install-wrl-world install-wrl-avatar install-icons
+install-data-local: install-wrl-world install-wrl-avatar install-icons install-pmedia

@@ -14,8 +14,8 @@ DEF BruceWayneTorso_TRANSFORM Transform {
                   diffuseColor 0.64 0.64 0.64
                   shininess 0.094
                 }
-                texture DEF IM_BruceWayne_Suit_Torso_D_tga ImageTexture {
-                  url [ "BruceWayne_Suit_Torso_D.tga" "/home/gabriel/Downloads/Bruce_Wayne/BruceWayne_Suit_Torso_D.tga" ]
+                texture DEF IM_BruceWayne_Suit_Torso_D_png ImageTexture {
+                  url [ "BruceWayne_Suit_Torso_D.png" "/usr/local/share/l3dclient/BruceWayne_Suit_Torso_D.png" ]
                 }
                 textureTransform TextureTransform {
                 }

@@ -14,8 +14,8 @@ DEF BruceWayneHead_TRANSFORM Transform {
                   diffuseColor 0.64 0.64 0.64
                   shininess 0.094
                 }
-                texture DEF IM_BruceWayne_Head_D_tga ImageTexture {
-                  url [ "BruceWayne_Head_D.tga" "/home/gabriel/Downloads/Bruce_Wayne/BruceWayne_Head_D.tga" ]
+                texture DEF IM_BruceWayne_Head_D_png ImageTexture {
+                  url [ "BruceWayne_Head_D.png" "/usr/local/share/l3dclient/BruceWayne_Head_D.png" ]
                 }
                 textureTransform TextureTransform {
                 }
