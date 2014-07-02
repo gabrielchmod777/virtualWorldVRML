@@ -1,8 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'login.ui'
 **
-** Created: Fri Jun 27 09:21:33 2014
-**      by: Qt User Interface Compiler version 4.8.3
+** Created by: Qt User Interface Compiler version 4.8.6
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -14,6 +13,7 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
+#include <QtGui/QCheckBox>
 #include <QtGui/QDialog>
 #include <QtGui/QDialogButtonBox>
 #include <QtGui/QGridLayout>
@@ -39,6 +39,12 @@ public:
     QLineEdit *lineEdit_ip;
     QLineEdit *lineEdit_port;
     QPushButton *pushButton_male;
+    QCheckBox *checkBox_proxy;
+    QLineEdit *lineEdit_proxyIp;
+    QLabel *label_4;
+    QLabel *label_5;
+    QLineEdit *lineEdit_proxyPort;
+    QLabel *label_6;
 
     void setupUi(QDialog *LogInUi)
     {
@@ -102,6 +108,36 @@ public:
 
         gridLayout->addWidget(pushButton_male, 4, 1, 1, 1);
 
+        checkBox_proxy = new QCheckBox(gridLayoutWidget);
+        checkBox_proxy->setObjectName(QString::fromUtf8("checkBox_proxy"));
+
+        gridLayout->addWidget(checkBox_proxy, 5, 1, 1, 1);
+
+        lineEdit_proxyIp = new QLineEdit(gridLayoutWidget);
+        lineEdit_proxyIp->setObjectName(QString::fromUtf8("lineEdit_proxyIp"));
+
+        gridLayout->addWidget(lineEdit_proxyIp, 6, 1, 1, 1);
+
+        label_4 = new QLabel(gridLayoutWidget);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+
+        gridLayout->addWidget(label_4, 5, 0, 1, 1);
+
+        label_5 = new QLabel(gridLayoutWidget);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+
+        gridLayout->addWidget(label_5, 6, 0, 1, 1);
+
+        lineEdit_proxyPort = new QLineEdit(gridLayoutWidget);
+        lineEdit_proxyPort->setObjectName(QString::fromUtf8("lineEdit_proxyPort"));
+
+        gridLayout->addWidget(lineEdit_proxyPort, 7, 1, 1, 1);
+
+        label_6 = new QLabel(gridLayoutWidget);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+
+        gridLayout->addWidget(label_6, 7, 0, 1, 1);
+
         QWidget::setTabOrder(lineEdit_name, lineEdit_ip);
         QWidget::setTabOrder(lineEdit_ip, lineEdit_port);
         QWidget::setTabOrder(lineEdit_port, pushButton_female);
@@ -118,14 +154,18 @@ public:
     void retranslateUi(QDialog *LogInUi)
     {
         LogInUi->setWindowTitle(QApplication::translate("LogInUi", "Log In", 0, QApplication::UnicodeUTF8));
-        pushButton_female->setText(QApplication::translate("LogInUi", "PushButton", 0, QApplication::UnicodeUTF8));
+        pushButton_female->setText(QApplication::translate("LogInUi", "Female AVATAR", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("LogInUi", "Name", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("LogInUi", "IP", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("LogInUi", "PORT", 0, QApplication::UnicodeUTF8));
         lineEdit_name->setText(QApplication::translate("LogInUi", "visitor", 0, QApplication::UnicodeUTF8));
         lineEdit_ip->setText(QApplication::translate("LogInUi", "localhost", 0, QApplication::UnicodeUTF8));
         lineEdit_port->setText(QApplication::translate("LogInUi", "8080", 0, QApplication::UnicodeUTF8));
-        pushButton_male->setText(QApplication::translate("LogInUi", "PushButton", 0, QApplication::UnicodeUTF8));
+        pushButton_male->setText(QApplication::translate("LogInUi", "Male AVATAR", 0, QApplication::UnicodeUTF8));
+        checkBox_proxy->setText(QString());
+        label_4->setText(QApplication::translate("LogInUi", "Proxy", 0, QApplication::UnicodeUTF8));
+        label_5->setText(QApplication::translate("LogInUi", "Proxy IP", 0, QApplication::UnicodeUTF8));
+        label_6->setText(QApplication::translate("LogInUi", "Proxy Port", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
