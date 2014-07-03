@@ -110,7 +110,6 @@ int main(int argc, char **argv)
       SoQt::init(argv[0]);
 
       // Log IN
-
       login_dialog ldia;
       int dialogCode = ldia.exec();
       
@@ -132,10 +131,15 @@ int main(int argc, char **argv)
       boost::asio::ip::tcp::resolver::iterator iterator = resolver.resolve(query);
 
       client c(io_service, iterator);
-      
+
       std::string executors_name = name.c_str();
       command_executor client_exec(executors_name);
       c.add_observer(&client_exec);
+
+      qDebug()<<"==============================\n";
+      // DOWNLOAD WORLD RESOURCES
+      c.send(std::string("@get_resources"));
+      qDebug()<<"==============================\n";
       
       int avatar_gender = ldia.selected_avatar;
 

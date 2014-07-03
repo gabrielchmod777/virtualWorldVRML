@@ -4,7 +4,7 @@ ACLOCAL_AMFLAGS = -I ./build-aux
 
 bin_PROGRAMS = L3DClient
 
-dist_bin_SCRIPTS = scripts/l3dclient_mklocal_dir.sh
+dist_bin_SCRIPTS = scripts/l3dclient_mklocal_dir.sh scripts/make_links.sh
 
 BUILT_SOURCES = \
   src/ui_left_form.h \

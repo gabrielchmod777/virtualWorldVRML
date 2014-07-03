@@ -29,6 +29,7 @@ class gui : public QWidget
 
  public:
   static bool free_camera;
+
   gui(SoSeparator* vrml_scene, QApplication & app, SoCamera* camera);
   
  public slots:
