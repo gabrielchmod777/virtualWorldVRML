@@ -1,0 +1,186 @@
+#VRML V2.0 utf8
+
+DEF KART Transform
+  {
+  children 
+    [
+    Transform
+      {
+      translation 0 -0.30000001 0
+      children 
+	Shape
+	  {
+	  appearance Appearance
+	    {
+	    material Material
+	      {
+	      diffuseColor 0 1 0
+	      }
+	    }
+	  geometry Box
+	    {
+	    size 5 0.10000000 2.29999995
+	    }
+	  }
+      }
+    Transform
+      {
+      rotation 1 0 0 1.57000005
+      translation -1.75000000 0 -1.38999998
+      children 
+	DEF WHEEL Shape
+	  {
+	  appearance Appearance
+	    {
+	    material Material
+	      {
+	      diffuseColor 0.69999998 0.60000002 0.50000000
+	      }
+	    }
+	  geometry Cylinder
+	    {
+	    height 0.30000001
+	    radius 0.60000002
+	    }
+	  }
+      }
+    Transform
+      {
+      rotation 1 0 0 1.57009017
+      translation 1.75000000 0 -1.39999997
+      children 
+	USE WHEEL
+      }
+    Transform
+      {
+      rotation 1 0 0 1.57000005
+      translation 1.75000000 0 1.39999997
+      children 
+	USE WHEEL
+      }
+    Transform
+      {
+      rotation 1 0 0 1.57000005
+      translation -1.75000000 0 1.39999997
+      children 
+	USE WHEEL
+      }
+    Transform
+      {
+      translation -0.80888271 0 0
+      children 
+	Shape
+	  {
+	  appearance Appearance
+	    {
+	    material Material
+	      {
+	      diffuseColor 0 0.80000001 0.80000001
+	      }
+	    }
+	  geometry Box
+	    {
+	    size 1 0.60000002 2
+	    }
+	  }
+      }
+    Transform
+      {
+      translation -1.80817258 0.31097412 0
+      children 
+	Shape
+	  {
+	  appearance Appearance
+	    {
+	    material Material
+	      {
+	      diffuseColor 1 0 0
+	      }
+	    }
+	  geometry Box
+	    {
+	    size 1 1.50000000 2
+	    }
+	  }
+      }
+    Transform
+      {
+      rotation 0.15196962 0.95616805 0.25029563 0
+      translation 1.78528022 6.75376653e-2 0
+      children 
+	Shape
+	  {
+	  appearance DEF MA Appearance
+	    {
+	    material Material
+	      {
+	      diffuseColor 1 0 0
+	      }
+	    }
+	  geometry Box
+	    {
+	    size 2 1 2
+	    }
+	  }
+      }
+    Transform
+      {
+      rotation 0.22126075 0.93832147 0.26570007 0
+      translation 2.67921447 9.38485860e-2 0.70186221
+      children 
+	Shape
+	  {
+	  appearance DEF MASINA_FAR_1 Appearance
+	    {
+	    material DEF MASINA_FAR_1_MATERIAL Material
+	      {
+	      }
+	    }
+	  geometry Sphere
+	    {
+	    radius 0.25000000
+	    }
+	  }
+      }
+    Transform
+      {
+      rotation -0.38458400 0.72545927 0.57079237 0
+      translation 2.65875649 9.00000035e-2 -0.62415969
+      children 
+	Shape
+	  {
+	  appearance DEF MASINA_FAR_2 Appearance
+	    {
+	    material DEF MASINA_FAR_2_MATERIAL Material
+	      {
+	      }
+	    }
+	  geometry Sphere
+	    {
+	    radius 0.25000000
+	    }
+	  }
+      }
+    Transform
+      {
+      rotation 0 0 1 0.69999998
+      translation 0.71213853 0.77660524 -0.48245579
+      children 
+	Shape
+	  {
+	  appearance Appearance
+	    {
+	    material Material
+	      {
+	      }
+	    }
+	  geometry Cylinder
+	    {
+	    height 0.10000000
+	    radius 0.34999999
+	    }
+	  }
+      }
+    ]
+  }
+
