@@ -21,7 +21,7 @@ private:
   SoSeparator* _3d_model;
   std::string _name = "";
   client* _my_client;
-
+  int _avatar_gender = 0;
   float orientation;
   float speed;
   SoTranslation *translation;

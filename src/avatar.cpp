@@ -19,7 +19,7 @@ avatar::avatar()
 
 avatar::avatar(std::string name, client& associated_server_client, int avatar_gender)
 {
-
+  _avatar_gender = avatar_gender;
   _previousPosition = SbVec3f(0.0f, 0.0f, 0.0f);
   _name = name;
   _my_client = &associated_server_client;
@@ -131,9 +131,9 @@ void avatar::broadcastPosition()
 
       float x,y,z;
       getPosition(x,y,z);
-      std::string cmd_move = " @js_eval_world var me = new avatar('"+_name+"'); me.move("+std::to_string(x)+","+std::to_string(y)+","+std::to_string(z)+");";
+      std::string cmd_move = " @js_eval_world var me = new avatar('"+_name+"','"+std::to_string(_avatar_gender)+"'); me.move("+std::to_string(x)+","+std::to_string(y)+","+std::to_string(z)+");";
 
-      std::string cmd_rotate = " @js_eval_world var me = new avatar('"+_name+"'); me.rotate('Y',"+std::to_string(getOrientation())+")";  
+      std::string cmd_rotate = " @js_eval_world var me = new avatar('"+_name+"','"+std::to_string(_avatar_gender)+"'); me.rotate('Y',"+std::to_string(getOrientation())+")";  
 
       _my_client->send(std::move(cmd_move));
       _my_client->send(std::move(cmd_rotate));
@@ -146,6 +146,6 @@ void avatar::broadcastPosition()
 
 void avatar::chatWith(const std::string& other_name, const std::string& msg)
 {
-  std::string cmd_talk = " @js_eval_world var me = new avatar('"+_name+"'); me.talk("+other_name+","+msg+")";  
+  std::string cmd_talk = " @js_eval_world var me = new avatar('"+_name+"','"+std::to_string(_avatar_gender)+"'); me.talk("+other_name+","+msg+")";  
   _my_client->send(std::move(cmd_talk));
 }
