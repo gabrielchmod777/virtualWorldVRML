@@ -7,6 +7,9 @@
 /* Define to 1 if you have <boost/asio.hpp> */
 #define HAVE_BOOST_ASIO_HPP 1
 
+/* Define to 1 if you have <boost/filesystem/path.hpp> */
+#define HAVE_BOOST_FILESYSTEM_PATH_HPP 1
+
 /* Define to 1 if you have <boost/system/error_code.hpp> */
 #define HAVE_BOOST_SYSTEM_ERROR_CODE_HPP 1
 

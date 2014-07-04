@@ -6,19 +6,23 @@
 #include <vector>
 #include <dlfcn.h>
 #include <cstdlib>
-
+#include "plugin.h"
+#include <QObject>
+#include <QDebug>
 
 #include <Inventor/nodes/SoSeparator.h>
 
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
 #include <boost/foreach.hpp>
+#include <boost/filesystem.hpp>
 
 #define NO_PLUGIN_FOUND "ro.utcluj.aut.nopluginfound"
 
 using namespace std;
+using namespace boost::filesystem;
 
-typedef void (*executor_plugin)(std::string &&, SoSeparator *, std::string name);
+typedef CPlugIn* (*executor_plugin)(std::string, SoSeparator *, std::string, QObject* );
 
 string decode_response_utf8(string &SRC) {
     string ret;
@@ -114,54 +118,70 @@ void command_executor::set_vrml_tree_node(SoSeparator *node)
   vrml_node = node;
 }
 
+#define FILE_FOUND_BY_EXTRNAL_APP 0
+
 void command_executor::onMessageReceived(std::string message)
 {
-
   std::cout<<std::endl<<decode_response_utf8(message);
   std::string src_plugin_ ="";
   std::string plug_in_name = select_execution_plugin(decode_response_utf8(message), src_plugin_);
+  std::string fileAndPath = " /home/wrk/.l3dclient/plugins/"+plug_in_name+std::string(".1.0");
+  std::string FIND = "BOOSTFINDUTIL /home/wrk/.l3dclient/plugins/"+plug_in_name+std::string(".1.0");  
+
+  const char* fp = FIND.c_str();
+  int found = system(fp);
   
+  if ( found == FILE_FOUND_BY_EXTRNAL_APP )
+    {
+      qDebug()<<"YAYYYYYY";
+    }
+  else 
+    {
+      qDebug()<<"NAOOOOOOOO";
+    }
+
+}
+
+
+/*
+  
+  if( !haveFile )
+    {
+      std::cout<<std::endl<<dlerror();
+      std::cout<<std::endl<<"****** TRY TO DOWNLOAD *******"<<std::endl
+	       <<src_plugin_
+	       <<std::endl<<"******************************"<<std::endl;
+  
+      std::string wget_cmd = "wget -P ~/.l3dclient/plugins/ "+src_plugin_; 
+      std::system(wget_cmd.c_str());
+
+      //plug_in_name.erase(0,10);
+	  
+      std::string link1 = plug_in_name+".1";
+      std::string link2 = link1+".0";
+      std::cout<<std::endl<<"OML "<<link1;
+      std::string cmd1 = "make_links.sh "+link2+" "+link1;
+      std::string cmd2 = "make_links.sh "+link2+" "+plug_in_name;
+      std::system(cmd1.c_str());
+      std::system(cmd2.c_str());
+
+    }
+  else 
+    {
+      std::cout<<"OKKKKKK ____ HAVE PLUG-iN";
+    }
+
   if(plug_in_name != NO_PLUGIN_FOUND)
     {
       
       executor_plugin plug_in;
       void *lib_handle;
       char *error;
-
-      lib_handle = dlopen(plug_in_name.c_str(), RTLD_LAZY);
+      
+      lib_handle = dlopen(fileAndPath.c_str(), RTLD_LAZY);
       if (!lib_handle) 
 	{
-
-	  int sys_return_val = 0;
-
-	  std::cout<<std::endl<<dlerror();
-	  std::cout<<std::endl<<"****** TRY TO DOWNLOAD *******"<<std::endl
-		   <<src_plugin_
-		   <<std::endl<<"******************************"<<std::endl;
-  
-	  std::string wget_cmd = "wget -P ./plugins/ "+src_plugin_; 
-	  sys_return_val = std::system(wget_cmd.c_str());
-
-	  std::cout<<std::endl<<"SYSTEM -> "<<sys_return_val;
-
-	  plug_in_name.erase(0,10);
-	  std::cout<<std::endl<<"OML "<<plug_in_name;
-	  std::string link1 = plug_in_name+".1";
-	  std::string link2 = link1+".0";
-	  std::cout<<std::endl<<"OML "<<link1;
-	  //ln -sf /opt/lib/libctest.so.1.0 /opt/lib/libctest.so.1
-	  //ln -sf /opt/lib/libctest.so.1.0 /opt/lib/libctest.so
-	  std::string cmd1 = "./make_links.sh "+link2+" "+link1;
-	  std::string cmd2 = "./make_links.sh "+link2+" "+plug_in_name;
-	  std::cout<<std::endl<<"OML "<<cmd1;
-	  std::cout<<std::endl<<"OML "<<cmd2;
-	  
-	  sys_return_val = std::system(cmd1.c_str());
-	  std::cout<<std::endl<<"SYSTEM -> "<<sys_return_val;
-
-	  sys_return_val = std::system(cmd2.c_str());
-	  std::cout<<std::endl<<"SYSTEM -> "<<sys_return_val;
-
+	  std::cout<<std::endl<<"ERR __ !LIB_HANDLE";
 	  return ;
 	}
 
@@ -174,7 +194,8 @@ void command_executor::onMessageReceived(std::string message)
 
       if((vrml_node!=NULL))
 	{
-	  plug_in(std::move(decode_response_utf8(message)), vrml_node, name);
+	  CPlugIn* p = plug_in(decode_response_utf8(message), vrml_node, name, NULL);
+	  p->exec_operation("**&&&***&&&&**** OPERATION MOC");
 	}
 
       dlclose(lib_handle);
@@ -184,8 +205,9 @@ void command_executor::onMessageReceived(std::string message)
 //      std::cout<<std::endl<<"DEBUG >"<<"Nici un plug-in identificat pentru a executa commanda -> "<<decode_response_utf8(message);
 //      std::cout<<std::endl<<"DEBUG >"<<"No plug-in available to execute command -> "<<decode_response_utf8(message);
     }
-}
 
+
+ */
 
 
 

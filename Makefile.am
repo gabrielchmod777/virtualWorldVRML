@@ -4,7 +4,7 @@ ACLOCAL_AMFLAGS = -I ./build-aux
 
 bin_PROGRAMS = L3DClient
 
-dist_bin_SCRIPTS = scripts/l3dclient_mklocal_dir.sh scripts/make_links.sh
+dist_bin_SCRIPTS = scripts/l3dclient_mklocal_dir.sh scripts/make_links.sh scripts/BOOSTFINDUTIL
 
 BUILT_SOURCES = \
   src/ui_left_form.h \
@@ -41,15 +41,16 @@ L3DClient_SOURCES = \
   src/ui_login.h\
   src/login_dialog.h\
   src/login_dialog.cpp\
-  moc_login_dialog.cpp
+  moc_login_dialog.cpp\
+  src/plugin.h
 
 DIRTY_HACK_QT_WEBKIT_INCLUDE = -I/usr/include/qt4/QtWebKit
 DIRTY_HACK_QT_WEBKIT_LIB = -lQtWebKit
 
 L3DClient_CXXFLAGS = -std=c++11 -g $(CXXFLAGS_COIN) $(CXXFLAGS_SOXT) $(BOOST_CXXFLAGX) $(DIRTY_HACK_QT_WEBKIT_INCLUDE)
 L3DClient_CPPFLAGS = -std=c++11 -g $(QT4_CFLAGS) $(CPPFLAGS_COIN) $(CPPFLAGS_SOXT) $(BOOST_CPPFLAGX) $(DIRTY_HACK_QT_WEBKIT_INCLUDE)
-L3DClient_LDFLAGS  = $(QT4_LIBS) $(LDFLAGS_COIN) $(LDFLAGS_SOXT) $(BOOST_ASIO_LDFLAGS) $(BOOST_SYSTEM_LDFLAGS) $(BOOST_THREAD_LDFLAGS) 
-L3DClient_LDADD = $(LIBS_COIN) $(LIBS_SOXT)  $(BOOST_ASIO_LIB) $(BOOST_SYSTEM_LIB) $(BOOST_THREAD_LIBS) $(DIRTY_HACK_QT_WEBKIT_LIB)
+L3DClient_LDFLAGS  = $(QT4_LIBS) $(LDFLAGS_COIN) $(LDFLAGS_SOXT) $(BOOST_ASIO_LDFLAGS) $(BOOST_FILESYSTEM_LDFLAGS) $(BOOST_SYSTEM_LDFLAGS) $(BOOST_THREAD_LDFLAGS) 
+L3DClient_LDADD = $(LIBS_COIN) $(LIBS_SOXT)  $(BOOST_ASIO_LIB) $(BOOST_FILESYSTEM_LIBS) $(BOOST_SYSTEM_LIB) $(BOOST_THREAD_LIBS) $(DIRTY_HACK_QT_WEBKIT_LIB)
 
 #install-icons:
 #	for icon in $(private_icons); do \
