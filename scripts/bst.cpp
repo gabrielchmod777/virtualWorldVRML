@@ -12,7 +12,7 @@ bool isFilePresent( const char* name )
   if( exists( p ) )
     {
       haveFile = true;
-     }
+    }
   else
     {
       haveFile = false;
@@ -24,17 +24,14 @@ bool isFilePresent( const char* name )
 int main(int argc, char ** argv)
 {
 
-bool have = isFilePresent( argv[1] );
-if( have )
-{
-     std::cout<<"FOUND ... "<<argv[1];
-     return 0;
-}
-else 
-{
-    std::cout<<"NOT FOUND ...."<<argv[1];
-    return 1;
-
-}
+  bool have = isFilePresent( argv[1] );
+  if( have )
+    {
+      return 0;
+    }
+  else 
+    {
+      return 1;
+    }
 
 }

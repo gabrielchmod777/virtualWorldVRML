@@ -5,6 +5,8 @@
 #include <sstream>
 #include <vector>
 #include <dlfcn.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include <cstdlib>
 #include "plugin.h"
 #include <QObject>
@@ -22,7 +24,7 @@
 using namespace std;
 using namespace boost::filesystem;
 
-typedef CPlugIn* (*executor_plugin)(std::string, SoSeparator *, std::string, QObject* );
+//typedef void (*executor_plugin)(std::string, SoSeparator *);
 
 string decode_response_utf8(string &SRC) {
     string ret;
@@ -125,29 +127,43 @@ void command_executor::onMessageReceived(std::string message)
   std::cout<<std::endl<<decode_response_utf8(message);
   std::string src_plugin_ ="";
   std::string plug_in_name = select_execution_plugin(decode_response_utf8(message), src_plugin_);
-  std::string fileAndPath = " /home/wrk/.l3dclient/plugins/"+plug_in_name+std::string(".1.0");
-  std::string FIND = "BOOSTFINDUTIL /home/wrk/.l3dclient/plugins/"+plug_in_name+std::string(".1.0");  
+  std::string fileAndPath = " ~/.l3dclient/plugins/"+plug_in_name;
+  std::string FIND = "BOOSTFINDUTIL "+fileAndPath;  
 
   const char* fp = FIND.c_str();
   int found = system(fp);
   
   if ( found == FILE_FOUND_BY_EXTRNAL_APP )
     {
-      qDebug()<<"YAYYYYYY";
+      if(plug_in_name != NO_PLUGIN_FOUND)
+	{
+      
+
+	  void *handle;
+	  PLUG_IN PLF;
+	  char *error;
+
+	  handle = dlopen ("/home/wrk/tryspace/plugins/cos.so", RTLD_LAZY);
+	  if (!handle) {
+	    fputs (dlerror(), stderr);
+	    exit(1);
+	  }
+
+	  PLF = (PLUG_IN)dlsym(handle, "get_plug_in");
+	  if ((error = dlerror()) != NULL)  {
+	    fputs(error, stderr);
+	    exit(1);
+	  }
+
+	  (*PLF)(decode_response_utf8(message), vrml_node);
+
+	  dlclose(handle);
+	}
+
     }
   else 
     {
-      qDebug()<<"NAOOOOOOOO";
-    }
 
-}
-
-
-/*
-  
-  if( !haveFile )
-    {
-      std::cout<<std::endl<<dlerror();
       std::cout<<std::endl<<"****** TRY TO DOWNLOAD *******"<<std::endl
 	       <<src_plugin_
 	       <<std::endl<<"******************************"<<std::endl;
@@ -155,59 +171,9 @@ void command_executor::onMessageReceived(std::string message)
       std::string wget_cmd = "wget -P ~/.l3dclient/plugins/ "+src_plugin_; 
       std::system(wget_cmd.c_str());
 
-      //plug_in_name.erase(0,10);
-	  
-      std::string link1 = plug_in_name+".1";
-      std::string link2 = link1+".0";
-      std::cout<<std::endl<<"OML "<<link1;
-      std::string cmd1 = "make_links.sh "+link2+" "+link1;
-      std::string cmd2 = "make_links.sh "+link2+" "+plug_in_name;
-      std::system(cmd1.c_str());
-      std::system(cmd2.c_str());
-
-    }
-  else 
-    {
-      std::cout<<"OKKKKKK ____ HAVE PLUG-iN";
+      return;
     }
 
-  if(plug_in_name != NO_PLUGIN_FOUND)
-    {
-      
-      executor_plugin plug_in;
-      void *lib_handle;
-      char *error;
-      
-      lib_handle = dlopen(fileAndPath.c_str(), RTLD_LAZY);
-      if (!lib_handle) 
-	{
-	  std::cout<<std::endl<<"ERR __ !LIB_HANDLE";
-	  return ;
-	}
-
-      plug_in = (executor_plugin)dlsym(lib_handle, "l3d_client_plugin");
-      if ((error = dlerror()) != NULL)  
-	{
-	  std::cout<<std::endl<<error;
-	  return ;
-	}
-
-      if((vrml_node!=NULL))
-	{
-	  CPlugIn* p = plug_in(decode_response_utf8(message), vrml_node, name, NULL);
-	  p->exec_operation("**&&&***&&&&**** OPERATION MOC");
-	}
-
-      dlclose(lib_handle);
-    }
-  else 
-    {
-//      std::cout<<std::endl<<"DEBUG >"<<"Nici un plug-in identificat pentru a executa commanda -> "<<decode_response_utf8(message);
-//      std::cout<<std::endl<<"DEBUG >"<<"No plug-in available to execute command -> "<<decode_response_utf8(message);
-    }
-
-
- */
-
+}
 
 

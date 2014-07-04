@@ -159,7 +159,8 @@ int main(int argc, char **argv)
       root->ref();
 
       gui viewer(root, app, camera);
-      
+      client_exec.set_vrml_tree_node( root );
+
       QSound bkgMusic("~/Downloads/a.wav", NULL );
       bkgMusic.setLoops( -1 );
       bkgMusic.play();
