@@ -110,11 +110,13 @@ public:
 
         checkBox_proxy = new QCheckBox(gridLayoutWidget);
         checkBox_proxy->setObjectName(QString::fromUtf8("checkBox_proxy"));
+        checkBox_proxy->setEnabled(false);
 
         gridLayout->addWidget(checkBox_proxy, 5, 1, 1, 1);
 
         lineEdit_proxyIp = new QLineEdit(gridLayoutWidget);
         lineEdit_proxyIp->setObjectName(QString::fromUtf8("lineEdit_proxyIp"));
+        lineEdit_proxyIp->setEnabled(false);
 
         gridLayout->addWidget(lineEdit_proxyIp, 6, 1, 1, 1);
 
@@ -130,6 +132,7 @@ public:
 
         lineEdit_proxyPort = new QLineEdit(gridLayoutWidget);
         lineEdit_proxyPort->setObjectName(QString::fromUtf8("lineEdit_proxyPort"));
+        lineEdit_proxyPort->setEnabled(false);
 
         gridLayout->addWidget(lineEdit_proxyPort, 7, 1, 1, 1);
 

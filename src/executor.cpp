@@ -122,28 +122,13 @@ void command_executor::set_vrml_tree_node(SoSeparator *node)
 
 #define FILE_FOUND_BY_EXTRNAL_APP 0
 
-void command_executor::onMessageReceived(std::string message)
+void loadNewPlugIn( std::string fileAndPath, std::string message, SoSeparator* vrml_node )
 {
-  std::cout<<std::endl<<decode_response_utf8(message);
-  std::string src_plugin_ ="";
-  std::string plug_in_name = select_execution_plugin(decode_response_utf8(message), src_plugin_);
-  std::string fileAndPath = " ~/.l3dclient/plugins/"+plug_in_name;
-  std::string FIND = "BOOSTFINDUTIL "+fileAndPath;  
-
-  const char* fp = FIND.c_str();
-  int found = system(fp);
-  
-  if ( found == FILE_FOUND_BY_EXTRNAL_APP )
-    {
-      if(plug_in_name != NO_PLUGIN_FOUND)
-	{
-      
-
-	  void *handle;
+  	  void *handle;
 	  PLUG_IN PLF;
 	  char *error;
 
-	  handle = dlopen ("/home/wrk/tryspace/plugins/cos.so", RTLD_LAZY);
+	  handle = dlopen (fileAndPath.c_str(), RTLD_LAZY);
 	  if (!handle) {
 	    fputs (dlerror(), stderr);
 	    exit(1);
@@ -158,6 +143,27 @@ void command_executor::onMessageReceived(std::string message)
 	  (*PLF)(decode_response_utf8(message), vrml_node);
 
 	  dlclose(handle);
+
+}
+
+void command_executor::onMessageReceived(std::string message)
+{
+  std::cout<<std::endl<<decode_response_utf8(message);
+  std::string src_plugin_ ="";
+  std::string plug_in_name = select_execution_plugin(decode_response_utf8(message), src_plugin_);
+  std::string fileAndPath = "/home/wrk/.l3dclient/plugins/"+plug_in_name;
+  std::string FIND = "BOOSTFINDUTIL "+fileAndPath;  
+
+  const char* fp = FIND.c_str();
+  int found = system(fp);
+  
+  if ( found == FILE_FOUND_BY_EXTRNAL_APP )
+    {
+      if(plug_in_name != NO_PLUGIN_FOUND)
+	{
+
+	  loadNewPlugIn( fileAndPath, message, vrml_node );
+      
 	}
 
     }

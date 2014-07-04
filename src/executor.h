@@ -4,7 +4,9 @@
 #include <string>
 #include <iostream>
 #include <Inventor/nodes/SoSeparator.h>
+#include <unordered_map>
 #include "message_observer.h"
+#include "plugin.h"
 
 class command_executor : public message_observer
 {
@@ -13,6 +15,7 @@ class command_executor : public message_observer
   std::string name;
   //void execute_command(SoSeparator && model);
   command_executor();
+  std::unordered_map< std::string, PLUG_IN > _plugins_map; 
  public:
   command_executor(std::string exec_name);
   virtual ~command_executor();

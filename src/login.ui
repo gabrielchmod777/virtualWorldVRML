@@ -105,13 +105,20 @@
     </item>
     <item row="5" column="1">
      <widget class="QCheckBox" name="checkBox_proxy">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="text">
        <string/>
       </property>
      </widget>
     </item>
     <item row="6" column="1">
-     <widget class="QLineEdit" name="lineEdit_proxyIp"/>
+     <widget class="QLineEdit" name="lineEdit_proxyIp">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+     </widget>
     </item>
     <item row="5" column="0">
      <widget class="QLabel" name="label_4">
@@ -128,7 +135,11 @@
      </widget>
     </item>
     <item row="7" column="1">
-     <widget class="QLineEdit" name="lineEdit_proxyPort"/>
+     <widget class="QLineEdit" name="lineEdit_proxyPort">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+     </widget>
     </item>
     <item row="7" column="0">
      <widget class="QLabel" name="label_6">
