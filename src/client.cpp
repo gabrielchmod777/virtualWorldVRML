@@ -5,8 +5,6 @@
 #include "message_observer.h"
 
 
-#define BUFFER_MAX_SIZE 4096
-
 std::string keep = "";
 
 client::client(boost::asio::io_service& io_service, boost::asio::ip::tcp::resolver::iterator endpoint_iterator) : sock_(io_service), io_service_(io_service)

@@ -10,7 +10,7 @@
 
 #include "message_observer.h"
 
-#define BUFFER_MAX_SIZE 4096
+#define BUFFER_MAX_SIZE 10000
 
 class client
 {
