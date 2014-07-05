@@ -39,9 +39,10 @@ public:
   
   SbVec3f direction;
   float angleCorrection;
+  float rotationSpeed; 
+
   void setSpeed(float v);
   float getSpeed() const;
-  float rotationSpeed; 
   SbVec3f getPosition() const; 
   void getPosition(float &x, float &y, float &z) const;
   void setPosition(const SbVec3f &pozice);

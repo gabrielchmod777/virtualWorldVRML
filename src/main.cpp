@@ -53,17 +53,17 @@
 #include <QtWebKit/QWebView>
 #include <QSound>
 
-const float maxSpeed = 100.0f;
-const float minSpeed = -30.0f;
-const float speedUp = 30.0f;
-const float slowDown = 100.0f;
+const float maxSpeed = 24.0f;
+const float minSpeed = -10.0f;
+const float speedUp = 2.0f;
+const float slowDown = 4.0f;
 const float maxRotSpeed = 1.5;
 const float minRotSpeed = -1.5;
-const float rotSpeedUp = 6;   
-const float rotSlowDown = 30; 
+const float rotSpeedUp = 3;   
+const float rotSlowDown = 15; 
 
-const float broacastPosition_interval = 1;
-float broacastPosition_timePassed = 1;
+const float BCAST_POS_TIME_INTERVAL = 0.5;
+float _g_timeSinceLast_position_bcast = 1;
 
 struct KeyRec
 {
@@ -206,6 +206,49 @@ void keyboardEvent_cb(void *userdata, SoEventCallback *node)
   node->setHandled();
 }
 
+
+void BCAST_POSITION( double deltaTime )
+{
+  if( !gui::free_camera )
+    {
+      if(_g_timeSinceLast_position_bcast >= BCAST_POS_TIME_INTERVAL)
+	{
+	  user_avatar->broadcastPosition();
+	  _g_timeSinceLast_position_bcast = 0;
+	}
+
+      _g_timeSinceLast_position_bcast += deltaTime;
+    }
+}
+
+void STOP_AT_BORDER( SbVec3f pos , float speed)
+{
+  float posX = 0.0, posY = 0.0, posZ = 0.0;
+  pos.getValue( posX, posY, posZ );
+  
+    if (posX < -2999)
+    {
+       user_avatar->setSpeed(0);
+    }
+  else if (posX > 2999)
+    {
+       user_avatar->setSpeed(0);
+    }
+  else if (posZ < -2999)
+    {
+      user_avatar->setSpeed(0);
+    }
+  else if (posZ > 2999)
+    {
+      user_avatar->setSpeed(0);
+    }
+  else
+    {
+      user_avatar->setSpeed(speed);
+    }
+
+}
+
 void updateScene(double currentTime, double deltaTime)
 {
 
@@ -213,6 +256,7 @@ void updateScene(double currentTime, double deltaTime)
   float orientation = user_avatar->getOrientation();
   SbVec3f originalPosition = user_avatar->getPosition();  // save current user_avatar->position
 
+  // UP KEY
   // user_avatar->speed: acceleration
   if(keyboard[KeyRec::UP].isDown)
   {
@@ -232,7 +276,8 @@ void updateScene(double currentTime, double deltaTime)
     }
   }
 
-  // user_avatar->speed: braking
+  // KEY DOWN
+    // user_avatar->speed: braking
   if(keyboard[KeyRec::DOWN].isDown)
   {
     if(speed > minSpeed)
@@ -251,6 +296,7 @@ void updateScene(double currentTime, double deltaTime)
     }
   }
 
+  // KEY LEFT
   // rotation speed: turn left
   if(keyboard[KeyRec::LEFT].isDown)
   {
@@ -267,6 +313,7 @@ void updateScene(double currentTime, double deltaTime)
     }
   }
 
+  // KEY RIGHT
   // rotation speed: turn right
   if(keyboard[KeyRec::RIGHT].isDown)
   {
@@ -297,39 +344,14 @@ void updateScene(double currentTime, double deltaTime)
   // set new user_avatar->position
   float distance = speed*(float)deltaTime;
   SbVec3f pos = user_avatar->getPosition();
-
   SbVec3f distanceVec(distance*sinf(orientation), 0.f, distance*cosf(orientation));
   pos -= distanceVec;
-
-  float posX = 0.0, posY = 0.0, posZ;
-  pos.getValue(posX,posY,posZ);
-
-  if (posX < -2999)
-    {
-       user_avatar->setSpeed(0);
-    }
-  else if (posX > 2999)
-    {
-       user_avatar->setSpeed(0);
-    }
-  else if (posZ < -2999)
-    {
-      user_avatar->setSpeed(0);
-    }
-  else if (posZ > 2999)
-    {
-      user_avatar->setSpeed(0);
-    }
-  else
-    {
-
   user_avatar->setPosition(pos);
-  //user_avatar->broadcastPosition();
-  user_avatar->direction = user_avatar->getPosition() - originalPosition;
-  // set new user_avatar->speed
-  user_avatar->setSpeed(speed);
 
-    }
+  STOP_AT_BORDER( pos , speed );
+  user_avatar->direction = user_avatar->getPosition() - originalPosition;
+  BCAST_POSITION( deltaTime );
+
 
   if(!gui::free_camera)
     {
@@ -350,17 +372,9 @@ void updateScene(double currentTime, double deltaTime)
 	}
 
       SbVec3f cameraPosition(user_avatar->getPosition());
-      cameraPosition += SbVec3f(cameraDistance*sinf(orientation), cameraHeight, cameraDistance*cosf(orientation));
+      cameraPosition += SbVec3f(cameraDistance*sinf(orientation),
+				cameraHeight, cameraDistance*cosf(orientation));
       camera->position.setValue(cameraPosition);
-      
-      if(broacastPosition_timePassed >= broacastPosition_interval)
-	{
-	  user_avatar->broadcastPosition();
-	  broacastPosition_timePassed = 0;
-	}
-
-      broacastPosition_timePassed += deltaTime;
-
     }
 
 }

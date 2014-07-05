@@ -3,6 +3,7 @@
 #include "client.h"
 
 #include <string>
+#include <algorithm>
 
 #include <Inventor/nodes/SoTranslation.h>
 #include <Inventor/nodes/SoRotation.h>
@@ -19,6 +20,7 @@ avatar::avatar()
 
 avatar::avatar(std::string name, client& associated_server_client, int avatar_gender)
 {
+
   _avatar_gender = avatar_gender;
   _previousPosition = SbVec3f(0.0f, 0.0f, 0.0f);
   _name = name;
@@ -45,7 +47,6 @@ avatar::avatar(std::string name, client& associated_server_client, int avatar_ge
       _3d_model->addChild(get_scene_graph_from_file("/usr/local/share/l3dclient/avatar_female.wrl"));
     }
   
-
 
   SoFont *myFont = new SoFont;
   SoSeparator* nameSeparator = new SoSeparator;
@@ -74,6 +75,8 @@ avatar::avatar(std::string name, client& associated_server_client, int avatar_ge
   nameSeparator->addChild( nameText );
   
   _3d_model->addChild( nameSeparator );
+
+  setPosition(0.0, 0.0, 0.0);
 }
 
 SoSeparator* avatar::get3d_model()
@@ -131,9 +134,21 @@ void avatar::broadcastPosition()
 
       float x,y,z;
       getPosition(x,y,z);
-      std::string cmd_move = " @js_eval_world var me = new avatar('"+_name+"','"+std::to_string(_avatar_gender)+"'); me.move("+std::to_string(x)+","+std::to_string(y)+","+std::to_string(z)+");";
 
-      std::string cmd_rotate = " @js_eval_world var me = new avatar('"+_name+"','"+std::to_string(_avatar_gender)+"'); me.rotate('Y',"+std::to_string(getOrientation())+")";  
+      std::string xS = std::to_string(x); 
+      std::string yS = std::to_string(y);
+      std::string zS = std::to_string(z); 
+      std::replace(xS.begin(), xS.end(), ',', '.');
+      std::replace(yS.begin(), yS.end(), ',', '.');
+      std::replace(zS.begin(), zS.end(), ',', '.');
+
+      std::string cmd_move = " @js_eval_world var me = new avatar('"+_name+"','"+std::to_string(_avatar_gender)+"'); me.move( "+xS+" , "+yS+" , "+zS+" );";
+
+
+      std::string oS = std::to_string( getOrientation() );
+      std::replace(oS.begin(), oS.end(), ',', '.');
+
+      std::string cmd_rotate = " @js_eval_world var me = new avatar('"+_name+"','"+std::to_string(_avatar_gender)+"'); me.rotate( 'Y' , "+oS+" )";  
 
       _my_client->send(std::move(cmd_move));
       _my_client->send(std::move(cmd_rotate));
