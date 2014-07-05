@@ -73,6 +73,14 @@ vrml_world_files = \
  vrml/world/tex_blackmarble.jpg \
  vrml/world/utcn_logo.png \
  vrml/world/world.wrl \
+ vrml/world/flag_sci.wrl \
+ vrml/world/flag_arts.wrl \
+ vrml/world/flag_bio.wrl \
+ vrml/world/flag_free.wrl \
+ vrml/world/arts.jpeg \
+ vrml/world/medicine.jpeg \
+ vrml/world/physics.jpeg \
+ vrml/world/smiley.jpeg 
  $(NULL)
 
 vrml_avatar_files = \

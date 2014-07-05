@@ -450,6 +450,7 @@ SoSeparator* startUpScene(SoNode* avatar)
   scienceArea->setName(VRML_UTILS_SCIENCES_AREA_NAME);
   root->addChild( scienceArea );
   scienceArea->addChild( sciTransl );
+  scienceArea->addChild( get_scene_graph_from_file("/usr/local/share/l3dclient/flag_sci.wrl") ); 
 
   SoSeparator* bioArea = new SoSeparator;
   SoTranslation* bioTransl = new SoTranslation;
@@ -457,6 +458,7 @@ SoSeparator* startUpScene(SoNode* avatar)
   bioArea->setName(VRML_UTILS_BIO_AREA_NAME);
   root->addChild( bioArea );
   bioArea->addChild( bioTransl );
+  bioArea->addChild( get_scene_graph_from_file("/usr/local/share/l3dclient/flag_bio.wrl") ); 
 
   SoSeparator* artsArea = new SoSeparator;
   SoTranslation* artsTransl = new SoTranslation;
@@ -464,6 +466,7 @@ SoSeparator* startUpScene(SoNode* avatar)
   artsArea->setName(VRML_UTILS_ARTS_AREA_NAME);
   root->addChild( artsArea );
   artsArea->addChild( artsTransl );
+  artsArea->addChild( get_scene_graph_from_file("/usr/local/share/l3dclient/flag_arts.wrl") ); 
 
   SoSeparator* freeArea = new SoSeparator;
   SoTranslation* freeTransl = new SoTranslation;
@@ -471,6 +474,7 @@ SoSeparator* startUpScene(SoNode* avatar)
   freeArea->setName(VRML_UTILS_FREE_AREA_NAME);
   root->addChild( freeArea );
   freeArea->addChild( freeTransl );
+  freeArea->addChild( get_scene_graph_from_file("/usr/local/share/l3dclient/flag_free.wrl") ); 
 
   root->unrefNoDelete();
 
