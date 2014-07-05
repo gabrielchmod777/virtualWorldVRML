@@ -21,6 +21,7 @@
 #include <Inventor/errors/SoDebugError.h>
 #include <Inventor/nodes/SoSeparator.h>
 #include <Inventor/nodes/SoNode.h>
+#include <Inventor/nodes/SoShapeHints.h>
 #include <Inventor/nodes/SoTransform.h>
 #include <Inventor/nodes/SoText3.h>
 #include <Inventor/nodes/SoMaterial.h>
@@ -160,10 +161,6 @@ int main(int argc, char **argv)
 
       gui viewer(root, app, camera);
       client_exec.set_vrml_tree_node( root );
-
-      QSound bkgMusic("~/Downloads/a.wav", NULL );
-      bkgMusic.setLoops( -1 );
-      bkgMusic.play();
 
       viewer.showMaximized();
 
@@ -389,11 +386,38 @@ void simulationStep(void *data, SoSensor *sensor)
 // Forward Declarations
 SoSeparator* startUpScene(SoNode* avatar)
 {
-  
+
+  //**************************************************************
+  // ================  STARTING WORLD STRUCTURE ==================
+  //                 Separator (root0)
+  //                        |
+  //                Selection Node (root)__ ----> selection_callback
+  //                        |______________ ----> un_select_callback
+  //                        |
+  //                  Camera Node
+  //                        |
+  //                World Skeleton & Floor 
+  //                 from external files
+  //                        |
+  //                 Avatar ( Separator )
+  //                        |
+  //     Event Callback Node (for keyboard) -->kbd_callback function
+  //                        |
+  //        One Shot sensor ( repeat keyboard status check )
+  //   _____________________|_________________________________
+  //   |                |               |                   |
+  // Separator       Separator       Separator          Separator
+  //(sciences area) (bioSciences)   (Arts Area)  (Unassigned area)
+  //   |                |               |                   |
+  // Translation     Translation     Translation         Translation
+  //   
+  //**************************************************************
+
   // callbacks for selecting objects 
   SoSelection* root = new SoSelection;
   selection = root;
   root->ref();
+
   root->addSelectionCallback( made_selection, (void *)1L );
   root->addDeselectionCallback( made_selection, (void *)0L );
   root->policy = SoSelection::TOGGLE;
@@ -409,7 +433,7 @@ SoSeparator* startUpScene(SoNode* avatar)
   root->addChild( avatar );
 
   ////////// move camera and avatar with directional keys
-      
+     
   // keyboard handling
   SoEventCallback *cb = new SoEventCallback;
   cb->addEventCallback(SoKeyboardEvent::getClassTypeId(), keyboardEvent_cb, NULL);
@@ -419,6 +443,34 @@ SoSeparator* startUpScene(SoNode* avatar)
   SoOneShotSensor *sensor = new SoOneShotSensor(simulationStep, NULL);
   sensor->schedule();
 
+
+  SoSeparator* scienceArea = new SoSeparator;
+  SoTranslation* sciTransl = new SoTranslation;
+  sciTransl->translation.setValue(500, 0 ,500 );
+  scienceArea->setName(VRML_UTILS_SCIENCES_AREA_NAME);
+  root->addChild( scienceArea );
+  scienceArea->addChild( sciTransl );
+
+  SoSeparator* bioArea = new SoSeparator;
+  SoTranslation* bioTransl = new SoTranslation;
+  bioTransl->translation.setValue(-500, 0 ,500 );
+  bioArea->setName(VRML_UTILS_BIO_AREA_NAME);
+  root->addChild( bioArea );
+  bioArea->addChild( bioTransl );
+
+  SoSeparator* artsArea = new SoSeparator;
+  SoTranslation* artsTransl = new SoTranslation;
+  artsTransl->translation.setValue(500, 0 ,-500 );
+  artsArea->setName(VRML_UTILS_ARTS_AREA_NAME);
+  root->addChild( artsArea );
+  artsArea->addChild( artsTransl );
+
+  SoSeparator* freeArea = new SoSeparator;
+  SoTranslation* freeTransl = new SoTranslation;
+  freeTransl->translation.setValue(-500, 0 ,-500 );
+  freeArea->setName(VRML_UTILS_FREE_AREA_NAME);
+  root->addChild( freeArea );
+  freeArea->addChild( freeTransl );
 
   root->unrefNoDelete();
 
