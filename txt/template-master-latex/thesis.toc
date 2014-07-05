@@ -64,15 +64,15 @@
 \contentsline {subsubsection}{Interfe\IeC {{\textcommabelow t}}e Web/HTML prin mecanismul \IeC {\textquotedblright }QtWebKit Bridge\IeC {\textquotedblright }}{36}{section*.14}
 \contentsline {subsection}{\numberline {6.3.4}Tehnologia utilizat\IeC {\u a} pentru comunicarea cu serverul}{36}{subsection.6.3.4}
 \contentsline {section}{\numberline {6.4}Decizie privind design-ul aplica\IeC {{\textcommabelow t}}iei client.}{38}{section.6.4}
-\contentsline {section}{\numberline {6.5}Comnezi c\IeC {\u a}tre server}{39}{section.6.5}
-\contentsline {chapter}{Capitolul{} \numberline {7}Conluzii}{41}{chapter.7}
-\contentsline {section}{\numberline {7.1}Con\IeC {{\textcommabelow t}}inut}{41}{section.7.1}
-\contentsline {section}{\numberline {7.2}Detalii tehnice}{41}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}Dimensiune}{41}{subsection.7.2.1}
-\contentsline {chapter}{Anexa{} \numberline {A}Testarea fiabilit\IeC {\u a}\IeC {{\textcommabelow t}}ii modelului CLIENT-SERVER}{42}{appendix.A}
-\contentsline {section}{\numberline {A.1}Script}{42}{section.A.1}
-\contentsline {section}{\numberline {A.2}Server de test}{42}{section.A.2}
-\contentsline {subsection}{\numberline {A.2.1}Rezultate}{45}{subsection.A.2.1}
-\contentsline {chapter}{Anexa{} \numberline {B}\IeC {\^I}c\IeC {\u a}rcarea dinamic\IeC {\u a} a claselor \IeC {\^\i }n JAVA}{46}{appendix.B}
-\contentsline {chapter}{Anexa{} \numberline {C}Iconuri grafice utilizate pentru nodurile VRML \IeC {\^\i }n lucrarea \IeC {\textquotedblright }The Inventor Mentor\IeC {\textquotedblright }}{51}{appendix.C}
-\contentsline {chapter}{Bibliografie}{52}{appendix*.16}
+\contentsline {section}{\numberline {6.5}Comnezi c\IeC {\u a}tre server}{43}{section.6.5}
+\contentsline {chapter}{Capitolul{} \numberline {7}Conluzii}{45}{chapter.7}
+\contentsline {section}{\numberline {7.1}Con\IeC {{\textcommabelow t}}inut}{45}{section.7.1}
+\contentsline {section}{\numberline {7.2}Detalii tehnice}{45}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Dimensiune}{45}{subsection.7.2.1}
+\contentsline {chapter}{Anexa{} \numberline {A}Testarea fiabilit\IeC {\u a}\IeC {{\textcommabelow t}}ii modelului CLIENT-SERVER}{46}{appendix.A}
+\contentsline {section}{\numberline {A.1}Script}{46}{section.A.1}
+\contentsline {section}{\numberline {A.2}Server de test}{46}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}Rezultate}{49}{subsection.A.2.1}
+\contentsline {chapter}{Anexa{} \numberline {B}\IeC {\^I}c\IeC {\u a}rcarea dinamic\IeC {\u a} a claselor \IeC {\^\i }n JAVA}{50}{appendix.B}
+\contentsline {chapter}{Anexa{} \numberline {C}Iconuri grafice utilizate pentru nodurile VRML \IeC {\^\i }n lucrarea \IeC {\textquotedblright }The Inventor Mentor\IeC {\textquotedblright }}{55}{appendix.C}
+\contentsline {chapter}{Bibliografie}{56}{appendix*.16}
