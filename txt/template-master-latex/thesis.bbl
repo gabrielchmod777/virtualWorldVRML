@@ -21,14 +21,37 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{C01}
-J.~Wann and M.~Mon-Williams, \emph{What does virtual reality NEED?: human
-  factors issues in the design of three-dimensional computer
-  environments.}\hskip 1em plus 0.5em minus 0.4em\relax IEEE Computer Society,
-  1996.
+\bibitem{WANN}
+\emph{What does virtual reality NEED? Human factors issues in the design of
+  three-dimensional computer environments.}\hskip 1em plus 0.5em minus
+  0.4em\relax International Journal of Human-Computer Studies, 1996.
 
-\bibitem{C02}
-W.~Strunk, Jr. and E.~B. White, \emph{The Elements of Style}, 3rd~ed.\hskip 1em
-  plus 0.5em minus 0.4em\relax Macmillan, 1979.
+\bibitem{ILLERIS}
+\emph{Adult Education and Adult Learning}.\hskip 1em plus 0.5em minus
+  0.4em\relax Krieger Publishing Company, 2004.
+
+\bibitem{VESTER}
+\emph{Invatare, Intelegere, Uitare}.\hskip 1em plus 0.5em minus 0.4em\relax
+  DTV, 1998.
+
+\bibitem{COIN_COMM}
+\BIBentryALTinterwordspacing
+C.~programatorilor Coin3D. (2013) Introducere. [Online]. Available:
+  \url{https://bitbucket.org/Coin3D/coin/wiki/IntroductionToCoin3D}
+\BIBentrySTDinterwordspacing
+
+\bibitem{VRML}
+T.~V.~C. Incorporated, \emph{The Virtual Reality Modeling Language}, 1997.
+
+\bibitem{NADEAU}
+``The inventor mentor:programming objectoriented 3d graphics with open
+  inventor, release 2.''
+
+\bibitem{NADEAU2}
+``Introduction to vrml 97.''
+
+\bibitem{QT}
+\emph{C++ GUI Programming with Qt 4}.\hskip 1em plus 0.5em minus 0.4em\relax
+  Prentice Hall, 2008.
 
 \end{thebibliography}
