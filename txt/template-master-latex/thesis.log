@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.21)  6 JUL 2014 11:32
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.21)  6 JUL 2014 14:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -703,39 +703,8 @@ File: lstlang1.sty 2013/08/26 1.5b listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
-) (./thesis.aux
-(./ch1.aux) (./ch2.aux) (./ch3.aux) (./ch4.aux
-
-LaTeX Warning: Label `fig:imag4' multiply defined.
-
-
-LaTeX Warning: Label `fig:imag5' multiply defined.
-
-) (./ch5.aux
-
-LaTeX Warning: Label `fig:imag6' multiply defined.
-
-
-LaTeX Warning: Label `fig:imag7' multiply defined.
-
-) (./ch6.aux
-
-LaTeX Warning: Label `fig:vorldd' multiply defined.
-
-
-LaTeX Warning: Label `fig:loop' multiply defined.
-
-
-LaTeX Warning: Label `fig:loop' multiply defined.
-
-
-LaTeX Warning: Label `fig:loop' multiply defined.
-
-) (./ch7.aux) (./ch8.aux) (./apendix.aux
-
-LaTeX Warning: Label `fig:imagSrvUML' multiply defined.
-
-))
+)
+No file thesis.aux.
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
@@ -752,7 +721,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
 LaTeX Font Info:    ... okay on input line 78.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
 LaTeX Font Info:    ... okay on input line 78.
- (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count166
 \scratchdimen=\dimen196
@@ -810,12 +779,11 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 78.
 LaTeX Info: Redefining \pageref on input line 78.
 LaTeX Info: Redefining \nameref on input line 78.
-
-(./thesis.out) (./thesis.out)
 \@outlinefile=\write5
 \openout5 = `thesis.out'.
 
- ABD: EveryShipout initializing macros
+
+ABD: EveryShipout initializing macros
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
@@ -886,22 +854,21 @@ fier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.232 \end{titlepage}
-                      [1] (./thesis.toc [1
-
-] [2])
+                      [1]
 \tf@toc=\write6
 \openout6 = `thesis.toc'.
 
- [3]
+ [1
+
+]
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\u' on input line 245.
 
-(./thesis.lot)
 \tf@lot=\write7
 \openout7 = `thesis.lot'.
 
- [4
+[2
 
 
 ]
@@ -909,11 +876,10 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\u' on input line 246.
 
-(./thesis.lof)
 \tf@lof=\write8
 \openout8 = `thesis.lof'.
 
- [5
+[3
 
 
 ]
@@ -951,6 +917,13 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 [2] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 )
+
+LaTeX Warning: Citation `C01' on page 3 undefined on input line 27.
+
+
+LaTeX Warning: Citation `C01' on page 3 undefined on input line 27.
+
+
 Overfull \hbox (12.79858pt too wide) in paragraph at lines 28--29
 \T1/aer/m/n/12 un  experien[]a cog-ni-tiv , emo[]ional  []i influen[]a de me-di
 u, pen-tru acu-mu-la-rea, îmbunata[]irea
@@ -986,39 +959,48 @@ Overfull \hbox (28.86696pt too wide) in paragraph at lines 12--13
 ra-ma-tori s  ex-tind  func[]ionalitatea
  []
 
-[5]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 24.
+(hyperref)                removing `\\' on input line 21.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\textcommabelow' on input line 24.
+(hyperref)                removing `\textcommabelow' on input line 21.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\textcommabelow' on input line 24.
+(hyperref)                removing `\textcommabelow' on input line 21.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\textcommabelow' on input line 24.
+(hyperref)                removing `\textcommabelow' on input line 21.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\u' on input line 24.
+(hyperref)                removing `\u' on input line 21.
 
-<figures/minist-web.png, id=529, 157.388pt x 62.634pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5]
+
+LaTeX Warning: Reference `fig:imag1' on page 6 undefined on input line 25.
+
+
+LaTeX Warning: Reference `fig:imag2' on page 6 undefined on input line 26.
+
+<figures/minist-web.png, id=99, 157.388pt x 62.634pt>
 File: figures/minist-web.png Graphic file (type png)
 
 <use figures/minist-web.png>
-Package pdftex.def Info: figures/minist-web.png used on input line 35.
+Package pdftex.def Info: figures/minist-web.png used on input line 32.
 (pdftex.def)             Requested size: 157.3876pt x 62.63383pt.
 
-<figures/minist-cpp.png, id=531, 155.782pt x 65.043pt>
+<figures/minist-cpp.png, id=101, 155.782pt x 65.043pt>
 File: figures/minist-cpp.png Graphic file (type png)
 
 <use figures/minist-cpp.png>
-Package pdftex.def Info: figures/minist-cpp.png used on input line 42.
+Package pdftex.def Info: figures/minist-cpp.png used on input line 39.
 (pdftex.def)             Requested size: 155.7816pt x 65.04283pt.
 ) [6 <./figures/minist-web.png> <./figures/minist-cpp.png>]
 Overfull \hbox (244.07465pt too wide) has occurred while \output is active
@@ -1032,16 +1014,16 @@ APLICA[]II CLASICE CU DESTINA[]IE EDUCATIV€ \T1/aer/m/n/12 7
  (./ch3.tex
 Capitolul 3.
 
-Overfull \hbox (51.28813pt too wide) in paragraph at lines 5--6
-\T1/aer/bx/n/12 cu-lui sunt: Se-cond Life, Uther Aca-demy []i iSo-cial (http://
-isocial.missouri.edu/iSocial/).
+Overfull \hbox (114.4794pt too wide) in paragraph at lines 5--6
+\T1/aer/bx/n/12 si-bile pu-bli-cu-lui sunt: Se-cond Life, Uther Aca-demy []i iS
+o-cial (http://isocial.missouri.edu/iSocial/).
  []
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\u' on input line 8.
 
-<figures/SL.png, id=544, 251.94125pt x 201.75375pt>
+<figures/SL.png, id=117, 251.94125pt x 201.75375pt>
 File: figures/SL.png Graphic file (type png)
  <use figures/SL.png>
 Package pdftex.def Info: figures/SL.png used on input line 18.
@@ -1053,23 +1035,26 @@ Package pdftex.def Info: figures/SL.png used on input line 18.
 
 ]
 Overfull \hbox (15.24832pt too wide) in paragraph at lines 27--28
-[]\T1/aer/m/n/12 Jocuri de tip "orien-tare tu-ris-tica" cu puncte in-ter-me-di-
+[]\T1/aer/m/n/12 Jocuri de tip "orien-tare tu-ris-tic " cu puncte in-ter-me-di-
 are []i in-di-cii cu su-biect educa[]ional. 
  []
 
 [9 <./figures/SL.png (PNG copy)>]
-<figures/UA.png, id=553, 128.48pt x 78.694pt>
+<figures/UA.png, id=133, 128.48pt x 78.694pt>
 File: figures/UA.png Graphic file (type png)
  <use figures/UA.png>
 Package pdftex.def Info: figures/UA.png used on input line 47.
 (pdftex.def)             Requested size: 128.47968pt x 78.69379pt.
 
-<figures/IS.png, id=554, 144.54pt x 88.33pt>
+<figures/IS.png, id=134, 144.54pt x 88.33pt>
 File: figures/IS.png Graphic file (type png)
  <use figures/IS.png>
 Package pdftex.def Info: figures/IS.png used on input line 61.
 (pdftex.def)             Requested size: 144.53963pt x 88.32977pt.
  [10 <./figures/UA.png> <./figures/IS.png>]
+
+LaTeX Warning: Reference `tab:SL_tech' on page 11 undefined on input line 69.
+
 
 LaTeX Warning: Command \u invalid in math mode on input line 75.
 
@@ -1126,13 +1111,19 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\u' on input line 20.
 
-[13] <figures/p2p_2.png, id=578, 82.709pt x 105.193pt>
+
+LaTeX Warning: Reference `fig:imag5' on page 13 undefined on input line 32.
+
+
+LaTeX Warning: Reference `fig:imag4' on page 13 undefined on input line 32.
+
+[13] <figures/p2p_2.png, id=166, 82.709pt x 105.193pt>
 File: figures/p2p_2.png Graphic file (type png)
  <use figures/p2p_2.png>
 Package pdftex.def Info: figures/p2p_2.png used on input line 38.
 (pdftex.def)             Requested size: 82.70879pt x 105.19272pt.
 
-<figures/serverbased_2.png, id=579, 82.709pt x 111.617pt>
+<figures/serverbased_2.png, id=167, 82.709pt x 111.617pt>
 File: figures/serverbased_2.png Graphic file (type png)
 
 <use figures/serverbased_2.png>
@@ -1208,7 +1199,10 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 Underfull \vbox (badness 3291) has occurred while \output is active []
 
  [17]
-<figures/PLA.png, id=602, 73.876pt x 110.011pt>
+
+LaTeX Warning: Reference `fig:imag35' on page 18 undefined on input line 36.
+
+<figures/PLA.png, id=199, 73.876pt x 110.011pt>
 File: figures/PLA.png Graphic file (type png)
  <use figures/PLA.png>
 Package pdftex.def Info: figures/PLA.png used on input line 40.
@@ -1241,7 +1235,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 68--69
 
  []
 
-<figures/plug-in-js.png, id=611, 718.685pt x 450.68375pt>
+<figures/plug-in-js.png, id=209, 718.685pt x 450.68375pt>
 File: figures/plug-in-js.png Graphic file (type png)
 
 <use figures/plug-in-js.png>
@@ -1275,7 +1269,10 @@ retedResult();[]
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\u' on input line 157.
 
-<figures/books.png, id=625, 316.18124pt x 310.15875pt>
+
+LaTeX Warning: Citation `C03' on page 22 undefined on input line 157.
+
+<figures/books.png, id=227, 316.18124pt x 310.15875pt>
 File: figures/books.png Graphic file (type png)
  <use figures/books.png>
 Package pdftex.def Info: figures/books.png used on input line 188.
@@ -1289,26 +1286,26 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\textcommabelow' on input line 193.
 
 [22] [23 <./figures/books.png>]
-<figures/UML-cmd.png, id=634, 606.265pt x 558.085pt>
+<figures/UML-cmd.png, id=240, 606.265pt x 558.085pt>
 File: figures/UML-cmd.png Graphic file (type png)
  <use figures/UML-cmd.png>
 Package pdftex.def Info: figures/UML-cmd.png used on input line 235.
 (pdftex.def)             Requested size: 212.19592pt x 195.33267pt.
 
 [24 <./figures/UML-cmd.png>]
-<figures/xmlp.png, id=640, 468.75125pt x 249.93375pt>
+<figures/xmlp.png, id=248, 468.75125pt x 249.93375pt>
 File: figures/xmlp.png Graphic file (type png)
  <use figures/xmlp.png>
 Package pdftex.def Info: figures/xmlp.png used on input line 246.
 (pdftex.def)             Requested size: 210.9361pt x 112.46915pt.
 
-<figures/clst.jpg, id=641, 642.4pt x 481.8pt>
+<figures/clst.jpg, id=249, 642.4pt x 481.8pt>
 File: figures/clst.jpg Graphic file (type jpg)
  <use figures/clst.jpg>
 Package pdftex.def Info: figures/clst.jpg used on input line 260.
 (pdftex.def)             Requested size: 96.35583pt x 72.26688pt.
 
-<figures/mcs.png, id=642, 806.01125pt x 743.77875pt>
+<figures/mcs.png, id=250, 806.01125pt x 743.77875pt>
 File: figures/mcs.png Graphic file (type png)
  <use figures/mcs.png>
 Package pdftex.def Info: figures/mcs.png used on input line 266.
@@ -1358,7 +1355,7 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\textcommabelow' on input line 30.
 
-<figures/concept.jpg, id=655, 534.99875pt x 517.935pt>
+<figures/concept.jpg, id=272, 534.99875pt x 517.935pt>
 File: figures/concept.jpg Graphic file (type jpg)
 
 <use figures/concept.jpg>
@@ -1369,7 +1366,7 @@ Package pdftex.def Info: figures/concept.jpg used on input line 37.
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\textcommabelow' on input line 43.
 
-<figures/WRLD.jpg, id=660, 805.0075pt x 1028.84375pt>
+<figures/WRLD.jpg, id=280, 805.0075pt x 1028.84375pt>
 File: figures/WRLD.jpg Graphic file (type jpg)
  <use figures/WRLD.jpg>
 Package pdftex.def Info: figures/WRLD.jpg used on input line 47.
@@ -1389,21 +1386,49 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\textcommabelow' on input line 54.
 
-[30] [31] <figures/vrml-scene-graph.jpg, id=679, 204.765pt x 240.14719pt>
+[30]
+
+LaTeX Warning: Citation `C04' on page 31 undefined on input line 87.
+
+
+LaTeX Warning: Citation `C04' on page 31 undefined on input line 89.
+
+
+LaTeX Warning: Citation `C04' on page 31 undefined on input line 90.
+
+
+LaTeX Warning: Citation `C04' on page 31 undefined on input line 92.
+
+
+LaTeX Warning: Citation `C04' on page 31 undefined on input line 93.
+
+[31] <figures/vrml-scene-graph.jpg, id=302, 204.765pt x 240.14719pt>
 File: figures/vrml-scene-graph.jpg Graphic file (type jpg)
 
 <use figures/vrml-scene-graph.jpg>
 Package pdftex.def Info: figures/vrml-scene-graph.jpg used on input line 101.
 (pdftex.def)             Requested size: 225.24217pt x 264.16269pt.
- [32 <./figures/vrml-scene-graph.jpg>]
-<figures/vrmlaxis.png, id=688, 275.52937pt x 204.01219pt>
+
+
+LaTeX Warning: Reference `fig:graphvrml' on page 32 undefined on input line 109
+.
+
+[32 <./figures/vrml-scene-graph.jpg>]
+
+LaTeX Warning: Reference `fig:vrmlaxes' on page 33 undefined on input line 115.
+
+
+
+LaTeX Warning: Reference `fig:vrmlrot' on page 33 undefined on input line 116.
+
+<figures/vrmlaxis.png, id=310, 275.52937pt x 204.01219pt>
 File: figures/vrmlaxis.png Graphic file (type png)
 
 <use figures/vrmlaxis.png>
 Package pdftex.def Info: figures/vrmlaxis.png used on input line 121.
 (pdftex.def)             Requested size: 137.76434pt x 102.00584pt.
 
-<figures/rotation-rule.png, id=689, 168.63pt x 159.59625pt>
+<figures/rotation-rule.png, id=311, 168.63pt x 159.59625pt>
 File: figures/rotation-rule.png Graphic file (type png)
 
 <use figures/rotation-rule.png>
@@ -1416,7 +1441,11 @@ Overfull \hbox (2.20677pt too wide) in paragraph at lines 135--136
  []
 
 [33 <./figures/vrmlaxis.png> <./figures/rotation-rule.png>]
-<figures/vrml-anim.jpg, id=697, 247.67531pt x 136.25906pt>
+
+LaTeX Warning: Reference `fig:vrmlanim' on page 34 undefined on input line 144.
+
+
+<figures/vrml-anim.jpg, id=320, 247.67531pt x 136.25906pt>
 File: figures/vrml-anim.jpg Graphic file (type jpg)
 
 <use figures/vrml-anim.jpg>
@@ -1432,7 +1461,11 @@ Overfull \hbox (4.06877pt too wide) in paragraph at lines 174--174
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\textcommabelow' on input line 174.
 
-<figures/qtconn.png, id=703, 517.935pt x 502.87875pt>
+
+LaTeX Warning: Reference `fig:sig-slot' on page 35 undefined on input line 180.
+
+
+<figures/qtconn.png, id=326, 517.935pt x 502.87875pt>
 File: figures/qtconn.png Graphic file (type png)
  <use figures/qtconn.png>
 Package pdftex.def Info: figures/qtconn.png used on input line 184.
@@ -1447,7 +1480,10 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\u' on input line 194.
 
 [36 <./figures/qtconn.png (PNG copy)>]
-<figures/sync_op.png, id=718, 232.87pt x 414.54875pt>
+
+LaTeX Warning: Reference `fig:asio' on page 37 undefined on input line 198.
+
+<figures/sync_op.png, id=341, 232.87pt x 414.54875pt>
 File: figures/sync_op.png Graphic file (type png)
 
 <use figures/sync_op.png>
@@ -1549,26 +1585,26 @@ Overfull \hbox (22.40622pt too wide) in paragraph at lines 452--453
 -cul XML ^^Qcli-ent_plugin_source^^Q 
  []
 
-<figures/loop.png, id=750, 940.51375pt x 503.8825pt>
+<figures/loop.png, id=376, 940.51375pt x 503.8825pt>
 File: figures/loop.png Graphic file (type png)
  <use figures/loop.png>
 Package pdftex.def Info: figures/loop.png used on input line 467.
 (pdftex.def)             Requested size: 310.3705pt x 166.28174pt.
 
-<figures/UMLCL.jpg, id=751, 1014.79124pt x 1562.83875pt>
+<figures/UMLCL.jpg, id=377, 1014.79124pt x 1562.83875pt>
 File: figures/UMLCL.jpg Graphic file (type jpg)
 
 <use figures/UMLCL.jpg>
 Package pdftex.def Info: figures/UMLCL.jpg used on input line 476.
 (pdftex.def)             Requested size: 273.9973pt x 421.9721pt.
  [44 <./figures/loop.png>]
-<figures/CASTRUM0.png, id=756, 803.0pt x 1284.8pt>
+<figures/CASTRUM0.png, id=384, 803.0pt x 1284.8pt>
 File: figures/CASTRUM0.png Graphic file (type png)
  <use figures/CASTRUM0.png>
 Package pdftex.def Info: figures/CASTRUM0.png used on input line 485.
 (pdftex.def)             Requested size: 281.05421pt x 449.68674pt.
 
-<figures/P0.png, id=757, 803.0pt x 1284.8pt>
+<figures/P0.png, id=385, 803.0pt x 1284.8pt>
 File: figures/P0.png Graphic file (type png)
  <use figures/P0.png>
 Package pdftex.def Info: figures/P0.png used on input line 491.
@@ -1678,7 +1714,7 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 
 [56
 
-] [57] [58] [59] <figures/fsunml.png, id=967, 1043.39813pt x 1219.55624pt>
+] [57] [58] [59] <figures/fsunml.png, id=612, 1043.39813pt x 1219.55624pt>
 File: figures/fsunml.png Graphic file (type png)
 
 <use figures/fsunml.png>
@@ -1686,7 +1722,7 @@ Package pdftex.def Info: figures/fsunml.png used on input line 390.
 (pdftex.def)             Requested size: 365.19481pt x 426.85107pt.
  [60 <./figures/fsunml.png>]
 Anexa C.
-<figures/nodvrml.png, id=975, 216.05719pt x 534.49687pt>
+<figures/nodvrml.png, id=620, 216.05719pt x 534.49687pt>
 File: figures/nodvrml.png Graphic file (type png)
 
 <use figures/nodvrml.png>
@@ -1694,13 +1730,10 @@ Package pdftex.def Info: figures/nodvrml.png used on input line 398.
 (pdftex.def)             Requested size: 108.02832pt x 267.24777pt.
 ) [61
 
- <./figures/nodvrml.png>] (./thesis.bbl) [62
-
-
-]
+ <./figures/nodvrml.png>]
+No file thesis.bbl.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 269.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 269.
-
 (./thesis.aux (./ch1.aux) (./ch2.aux) (./ch3.aux) (./ch4.aux) (./ch5.aux)
 (./ch6.aux) (./ch7.aux) (./ch8.aux) (./apendix.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 269.
@@ -1712,53 +1745,52 @@ Package rerunfilecheck Warning: File `thesis.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `thesis.out':
-(rerunfilecheck)             Before: B383A6EDCB3918A90EB2A82C09AC0AF4;5601
-(rerunfilecheck)             After:  8A29C8BFD0253540D6F181BDD7474666;5659.
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  E393547F27C5164C78F8275773E36FBE;5595.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 269.
  ) 
 Here is how much of TeX's memory you used:
- 19490 strings out of 493304
- 296919 string characters out of 6139871
+ 19356 strings out of 493304
+ 295290 string characters out of 6139871
  425834 words of memory out of 5000000
- 22048 multiletter control sequences out of 15000+600000
- 75979 words of font info for 175 fonts, out of 8000000 for 9000
+ 21956 multiletter control sequences out of 15000+600000
+ 73489 words of font info for 172 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 49i,15n,53p,1313b,1859s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{subsection.7.2.1} has been referenced but does no
-t exist, replaced by a fixed one
-
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl8.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmtt8.pfb>
-Output written on thesis.pdf (75 pages, 3043324 bytes).
+ 49i,15n,53p,1315b,1859s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl8.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmtt8.pfb>
+Output written on thesis.pdf (72 pages, 3015145 bytes).
 PDF statistics:
- 1135 PDF objects out of 1200 (max. 8388607)
- 983 compressed objects within 10 object streams
- 332 named destinations out of 1000 (max. 500000)
- 729 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 770 PDF objects out of 1000 (max. 8388607)
+ 625 compressed objects within 7 object streams
+ 325 named destinations out of 1000 (max. 500000)
+ 153 words of extra memory for PDF output out of 10000 (max. 10000000)
 

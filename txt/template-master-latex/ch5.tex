@@ -1,6 +1,6 @@
 \chapter{Design-ul aplicației server}
 \section{Introducere}
-\par \textbf{În acest capitol, în secțiunea 5.2, se stabilesc funcțiile serverului și se prezintă tehnologiile folosite la producerea aplicației server. În secțiunea 5.3 se explică mecanismul adoptat pentru atingerea unui scop important, ”scalabilitatea aplicației” . În secțiunea 5.4 se stabilește modul și formatul de reprezentare a datelor transmise între aplicația client și aplicația server. Secțiunea 5.5 este dedicată prezentării părții celei mai relevante din diagrama claselor, diagrama completă fiind atașată în Anexa B. În secțiunea 5.6 sunt stabiliți parametrii testului privind scalabilitatea aplicației, codificarea testului și rezultatele fiind expuse în Anexa B. Testul modului de comunicare și a eficienței comunicării intre client și server s-a efectuat pentru capitolul anterior, rezutatele fiind publicate în Anexa A. } 
+\par \textbf{În acest capitol, în secțiunea 5.2, se stabilesc funcțiile serverului și se prezintă tehnologiile folosite la producerea aplicației server. În secțiunea 5.3 se explică mecanismul adoptat pentru atingerea unui scop important, ”scalabilitatea aplicației” . În secțiunea 5.4 se stabilește modul și formatul de reprezentare a datelor transmise între aplicația client și aplicația server. Secțiunea 5.5 este dedicată prezentării părții celei mai relevante din diagrama claselor, diagrama completă fiind atașată în Anexa B. În secțiunea 5.6 sunt stabiliți parametrii testului privind scalabilitatea aplicației. Codificarea testului și rezultatele fiind expuse în Anexa B. Testul modului de comunicare și testul eficienței comunicării între client și server s-a efectuat pentru capitolul anterior, rezutatele fiind publicate în Anexa A. } 
 
 \section{Funcțiile aplicației server}
 \subsection{Funcții de bază ale serverului} 
@@ -13,7 +13,7 @@
 \item Stocarea și publicarea acțiunilor utilizatorilor ce au efect asupra limii virtuale.
 \end{itemize}
 
-\par Serverul are scop demonstrativ. Funcția de securitate a datelor la transfer și la stocare este ignorată. De asemenea, implementarea funcțiilor se realizează in cel mai simplu mod posibil, pentru reducerea complexității și dimensiunii aplicației.
+\par Serverul are scop demonstrativ. Funcția de securitate a datelor la transfer și la stocare este ignorată. De asemenea, implementarea funcțiilor se realizează în cel mai simplu mod posibil, pentru reducerea complexității și dimensiunii aplicației.
 
 \subsection{Aspecte tehnice și principii generale de design}
 \subsubsection{Limbaje de programare}
@@ -26,8 +26,8 @@
 \par \textbf{Pentru a realiza o aplicație scalabilă} se utilizează mecanismul de extindere dinamică a fincționalității cu ”plug-in”-uri. 
 \section{Mecanism pentru obținera \\ scalabilității aplicației server}
 
-\par Se va urmări o cît mai mare flexibilizare a sistemului, astfel încât dezvoltarea ulterioară sa fie cât mai facilă. Pentru realizarea acestui obiectiv se va urmări integrarea limbajului de scriptare JavaScript, în serverul sistemului. Se are în vedere folosirea mecanismului de extindere dinamică a funcționalității sistemului prin ”plug-in”-uri. 
-\par Utilizatorul, prin intermediul programului client al mediului virtual 3D, expediază \textbf{comenzi} și \textbf{informații} către server cu \textbf{scopul} de a fi prelucrate de către server și returnate sub forma de comezi ce urmează a fi executate de către aplicația client, cu \textbf{efecte} asupra reprezentării mediului virtual 3D.
+\par Se va urmări o cît mai mare flexibilizare a sistemului, astfel încât dezvoltarea ulterioară să fie cât mai facilă. Pentru realizarea acestui obiectiv se va urmări integrarea limbajului de scriptare JavaScript, în serverul sistemului. Se are în vedere folosirea mecanismului de extindere dinamică a funcționalității sistemului prin ”plug-in”-uri. 
+\par Utilizatorul, prin intermediul programului client al mediului virtual 3D, expediază \textbf{comenzi} și \textbf{informații} către server cu \textbf{scopul} de a fi prelucrate de către server și returnate sub forma de comezi, ce urmează a fi executate de către aplicația client, cu \textbf{efecte} asupra reprezentării mediului virtual 3D.
 
 \begin{center}
 \rule{150mm}{.1pt}
@@ -63,7 +63,7 @@ Un plug-in extinde funcționalitatea aplicației server prin introducerea unei n
 \end{center} În a doua etapă, rezultatul interpretării și procesării datelor de către plug-in se va returna în vederea expedierii către utilizator.
 
 \subsection{Tipuri de plug-in-uri dezvoltate pentru serverul mediului de învățare 3D}
-\par Două \textbf{tipuri de plug-in-uri} au fost dezvoltate pentru aplicația server. Primul tip de plug-in este \textbf{”clasic”}, implementat folosind 100\% limbajul Java. Al doilea tip de plug-in este \textbf{”hibrid”}. La inplementarea acestuia sunt utilizate două libmaje de programare: \textbf{Java și JavaScript}. Aces tip de plug-in este o noutate.
+\par Două \textbf{tipuri de plug-in-uri} au fost dezvoltate pentru aplicația server. Primul tip de plug-in este \textbf{”clasic”}, implementat folosind 100\% limbajul Java. Al doilea tip de plug-in este \textbf{”hibrid”}. La inplementarea acestuia sunt utilizate două limbaje de programare: \textbf{Java și JavaScript}. Aces tip de plug-in este o noutate.
 
 \par În principiu, un plug-in hibrid are rolul de a executa la nivelul serverului instrucțiuni codificate în limbaj JavaScript în numele aplicației client. Rezultatele sunt încapsulate în format XML și sunt returnate programului client pentru interpretere. Executarea comenzilor primite de la aplicația client este precedată de următorii doi pași pregătitori: inițializarea unui motor de prelucrare JavaScript ( clasa ScriptEngineManager ) și concatenera la comanda utilizatorului a unei biblioteci care conține obiecte JavaScript utile.\\
 
@@ -154,8 +154,8 @@ try {
 \section{Modul de reprezentare a datelor}
 \par În prezent, pentru transmiterea datelor între server și aplicații client se pot folosi mai multe scheme de structurare a informațiilor: informații nestructurate (compuse din șiruri de simboluri și caractere fără o structură impusă) sau informații structurate folosind una dintre schemele cele mai des utilizate precum XML (extended markup language) sau JSON (JavaScript Object Notation).
 \par Informațiile transmise între aplicația server și aplicația client a meduilui de învățare 3D sunt structurate și transmise în format XML.
-\subsection{Scurtă introducere în XML (CITE ...)} 
-%(CITE ... http://research.nii.ac.jp/~f-ishikawa/work/files/SOC12-03-XML.pdf)
+\subsection{Scurtă introducere în XML}\cite{C03} 
+
 \textbf{XML : Limbaj Extensibil de Marcare}
 \begin{itemize}
 \item XML este un limbaj de marcare deoarece reprezintă un set de adnotări folosit pentru descrierea unor structuri de date de tip text.
@@ -191,7 +191,7 @@ try {
 \end{figure}
 
 \subsection{Structura XML a datelor transmise dinspre server spre aplicația client}
-\par Atât aplicația server cât și aplicația client au cea mai mare parte din funcționalitate implementată in extensii (sau plug-in-uri). Din acest motiv, doar o porțiune a mesajelor transmise intre client și server este standardizată. Restul mesajului trebuie să fie structurat conform nevoilor fiecărei extensii de funcționalitate în parte.
+\par Atât aplicația server cât și aplicația client au cea mai mare parte din funcționalitate implementată in extensii (sau plug-in-uri). Din acest motiv, doar o porțiune a mesajelor transmise între client și server este standardizată. Restul mesajului trebuie să fie structurat conform nevoilor fiecărei extensii de funcționalitate în parte.
 \par Mesajele transmise cătra clientul mediului de învățare 3D se clasifică in două categorii:
 \begin{itemize}
 \item Mesaje de eroare (în cazul în care serverul nu reușește să execute cererea clientului).
@@ -239,7 +239,7 @@ try {
 
 \subsection{Modulul de interpretare a mesajelor XML}
 \par Acest modul are la bază o bibliotecă software existentă denumită kxml. Cu ajutorul acestei biblioteci se va construi un interpretor generic pentru datele în format XML (clasele \textbf{TagHandler} și \textbf{XmlGenericPArser}).
-\par Pentru a interpreta orice text xml este necesară doar o implementare specifică a interfeței ”TagHndler” și rularea textului de interpretat cu aceasta prin parserul generic. Clasa \textbf{CommandsXmlHandler} (CITE) este un exemplu de ”TagHandler” folosit pentru interpretarea comenzilor primite de la aplicația client.
+\par Pentru a interpreta orice text xml este necesară doar o implementare specifică a interfeței ”TagHndler” și rularea textului de interpretat cu aceasta prin parserul generic. Clasa \textbf{CommandsXmlHandler} este un exemplu de ”TagHandler” folosit pentru interpretarea comenzilor primite de la aplicația client.
 
 \begin{figure}[h]
     \centering
@@ -270,7 +270,7 @@ try {
 
 \section{Testarea mecanismului de încărcare a plug-in-urilor}
 \par Testarea modului de funcționare a mecanismului de încăracare a plug-in-urilor se poate efectua și cu o aplicație care să lucreze off-line (fără comunicre în rețea) deoarece testul comunicării on-line a fost efectuat pentru capitolul anterior.
-\par Testul constă în încercerea de a îcărca dinamic două clase diferite în funcție de datele de intrare furnizate în linie de comanda printr-un script. În acest scop se vor concepe două clase care execută două operații aritmetice de bază și implementează următoarea interfață :
+\par Testul constă în încercerea de a încărca dinamic două clase diferite în funcție de datele de intrare furnizate în linie de comanda, printr-un script. În acest scop se vor concepe două clase care execută două operații aritmetice de bază și implementează următoarea interfață :
 \begin{verbatim}
 
 public interface Operatie {

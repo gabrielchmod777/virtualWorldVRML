@@ -36,7 +36,7 @@
 \BOOKMARK [2][-]{subsection.5.3.2}{Tipuri de plug-in-uri dezvoltate pentru serverul mediului de \356nvatare 3D}{section.5.3}% 36
 \BOOKMARK [2][-]{subsection.5.3.3}{Descrierea mecanismului de \356ncarcare a plug-in-urilor}{section.5.3}% 37
 \BOOKMARK [1][-]{section.5.4}{Modul de reprezentare a datelor}{chapter.5}% 38
-\BOOKMARK [2][-]{subsection.5.4.1}{Scurta introducere \356n XML \(CITE ...\)}{section.5.4}% 39
+\BOOKMARK [2][-]{subsection.5.4.1}{Scurta introducere \356n XML}{section.5.4}% 39
 \BOOKMARK [2][-]{subsection.5.4.2}{Structura XML a datelor transmise dinspre server spre aplicatia client}{section.5.4}% 40
 \BOOKMARK [1][-]{section.5.5}{Schema serverului. Diagrama claselor }{chapter.5}% 41
 \BOOKMARK [2][-]{subsection.5.5.1}{Modelarea comenzilor primite de server}{section.5.5}% 42
@@ -69,4 +69,3 @@
 \BOOKMARK [2][-]{subsection.A.2.1}{Rezultate}{section.A.2}% 69
 \BOOKMARK [0][-]{appendix.B}{Anexa \316carcarea dinamica a claselor \356n JAVA}{}% 70
 \BOOKMARK [0][-]{appendix.C}{Anexa Iconuri grafice utilizate pentru nodurile VRML \356n lucrarea \216The Inventor Mentor\216}{}% 71
-\BOOKMARK [0][-]{appendix*.16}{Bibliografie}{}% 72

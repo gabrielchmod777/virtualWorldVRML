@@ -29,8 +29,8 @@
 
 \section{Conceptul aplicației și tehnologiile utilizate.}
 
-\par Interfața aplicției cu utilizatorul este esențială pentru asugurarea unei experințe cât mai plăcute în timpul utilizării. Pentru realizarea interfețeleor se vor respecta următoarele aspecte: simplitate, etichete și denumiri sugestive.
-\par Designul interfeței grafice 2D este minimal. Se pune va dezvolta în principal componenta de redarea 3D a obiectelor din mediul virtual.
+\par Interfața aplicției cu utilizatorul este esențială pentru asugurarea unei experințe cât mai plăcute în timpul utilizării. Pentru realizarea interfețelor se vor respecta următoarele aspecte: simplitate, etichete și denumiri sugestive.
+\par Designul interfeței grafice 2D este minimal. Se va dezvolta în principal componenta de redarea 3D a obiectelor din mediul virtual.
 
 \begin{figure}[ht]
     \centering
@@ -69,7 +69,7 @@
 \begin{itemize}
 \item Aplicațiile programate în C++ ruleaza vizibil mai rapid decat aplicațiile realizate în alte limbaje de programare.
 \item O multitudine de biblioteci software utile sunt implementate în C++.
-\item Aplicația finala poate fi compilată pentru mai multe platforme.
+\item Aplicația finală poate fi compilată pentru mai multe platforme.
 \item C++ este limbajul de programare preferat de dezvoltatorii aplicatii bazate pe grafica 3D.
 \end{itemize}
      
@@ -77,24 +77,24 @@
 
 \subsubsection{Limbje și biblioteci software utilizate \\ pentru reprezentarea mediului virtual 3D}
 
-\par Când se alege o bibliotecă 3D, factorii care trebuiesc luaţi în considerare sunt: performanta,
+\par Când se alege o bibliotecă 3D, factorii care trebuiesc luaţi în considerare sunt: performanța,
 existența şi calitatea documentaţiei, platformele care acceptă biblioteca grafică 3D, existenţa unui
 format standardizat pentru a descrie obiectele grafice şi interacţiunile obiect, licenţiere etc. Ţinând cont de criteriile menţionate mai sus s-a ales biblioteca Coin3D cu suport VRML (Virtual Reality Modeling
 Language). 
 
 \subsubsection{Coin 3D (Open Inventor reimplementat cu suport pentru V.R.M.L.)}
 \par \textbf{Generalități}
-\par Coin se bazează pe librăria grafică 3D OpenGL (The Open Graphics Library), și își are rădăcinile în Open Inventor 2.1 API, cu care Coin este încă compatibil. Precursorul librăriei Coin3D, Open Inventor, își bazează modul de păstrare și manipularea a obiectelor grafice, pe libraria și structura claselor C++ original proiectată pentru SGI.[??]
-\par Open Inventor a devenit repede după lansare biblioteca grafică standard de facto pentru vizualizare 3D și software de simulare vizuală în comunitatea științifică și de inginerie, și mai târziu, bază pentru formatul standard VRML1. 
-\par Există multe publicații pe subiectul Open Inventor, cele mai importante fiind: “The Inventor Mentor”, “The Inventor Toolmaker”, amandouă fiind recomandate pentru cei ce doresc sa învețe sa utilizeze Open Inventor. Aceleași materiale de studiu se pot folosi pentru inițierea în utilizarea librariei grafice Coin3D.[??]
-\par Coin3D a fost dezvoltată independent, de la zero înainte ca Open Inventor să devină open source. Coin și-a atins țelul compatibilității cu standardul Open Invetor 2.1 în toamna anului 2000 și de atunci a fost și-a dezvoltat foarte mult numarul de caracteristici, variind de la suportul pentru sunetul 3D (deficitar pentru sistemul de operare GNU/Linux) la suportul GLSL shader, formate de fișiere suplimentare cum ar fi VRML97, și un numar larg de schimbări interne pentru a ține pasul cu noul OpenGL, optimizat cu o varietate mare de tehnici ce nu erau disponibile la început.[??] 
+\par Coin se bazează pe librăria grafică 3D OpenGL (The Open Graphics Library), și își are rădăcinile în Open Inventor 2.1 API, cu care Coin este încă compatibil. Precursorul bibliotecii Coin3D, Open Inventor, își bazează modul de păstrare și manipularea a obiectelor grafice, pe libraria și structura claselor C++ original proiectată pentru SGI.\cite{C04}
+\par Open Inventor a devenit repede după lansare biblioteca grafică standard de facto pentru vizualizare 3D și software de simulare vizuală în comunitatea științifică și inginerească, și mai târziu, bază pentru formatul standard VRML1. 
+\par Există multe publicații pe subiectul Open Inventor, cele mai importante fiind: “The Inventor Mentor”, “The Inventor Toolmaker”, amandouă fiind recomandate pentru cei ce doresc să învețe sa utilizeze Open Inventor. Aceleași materiale de studiu se pot folosi pentru inițierea în utilizarea librariei grafice Coin3D.\cite{C04}
+\par Coin3D a fost dezvoltată independent, de la zero înainte ca Open Inventor să devină open source. Coin și-a atins țelul compatibilității cu standardul Open Invetor 2.1 în toamna anului 2000 și de atunci a fost și-a dezvoltat foarte mult numarul de caracteristici, variind de la suportul pentru sunetul 3D (deficitar pentru sistemul de operare GNU/Linux) la suportul GLSL shader, formate de fișiere suplimentare cum ar fi VRML97, și un numar larg de schimbări interne pentru a ține pasul cu noul OpenGL, optimizat cu o varietate mare de tehnici ce nu erau disponibile la început.\cite{C04} 
 \par \textbf{Istoric}
-\par Coin își are începuturile în anul 1995, fiind conceput ca o librarie de redare grafica pentru standardul VRML 1.0 . Initial a fost dezvoltată plecând de la librăria Qv a SGI care are rolul de a analiza fisierele în format VRML 1.0. După ani de extindere anevoioasă a librăriei începând cu noi funcționalități de redare și exportare precum VRML 1 și VRML 2, în anul 1997 s-a ajuns la o reală nevoie de reproiectatare.[??]
-\par La prima vedere API-ul are o asemănare izbitoare cu Open Inventor. Conceptele utilizate de către Open Inventor sunt deseori amintite ca o bună metodologie de proiectare în multe cărti de inginerie software, astfel că o parte dintre programatorii care s-au ocupat de dezvoltarea acestuia și care aveau deja experiența cu această librarie, au luat conceptul Open Inventor ca un exemplu demn de urmat. Concomitent cu identificarea strategiei de rescriere a codului, s-a luat decizia de colaborare cu membrii comunității Free Software care au contribuit cu o serie de idei tehnice interesante. Ca o urmare firească a acestei colaborări, libraria s-a dezvoltat ca o alternativă liberă la varianta Open Inventor, cu suport pentru sistemele de operare GNU/Linux, IRIX, Windows, Cygwin și Mac OS X.[??]
+\par Coin își are începuturile în anul 1995, fiind conceput ca o librarie de redare grafică pentru standardul VRML 1.0 . Initial a fost dezvoltată plecând de la librăria Qv a SGI care are rolul de a analiza fisierele în format VRML 1.0. După ani de extindere anevoioasă a bibliotecii soft, începând cu noi funcționalități de redare și exportare precum VRML 1 și VRML 2, în anul 1997 s-a ajuns la o reală nevoie de reproiectatare.\cite{C04}
+\par La prima vedere API-ul are o asemănare izbitoare cu Open Inventor. Conceptele utilizate de către Open Inventor sunt deseori amintite ca o bună metodologie de proiectare în multe cărti de inginerie software, astfel că o parte dintre programatorii care s-au ocupat de dezvoltarea acestuia și care aveau deja experiența cu această librarie, au luat conceptul Open Inventor ca un exemplu demn de urmat. Concomitent cu identificarea strategiei de rescriere a codului, s-a luat decizia de colaborare cu membrii comunității Free Software care au contribuit cu o serie de idei tehnice interesante. Ca o urmare firească a acestei colaborări, libraria s-a dezvoltat ca o alternativă liberă la varianta Open Inventor, cu suport pentru sistemele de operare GNU/Linux, IRIX, Windows, Cygwin și Mac OS X.\cite{C04}
 
 \subsubsection{V.R.M.L. (Virtual Reality Modeling Language)}
 \par VRML este un limbaj de modelare a lumilor virtuale și un standard internațional pentru descrierea formelor și a scenelor pentru World Wide Web. Organizația responsabilă cu dezvoltarea și publicarea standardului VRML este ”Web 3D Consortium” anterior cunoscută sun numele ”VRML Consortium”. În prezent standardul a ajuns la versiunea a doua.
-\par În principiu, o lume virtuală descrisă cu limbajul VRML se poate reprezenta printr-o structură arborescentă în care „nodurile și frunzele” arborelui sunt noduri VRML [??apendix C]
+\par În principiu, o lume virtuală descrisă cu limbajul VRML se poate reprezenta printr-o structură arborescentă în care „nodurile și frunzele” arborelui sunt noduri VRML. 
 
 \begin{figure}[h]
     \centering
@@ -194,7 +194,7 @@ ROUTE Rot1.value_changed TO Frame1.set_rotation
 \subsection{Tehnologia utilizată pentru comunicarea cu serverul}
 
 \par Viteza de execuție a aplicațiilor codificate în C++ și existența librariei Coin3D, este motivul alegerii acestui limbaj pentru implementarea aplicației client. Ultimul standard adoptat de ISO include extensii pentru limbaj și adaugarea de module noi la librăria standard. Cea mai binevenită modificare este suportul pentru programarea firelor de execuție în modelul tehnicii OOP. 
-\par Pentru programarea rețelelor de calculatoare nu există suport modern, acest aspect fiind în agenda ISO pentru următorul standard. Pentru acest ”task” am folosit librăria Boost Asio, o subcomponentă a librăriei Boost. 
+\par Pentru programarea rețelelor de calculatoare nu există suport modern, acest aspect fiind în agenda ISO pentru următorul standard. Pentru acest ”task” am folosit librăria Boost Asio, o subcomponentă a biblotecii software Boost. 
 \par Boost Asio implemetează un model modern bazat pe modelul OOP, pentru programarea asincronă a operațiilor I/O la nivel scăzut și programarea aplicațiilor pentru rețele de calculatoare (cu asincronism în ce privește trimiterea/primirea de date în rețea). \ref{fig:asio}
 
 \begin{figure}[h]
@@ -205,7 +205,7 @@ ROUTE Rot1.value_changed TO Frame1.set_rotation
 \end{figure}
 
 \section{Decizie privind design-ul aplicației client.}
-\par Se va urmări o cît mai mare flexibilizare a sistemului, astfel încât dezvoltarea ulterioară sa fie cât mai facilă. Se are în vedere folosirea mecanismului de extindere dinamică a funcționalității sistemului prin ”plug-in”-uri. 	Plugin-urile vor putea fi descărcate din surse externe în timpul rulării aplicației client, și incluse dinamic în aplicație, fără a se întrrupe rularea programului. Un plug-in va prelua funcția de încărcare de cursuri interactive și activități educative diverse. 
+\par Se va urmări o cît mai mare flexibilizare a sistemului, astfel încât dezvoltarea ulterioară sa fie cât mai facilă. Se are în vedere folosirea mecanismului de extindere dinamică a funcționalității sistemului prin ”plug-in”-uri. 	Plugin-urile vor putea fi descărcate din surse externe în timpul rulării aplicației client, și incluse dinamic în aplicație, fără a se întrerupe rularea programului. Un plug-in va prelua funcția de încărcare de cursuri interactive și activități educative diverse. 
 
 	 Un plug-in respectă următoarea interfață:
 \begin{verbatim}
@@ -437,7 +437,7 @@ Mesaje Valide
 \end{verbatim}
 
 \par Schimbul de date între client și server formează o buclă completă (CLIENT)-(SERVER)-(CLIENT/CLIENȚI). 
-Primul pas este reprezentat de expedierea unei comenzi dinspre client către server, sub forma unui șir de caractere. Primul caracter este ”@” urmat fără spațiu de un nume unic ce are rol de ”selector” de operație la nivelul serverului. Selectorul poate fi urmat de unul sau mai mulți parametri separați prin spații. Comanda expediată, la nivelul serverului este despărțită in elementele constituente: selector de comandă și lista de parametri. Selectorul de comandă este folosit pentru a obține din registrul de comenzi a serverului următoarele informații utile:
+Primul pas este reprezentat de expedierea unei comenzi dinspre client către server, sub forma unui șir de caractere. Primul caracter este ”@” urmat fără spațiu de un nume unic ce are rol de ”selector” de operație la nivelul serverului. Selectorul poate fi urmat de unul sau mai mulți parametri separați prin spații. Comanda expediată, la nivelul serverului este despărțită în elementele constituente: selector de comandă și lista de parametri. Selectorul de comandă este folosit pentru a obține din registrul de comenzi a serverului următoarele informații utile:
 \begin{itemize}
 \item Numele plug-in-ului ce va prelucra răspunsul serverului la nivelul aplicției client.
 \item Adresa web de la care aplicația client poate încărca plug-inul client.

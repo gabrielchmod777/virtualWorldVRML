@@ -1,6 +1,6 @@
 \chapter{Planul aplicației}
 \section{Introducere}
-\par \textbf{În acest capitol, în secțiunea 4.2, se stabilesc funcțiile sistemului. În secțiunea 4.3 se identifică numitorul comun al funcțiilor sistemului ca fiind facilitarea funcției de \textsf{comunicare} și se  enumeră metodele prin care comunicarea la distanță se poate implementă. După analiza punctelor slabe și a punctelor forte ale acestor metode se afirmă alegerea metodei \textsf{CLIENT-SERVER} ca fiind decizia de design de urmat și implementat. În secțiunea 4.4 se proiectează un test ca suport pentru argumentarea deciziei de design (din secțiunea 4.5).}
+\par \textbf{În acest capitol, în secțiunea 4.2, se stabilesc funcțiile sistemului. În secțiunea 4.3 se identifică numitorul comun al funcțiilor sistemului ca fiind facilitarea funcției de \textsf{comunicare} și se  enumeră metodele prin care comunicarea la distanță se poate implementa. După analiza punctelor slabe și a punctelor forte ale acestor metode se afirmă alegerea metodei \textsf{CLIENT-SERVER} ca fiind decizia de design de urmat și implementat. În secțiunea 4.4 se proiectează un test ca suport pentru argumentarea deciziei de design (din secțiunea 4.5).}
 
 \section{Funcțiile sistemului}
 
@@ -12,14 +12,14 @@
 \item Utilizatorii sistemului sunt conștienți de prezența altor utilizatori (persoane reale) în lumea virtuală. Sistemul îndeplinește funcția de liant prin facilitarea schimbului de idei între utiliztori.
 \item Utilizatorii pot interacționa cu o parte dintre obiectele din umea virtuală. În unele situații, rezultatul acestei interacțiuni conduce la modificări permanente în reprezentarea lumii virtuale simulate. Sistemul îndeplinește funcția de stocare a modelului tridimensional al lumii viruale, inclusiv a starii acestui model, stare ce poate fi modificată de către utilizatori.
 \item Sistemul va stoca informațiile referitoare la identificarea utilizatorilor. Această identificare nu presupune stabilirea identității persoanei reale ci are funcția de a servi ca identificator pentru un catalog al progresului utilizatorului în procesul de învățare.
-\item Utilizatorii vor putea contribui la extinderea lumii virtuale prin publicarea de materiale educative dezvoltate de cătrea aceștia. Sistemul va permite contribuția utilizatorilor va avea funcția de stocare și prezentare a noilor materiale educative.
+\item Utilizatorii vor putea contribui la extinderea lumii virtuale prin publicarea de materiale educative dezvoltate de cătrea aceștia. Sistemul va permite contribuția utilizatorilor cu noi materiale 3D și va avea funcția de stocare și prezentare a noilor materiale educative.
 \end{itemize}
 
-\par Cea mai mare parte dintre aceste funcții se vor implementa în aplicația software demonstrativă atașată acestui proiect.
+\par O parte dintre aceste funcții enunțate se vor implementa în aplicația software demonstrativă atașată acestui proiect.
 
 \subsection{Funcționalitate extinsă}
 
-\par Următoarele funcții nu vor fi incluse in software-ul demonstrtiv, dar sunt recunoscute ca necesare pentru orice sistem de învățare.
+\par Următoarele funcții nu vor fi incluse în software-ul demonstrtiv, dar sunt recunoscute ca necesare pentru orice sistem de învățare.
 
 \begin{itemize}
 \item Funcția de asigurare a accesibilității pentru persoanele cu deficiențe de vedere sau deficiențe motorii.
@@ -40,7 +40,7 @@
     \label{fig:imag4}
 \end{figure}
 
-\textbf{Modelul Client-Server} este un model centralizat în care fiecare nod client comunică și depinde de serviciile nodului server. Acest model este relativ ușor de implementat, ușor de administrat, consistența datelor poate fi verificată și inpusă la nivelul serverului și stocarea datelor poate fi facută centralizat la același nivel. Cel mai mare dezavantaj al acestui model este faptul că, pierderea accesului la server prin oprirea acestuia face tot sistemul inoperabil. Acest model este mult mai portivit pentru implementarea unei lumi virtuale și a unui mediu de învățare 3D. 
+\textbf{Modelul Client-Server} este un model centralizat în care fiecare nod client comunică și depinde de serviciile nodului server. Acest model este relativ ușor de implementat, ușor de administrat, consistența datelor poate fi verificată și inpusă la nivelul serverului iar stocarea datelor poate fi făcută centralizat, la același nivel. Cel mai mare dezavantaj al acestui model este faptul că pierderea accesului la server prin oprirea acestuia face tot sistemul inoperabil. Acest model este mult mai portivit pentru implementarea unei lumi virtuale și a unui mediu de învățare 3D. 
 
 \begin{figure}[h]
     \centering
@@ -55,7 +55,7 @@
 
 \par \textbf{Se consideră testul reușit} dacă toate mesajele ajung la toate aplicațiile client în aceeași ordine și într-un timp copmarabil, sub 1 secundă distanță.
 \par Pentru \textbf{rularea testului} se codifică aplicația  server demonstrativă și se utilizează utilitarul \textbf{telnet} ca program client. Un ``shell script`` va fi programat pentru \textbf{rularea automată} a testului. \textbf{Evaluarea} se va realiza cu ajutorul comenzii \textbf{diff}. 
-\par Codul sursă al aplicației server, scriptul pentru rularea automată a testului și rezultatele returnte de utilitarul diff sun atașat în Anexa A.
+\par Codul sursă al aplicației server, scriptul pentru rularea automată a testului și rezultatele returnte de utilitarul diff sun atașate în Anexa A.
 
 \section{Argumentarea deciziei \\ pe baza rezultatelor testării}
 
