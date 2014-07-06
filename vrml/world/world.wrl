@@ -4,31 +4,31 @@ Background
   {
   groundAngle 
     [
-    1.309000
-    1.571000
+    1.30900001
+    1.57079637
     ]
   groundColor 
     [
-    0 0.800000 0
-    0 0.800000 0
-    0 0.800000 0
+    0 0.80000001 0
+    0 0.80000001 0
+    0 0.80000001 0
     ]
   skyAngle 
     [
-    1.309000
-    1.571000
+    1.30900001
+    1.57099997
     ]
   skyColor 
     [
-    0 0.200000 0.700000
-    0 0.500000 1
+    0 0.20000000 0.69999998
+    0 0.50000000 1
     1 1 1
     ]
   }
 
 Transform
   {
-  translation 0 4.1 0
+  translation 0 4.09999990 0
   scale 5 5 5
   children 
     Inline
@@ -39,66 +39,81 @@ Transform
 
 Transform
   {
-  translation -0 25 -0
+  translation 0 25 0
   scale 5 5 5
   children 
-   [
-
-   DEF theCube Transform {
-   children [
-     Shape {
-     appearance Appearance {
-       texture ImageTexture {
-       url [ "utcn_logo.png"]
-       }
-       textureTransform TextureTransform {
-       scale 1 1
-       }
+    [
+    DEF theCube Transform
+      {
+      children 
+	Shape
+	  {
+	  appearance Appearance
+	    {
+	    texture ImageTexture
+	      {
+	      url "utcn_logo.png"
+	      }
+	    textureTransform TextureTransform
+	      {
+	      }
+	    }
+	  geometry Box
+	    {
+	    size 3 3 3
+	    }
+	  }
       }
-    geometry Box {
-  	  size 3 3 3
- 	  }
-    }
+    DEF timer TimeSensor
+      {
+      cycleInterval 15
+      loop TRUE
+      }
+        # end timer
+    DEF twirler OrientationInterpolator
+      {
+      key 
+	[
+	0
+	0.12500000
+	0.25000000
+	0.37500000
+	0.50000000
+	0.62500000
+	0.75000000
+	0.87500000
+	1
+	]
+      keyValue 
+	[
+	1 0 0 0
+	0 1 0 1.57000005
+	1 0 0 1.57000005
+	0 1 0 3.14000010
+	1 0 0 3.14000010
+	0 1 0 4.71000003
+	1 0 0 4.71000003
+	0 1 0 6.28000020
+	1 0 0 6.28000020
+	]
+      }
     ]
-   }
-
-   DEF timer TimeSensor {
-     cycleInterval 15
-     enabled TRUE
-     loop TRUE
-   } # end timer
-
-   DEF twirler OrientationInterpolator {
-  key [
-    0
-    .125
-    .25
-    .375
-    .5
-    .625
-    .75
-    .875
-    1
-  ] # end key
-
-  keyValue [
-    1 0 0 0
-    0 1 0 1.57
-    1 0 0 1.57
-    0 1 0 3.14
-    1 0 0 3.14
-    0 1 0 4.71
-    1 0 0 4.71
-    0 1 0 6.28
-    1 0 0 6.28
-  ]
-  } #end twirler
-
-
-  ]
   }
 
-
-
 ROUTE timer.fraction_changed TO twirler.set_fraction
-ROUTE twirler.value_changed TO theCube.rotation
+ROUTE twirler.value_changed TO theCube.set_rotation
+
+# end key
+#end twirler
+Transform
+  {
+  rotation 0 1 0 3.14000010
+  translation -400 0 -400
+  scale 10 10 10
+  children 
+    Inline
+      {
+      url "castru.wrl"
+      }
+  }
+

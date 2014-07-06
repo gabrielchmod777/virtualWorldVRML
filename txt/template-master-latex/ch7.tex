@@ -1,21 +1,69 @@
-\chapter{Conluzii}
+\chapter{Instrucțiuni}
 
 
-\section{Conținut}
+\section{Instalarea bibliotecilor software}
 
+\par Sub Linux, comenzile de instalare a programelor pot să difere. Se or expune etapele de urmat pentru instalarea bibliotecilor software în Ubuntu Linux. Această distribuție beneficiează de un depozit de aplicații și biblioteci software. Acestea se pot instala atât cu ajutorul unor programe speciale ce dispun de o interfață grafică, cât și cu ajutorul comenzii \textbf{apt-get}.
+
+\begin{verbatim}
+$> sudo apt-get install build-essential libpng++-dev libtool libboost-all-dev 
+                autoconf autotools-dev libqt4-core libqt4-gui libqt4-dev
+                mercurial git gitk libcoin80 libcoin80-doc libcoin80-dev 
+                libcoin80-runtime    
+\end{verbatim}
+
+Această comandă va instala următoarele:
 \begin{itemize}
- \item un rezumat al contribuțiilor aduse
- \item a analiză critică a rezultatelor obținute: avantaje, dezavantaje, limitări
- \item o descriere a posibilelor dezvoltări și îmbunătățiri ulterioare
+\item Compilatoarele, link-editoarele și bibliotecile necesare pentru programarea în C++.
+\item Codec pentru formatul PNG.
+\item Aplicațiile de generare a scripturilor Makefile.
+\item Bibliotecile BOOST.
+\item Bibliotecile Qt v4.
+\item Software pentru controlul versiunii (Mercurial și Git).
+\item Bibliotecile software Coin3D
 \end{itemize}
 
+Nu există în depozitul Ubuntu Linux - bibliotecile software \textbf{SoQt} și \textbf{SpiderMonkey JavaSctipt}, conținând liantul dintre Qt4 și Coin3D, respectiv interpretorul JavaScript utilizat de platforma Coin3D. Acestea se vor instala manual.
 
-\section{Detalii tehnice}
+\begin{verbatim}
+#   pt. SoQt
 
-\subsection{Dimensiune}
+#  descărcarea codului sursă
+$> hg clone http://www.bitbucket.org/Coin3D/SoQt
+#  compilarea codului sursă și instalarea
+$> cd soqt
+$> ./configure
+$> make
+$> sudo make install
 
-Cca 3--5\% din total.
 
+#  codul sursă pt SpiderMonkey  este disponibil pe CD-ul anexat acestei lucrări
+$> tar -xvf js-1.60.tar.gz
+$> cd js-1.60
+#  compilarea
+$> make -f Makefile.ref
+#  instalarea
+$> cp *.h /usr/include/js
+$> cp Linux_All_OPT.OPJ/libjs.so /usr/lib
+exit    
+\end{verbatim}
 
+\section{Compilarea aplicației}
+\par Aplicația client este disponibilă pe CD-ul anexat la acestă lucrare sau pe contul git : \textbf{https://github.com/gabrielchmod777/virtualWorldVRML-CLIENT.git}.
+\begin{verbatim}
+#  Pregătiri anterioare
 
+$> export LDLIBRARY_PATH=/usr/local/lib:LD_LIBRARY_PATH
+$> export COIN_ALLOW_SPIDERMONKEY=1
 
+#  descărcarea codului sursă
+$> git clone https://github.com/gabrielchmod777/virtualWorldVRML-CLIENT.git
+$> cd cd virtualWorldVRML-CLIENT
+$> autoreconf -i
+$> ./configure
+$> make
+$> sudo make install
+\end{verbatim}
+\par Aplicația server este disponibilă pe CD-ul anexat la acestă lucrare sau pe contul git : \textbf{https://github.com/gabrielchmod777/virtualWorldVRML-serverJAVA.git}. Acesta se rulează din Eclipse.
+\section{Setarea unei surse locale ca depozit pentru plug-in-urile aplicației client}
+\par Sistemul demonstrativ are nevoie de un pachet LAMPP cu un server APACHE configurat, pentru a folosi adresa \textbf{http://localhost/plugins/} ca depozit pentru plug-in-urile aplicației client. Aplicația demonstrativă are nevoie de acces la această adresă pentru a funcționa.  

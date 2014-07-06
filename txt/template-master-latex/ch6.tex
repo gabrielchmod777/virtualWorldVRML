@@ -9,7 +9,7 @@
 \item 6.3.4 - Tehnologia utilizată pentru comunicarea cu serverul.
 \end{itemize}
 
-\par \textbf{ În secțiunea 6.4 se explică mecanismul adoptat pentru atingerea unui scop important, ”scalabilitatea aplicației” . În secțiunea 6.5 se explică mecanismul CERERE-PROCESARE-RASPUNS. În aceeași secțiune se prezintă formatul de reprezentare a datelor transmise între aplicația client și aplicația server. Secțiunea 6.6 este dedicată prezentării diagramei claselor. În secțiunea 6.7 se enunță parametrii testării aplicației client. Rezultatele acestei testări expuse în Anexa C. } 
+\par \textbf{ În secțiunea 6.4 se explică mecanismul adoptat pentru atingerea unui scop important, ”scalabilitatea aplicației” . În secțiunea 6.5 se explică mecanismul CERERE-PROCESARE-RASPUNS. În aceeași secțiune se prezintă formatul de reprezentare a datelor transmise între aplicația client și aplicația server. Secțiunea 6.6 este dedicată prezentării diagramei claselor. În secțiunea 6.7 se enunță parametrii testării aplicației client. Rezultatele acestei testări expuse în același capitol. } 
 
 \newpage
 
@@ -464,7 +464,31 @@ Această comandă este transmisă aplicației client sau mai multor clienți, î
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.3]{loop}
+    \includegraphics[scale=0.33]{loop}
     \caption{Bucla schimbului de informații între client și server}
+    \label{fig:loop}
+\end{figure}
+
+
+\section{Diagrama claselor}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.27]{UMLCL}
+    \caption{Diagrama claselor aplicației client}
+    \label{fig:loop}
+\end{figure}
+
+\section{Test}
+\par Deoarece o metodă automată pentru testarea întregii aplicații este foarte complexă, se recurge la testarea vizuală, constând în verificarea modului în care perspectiva vizuală dintre două avatare este corectă, și în verificarea modului în care mediul virtual este redat din punct de vedere estetic.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.35]{CASTRUM0}
+    \caption{Test - avatare - față în față }
+    \label{fig:loop}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{P0}
+    \caption{Test - avatare aliniate la intrarea într-o fortificație romană (3D)}
     \label{fig:loop}
 \end{figure}

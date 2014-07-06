@@ -28,9 +28,13 @@
 \contentsline {figure}{\numberline {6.7}{\ignorespaces Mecanismul SIGNAL-SLOT}}{36}{figure.6.7}
 \contentsline {figure}{\numberline {6.8}{\ignorespaces Mecanismul I/O asincron}}{37}{figure.6.8}
 \contentsline {figure}{\numberline {6.9}{\ignorespaces Bucla schimbului de informa\IeC {{\textcommabelow t}}ii \IeC {\^\i }ntre client \IeC {{\textcommabelow s}}i server}}{44}{figure.6.9}
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Diagrama claselor aplica\IeC {{\textcommabelow t}}iei client}}{45}{figure.6.10}
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Test - avatare - fa\IeC {{\textcommabelow t}}\IeC {\u a} \IeC {\^\i }n fa\IeC {{\textcommabelow t}}\IeC {\u a} }}{46}{figure.6.11}
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Test - avatare aliniate la intrarea \IeC {\^\i }ntr-o fortifica\IeC {{\textcommabelow t}}ie roman\IeC {\u a} (3D)}}{47}{figure.6.12}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Server - diagrama UML complet\IeC {\u a}}}{54}{figure.B.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces Noduri VRML}}{55}{figure.C.1}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Server - diagrama UML complet\IeC {\u a}}}{60}{figure.B.1}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Noduri VRML}}{61}{figure.C.1}

@@ -53,14 +53,20 @@
 \BOOKMARK [2][-]{subsection.6.3.4}{Tehnologia utilizata pentru comunicarea cu serverul}{section.6.3}% 53
 \BOOKMARK [1][-]{section.6.4}{Decizie privind design-ul aplicatiei client.}{chapter.6}% 54
 \BOOKMARK [1][-]{section.6.5}{Comnezi catre server}{chapter.6}% 55
-\BOOKMARK [0][-]{chapter.7}{Capitolul Conluzii}{}% 56
-\BOOKMARK [1][-]{section.7.1}{Continut}{chapter.7}% 57
-\BOOKMARK [1][-]{section.7.2}{Detalii tehnice}{chapter.7}% 58
-\BOOKMARK [2][-]{subsection.7.2.1}{Dimensiune}{section.7.2}% 59
-\BOOKMARK [0][-]{appendix.A}{Anexa Testarea fiabilitatii modelului CLIENT-SERVER}{}% 60
-\BOOKMARK [1][-]{section.A.1}{Script}{appendix.A}% 61
-\BOOKMARK [1][-]{section.A.2}{Server de test}{appendix.A}% 62
-\BOOKMARK [2][-]{subsection.A.2.1}{Rezultate}{section.A.2}% 63
-\BOOKMARK [0][-]{appendix.B}{Anexa \316carcarea dinamica a claselor \356n JAVA}{}% 64
-\BOOKMARK [0][-]{appendix.C}{Anexa Iconuri grafice utilizate pentru nodurile VRML \356n lucrarea \216The Inventor Mentor\216}{}% 65
-\BOOKMARK [0][-]{appendix*.16}{Bibliografie}{}% 66
+\BOOKMARK [1][-]{section.6.6}{Diagrama claselor}{chapter.6}% 56
+\BOOKMARK [1][-]{section.6.7}{Test}{chapter.6}% 57
+\BOOKMARK [0][-]{chapter.7}{Capitolul Instructiuni}{}% 58
+\BOOKMARK [1][-]{section.7.1}{Instalarea bibliotecilor software}{chapter.7}% 59
+\BOOKMARK [1][-]{section.7.2}{Compilarea aplicatiei}{chapter.7}% 60
+\BOOKMARK [1][-]{section.7.3}{Setarea unei surse locale ca depozit pentru plug-in-urile aplicatiei client}{chapter.7}% 61
+\BOOKMARK [0][-]{chapter.8}{Capitolul Concluzii}{}% 62
+\BOOKMARK [1][-]{section.8.1}{Instalarea bibliotecilor software}{chapter.8}% 63
+\BOOKMARK [1][-]{section.8.2}{Compilarea aplicatiei}{chapter.8}% 64
+\BOOKMARK [2][-]{subsection.8.2.1}{Dimensiune}{section.8.2}% 65
+\BOOKMARK [0][-]{appendix.A}{Anexa Testarea fiabilitatii modelului CLIENT-SERVER}{}% 66
+\BOOKMARK [1][-]{section.A.1}{Script}{appendix.A}% 67
+\BOOKMARK [1][-]{section.A.2}{Server de test}{appendix.A}% 68
+\BOOKMARK [2][-]{subsection.A.2.1}{Rezultate}{section.A.2}% 69
+\BOOKMARK [0][-]{appendix.B}{Anexa \316carcarea dinamica a claselor \356n JAVA}{}% 70
+\BOOKMARK [0][-]{appendix.C}{Anexa Iconuri grafice utilizate pentru nodurile VRML \356n lucrarea \216The Inventor Mentor\216}{}% 71
+\BOOKMARK [0][-]{appendix*.16}{Bibliografie}{}% 72

@@ -80,7 +80,9 @@ vrml_world_files = \
  vrml/world/arts.jpeg \
  vrml/world/medicine.jpeg \
  vrml/world/physics.jpeg \
- vrml/world/smiley.jpeg 
+ vrml/world/smiley.jpeg \
+ vrml/world/rooftiles.jpeg \
+ vrml/world/castru.wrl \
  $(NULL)
 
 vrml_avatar_files = \
@@ -116,7 +118,7 @@ vrml_avatar_files = \
 
 private_icons = \
   icons/male.png \
-  icons/female.png
+  icons/female.png \
   $(NULL)
 
 private_media = \
