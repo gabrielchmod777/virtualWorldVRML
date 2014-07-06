@@ -72,13 +72,13 @@
 \contentsline {section}{\numberline {7.2}Compilarea aplica\IeC {{\textcommabelow t}}iei}{49}{section.7.2}
 \contentsline {section}{\numberline {7.3}Setarea unei surse locale ca depozit pentru plug-in-urile aplica\IeC {{\textcommabelow t}}iei client}{50}{section.7.3}
 \contentsline {chapter}{Capitolul{} \numberline {8}Concluzii}{51}{chapter.8}
-\contentsline {section}{\numberline {8.1}Instalarea bibliotecilor software}{51}{section.8.1}
-\contentsline {section}{\numberline {8.2}Compilarea aplica\IeC {{\textcommabelow t}}iei}{51}{section.8.2}
-\contentsline {subsection}{\numberline {8.2.1}Dimensiune}{51}{subsection.8.2.1}
-\contentsline {chapter}{Anexa{} \numberline {A}Testarea fiabilit\IeC {\u a}\IeC {{\textcommabelow t}}ii modelului CLIENT-SERVER}{52}{appendix.A}
-\contentsline {section}{\numberline {A.1}Script}{52}{section.A.1}
-\contentsline {section}{\numberline {A.2}Server de test}{52}{section.A.2}
-\contentsline {subsection}{\numberline {A.2.1}Rezultate}{55}{subsection.A.2.1}
-\contentsline {chapter}{Anexa{} \numberline {B}\IeC {\^I}c\IeC {\u a}rcarea dinamic\IeC {\u a} a claselor \IeC {\^\i }n JAVA}{56}{appendix.B}
-\contentsline {chapter}{Anexa{} \numberline {C}Iconuri grafice utilizate pentru nodurile VRML \IeC {\^\i }n lucrarea \IeC {\textquotedblright }The Inventor Mentor\IeC {\textquotedblright }}{61}{appendix.C}
-\contentsline {chapter}{Bibliografie}{62}{appendix*.16}
+\contentsline {subsection}{\numberline {8.0.1}Concluzii \IeC {{\textcommabelow s}}i contribu\IeC {{\textcommabelow t}}ia personal\IeC {\u a}}{51}{subsection.8.0.1}
+\contentsline {subsection}{\numberline {8.0.2}Direc\IeC {{\textcommabelow t}}ii de urmat pentru \IeC {\^\i }mbun\IeC {\u a}ta\IeC {{\textcommabelow t}}irea aplica\IeC {{\textcommabelow t}}iei demonstrative}{52}{subsection.8.0.2}
+\contentsline {subsection}{\numberline {8.0.3}Speran\IeC {{\textcommabelow t}}e pentru viitor}{52}{subsection.8.0.3}
+\contentsline {chapter}{Anexa{} \numberline {A}Testarea fiabilit\IeC {\u a}\IeC {{\textcommabelow t}}ii modelului CLIENT-SERVER}{53}{appendix.A}
+\contentsline {section}{\numberline {A.1}Script}{53}{section.A.1}
+\contentsline {section}{\numberline {A.2}Server de test}{53}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}Rezultate}{56}{subsection.A.2.1}
+\contentsline {chapter}{Anexa{} \numberline {B}\IeC {\^I}c\IeC {\u a}rcarea dinamic\IeC {\u a} a claselor \IeC {\^\i }n JAVA}{57}{appendix.B}
+\contentsline {chapter}{Anexa{} \numberline {C}Iconuri grafice utilizate pentru nodurile VRML \IeC {\^\i }n lucrarea \IeC {\textquotedblright }The Inventor Mentor\IeC {\textquotedblright }}{62}{appendix.C}
+\contentsline {chapter}{Bibliografie}{63}{appendix*.16}

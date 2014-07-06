@@ -1,21 +1,29 @@
 \chapter{Concluzii}
-
-
-\section{Instalarea bibliotecilor software}
+\subsection{Concluzii și contribuția personală}
+\par Studiul unui domeniu, în care exemplele de urmat sunt ascunse și protejate de drepturi de autor, a deviat constant spre încercarea de a intui metodele și tehnicile ce pot crea un produs informatic cu atribute cât mai apropiate de produsele consacrate existente pe piață. Pentru această lucrare, ”uneletele” cele mai des utilizate pentru realizarea unui \textbf{concept} de produs software care să îndeplinească cu succes funcția de ”Mediu De Învățare 3D”, au fost \textbf{observația}  produselor existente și în special \textbf{dorința de a experimenta}.
+\par În manifestul obiectivului inițial s-a afirmat intenția de a crea un mediu 3D pentru Linux în special pentru pasiunea personală pentru acest sistem de operare și pentru cultura ”free software (și open source)”. În modul cel mai sintetic posibil, obiectivele se pot enumera astfel:
 
 \begin{itemize}
- \item un rezumat al contribuțiilor aduse
- \item a analiză critică a rezultatelor obținute: avantaje, dezavantaje, limitări
- \item o descriere a posibilelor dezvoltări și îmbunătățiri ulterioare
+\item Descoperirea unei forme cât mai minimale de software educativ 3D, care să redea conținut într-o formă cât mai atractivă din punct de vedere estetic.
+\item Identificarea unei distribuții Linux care să permită dezvoltarea și rularea unei asemenea aplicații.
+\item Identificarea librăriilor software necesare pentru implementarea aplicației.
+\item Crearea unei platforme sub forma unor biblioteci software cu elemente utile pentru dezvoltarea de aplicații educative în mediu 3D.
 \end{itemize}
 
+\par Primele trei din cele patru obiective au fost acoperite în integralitate. Aplicația demonstrativă este realizată cu un număr minim de clase și linii de cod, reușind cu toate acestea să se creeze un mediu virtual 3D care poate fi explorat și care conține materiale interactive și educative. Tot odată, s-au descoperit și componenetele software și uneletele necesare pentru implemetarea unui mediu 3D pentru Linux. Ultimul obiectiv, referitor la relizarea unei platforme software pentru medii 3D sub Linux nu s-a concretizat în integralitate. S-au obținut în urma procesului de implemetare câteva module precum: modulul de comunicare cu serverul, modulul pentru navigarea în medii 3D cu ajutorul avatarului, modelul de plug-in și metoda de încărcare dinamică a acestuia; dar toate aceste module, deși sunt foarte utile, nu constituie o platformă software.
 
-\section{Compilarea aplicației}
+\par Cele mai interesante idei expuse în acestă lucrare nu sunt acoperite în manifestul obiectivelor lucrării, fiind \textbf{rezultatul ne anticipat} al procesului de cercetare. Astfel, în căutarea celei mai simple metode de extindere a funcționalității serverului și clientului mediului de învățare 3D, s-au testat următoarele idei:
+\begin{itemize}
+\item  Metoda ce constă în extinderea fucționalității sistemului prin implementarea de \textbf{ plug-in-uri pereche }. Acestea sunt înscrise într-un registru la nivelul serverului și lucrează în tandem. Principiul de funcționare este următorul: o comandă de la client activează o căutare în registrul serverului a unui plug-in ce poate procesa acea comandă. Aceeași căutare furnizează informații despre plug-in-ul omolog cu cel de pe server, care este capabil să proceseze la nivelul clientului răspunsul serverului obținut cu primul plugin. Acestă informație este transmisă înpreună cu mesajul serverului. Clientul își poate astfel selecta sau dscărca plug-in-ul corespunzător.
+\item Datorită versatilității limbajului java prin integrarea unui interpretor JavaScript, s-a putut implemeta și testa un \textbf{plug-in hibrid}. Plug-in-ul hibrid rulează comenzi JavaScript într-o clasă Java. Prin acest procdeu se pot implemeta mai rapid și mai ușor plug-in-uri la nivelul serverului, pentru mediul virtual 3D.
+\end{itemize}
+\subsection{Direcții de urmat pentru îmbunătațirea aplicației demonstrative}
 
-\subsection{Dimensiune}
+\par Aplicația are meritul de a fi foarte mică ca dimensiune și ușor de studiat, dar poate fi îmbunătățită considerabil prin separarea codului pentru elementele de interfață de codul folosit pentru manipularea structurii arborescente ce descrie mediul virtual 3D. Comunicarea între aceste module separate se poate realiza cu același mecanism SIGNAL - SLOT implemetat de biblioteca software Qt. Această tehnică poate fi sutdiată prin analiza codului unui alt proiect asemnănător dezvoltat separat de această lucrare (sursa : git clone https://github.com/gabrielchmod777/gcream.git).
 
-Cca 3--5\% din total.
+\subsection{Speranțe pentru viitor}
+\par Închei acest studiu cu speranța că aplicația demonstrativă va fi utilă altor studenți și că mici fragmente din codul ei vor fi preluate și integrate în aplicații mai utile sau mai interesante.
 
-
-
-
+\rule{\textwidth}{1pt}
+\\
+\textit{ If we knew what it was we were doing, it would not be called research, would it? ( Albert Einstein ) }
