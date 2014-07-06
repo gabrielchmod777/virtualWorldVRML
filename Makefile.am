@@ -83,6 +83,8 @@ vrml_world_files = \
  vrml/world/smiley.jpeg \
  vrml/world/rooftiles.jpeg \
  vrml/world/castru.wrl \
+ vrml/world/roman_soldier.wrl \
+ vrml/world/shield.wrl \  
  $(NULL)
 
 vrml_avatar_files = \

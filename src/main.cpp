@@ -53,10 +53,10 @@
 #include <QtWebKit/QWebView>
 #include <QSound>
 
-const float maxSpeed = 24.0f;
+const float maxSpeed = 35.0f;
 const float minSpeed = -10.0f;
-const float speedUp = 2.0f;
-const float slowDown = 4.0f;
+const float speedUp = 4.0f;
+const float slowDown = 8.0f;
 const float maxRotSpeed = 1.5;
 const float minRotSpeed = -1.5;
 const float rotSpeedUp = 3;   
@@ -460,7 +460,7 @@ SoSeparator* startUpScene(SoNode* avatar)
 
   SoSeparator* scienceArea = new SoSeparator;
   SoTranslation* sciTransl = new SoTranslation;
-  sciTransl->translation.setValue(500, 0 ,500 );
+  sciTransl->translation.setValue(150, 0 ,150 );
   scienceArea->setName(VRML_UTILS_SCIENCES_AREA_NAME);
   root->addChild( scienceArea );
   scienceArea->addChild( sciTransl );
@@ -468,7 +468,7 @@ SoSeparator* startUpScene(SoNode* avatar)
 
   SoSeparator* bioArea = new SoSeparator;
   SoTranslation* bioTransl = new SoTranslation;
-  bioTransl->translation.setValue(-500, 0 ,500 );
+  bioTransl->translation.setValue(-150, 0 ,150 );
   bioArea->setName(VRML_UTILS_BIO_AREA_NAME);
   root->addChild( bioArea );
   bioArea->addChild( bioTransl );
@@ -476,7 +476,7 @@ SoSeparator* startUpScene(SoNode* avatar)
 
   SoSeparator* artsArea = new SoSeparator;
   SoTranslation* artsTransl = new SoTranslation;
-  artsTransl->translation.setValue(500, 0 ,-500 );
+  artsTransl->translation.setValue(150, 0 ,-150 );
   artsArea->setName(VRML_UTILS_ARTS_AREA_NAME);
   root->addChild( artsArea );
   artsArea->addChild( artsTransl );
@@ -484,7 +484,7 @@ SoSeparator* startUpScene(SoNode* avatar)
 
   SoSeparator* freeArea = new SoSeparator;
   SoTranslation* freeTransl = new SoTranslation;
-  freeTransl->translation.setValue(-500, 0 ,-500 );
+  freeTransl->translation.setValue(-150, 0 ,-150 );
   freeArea->setName(VRML_UTILS_FREE_AREA_NAME);
   root->addChild( freeArea );
   freeArea->addChild( freeTransl );

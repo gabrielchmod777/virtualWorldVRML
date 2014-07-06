@@ -1803,3 +1803,22 @@ DEF Cube_TRANSFORM Transform
       }
   }
 
+DEF A_ROMAN Transform
+  {
+  translation -1.45836186 0.16476279 1.18270027
+  scale 0.18000000 0.18000000 0.18000000
+  children 
+    Inline
+      {
+      url "roman_soldier.wrl"
+      }
+  }
+
+Transform
+  {
+  rotation 0 1 0 3.14000010
+  translation -2.81681847 0 -0.42387408
+  children 
+    USE A_ROMAN
+  }
+
