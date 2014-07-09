@@ -22,19 +22,23 @@
 \BIBdecl
 
 \bibitem{WANN}
+\textbf{Wann, J. and Mon-Williams, M.}
 \emph{What does virtual reality NEED? Human factors issues in the design of
   three-dimensional computer environments.}\hskip 1em plus 0.5em minus
   0.4em\relax International Journal of Human-Computer Studies, 1996.
 
 \bibitem{ILLERIS}
+\textbf{Knud Illeris}
 \emph{Adult Education and Adult Learning}.\hskip 1em plus 0.5em minus
   0.4em\relax Krieger Publishing Company, 2004.
 
 \bibitem{VESTER}
+\textbf{ Frederic Vester }
 \emph{Invatare, Intelegere, Uitare}.\hskip 1em plus 0.5em minus 0.4em\relax
   DTV, 1998.
 
 \bibitem{COIN_COMM}
+\textbf{Comunitatea open-source / Coin3D}
 \BIBentryALTinterwordspacing
 C.~programatorilor Coin3D. (2013) Introducere. [Online]. Available:
   \url{https://bitbucket.org/Coin3D/coin/wiki/IntroductionToCoin3D}
@@ -44,13 +48,16 @@ C.~programatorilor Coin3D. (2013) Introducere. [Online]. Available:
 T.~V.~C. Incorporated, \emph{The Virtual Reality Modeling Language}, 1997.
 
 \bibitem{NADEAU}
+\textbf{David Nadeau}
 ``The inventor mentor:programming objectoriented 3d graphics with open
   inventor, release 2.''
 
 \bibitem{NADEAU2}
+\textbf{David Nadeau}
 ``Introduction to vrml 97.''
 
 \bibitem{QT}
+\textbf{Jasmin Blanchette; Mark Summerfield}
 \emph{C++ GUI Programming with Qt 4}.\hskip 1em plus 0.5em minus 0.4em\relax
   Prentice Hall, 2008.
 
