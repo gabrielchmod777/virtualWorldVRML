@@ -4,6 +4,7 @@
 #include "message_queue.h"
 #include "client.h"
 #include "executor.h"
+#include "globals.h"
 #include "login_dialog.h"
 
 #include <cstdlib>
@@ -45,7 +46,6 @@
 #include <Inventor/details/SoPointDetail.h>
 #include <Inventor/SoPickedPoint.h>
 #include <Inventor/SoPath.h>
-
 
 #include <QDebug>
 #include <QApplication>
@@ -132,10 +132,11 @@ int main(int argc, char **argv)
       boost::asio::ip::tcp::resolver::iterator iterator = resolver.resolve(query);
 
       client c(io_service, iterator);
-
+      
       std::string executors_name = name.c_str();
       command_executor client_exec(executors_name);
       c.add_observer(&client_exec);
+      global_client = &c;
 
       qDebug()<<"==============================\n";
       // DOWNLOAD WORLD RESOURCES
@@ -489,6 +490,8 @@ SoSeparator* startUpScene(SoNode* avatar)
   root->addChild( freeArea );
   freeArea->addChild( freeTransl );
   freeArea->addChild( get_scene_graph_from_file("/usr/local/share/l3dclient/flag_free.wrl") ); 
+
+  // load resources from server
 
   root->unrefNoDelete();
 

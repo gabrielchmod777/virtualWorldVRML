@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <type>#ro.utcluj.learning3d.server@return</type>
+  <name>@get_resources</name>
+  <client_plugin>libResources.so</client_plugin>
+  <client_plugin_source>http://localhost/plugins/libResources.so</client_plugin_source>
+  <raw>
+    <archive>localhost/env.tar.gz</archive>
+  </raw>
+</response>
