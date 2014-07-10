@@ -117,3 +117,14 @@ Transform
       }
   }
 
+Transform
+  {
+  translation 400 -0.50000000 400
+  scale 8 8 8
+  children 
+    Inline
+      {
+      url "/usr/local/share/l3dclient/reactor_static.wrl"
+      }
+  }
+
