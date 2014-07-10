@@ -128,3 +128,147 @@ Transform
       }
   }
 
+Transform
+  {
+  translation -400 0 150
+  scale 4 4 4
+  children 
+    [
+    Inline
+      {
+      url "greek_museum.wrl"
+      }
+    Transform
+      {
+      children 
+	[
+	Transform
+	  {
+	  rotation 0 1 0 1.53999996
+	  translation 0 2.35908794 0
+	  children 
+	    Shape
+	      {
+	      appearance Appearance
+		{
+		material Material
+		  {
+		  }
+		texture DEF WORK_1 ImageTexture
+		  {
+		  url "brick-red.jpg"
+		  }
+		}
+	      geometry Box
+		{
+		size 4 5 0.20000000
+		}
+	      }
+	  }
+	Transform
+	  {
+	  rotation 0 1 0 1.53999996
+	  translation -0.32714715 0 10.61954689
+	  children 
+	    [
+	    Shape
+	      {
+	      appearance Appearance
+		{
+		material Material
+		  {
+		  }
+		texture ImageTexture
+		  {
+		  url "brick-red.jpg"
+		  }
+		}
+	      geometry Box
+		{
+		size 4 5 0.20000000
+		}
+	      }
+	    Transform
+	      {
+	      rotation 0 1 0 1.53999996
+	      translation 0 2.35214519 0
+	      children 
+		Shape
+		  {
+		  appearance Appearance
+		    {
+		    material Material
+		      {
+		      }
+		    texture DEF WORK_4 ImageTexture
+		      {
+		      url "brick-red.jpg"
+		      }
+		    }
+		  geometry Box
+		    {
+		    size 4 5 0.20000000
+		    }
+		  }
+	      }
+	    ]
+	  }
+	]
+      }
+    Transform
+      {
+      children 
+	Transform
+	  {
+	  rotation 0 1 0 1.53999996
+	  translation 5.78257513 2.51710486 -4.74294471
+	  children 
+	    Shape
+	      {
+	      appearance Appearance
+		{
+		material Material
+		  {
+		  }
+		texture DEF WORK_2 ImageTexture
+		  {
+		  url "brick-red.jpg"
+		  }
+		}
+	      geometry Box
+		{
+		size 4 5 0.20000000
+		}
+	      }
+	  }
+      }
+    Transform
+      {
+      children 
+	Transform
+	  {
+	  rotation 0 1 0 1.53999996
+	  translation -0.18400920 2.35565590 5.97313547
+	  children 
+	    Shape
+	      {
+	      appearance Appearance
+		{
+		material Material
+		  {
+		  }
+		texture DEF WORK_3 ImageTexture
+		  {
+		  url "brick-red.jpg"
+		  }
+		}
+	      geometry Box
+		{
+		size 4 5 0.20000000
+		}
+	      }
+	  }
+      }
+    ]
+  }
+

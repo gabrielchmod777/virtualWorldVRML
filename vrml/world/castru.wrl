@@ -1822,3 +1822,242 @@ Transform
     USE A_ROMAN
   }
 
+Transform
+  {
+  translation 12.87020874 0.11502598 3.41005516
+  scale 0.10000000 0.10000000 0.10000000
+  children 
+    [
+    Inline
+      {
+      url "greek_museum.wrl"
+      }
+    Transform
+      {
+      children 
+	Shape
+	  {
+	  appearance Appearance
+	    {
+	    material Material
+	      {
+	      }
+	    texture ImageTexture
+	      {
+	      url "wall-texture.jpg"
+	      }
+	    }
+	  geometry Box
+	    {
+	    size 25 22 35
+	    }
+	  }
+      }
+    Transform
+      {
+      translation -0.51546835 0 -16.93393135
+      children 
+	Shape
+	  {
+	  appearance Appearance
+	    {
+	    material Material
+	      {
+	      diffuseColor 0.54000002 0.27000001 7.00000002e-2
+	      }
+	    }
+	  geometry Box
+	    {
+	    size 5 10 2
+	    }
+	  }
+      }
+    Billboard
+      {
+      children 
+	Transform
+	  {
+	  translation -12.53011035 16.51387596 51.71881484
+	  scale 2 2 2
+	  children 
+	    Shape
+	      {
+	      appearance Appearance
+		{
+		material Material
+		  {
+		  diffuseColor 1 0 0
+		  }
+		}
+	      geometry Text
+		{
+		length 0
+		string 
+		  [
+		  "Questorium"
+		  "Locuinta comandantului"
+		  ]
+		}
+	      }
+	  }
+      }
+    ]
+  }
+
+Transform
+  {
+  rotation -0.55079567 0.17074373 -0.81698876 0
+  translation 6.11775684 9.85789299e-2 -7.72485113
+  children 
+    DEF ATEBT Transform
+      {
+      translation 3.23935294 0 0.69595897
+      children 
+	[
+	Transform
+	  {
+	  rotation 0 0 1 0.69999998
+	  translation -0.10802926 0.95723533 -1.73945426e-2
+	  scale 1.39999997 1 1.30000007
+	  children 
+	    Shape
+	      {
+	      appearance Appearance
+		{
+		material Material
+		  {
+		  }
+		}
+	      geometry Box
+		{
+		size 1 1 1.50000000
+		}
+	      }
+	  }
+	Shape
+	  {
+	  appearance Appearance
+	    {
+	    material Material
+	      {
+	      }
+	    }
+	  geometry Box
+	    {
+	    }
+	  }
+	]
+      }
+  }
+
+Transform
+  {
+  translation 6.29149246 0 -11.11706638
+  children 
+    USE ATEBT
+  }
+
+Transform
+  {
+  translation 6.13108158 0 -4.77888679
+  children 
+    USE ATEBT
+  }
+
+Transform
+  {
+  translation 0 0 -11.68846130
+  children 
+    USE ATEBT
+  }
+
+Transform
+  {
+  translation 0 0 -8.64118480
+  children 
+    USE ATEBT
+  }
+
+Transform
+  {
+  translation 0 0 -5.01463890
+  children 
+    USE ATEBT
+  }
+
+Transform
+  {
+  translation 8.97261047 1.46615052 -1.64728033
+  children 
+    Transform
+      {
+      scale 0.50000000 0.50000000 0.50000000
+      children 
+	Shape
+	  {
+	  appearance Appearance
+	    {
+	    material Material
+	      {
+	      diffuseColor 0 0 0.80000001
+	      }
+	    }
+	  geometry Text
+	    {
+	    string 
+	      [
+	      "CONTUBERNIUM"
+	      "Locuinta petru unitatea de baza a armatei romane"
+	      "- 6 soldati"
+	      ]
+	    }
+	  }
+      }
+  }
+
+DEF ROMANSOL Transform
+  {
+  rotation 0 1 0 3
+  translation 6.49251747 0.26977491 -1.29104733
+  scale 0.18000000 0.18000000 0.18000000
+  children 
+    Inline
+      {
+      url "roman_soldier.wrl"
+      }
+  }
+
+Transform
+  {
+  translation 1.06059241 0 4.55436182
+  children 
+    USE ROMANSOL
+  }
+
+Transform
+  {
+  translation 0 0 4.65662193
+  children 
+    USE ROMANSOL
+  }
+
+Transform
+  {
+  rotation 0 1 0 0
+  translation -1.03234565 0 4.70651054
+  children 
+    USE ROMANSOL
+  }
+
+Transform
+  {
+  rotation 0 1 0 1.47000002
+  translation 3.99413871 0 5.99652862
+  scale 0.40000000 0.40000000 0.40000000
+  children 
+    Inline
+      {
+      url "catapult.wrl"
+      }
+  }
+

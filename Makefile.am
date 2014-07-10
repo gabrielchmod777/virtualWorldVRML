@@ -88,6 +88,8 @@ vrml_world_files = \
  vrml/world/reactor_static.wrl \
  vrml/world/blades.wrl \
  vrml/world/reactorN.jpeg \
+ vrml/world/wood.jpg \
+ vrml/world/catapult.wrl \
  $(NULL)
 
 vrml_avatar_files = \
