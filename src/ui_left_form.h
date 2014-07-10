@@ -1,8 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'left_form.ui'
 **
-** Created: Tue May 13 13:33:29 2014
-**      by: Qt User Interface Compiler version 4.8.3
+** Created by: Qt User Interface Compiler version 4.8.6
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -29,6 +28,7 @@ public:
     QGridLayout *gridLayout;
     QPushButton *cameraPushButton;
     QSpacerItem *verticalSpacer;
+    QPushButton *pushButton;
 
     void setupUi(QWidget *leftForm)
     {
@@ -44,7 +44,7 @@ public:
         leftForm->setMaximumSize(QSize(100, 16777215));
         gridLayoutWidget = new QWidget(leftForm);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(10, 10, 87, 591));
+        gridLayoutWidget->setGeometry(QRect(10, 10, 89, 591));
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
@@ -55,7 +55,12 @@ public:
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout->addItem(verticalSpacer, 1, 0, 1, 1);
+        gridLayout->addItem(verticalSpacer, 2, 0, 1, 1);
+
+        pushButton = new QPushButton(gridLayoutWidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+
+        gridLayout->addWidget(pushButton, 1, 0, 1, 1);
 
 
         retranslateUi(leftForm);
@@ -67,6 +72,7 @@ public:
     {
         leftForm->setWindowTitle(QApplication::translate("leftForm", "Form", 0, QApplication::UnicodeUTF8));
         cameraPushButton->setText(QApplication::translate("leftForm", "camera", 0, QApplication::UnicodeUTF8));
+        pushButton->setText(QApplication::translate("leftForm", "CONSOLA", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

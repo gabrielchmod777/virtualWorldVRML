@@ -36,7 +36,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>87</width>
+     <width>89</width>
      <height>591</height>
     </rect>
    </property>
@@ -48,7 +48,7 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
+    <item row="2" column="0">
      <spacer name="verticalSpacer">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
@@ -60,6 +60,13 @@
        </size>
       </property>
      </spacer>
+    </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>CONSOLA</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
